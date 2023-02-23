@@ -1,8 +1,11 @@
 ---
-title: "Art in R"
+title: "Tip 1: ggplot loops"
 author: "Giorgio Luciano"
 date: "2023-02-19"
-categories: [R][news][loops]
+categories: 
+  - R
+  - tutorials
+bibliography: references.bib
 ---
 
 **Summary**
@@ -11,7 +14,7 @@ categories: [R][news][loops]
 2.  Populate your list with objects (ggplots)
 3.  Create iteratively names for the objects
 4.  Rename the objects inside the list using the name list generated previously
-5.  Show all plots using wrap_plots
+5.  Show all plots using `wrap_plots`
 
 Instead of using boring plots we will use our private art collections and items.
 
@@ -29,7 +32,7 @@ require(patchwork)
 
 Create a Mondrian and save it
 
-```{r,fig.width = 1, fig.height = 1}
+```{r,fig.width = 2, fig.height = 2}
 set.seed(23)
 Composition_10 <- canvas_squares(colors = colorPalette("boogy2"))
 saveCanvas(Composition_10 , filename = "Mondrian.png")
@@ -38,7 +41,7 @@ Composition_10
 
 and another one
 
-```{r, fig.width = 1, fig.height = 1}
+```{r, fig.width = 2, fig.height = 2}
 set.seed(1)
 aspect_ratio <- 1
 height <- 2
@@ -48,13 +51,12 @@ Composition_1
 
 or if you want to create a lots of them, create names automatically and then take a look at just one of your artistic composition in your collection use the following code:
 
-```{r, fig.width = 1, fig.height = 1}
+```{r, fig.width = 2, fig.height = 2}
 
 n_items <- 3
 collection <- list()
 name_of_Composition  <- list()
 for (i in 1:n_items) {
-  
   seed <-  (sample(1:100000,1)) + 1
   name_of_Composition[[i]] <- paste0("Composition_", i)
   collection[[i]] <- canvas_squares(colors = colorPalette("boogy2"))
@@ -64,10 +66,11 @@ names(collection) <- name_of_Composition
 
 collection
 
-collection$composition_3
 ```
 
-```{r r, fig.width = 3, fig.height = 1}
+```{r r, fig.width = 6, fig.height = 2}
 #as you can notice the setting for figure output in this chunk was changed in order to showplots with a rato of 3:1
 wrap_plots(collection)
 ```
+
+[@patchwork] [@ggplot2][@aRtsy]
