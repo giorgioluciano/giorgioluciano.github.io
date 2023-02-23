@@ -2,7 +2,7 @@
 title: "About"
 image: profile.jpg
 about:
-  template: jolla
+  template: broadside
   links:
     - icon: twitter
       text: Twitter
@@ -13,7 +13,10 @@ about:
     - icon: github
       text: Github
       href: https://github.com
-
 ---
 
+I'm a Chemist that works as a researcher at the National Research Council of Italy. I work on characterization of materials and data analysis. I code in Python and R and I like Computer Graphics and Illustration
+
 About this blog
+
+in this blog I share the code that I write in my everyday work and also fun stuff that I find on other blogs and site about data analytics

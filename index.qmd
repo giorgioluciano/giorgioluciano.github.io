@@ -1,10 +1,14 @@
 ---
-title: "test"
+title: "Fun with data"
 listing:
   contents: posts
   sort: "date desc"
   type: default
   categories: true
+  - news
+  - code
+  - tutorials
+  - analysis
   sort-ui: false
   filter-ui: false
 page-layout: full

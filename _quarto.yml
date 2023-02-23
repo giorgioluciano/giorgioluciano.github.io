@@ -2,14 +2,14 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "test"
+  title: "Fun with Data"
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
+        href: https://github.com/giorgioluciano
       - icon: twitter
-        href: https://twitter.com
+        href: https://twitter.com/giorgioluciano
 format:
   html:
     theme: cosmo
