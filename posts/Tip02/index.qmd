@@ -15,6 +15,8 @@ bibliography: references.bib
 3.  Write a function in base using `gsub` and `regex` to tackle specific issues
 4.  You're done
 
+First of all we import the csv using the library [@here]`here`
+
 ```{r}
 library(here)
 file_in <- "FakeData.csv"
@@ -52,6 +54,9 @@ clinical_names <- function(.data, unique = FALSE) {
   n <- gsub("P",  "Fosforo", n)
   n <- gsub("pas", "PAS", n, ignore.case=T)
   n <- gsub("pad", "PAD", n, ignore.case=T)
+  n <- gsub("pth", "PTH", n, ignore.case=T)
+  n <- gsub("clu", "CLU", n, ignore.case=T)
+  n <- gsub("tg", "TG", n, ignore.case=T)
   n <- gsub("glic", "glicemia", n, ignore.case=T)
   if (unique) n <- make.unique(n, sep = "_")
   if (is.data.frame(.data)) {

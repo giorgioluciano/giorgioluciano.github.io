@@ -233,6 +233,7 @@ div.csl-indent {
 <li>Write a function in base using <code>gsub</code> and <code>regex</code> to tackle specific issues</li>
 <li>You’re done</li>
 </ol>
+<p>First of all we import the csv using the library <span class="citation" data-cites="here">(<a href="#ref-here" role="doc-biblioref">Müller 2020</a>)</span><code>here</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -284,15 +285,18 @@ Attaching package: 'janitor'</code></pre>
 <span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"P"</span>,  <span class="st">"Fosforo"</span>, n)</span>
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"pas"</span>, <span class="st">"PAS"</span>, n, <span class="at">ignore.case=</span>T)</span>
 <span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"pad"</span>, <span class="st">"PAD"</span>, n, <span class="at">ignore.case=</span>T)</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"glic"</span>, <span class="st">"glicemia"</span>, n, <span class="at">ignore.case=</span>T)</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (unique) n <span class="ot">&lt;-</span> <span class="fu">make.unique</span>(n, <span class="at">sep =</span> <span class="st">"_"</span>)</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.data.frame</span>(.data)) {</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>(.data) <span class="ot">&lt;-</span> n</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    .data</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    n</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"pth"</span>, <span class="st">"PTH"</span>, n, <span class="at">ignore.case=</span>T)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"clu"</span>, <span class="st">"CLU"</span>, n, <span class="at">ignore.case=</span>T)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"tg"</span>, <span class="st">"TG"</span>, n, <span class="at">ignore.case=</span>T)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"glic"</span>, <span class="st">"glicemia"</span>, n, <span class="at">ignore.case=</span>T)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (unique) n <span class="ot">&lt;-</span> <span class="fu">make.unique</span>(n, <span class="at">sep =</span> <span class="st">"_"</span>)</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.data.frame</span>(.data)) {</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>(.data) <span class="ot">&lt;-</span> n</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    .data</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    n</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data_clean <span class="ot">&lt;-</span> <span class="fu">clinical_names</span>(data_fixed)</span>
@@ -338,15 +342,15 @@ Attaching package: 'janitor'</code></pre>
 30         deltaHDL         delta_hdl         delta_HDL
 31              ldl               ldl               LDL
 32         deltaLDL         delta_ldl         delta_LDL
-33               TG                tg                tg
-34          deltaTG          delta_tg          delta_tg
+33               TG                tg                TG
+34          deltaTG          delta_tg          delta_TG
 35             ACTH              acth              ACTH
 36        cortisolo         cortisolo         cortisolo
-37              CLU               clu               clu
+37              CLU               clu               CLU
 38              IGF               igf               IGF
 39              TSH               tsh               TSH
 40              fT4              f_t4               fT4
-41              PTH               pth               pth
+41              PTH               pth               PTH
 42       Vitamina D        vitamina_d        vitamina_d
 43          dose_CA           dose_ca           dose_ca
 44          dose_HC           dose_hc           dose_hc
@@ -361,6 +365,9 @@ Attaching package: 'janitor'</code></pre>
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-janitor" class="csl-entry" role="doc-biblioentry">
 Firke, Sam. 2023. <span>“Janitor: Simple Tools for Examining and Cleaning Dirty Data.”</span> <a href="https://CRAN.R-project.org/package=janitor">https://CRAN.R-project.org/package=janitor</a>.
+</div>
+<div id="ref-here" class="csl-entry" role="doc-biblioentry">
+Müller, Kirill. 2020. <span>“Here: A Simpler Way to Find Your Files.”</span> <a href="https://CRAN.R-project.org/package=here">https://CRAN.R-project.org/package=here</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
