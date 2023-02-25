@@ -267,7 +267,7 @@ Attaching package: 'janitor'</code></pre>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>clinical_names <span class="ot">&lt;-</span> <span class="cf">function</span>(.data, <span class="at">unique =</span> <span class="cn">FALSE</span>) {</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">is.data.frame</span>(.data)) <span class="fu">colnames</span>(.data) <span class="cf">else</span> .data</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"cvrisk"</span>, <span class="st">"CVrisk"</span>, n , <span class="at">ignore.case=</span>T)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"hdl"</span>, <span class="st">"HDL"</span>, n , <span class="at">ignore.case=</span>T)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"hbo"</span>, <span class="st">"HBO"</span>, n , <span class="at">ignore.case=</span>T)</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"ft4"</span>, <span class="st">"fT4"</span>, n , <span class="at">ignore.case=</span>T)</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"f_t4"</span>, <span class="st">"fT4"</span>, n , <span class="at">ignore.case=</span>T)</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"ft3"</span>, <span class="st">"fT3"</span>, n , <span class="at">ignore.case=</span>T)</span>
@@ -277,18 +277,18 @@ Attaching package: 'janitor'</code></pre>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"hba1c"</span>, <span class="st">"HbA1C"</span>, n, <span class="at">ignore.case=</span>T)</span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"hbac1"</span>, <span class="st">"HbA1C"</span>, n, <span class="at">ignore.case=</span>T)</span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"hb_ac1"</span>, <span class="st">"HbA1C"</span>,n,<span class="at">ignore.case=</span>T)</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"igf"</span>, <span class="st">"IGF"</span>, n , <span class="at">ignore.case=</span>T)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">igf</span><span class="sc">\\</span><span class="st">b"</span>, <span class="st">"IGF"</span>, n , <span class="at">ignore.case=</span>T)</span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"tsh"</span>, <span class="st">"TSH"</span>, n , <span class="at">ignore.case=</span>T)</span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"acth"</span>, <span class="st">"ACTH"</span>, n, <span class="at">ignore.case=</span>T)</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"Na"</span>, <span class="st">"Sodio"</span>, n)</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"K"</span>,  <span class="st">"Potassio"</span>, n)</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"P"</span>,  <span class="st">"Fosforo"</span>, n)</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"pas"</span>, <span class="st">"PAS"</span>, n, <span class="at">ignore.case=</span>T)</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"pad"</span>, <span class="st">"PAD"</span>, n, <span class="at">ignore.case=</span>T)</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"pth"</span>, <span class="st">"PTH"</span>, n, <span class="at">ignore.case=</span>T)</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"clu"</span>, <span class="st">"CLU"</span>, n, <span class="at">ignore.case=</span>T)</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"tg"</span>, <span class="st">"TG"</span>, n, <span class="at">ignore.case=</span>T)</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"glic"</span>, <span class="st">"glicemia"</span>, n, <span class="at">ignore.case=</span>T)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">Na</span><span class="sc">\\</span><span class="st">b"</span>, <span class="st">"Sodio"</span>, n)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">K</span><span class="sc">\\</span><span class="st">b"</span>,  <span class="st">"Potassio"</span>, n)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">P</span><span class="sc">\\</span><span class="st">b"</span>,  <span class="st">"Fosforo"</span>, n)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">pas</span><span class="sc">\\</span><span class="st">b"</span>, <span class="st">"PAS"</span>, n, <span class="at">ignore.case=</span>T)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">pad</span><span class="sc">\\</span><span class="st">b"</span>, <span class="st">"PAD"</span>, n, <span class="at">ignore.case=</span>T)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">pth</span><span class="sc">\\</span><span class="st">b"</span>, <span class="st">"PTH"</span>, n, <span class="at">ignore.case=</span>T)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">clu</span><span class="sc">\\</span><span class="st">b"</span>, <span class="st">"CLU"</span>, n, <span class="at">ignore.case=</span>T)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">tg</span><span class="sc">\\</span><span class="st">b"</span>, <span class="st">"TG"</span>, n, <span class="at">ignore.case=</span>T)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">glic</span><span class="sc">\\</span><span class="st">b"</span>, <span class="st">"glicemia"</span>, n, <span class="at">ignore.case=</span>T)</span>
 <span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (unique) n <span class="ot">&lt;-</span> <span class="fu">make.unique</span>(n, <span class="at">sep =</span> <span class="st">"_"</span>)</span>
 <span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.data.frame</span>(.data)) {</span>
 <span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">colnames</span>(.data) <span class="ot">&lt;-</span> n</span>
@@ -325,11 +325,11 @@ Attaching package: 'janitor'</code></pre>
 13         deltaPas         delta_pas         delta_PAS
 14              pad               pad               PAD
 15         deltaPad         delta_pad         delta_PAD
-16              HBO               hbo               hbo
+16              HBO               hbo               HBO
 17           neutro            neutro            neutro
 18            linfo             linfo             linfo
 19             glic              glic          glicemia
-20    deltaglicemia     deltaglicemia deltaglicemiaemia
+20    deltaglicemia     deltaglicemia     deltaglicemia
 21            HBAC1             hbac1             HbA1C
 22       deltaHbAc1      delta_hb_ac1       delta_HbA1C
 23            sodio             sodio             sodio
@@ -342,8 +342,8 @@ Attaching package: 'janitor'</code></pre>
 30         deltaHDL         delta_hdl         delta_HDL
 31              ldl               ldl               LDL
 32         deltaLDL         delta_ldl         delta_LDL
-33               TG                tg                TG
-34          deltaTG          delta_tg          delta_TG
+33               TG                tg                tg
+34          deltaTG          delta_tg          delta_tg
 35             ACTH              acth              ACTH
 36        cortisolo         cortisolo         cortisolo
 37              CLU               clu               CLU
