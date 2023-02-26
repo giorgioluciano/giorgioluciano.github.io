@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "Fun with Data"
+  title: "R, Python, Data and Spaghetti code"
   navbar:
     right:
       - about.qmd
@@ -10,9 +10,11 @@ website:
         href: https://github.com/giorgioluciano
       - icon: twitter
         href: https://twitter.com/giorgioluciano
+      - icon: linkedin
+        href: https://github.com/giorgioluciano  
 format:
   html:
-    theme: cosmo
+    theme: simplex
     css: styles.css
 
 editor: visual

@@ -6,13 +6,13 @@ about:
   links:
     - icon: twitter
       text: Twitter
-      href: https://twitter.com
+      href: https://twitter.com/giorgioluciano
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/giorgioluciano/
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/giorgioluciano
 ---
 
 I'm a Chemist that works as a researcher at the National Research Council of Italy. I work on characterization of materials and data analysis. I code in Python and R and I like Computer Graphics and Illustration
