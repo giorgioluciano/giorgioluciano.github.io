@@ -58,7 +58,7 @@ return(dt)
 Testing if everything works
 
 ```{r}
-dat1 <- simpleDataset(number_of_rows=10,
+dat1 <- simpleDataset(number_of_rows=3,
 					  means=runif(10,100,150),
 				      sds=runif(10,10,40))
 outliers <- simpleDataset(number_of_rows=5,
