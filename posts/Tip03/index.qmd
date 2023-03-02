@@ -1,0 +1,75 @@
+---
+title: "Tip 3: Functions for simulating data"
+author: "Giorgio Luciano"
+date: "2023-02-19"
+categories: 
+  - R
+  - tutorials
+bibliography: references.bib
+---
+
+**Summary**
+
+1.  Example create variables using runif and rnorm
+2.  Writing a function that wraps all
+
+```{r}
+
+library(data.table)
+x_min   <- 0
+x_max   <- 10   
+x_step  <- 0.01
+
+y_mean  <- 0.5
+y_sd    <- 0.25
+y_min   <- -1
+y_max   <- 1   
+
+x       <- seq(x_min,x_max,x_step)
+var_random  <- runif(x,y_min,y_max)
+var_norm    <- rnorm(x,y_mean,y_sd) 
+
+df  <- data.frame (x,var_random,var_norm)
+dt  <- data.table(df)
+
+
+```
+
+```{r}
+
+simpleDataset <- function(number_of_rows,means,sds)
+{
+l <- length(means)
+res <- lapply(seq(1:l),function(x) 
+	   eval(
+	   parse(
+	   text=paste("rnorm(",number_of_rows,",",means[x],",",sds[x],")",sep=""))
+	   )
+	   ) 
+dat <- data.frame((sapply(res,c)))
+id <- rownames(dat)
+dat <-  cbind(id=id,dat)
+dt <- data.table(dat)
+return(dt)
+}
+
+```
+
+Testing if everything works
+
+```{r}
+dat1 <- simpleDataset(number_of_rows=10,
+					  means=runif(10,100,150),
+				      sds=runif(10,10,40))
+outliers <- simpleDataset(number_of_rows=5,
+					  means=runif(10,60,80),
+				      sds=runif(10,10,10))				  
+
+dato     <-rbind(dat1,outliers) 
+dt.melt <- melt(dat1, id.vars="id")
+colnames(dt.melt) <- c("id","category","var1")
+dt.melt$ncat <- as.numeric(dt.melt$category)
+
+dt.melt
+str(dt.melt)
+```
