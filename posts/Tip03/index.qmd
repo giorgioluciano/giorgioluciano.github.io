@@ -10,8 +10,10 @@ bibliography: references.bib
 
 **Summary**
 
-1.  Example create variables using runif and rnorm
+1.  Example of creating variables using runif and rnorm
 2.  Writing a function that wraps all
+
+First of all we use the `runif` and `rnorm` to have a look how they work.
 
 ```{r}
 
@@ -55,15 +57,25 @@ return(dt)
 
 ```
 
-Testing if everything works
+Example 1 We simulate the values of the LDL cholesterol of 2 patients in 3 different times. The first one patient (X1) has an average value of 200 mg/dL of LDL with a standard variation of 2 mg/dL while the second (X2) has an average of 150 mg/dL with a standard deviation of 10 mg/dL
 
 ```{r}
-dat1 <- simpleDataset(number_of_rows=3,
-					  means=runif(10,100,150),
-				      sds=runif(10,10,40))
-outliers <- simpleDataset(number_of_rows=5,
-					  means=runif(10,60,80),
-				      sds=runif(10,10,10))				  
+dataset1 <- simpleDataset(3,c(200,180),c(2,10))
+dataset1
+```
+
+Example 2 this time we combine `runif` and `simpleDataset.` We simulate the values of the LDL cholesterol of 5 patients in 7 different times. The values for each patient are between a `min = 100` and a `max = 150` with a standard deviation between a minsd = 10 and maxsd = 40. We also simulate two time that presents ourliers values between a `min = 180` and `max = 200` and an `min sd = 10` and `max sd =40`. We merge the values for each patient (7 times  + 2 outliers times) and finally we use the function melt to reshape the dataset.
+
+```{r}
+dat1 <- simpleDataset(number_of_rows=7,
+					  means=runif(5,100,150),
+				      sds=runif(5,10,40))
+outliers <- simpleDataset(number_of_rows=2,
+					  means=runif(5,180,200),
+				      sds=runif(5,10,40))				  
+
+dat1
+outliers
 
 dato     <-rbind(dat1,outliers) 
 dt.melt <- melt(dat1, id.vars="id")
