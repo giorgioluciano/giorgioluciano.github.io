@@ -253,18 +253,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(dt)</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Example: We simulate the values of the LDL cholesterol of <em>2</em> patients in <em>3</em> different times. The first one patient (X1) has an average value of <em>200 mg/dL</em> of LDL with a standard variation of <em>2 mg/dL</em> while the second (X2) has an average of <em>150 mg/dL</em> with a standard deviation of <em>10 mg/dL</em></p>
+<p>Example: We simulate the values of the LDL cholesterol of <em>2</em> patients in <em>3</em> different times. The first one patient (X1) has an average value of <em>200</em> of LDL with a standard variation of <em>2</em> while the second (X2) has an average of <em>150</em> with a standard deviation of <em>10. Note: All values are expressed in mg/dL</em></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dataset1 <span class="ot">&lt;-</span> <span class="fu">simpleDataset</span>(<span class="dv">3</span>,<span class="fu">c</span>(<span class="dv">200</span>,<span class="dv">180</span>),<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">10</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dataset1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   id       X1       X2
-1:  1 198.0813 189.6443
-2:  2 197.5427 177.4529
-3:  3 202.2449 188.7187</code></pre>
+1:  1 200.6442 196.5358
+2:  2 200.6801 166.5065
+3:  3 200.4200 196.2089</code></pre>
 </div>
 </div>
-<p>Example: this time we combine <code>runif</code> and <code>simpleDataset</code>. We simulate the values of the LDL cholesterol of <em>5</em> patients in <em>7</em> different times. The values for each patient are between a <em>min = 100</em> <em>mg/dL</em> and a <em>max = 150</em> <em>mg/dL</em> with a standard deviation between a min sd = 10 <em>mg/dL</em> and max sd = 40 <em>mg/dL</em>. We also simulate two time that presents ourliers values between a <em>min = 180</em> <em>mg/dL</em> and <em>max = 200</em> <em>mg/dL</em> and an <em>min sd = 10</em> <em>mg/dL</em> and <em>max sd = 40 mg/dL .</em> We merge the values for each patient (<em>7</em> times + <em>2</em> outliers times) and finally we use the function melt to reshape the dataset.</p>
+<p>Example: this time we combine <code>runif</code> and <code>simpleDataset</code>. We simulate the values of the LDL cholesterol of <em>5</em> patients in <em>7</em> different times. The values for each patient are between a <em>min = 100</em> and a <em>max = 150</em> with a standard deviation between a min sd = 10 and max sd = 40. We also simulate two time that presents outliers values between a <em>min = 180</em> and <em>max = 200</em> and an <em>min sd = 10</em> and <em>max sd = 40 .</em> We merge the values for each patient (<em>7</em> times + <em>2</em> outliers times) and finally we use the function melt to reshape the dataset.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dat1 <span class="ot">&lt;-</span> <span class="fu">simpleDataset</span>(<span class="at">number_of_rows=</span><span class="dv">7</span>,</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">means=</span><span class="fu">runif</span>(<span class="dv">5</span>,<span class="dv">100</span>,<span class="dv">150</span>),</span>
@@ -275,20 +275,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>dat1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   id        X1       X2        X3       X4       X5
-1:  1 132.03001 136.4971  82.61889 144.2500 124.1188
-2:  2 138.74945 137.8538 137.18915 144.9297 145.8580
-3:  3  99.69864 134.5675 157.26092 142.1462 121.7636
-4:  4 129.00175 138.8236 145.01499 148.5486 161.6693
-5:  5 127.19500 146.4817 102.29406 150.2974 144.3260
-6:  6  76.06510 108.3464 133.09583 144.2361 162.6873
-7:  7 131.13105 115.2623  91.32576 136.3950 126.5014</code></pre>
+<pre><code>   id        X1       X2        X3        X4       X5
+1:  1  97.92524 105.5036 110.66623  34.45252 108.1226
+2:  2 169.96962 136.5666  97.62086 -11.68481 135.7269
+3:  3  77.46899 135.7573  93.37948 133.03592 129.4088
+4:  4 197.75026 168.3904 132.91647 154.98579 164.1461
+5:  5 121.99923 140.2879 127.80267 165.29857 158.9153
+6:  6 176.63684 127.6318 107.84311 138.62779 157.1849
+7:  7 117.90619 176.1431  99.01017 166.91662 219.9138</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>outliers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   id       X1       X2       X3       X4       X5
-1:  1 193.8398 188.1711 250.1287 204.4611 172.4346
-2:  2 182.7892 167.2008 151.7861 202.1595 132.4593</code></pre>
+1:  1 202.0947 191.3382 138.8483 194.0729 207.0543
+2:  2 194.0590 196.3606 209.5827 248.9402 175.0254</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dato     <span class="ot">&lt;-</span><span class="fu">rbind</span>(dat1,outliers) </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dt.melt <span class="ot">&lt;-</span> <span class="fu">melt</span>(dat1, <span class="at">id.vars=</span><span class="st">"id"</span>)</span>
@@ -298,41 +298,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>dt.melt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    id category      var1 ncat
- 1:  1       X1 132.03001    1
- 2:  2       X1 138.74945    1
- 3:  3       X1  99.69864    1
- 4:  4       X1 129.00175    1
- 5:  5       X1 127.19500    1
- 6:  6       X1  76.06510    1
- 7:  7       X1 131.13105    1
- 8:  1       X2 136.49713    2
- 9:  2       X2 137.85384    2
-10:  3       X2 134.56754    2
-11:  4       X2 138.82357    2
-12:  5       X2 146.48169    2
-13:  6       X2 108.34635    2
-14:  7       X2 115.26229    2
-15:  1       X3  82.61889    3
-16:  2       X3 137.18915    3
-17:  3       X3 157.26092    3
-18:  4       X3 145.01499    3
-19:  5       X3 102.29406    3
-20:  6       X3 133.09583    3
-21:  7       X3  91.32576    3
-22:  1       X4 144.24998    4
-23:  2       X4 144.92965    4
-24:  3       X4 142.14616    4
-25:  4       X4 148.54861    4
-26:  5       X4 150.29739    4
-27:  6       X4 144.23614    4
-28:  7       X4 136.39496    4
-29:  1       X5 124.11877    5
-30:  2       X5 145.85802    5
-31:  3       X5 121.76364    5
-32:  4       X5 161.66931    5
-33:  5       X5 144.32598    5
-34:  6       X5 162.68733    5
-35:  7       X5 126.50142    5
+ 1:  1       X1  97.92524    1
+ 2:  2       X1 169.96962    1
+ 3:  3       X1  77.46899    1
+ 4:  4       X1 197.75026    1
+ 5:  5       X1 121.99923    1
+ 6:  6       X1 176.63684    1
+ 7:  7       X1 117.90619    1
+ 8:  1       X2 105.50360    2
+ 9:  2       X2 136.56661    2
+10:  3       X2 135.75728    2
+11:  4       X2 168.39042    2
+12:  5       X2 140.28791    2
+13:  6       X2 127.63183    2
+14:  7       X2 176.14312    2
+15:  1       X3 110.66623    3
+16:  2       X3  97.62086    3
+17:  3       X3  93.37948    3
+18:  4       X3 132.91647    3
+19:  5       X3 127.80267    3
+20:  6       X3 107.84311    3
+21:  7       X3  99.01017    3
+22:  1       X4  34.45252    4
+23:  2       X4 -11.68481    4
+24:  3       X4 133.03592    4
+25:  4       X4 154.98579    4
+26:  5       X4 165.29857    4
+27:  6       X4 138.62779    4
+28:  7       X4 166.91662    4
+29:  1       X5 108.12259    5
+30:  2       X5 135.72688    5
+31:  3       X5 129.40880    5
+32:  4       X5 164.14611    5
+33:  5       X5 158.91531    5
+34:  6       X5 157.18490    5
+35:  7       X5 219.91383    5
     id category      var1 ncat</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dt.melt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -340,7 +340,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>Classes 'data.table' and 'data.frame':  35 obs. of  4 variables:
  $ id      : chr  "1" "2" "3" "4" ...
  $ category: Factor w/ 5 levels "X1","X2","X3",..: 1 1 1 1 1 1 1 2 2 2 ...
- $ var1    : num  132 138.7 99.7 129 127.2 ...
+ $ var1    : num  97.9 170 77.5 197.8 122 ...
  $ ncat    : num  1 1 1 1 1 1 1 2 2 2 ...
  - attr(*, ".internal.selfref")=&lt;externalptr&gt; </code></pre>
 </div>
