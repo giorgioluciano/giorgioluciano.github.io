@@ -57,14 +57,15 @@ return(dt)
 
 ```
 
-Example: We simulate the values of the LDL cholesterol of 2 patients in 3 different times. The first one patient (X1) has an average value of 200 mg/dL of LDL with a standard variation of 2 mg/dL while the second (X2) has an average of 150 mg/dL with a standard deviation of 10 mg/dL
+Example: We simulate the values of the LDL cholesterol of *2* patients in *3* different times. The first one patient (X1) has an average value of *200 mg/dL* of LDL with a standard variation of *2 mg/dL* while the second (X2) has an average of *150 mg/dL* with a standard deviation of *10 mg/dL*
 
 ```{r}
 dataset1 <- simpleDataset(3,c(200,180),c(2,10))
 dataset1
 ```
 
-Example: this time we combine `runif` and `simpleDataset`. We simulate the values of the LDL cholesterol of 5 patients in 7 different times. The values for each patient are between a *min = 100* and a *max = 150* with a standard deviation between a min sd = 10 and max sd = 40. We also simulate two time that presents ourliers values between a *min = 180* and *max = 200* and an *min sd = 10* and *max sd = 40.* We merge the values for each patient (7 times + 2 outliers times) and finally we use the function melt to reshape the dataset.
+Example: this time we combine `runif` and `simpleDataset`. We simulate the values of the LDL cholesterol of *5* patients in *7* different times. The values for each patient are between a *min = 100* *mg/dL* and a *max = 150* *mg/dL*
+with a standard deviation between a min sd = 10 *mg/dL* and max sd = 40 *mg/dL*. We also simulate two time that presents ourliers values between a *min = 180* *mg/dL* and *max = 200* *mg/dL* and an *min sd = 10* *mg/dL* and *max sd = 40 mg/dL .* We merge the values for each patient (*7* times + *2* outliers times) and finally we use the function melt to reshape the dataset.
 
 ```{r}
 dat1 <- simpleDataset(number_of_rows=7,
