@@ -262,7 +262,12 @@ div.csl-indent {
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Cholesterol"</span>,<span class="st">"group"</span>)</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Cholesterol <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data<span class="sc">$</span>Cholesterol)</span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> Cholesterol)) <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">alpha=</span><span class="fl">0.05</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> Cholesterol)) <span class="sc">+</span> <span class="fu">geom_jitter</span>(<span class="at">alpha=</span><span class="fl">0.05</span>) </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 <p>a few observation on the code. First of all, we need to input the data in a <code>data.frame</code> otherwise ggplot will give us an error. the second observation is that since we put <code>chr</code> labels on our groups we needed to define Cholesterol <code>as.numeric</code> in order to avoid strange results. Try to comment the line <code>data$Cholesterol &lt;- as.numeric(data$Cholesterol)</code> and you can see by yourself what will happen. (hint: a “labelstorm!”)</p>
 <p>This very simple plot is one of my favorite. It let you see the raw data and immediately understand the distribution of your data and also avoid the pitfall of boxplot (see <span class="citation" data-cites="matejka2017">(<a href="#ref-matejka2017" role="doc-biblioref">Matejka and Fitzmaurice 2017</a>)</span>)</p>

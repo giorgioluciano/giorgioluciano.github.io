@@ -39,6 +39,7 @@ data$Cholesterol <- as.numeric(data$Cholesterol)
 
 p1 <-ggplot(data, aes(x = group, y = Cholesterol)) + geom_jitter(alpha=0.05) 
 
+p1
 ```
 
 a few observation on the code. First of all, we need to input the data in a `data.frame` otherwise ggplot will give us an error. the second observation is that since we put `chr` labels on our groups we needed to define Cholesterol `as.numeric` in order to avoid strange results. Try to comment the line `data$Cholesterol <- as.numeric(data$Cholesterol)` and you can see by yourself what will happen. (hint: a "labelstorm!")
