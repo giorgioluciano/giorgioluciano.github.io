@@ -10,7 +10,7 @@ bibliography: references.bib
 
 **Summary**
 
-1.  Example of creating variables using runif and rnorm
+1.  Example of creating variables using `runif` and `rnorm`
 2.  Writing a function that wraps all
 
 First of all we use the `runif` and `rnorm` to have a look how they work.
@@ -64,8 +64,7 @@ dataset1 <- simpleDataset(3,c(200,180),c(2,10))
 dataset1
 ```
 
-Example: this time we combine `runif` and `simpleDataset`. We simulate the values of the LDL cholesterol of *5* patients in *7* different times. The values for each patient are between a *min = 100* and a *max = 150*
-with a standard deviation between a min sd = 10 and max sd = 40. We also simulate two time that presents outliers values between a *min = 180* and *max = 200* and an *min sd = 10* and *max sd = 40 .* We merge the values for each patient (*7* times + *2* outliers times) and finally we use the function melt to reshape the dataset.
+Example: this time we combine `runif` and `simpleDataset`. We simulate the values of the LDL cholesterol of *5* patients in *7* different times. The values for each patient are between a *min = 100* and a *max = 150* with a standard deviation between a min sd = 10 and max sd = 40. We also simulate two time that presents outliers values between a *min = 180* and *max = 200* and an *min sd = 10* and *max sd = 40 .* We merge the values for each patient (*7* times + *2* outliers times) and finally we use the function melt to reshape the dataset.
 
 ```{r}
 dat1 <- simpleDataset(number_of_rows=7,
