@@ -17,7 +17,7 @@ bibliography: references.bib
 2.  Create a scatterplot with `ggplot`
 3.  Create violin plot with `ggstatsplot`
 
-Example 1 we want to visualize the difference between two groups of patients that follow two different diets. *Group A* has an average of total cholesterol of *180* with a standard deviation of *20* while *Group B* and average of *200* with a standard deviation of 40
+Example 1: We want to visualize the difference between two groups of patients that follow two different diets. *Group A* has an average of total cholesterol of *180* with a standard deviation of *20* while *Group B* and average of *200* with a standard deviation of 40
 
 ```{r}
 library(MASS)
@@ -42,9 +42,9 @@ p1 <-ggplot(data, aes(x = group, y = Cholesterol)) + geom_jitter(alpha=0.05)
 p1
 ```
 
-a few observation on the code. First of all, we need to input the data in a `data.frame` otherwise ggplot will give us an error. the second observation is that since we put `chr` labels on our groups we needed to define Cholesterol `as.numeric` in order to avoid strange results. Try to comment the line `data$Cholesterol <- as.numeric(data$Cholesterol)` and you can see by yourself what will happen. (hint: a "labelstorm!")
+A few observations on the code. First of all, we need to input the data in a `data.frame` otherwise ggplot will give us an error. The second observation is that since we put `chr` labels on our groups we needed to define Cholesterol `as.numeric` in order to avoid unwanted resultsstrange results. Try to comment the line `data$Cholesterol <- as.numeric(data$Cholesterol)` and you can see by yourself what will happen. (hint: a "labelstorm!")
 
-This very simple plot is one of my favorite. It let you see the raw data and immediately understand the distribution of your data and also avoid the pitfall of boxplot (see [@matejka2017])
+Jiiter plots is one of my favorite way to represent data. data and immediately understand the distribution of your data and also avoid the pitfall of boxplot (see [@matejka2017])
 
 If you need inferential statistics on your data another resource is [@ggstatsplot]. See the following example with our data. **NOTE** that we nee to transform the group label *as.factor*
 

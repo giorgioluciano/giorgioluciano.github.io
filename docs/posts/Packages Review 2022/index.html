@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Giorgio Luciano">
+<meta name="dcterms.date" content="2023-03-17">
+
+<title>R, Python, Data and Spaghetti code - R Package 2022</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">R, Python, Data and Spaghetti code</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/giorgioluciano"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/giorgioluciano"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/giorgioluciano"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">R Package 2022</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">packages</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Giorgio Luciano </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 17, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><strong>Summary</strong></p>
+<ol type="1">
+<li>List of packages I’ve found useful in my workflow during 2022 (in no particular order)</li>
+</ol>
+<section id="plot" class="level2">
+<h2 class="anchored" data-anchor-id="plot">Plot</h2>
+<section id="ggvoronoi-voronoi-diagrams-and-heatmaps-with-ggplot2" class="level3">
+<h3 class="anchored" data-anchor-id="ggvoronoi-voronoi-diagrams-and-heatmaps-with-ggplot2"><strong>ggvoronoi: Voronoi Diagrams and Heatmaps with ‘ggplot2’</strong></h3>
+<p><em>tags</em>: #ggplot #tidyverse #voronoi<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=ggvoronoi" class="uri">https://CRAN.R-project.org/package=ggvoronoi</a><br>
+</p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Easy creation and manipulation of Voronoi diagrams using ‘deldir’ with visualization in ‘ggplot2’. Convenient functions are provided to create nearest neighbor diagrams and heatmaps. Diagrams are computed with ‘deldir’ and processed to work with the ‘sp’ framework. Results are provided in a convenient spatial data structure and displayed with ‘ggplot2’. An outline can be provided by the user to specify the spatial domain of interest.</p>
+</blockquote>
+</section>
+<section id="ggh4x-hacks-for-ggplot2" class="level3">
+<h3 class="anchored" data-anchor-id="ggh4x-hacks-for-ggplot2"><strong>ggh4x: Hacks for ‘ggplot2’</strong></h3>
+<p><em>tags</em>: #ggplot #tidyverse<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=ggh4x" class="uri">https://CRAN.R-project.org/package=ggh4x</a><br>
+</p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>A ‘ggplot2’ extension that does a variety of little helpful things. The package extends ‘ggplot2’ facets through customisation, by setting individual scales per panel, resizing panels and providing nested facets. Also allows multiple colour and fill scales per plot. Also hosts a smaller collection of stats, geoms and axis guides.</p>
+</blockquote>
+</section>
+<section id="gdiff-graphical-difference-testing" class="level3">
+<h3 class="anchored" data-anchor-id="gdiff-graphical-difference-testing"><strong>gdiff: Graphical Difference Testing</strong></h3>
+<p><em>tags</em>: #plot #ggplot #data analysis #comparison<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=gdiff" class="uri">https://CRAN.R-project.org/package=gdiff</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Functions for performing graphical difference testing. Differences are generated between raster images. Comparisons can be performed between different package versions and between different R versions.</p>
+</blockquote>
+</section>
+<section id="aplot-decorate-a-ggplot-with-associated-information" class="level3">
+<h3 class="anchored" data-anchor-id="aplot-decorate-a-ggplot-with-associated-information"><strong>aplot: Decorate a ‘ggplot’ with Associated Information</strong></h3>
+<p><em>tags</em>: #plot #data analysis #ggplot<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=aplot" class="uri">https://CRAN.R-project.org/package=aplot</a>&nbsp;</p>
+<p><em>description from the author/vignette</em> &gt; For many times, we are not just aligning plots as what ‘cowplot’ and ‘patchwork’ did. Users would like to align associated information that requires axes to be exactly matched in subplots, e.g.&nbsp;hierarchical clustering with a heatmap. This package provides utilities to aligns associated subplots to a main plot at different sides (left, right, top and bottom) with axes exactly matched.</p>
+</section>
+<section id="gghighlight-highlight-lines-and-points-in-ggplot2" class="level3">
+<h3 class="anchored" data-anchor-id="gghighlight-highlight-lines-and-points-in-ggplot2"><strong>gghighlight: Highlight Lines and Points in ‘ggplot2’</strong></h3>
+<p><em>tags</em>: #plot #data analysis #ggplot<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=gghighlight" class="uri">https://CRAN.R-project.org/package=gghighlight</a>&nbsp;</p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Make it easier to explore data with highlights.</p>
+</blockquote>
+</section>
+<section id="pdp-partial-dependence-plots" class="level3">
+<h3 class="anchored" data-anchor-id="pdp-partial-dependence-plots"><strong>pdp: Partial Dependence Plots</strong></h3>
+<p><em>tags</em>: #plot #data analysis #ggplot<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=pdp">https://CRAN.R-project.org/package=pdp&nbsp;</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A general framework for constructing partial dependence (i.e., marginal effect) plots from various types machine learning models in R.</p>
+</blockquote>
+</section>
+<section id="vcd-visualizing-categorical-data" class="level3">
+<h3 class="anchored" data-anchor-id="vcd-visualizing-categorical-data"><strong>vcd: Visualizing Categorical Data</strong></h3>
+<p><em>tags</em>: #plot #data analysis #ggplot<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=testDriveR" class="uri">https://CRAN.R-project.org/package=testDriveR</a>&nbsp;</p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Visualization techniques, data sets, summary and inference procedures aimed particularly at categorical data. Special emphasis is given to highly extensible grid graphics. The package was package was originally inspired by the book “Visualizing Categorical Data” by Michael Friendly and is now the main support package for a new book, “Discrete Data Analysis with R” by Michael Friendly and David Meyer (2015).</p>
+</blockquote>
+</section>
+<section id="gtestsmulti-new-graph-based-multi-sample-tests" class="level3">
+<h3 class="anchored" data-anchor-id="gtestsmulti-new-graph-based-multi-sample-tests"><strong>gTestsMulti: New Graph-Based Multi-Sample Tests</strong></h3>
+<p><em>tags</em>: #plot #data analysis #ggplot<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=gTestsMulti" class="uri">https://CRAN.R-project.org/package=gTestsMulti</a>&nbsp;</p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>New multi-sample tests for testing whether multiple samples are from the same distribution. They work well particularly for high-dimensional data. Song, H. and Chen, H. (2022) &lt;arXiv:2205.13787&gt;.</p>
+</blockquote>
+</section>
+<section id="spiralize-visualize-data-on-spirals" class="level3">
+<h3 class="anchored" data-anchor-id="spiralize-visualize-data-on-spirals"><strong>spiralize: Visualize Data on Spirals</strong></h3>
+<p><em>tags</em>: #statistic #visualization #plot<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=spiralize" class="uri">https://CRAN.R-project.org/package=spiralize</a>&nbsp;</p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>It visualizes data along an Archimedean spiral <a href="https://en.wikipedia.org/wiki/Archimedean_spiral" class="uri">https://en.wikipedia.org/wiki/Archimedean_spiral</a>, makes so-called spiral graph or spiral chart. It has two major advantages for visualization: 1. It is able to visualize data with very long axis with high resolution. 2. It is efficient for time series data to reveal periodic patterns.</p>
+</blockquote>
+</section>
+<section id="valuemap-making-choropleth-map" class="level3">
+<h3 class="anchored" data-anchor-id="valuemap-making-choropleth-map"><strong>valuemap: Making Choropleth Map</strong></h3>
+<p><em>tags</em>: #plot #valuemap<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=valuemap" class="uri">https://CRAN.R-project.org/package=valuemap</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>You can easily visualize your ‘sf’ polygons or data.frame with h3 address. While ‘leaflet’ package is too raw for data analysis, this package can save data analysts’ efforts &amp; time with pre-set visualize options.</p>
+</blockquote>
+</section>
+<section id="tessellation-delaunay-and-voronoï-tessellations" class="level3">
+<h3 class="anchored" data-anchor-id="tessellation-delaunay-and-voronoï-tessellations"><strong>tessellation: Delaunay and Voronoï Tessellations</strong></h3>
+<p><em>tags</em>: #tesselation #voronoi #delaunay<br>
+[cran package link] <a href="https://cran.r-project.org/package=tessellation" class="uri">https://cran.r-project.org/package=tessellation</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Delaunay and Voronoï tessellations, with emphasis on the two-dimensional and the three-dimensional cases (the package provides functions to plot the tessellations for these cases). Delaunay tessellations are computed in C with the help of the ‘Qhull’ library <a href="http://www.qhull.org/" class="uri">http://www.qhull.org/</a>.</p>
+</blockquote>
+</section>
+<section id="ggdist-visualizations-of-distributions-and-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="ggdist-visualizations-of-distributions-and-uncertainty"><strong>ggdist: Visualizations of Distributions and Uncertainty</strong></h3>
+<p><em>tags</em>: #ggplot #Distributions #Uncertainty<br>
+[cran package link] <a href="https://cran.r-project.org/package=ggdist" class="uri">https://cran.r-project.org/package=ggdist</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides primitives for visualizing distributions using ‘ggplot2’ that are particularly tuned for visualizing uncertainty in either a frequentist or Bayesian mode. Both analytical distributions (such as frequentist confidence distributions or Bayesian priors) and distributions represented as samples (such as bootstrap distributions or Bayesian posterior samples) are easily visualized. Visualization primitives include but are not limited to: points with multiple uncertainty intervals, eye plots (Spiegelhalter D., 1999) <a href="https://ideas.repec.org/a/bla/jorssa/v162y1999i1p45-58.html" class="uri">https://ideas.repec.org/a/bla/jorssa/v162y1999i1p45-58.html</a>, density plots, gradient plots, dot plots (Wilkinson L., 1999) <a href="doi:10.1080/00031305.1999.10474474" class="uri">doi:10.1080/00031305.1999.10474474</a>, quantile dot plots (Kay M., Kola T., Hullman J., Munson S., 2016) <a href="doi:10.1145/2858036.2858558" class="uri">doi:10.1145/2858036.2858558</a>, complementary cumulative distribution function barplots (Fernandes M., Walls L., Munson S., Hullman J., Kay M., 2018) <a href="doi:10.1145/3173574.3173718" class="uri">doi:10.1145/3173574.3173718</a>, and fit curves with multiple uncertainty ribbons.</p>
+</blockquote>
+</section>
+<section id="grafify-easy-graphs-for-data-visualisation-and-linear-models-for-anova" class="level3">
+<h3 class="anchored" data-anchor-id="grafify-easy-graphs-for-data-visualisation-and-linear-models-for-anova"><strong>grafify: Easy Graphs for Data Visualisation and Linear Models for ANOVA</strong></h3>
+<p><em>tags</em>: #multivariate #Inference #tests #statistics<br>
+[cran package link] <a href="https://cran.r-project.org//package=energy" class="uri">https://cran.r-project.org//package=energy</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>E-statistics (energy) tests and statistics for multivariate and univariate inference, including distance correlation, one-sample, two-sample, and multi-sample tests for comparing multivariate distributions, are implemented. Measuring and testing multivariate independence based on distance correlation, partial distance correlation, multivariate goodness-of-fit tests, k-groups and hierarchical clustering based on energy distance, testing for multivariate normality, distance components (disco) for non-parametric analysis of structured data, and other energy statistics/methods are implemented.</p>
+</blockquote>
+</section>
+<section id="diagrammer-graphnetwork-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="diagrammer-graphnetwork-visualization"><strong>DiagrammeR: Graph/Network Visualization</strong></h3>
+<p><em>tags</em>: #graph #networks<br>
+[cran package link] <a href="https://cran.r-project.org/package=DiagrammeR" class="uri">https://cran.r-project.org/package=DiagrammeR</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Build graph/network structures using functions for stepwise addition and deletion of nodes and edges. Work with data available in tables for bulk addition of nodes, edges, and associated metadata. Use graph selections and traversals to apply changes to specific nodes or edges. A wide selection of graph algorithms allow for the analysis of graphs. Visualize the graphs and take advantage of any aesthetic properties assigned to nodes and edges.</p>
+</blockquote>
+</section>
+<section id="netplot-beautiful-graph-drawing" class="level3">
+<h3 class="anchored" data-anchor-id="netplot-beautiful-graph-drawing"><strong>netplot: Beautiful Graph Drawing</strong></h3>
+<p><em>tags</em>: #plot #graph<br>
+[cran package link] <a href="https://cran.r-project.org/package=netplot" class="uri">https://cran.r-project.org/package=netplot</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A graph visualization engine that puts an emphasis on aesthetics at the same time of providing default parameters that yield out-of-the-box-nice visualizations. The package is built on top of ‘The Grid Graphics Package’ and seamlessly work with ‘igraph’ and ‘network’ objects.</p>
+</blockquote>
+</section>
+<section id="vivid-variable-importance-and-variable-interaction-displays" class="level3">
+<h3 class="anchored" data-anchor-id="vivid-variable-importance-and-variable-interaction-displays"><strong>vivid: variable importance and variable interaction displays</strong></h3>
+<p><em>tags</em>: #statistics #clinical data<br>
+[cran package link] <a href="https://cran.r-project.org/package=vivid" class="uri">https://cran.r-project.org/package=vivid</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Variable importance, interaction measures and partial dependence plots are important summaries in the interpretation of statistical and machine learning models. In our R package vivid (variable importance and variable interaction displays) we create new visualisation techniques for exploring these model summaries. We construct heatmap and graph-based displays showing variable importance and interaction jointly, which are carefully designed to highlight important aspects of the fit. We also construct a new matrix-type layout showing all single and bivariate partial dependence plots, and an alternative layout based on graph Eulerians focusing on key subsets. Our new visualisations are model-agnostic and are applicable to regression and classification supervised learning settings. They enhance interpretation even in situations where the number of variables is large and the interaction structure complex.</p>
+</blockquote>
+</section>
+<section id="gridpattern-grid-pattern-grobs" class="level3">
+<h3 class="anchored" data-anchor-id="gridpattern-grid-pattern-grobs"><strong>gridpattern: ‘grid’ Pattern Grobs</strong></h3>
+<p><em>tags</em>: #database #relational #data<br>
+[cran package link] <a href="https://cran.r-project.org/package=gridpattern" class="uri">https://cran.r-project.org/package=gridpattern</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides ‘grid’ grobs that fill in a user-defined area with various patterns. Includes enhanced versions of the geometric and image-based patterns originally contained in the ‘ggpattern’ package as well as original ‘pch’, ‘polygon_tiling’, ‘regular_polygon’, ‘rose’, ‘text’, ‘wave’, and ‘weave’ patterns plus support for custom user-defined patterns.</p>
+</blockquote>
+</section>
+<section id="pairviz-visualization-using-graph-traversal" class="level3">
+<h3 class="anchored" data-anchor-id="pairviz-visualization-using-graph-traversal"><strong>PairViz: Visualization using Graph Traversal</strong></h3>
+<p><em>tags</em>: #graphs #visualization [cran package link] <a href="https://cran.r-project.org/package=PairViz" class="uri">https://cran.r-project.org/package=PairViz</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Improving graphics by ameliorating order effects, using Eulerian tours and Hamiltonian decompositions of graphs. References for the methods presented here are C.B. Hurley and R.W. Oldford (2010) <a href="doi:10.1198/jcgs.2010.09136" class="uri">doi:10.1198/jcgs.2010.09136</a> and C.B. Hurley and R.W. Oldford (2011) <a href="doi:10.1007/s00180-011-0229-5" class="uri">doi:10.1007/s00180-011-0229-5</a>.</p>
+</blockquote>
+</section>
+<section id="diagrammer-graphnetwork-visualization-1" class="level3">
+<h3 class="anchored" data-anchor-id="diagrammer-graphnetwork-visualization-1"><strong>DiagrammeR: Graph/Network Visualization</strong></h3>
+<p><em>tags</em>: #graph #networks&nbsp; [cran package link] <a href="https://cran.r-project.org/package=DiagrammeR" class="uri">https://cran.r-project.org/package=DiagrammeR</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Build graph/network structures using functions for stepwise addition and deletion of nodes and edges. Work with data available in tables for bulk addition of nodes, edges, and associated metadata. Use graph selections and traversals to apply changes to specific nodes or edges. A wide selection of graph algorithms allow for the analysis of graphs. Visualize the graphs and take advantage of any aesthetic properties assigned to nodes and edges.</p>
+</blockquote>
+</section>
+<section id="ggimage-use-image-in-ggplot2" class="level3">
+<h3 class="anchored" data-anchor-id="ggimage-use-image-in-ggplot2"><strong>ggimage: Use Image in ‘ggplot2’</strong></h3>
+<p><em>tags</em>: #ggplot [cran package link] <a href="https://cran.r-project.org/package=ggimage" class="uri">https://cran.r-project.org/package=ggimage</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Supports image files and graphic objects to be visualized in ‘ggplot2’ graphic system.</p>
+</blockquote>
+</section>
+<section id="superb-summary-plots-with-adjusted-error-bars" class="level3">
+<h3 class="anchored" data-anchor-id="superb-summary-plots-with-adjusted-error-bars"><strong>superb: Summary Plots with Adjusted Error Bars</strong></h3>
+<p><em>tags</em>: #ggplot #summary #plots&nbsp; [cran package link] <a href="https://cran.r-project.org//package=superb" class="uri">https://cran.r-project.org//package=superb</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Computes standard error and confidence interval of various descriptive statistics under various designs and sampling schemes. The main function, superbPlot(), can either return a plot or a dataframe with the statistic and its precision interval so that other plotting package can be used. See Cousineau and colleagues (2021) <a href="doi:10.1177/25152459211035109" class="uri">doi:10.1177/25152459211035109</a> or Cousineau (2017) <a href="doi:10.5709/acp-0214-z" class="uri">doi:10.5709/acp-0214-z</a> for a review as well as Cousineau (2005) <a href="doi:10.20982/tqmp.01.1.p042" class="uri">doi:10.20982/tqmp.01.1.p042</a>, Morey (2008) <a href="doi:10.20982/tqmp.04.2.p061" class="uri">doi:10.20982/tqmp.04.2.p061</a>, Baguley (2012) <a href="doi:10.3758/s13428-011-0123-7" class="uri">doi:10.3758/s13428-011-0123-7</a>, Cousineau &amp; Laurencelle (2016) <a href="doi:10.1037/met0000055" class="uri">doi:10.1037/met0000055</a>, Cousineau &amp; O’Brien (2014) <a href="doi:10.3758/s13428-013-0441-z" class="uri">doi:10.3758/s13428-013-0441-z</a>, Calderini &amp; Harding <a href="doi:10.20982/tqmp.15.1.p001" class="uri">doi:10.20982/tqmp.15.1.p001</a> for specific references.</p>
+</blockquote>
+</section>
+<section id="khroma-colour-schemes-for-scientific-data-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="khroma-colour-schemes-for-scientific-data-visualization"><strong>khroma: Colour Schemes for Scientific Data Visualization</strong></h3>
+<p><em>tags</em>: #plot #colors [cran package link] <a href="https://cran.r-project.org/web/package=khroma" class="uri">https://cran.r-project.org/web/package=khroma</a></p>
+<blockquote class="blockquote">
+<p>Colour schemes ready for each type of data (qualitative, diverging or sequential), with colours that are distinct for all people, including colour-blind readers. This package provides an implementation of Paul Tol (2018) and Fabio Crameri (2018) <a href="doi:10.5194/gmd-11-2541-2018" class="uri">doi:10.5194/gmd-11-2541-2018</a> colour schemes for use with ‘graphics’ or ‘ggplot2’. It provides tools to simulate colour-blindness and to test how well the colours of any palette are identifiable. Several scientific thematic schemes (geologic timescale, land cover, FAO soils, etc.) are also implemented</p>
+</blockquote>
+</section>
+<section id="ggside-side-grammar-graphics" class="level3">
+<h3 class="anchored" data-anchor-id="ggside-side-grammar-graphics"><strong>ggside: Side Grammar Graphics</strong></h3>
+<p><em>tags</em>: #plot #ggplot<br>
+[cran package link] <a href="https://cran.r-project.org//package=ggside" class="uri">https://cran.r-project.org//package=ggside</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>The grammar of graphics as shown in ‘ggplot2’ has provided an expressive API for users to build plots. ‘ggside’ extends ‘ggplot2’ by allowing users to add graphical information about one of the main panel’s axis using a familiar ‘ggplot2’ style API with tidy data. This package is particularly useful for visualizing metadata on a discrete axis, or summary graphics on a continuous axis such as a boxplot or a density distribution.</p>
+</blockquote>
+</section>
+<section id="ggquiver-quiver-plots-for-ggplot2" class="level3">
+<h3 class="anchored" data-anchor-id="ggquiver-quiver-plots-for-ggplot2"><strong>ggquiver: Quiver Plots for ‘ggplot2’</strong></h3>
+<p><em>tags</em>: #plot #ggplot<br>
+[cran package link] <a href="https://cran.r-project.org/package=ggquiver" class="uri">https://cran.r-project.org/package=ggquiver</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>An extension of ‘ggplot2’ to provide quiver plots to visualise vector fields. This functionality is implemented using a geom to produce a new graphical layer, which allows aesthetic options. This layer can be overlaid on a map to improve visualisation of mapped data.</p>
+</blockquote>
+</section>
+<section id="timevis-create-interactive-timeline-visualizations-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="timevis-create-interactive-timeline-visualizations-in-r"><strong>timevis: Create Interactive Timeline Visualizations in R</strong></h3>
+<p><em>tags</em>: #visualization #interactive&nbsp; [cran package link] <a href="https://cran.r-project.org/package=timevis" class="uri">https://cran.r-project.org/package=timevis</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Create rich and fully interactive timeline visualizations. Timelines can be included in Shiny apps and R markdown documents, or viewed from the R console and ‘RStudio’ Viewer. ‘timevis’ includes an extensive API to manipulate a timeline after creation, and supports getting data out of the visualization into R. Based on the ‘vis.js’ Timeline module and the ‘htmlwidgets’ R package.</p>
+</blockquote>
+</section>
+<section id="misc3d-miscellaneous-3d-plots" class="level3">
+<h3 class="anchored" data-anchor-id="misc3d-miscellaneous-3d-plots"><strong>misc3d: Miscellaneous 3D Plots</strong></h3>
+<p><em>tags</em>: #plot #misc<br>
+[cran package link] <a href="https://cran.r-project.org//package=misc3d" class="uri">https://cran.r-project.org//package=misc3d</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A collection of miscellaneous 3d plots, including isosurfaces..</p>
+</blockquote>
+</section>
+</section>
+<section id="math" class="level2">
+<h2 class="anchored" data-anchor-id="math">Math</h2>
+<section id="lmtest-testing-linear-regression-models" class="level3">
+<h3 class="anchored" data-anchor-id="lmtest-testing-linear-regression-models"><strong>lmtest: Testing Linear Regression Models</strong></h3>
+<p><em>tags</em>: #linear regression #testing<br>
+[cran package link] <a href="https://cran.r-project.org/package=lmtest" class="uri">https://cran.r-project.org/package=lmtest</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A collection of tests, data sets, and examples for diagnostic checking in linear regression models. Furthermore, some generic tools for inference in parametric models are provided.</p>
+</blockquote>
+</section>
+<section id="optimx-expanded-replacement-and-extension-of-the-optim-function" class="level3">
+<h3 class="anchored" data-anchor-id="optimx-expanded-replacement-and-extension-of-the-optim-function"><strong>optimx: Expanded Replacement and Extension of the ‘optim’ Function</strong></h3>
+<p><em>tags</em>: #optim<br>
+[cran package link] <a href="https://cran.r-project.org/packages=optimx" class="uri">https://cran.r-project.org/packages=optimx</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides a replacement and extension of the optim() function to call to several function minimization codes in R in a single statement. These methods handle smooth, possibly box constrained functions of several or many parameters. Note that function ‘optimr()’ was prepared to simplify the incorporation of minimization codes going forward. Also implements some utility codes and some extra solvers, including safeguarded Newton methods. Many methods previously separate are now included here.</p>
+</blockquote>
+</section>
+</section>
+<section id="statistics" class="level2">
+<h2 class="anchored" data-anchor-id="statistics">Statistics</h2>
+<section id="corrr-correlations-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="corrr-correlations-in-r"><strong>corrr: Correlations in R</strong></h3>
+<p><em>tags</em>: #statistics #data #correlation #calculus<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=corrr">https://CRAN.R-project.org/package=corrr&nbsp;</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A ‘ggplot2’ extension that does a variety of little helpful things. The package extends ‘ggplot2’ facets through customisation, by setting individual scales per panel, resizing panels and providing nested facets. Also allows multiple colour and fill scales per plot. Also hosts a smaller collection of stats, geoms and axis guides.</p>
+</blockquote>
+</section>
+<section id="factominer-multivariate-exploratory-data-analysis-and-data-mining" class="level3">
+<h3 class="anchored" data-anchor-id="factominer-multivariate-exploratory-data-analysis-and-data-mining"><strong>FactoMineR: Multivariate Exploratory Data Analysis and Data Mining</strong></h3>
+<p><em>tags</em>: #statistics #pca #clustering #multivariate #data<br>
+[cran package link]<a href="https://CRAN.R-project.org/package=FactoMineR" class="uri">https://CRAN.R-project.org/package=FactoMineR</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Exploratory data analysis methods to summarize, visualize and describe datasets. The main principal component methods are available, those with the largest potential in terms of applications: principal component analysis (PCA) when variables are quantitative, correspondence analysis (CA) and multiple correspondence analysis (MCA) when variables are categorical, Multiple Factor Analysis when variables are structured in groups, etc. and hierarchical cluster analysis. F. Husson, S. Le and J. Pages (2017).</p>
+</blockquote>
+</section>
+<section id="vim-visualization-and-imputation-of-missing-values" class="level3">
+<h3 class="anchored" data-anchor-id="vim-visualization-and-imputation-of-missing-values"><strong>VIM: Visualization and Imputation of Missing Values</strong></h3>
+<p><em>tags</em>: #data #missing values [cran package link] <a href="https://CRAN.R-project.org/package=VIM" class="uri">https://CRAN.R-project.org/package=VIM</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>New tools for the visualization of missing and/or imputed values are introduced, which can be used for exploring the data and the structure of the missing and/or imputed values. Depending on this structure of the missing values, the corresponding methods may help to identify the mechanism generating the missing values and allows to explore the data including missing values. In addition, the quality of imputation can be visually explored using various univariate, bivariate, multiple and multivariate plot methods. A graphical user interface available in the separate package VIMGUI allows an easy handling of the implemented plot methods.</p>
+</blockquote>
+</section>
+<section id="cfda-categorical-functional-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="cfda-categorical-functional-data-analysis"><strong>cfda: Categorical Functional Data Analysis</strong></h3>
+<p><em>tags</em>: #data #categorical<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=cfda" class="uri">https://CRAN.R-project.org/package=cfda</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Package for the analysis of categorical functional data. The main purpose is to compute an encoding (real functional variable) for each state <a href="doi:10.3390/math9233074" class="uri">doi:10.3390/math9233074</a>. It also provides functions to perform basic statistical analysis on categorical functional data.</p>
+</blockquote>
+</section>
+<section id="sht-statistical-hypothesis-testing-toolbox" class="level3">
+<h3 class="anchored" data-anchor-id="sht-statistical-hypothesis-testing-toolbox"><strong>SHT: Statistical Hypothesis Testing Toolbox</strong></h3>
+<p><em>tags</em>: #statistics #data analysis #comparison<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=SHT" class="uri">https://CRAN.R-project.org/package=SHT</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>We provide a collection of statistical hypothesis testing procedures ranging from classical to modern methods for non-trivial settings such as high-dimensional scenario. For the general treatment of statistical hypothesis testing, see the book by Lehmann and Romano (2005) <a href="doi:10.1007/0-387-27605-X" class="uri">doi:10.1007/0-387-27605-X</a>.</p>
+</blockquote>
+</section>
+<section id="contingencytables-statistical-analysis-of-contingency-tables" class="level3">
+<h3 class="anchored" data-anchor-id="contingencytables-statistical-analysis-of-contingency-tables"><strong>contingencytables: Statistical Analysis of Contingency Tables</strong></h3>
+<p><em>tags</em>: #plot #data analysis #ggplot<br>
+[cran package link] &lt;https://contingencytables.com/ &nbsp;</p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides functions to perform statistical inference of data organized in contingency tables. This package is a companion to the “Statistical Analysis of Contingency Tables” book by Fagerland et al.&nbsp;&lt;ISBN 9781466588172&gt;.</p>
+</blockquote>
+</section>
+<section id="morphotools2-multivariate-morphometric-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="morphotools2-multivariate-morphometric-analysis"><strong>MorphoTools2: Multivariate Morphometric Analysis</strong></h3>
+<p><em>tags</em>: #statistics #multivatiate [cran package link] <a href="https://CRAN.R-project.org/package=MorphoTools2" class="uri">https://CRAN.R-project.org/package=MorphoTools2</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Tools for multivariate analyses of morphological data, wrapped in one package, to make the workflow convenient and fast. Statistical and graphical tools provide a comprehensive framework for checking and manipulating input data, statistical analyses, and visualization of results. Several methods are provided for the analysis of raw data, to make the dataset ready for downstream analyses. Integrated statistical methods include hierarchical classification, principal component analysis, principal coordinates analysis, non-metric multidimensional scaling, and multiple discriminant analyses: canonical, stepwise, and classificatory (linear, quadratic, and the non-parametric k nearest neighbours). The philosophy of the package will be described in Šlenker et al.&nbsp;(in prep).</p>
+</blockquote>
+</section>
+<section id="autostats-auto-stats" class="level3">
+<h3 class="anchored" data-anchor-id="autostats-auto-stats"><strong>autostats: Auto Stats</strong></h3>
+<p><em>tags</em>: #statistic #reports #exploration<br>
+[cran package link]<a href="https://CRAN.R-project.org/package=autostats" class="uri">https://CRAN.R-project.org/package=autostats</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Automatically do statistical exploration. Create formulas using ‘tidyselect’ syntax, and then determine cross-validated model accuracy and variable contributions using ‘glm’ and ‘xgboost’. Contains additional helper functions to create and modify formulas. Has a flagship function to quickly determine relationships between categorical and continuous variables in the data set.</p>
+</blockquote>
+</section>
+<section id="flexclust-flexible-cluster-algorithms" class="level3">
+<h3 class="anchored" data-anchor-id="flexclust-flexible-cluster-algorithms"><strong>flexclust: Flexible Cluster Algorithms</strong></h3>
+<p><em>tags</em>: #classificatrion #clusters #multivariate<br>
+[cran package link] <a href="https://cran.r-project.org/package=flexclust" class="uri">https://cran.r-project.org/package=flexclust</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>The main function kcca implements a general framework for k-centroids cluster analysis supporting arbitrary distance measures and centroid computation. Further cluster methods include hard competitive learning, neural gas, and QT clustering. There are numerous visualization methods for cluster results (neighborhood graphs, convex cluster hulls, barcharts of centroids, …), and bootstrap methods for the analysis of cluster stability.</p>
+</blockquote>
+</section>
+<section id="ffmanova-fifty-fifty-manova" class="level3">
+<h3 class="anchored" data-anchor-id="ffmanova-fifty-fifty-manova"><strong>ffmanova: Fifty-Fifty MANOVA</strong></h3>
+<p><em>tags</em>: #MANOVA #MANCONVA [cran package link] <a href="https://cran.r-project.org/package=ffmanova" class="uri">https://cran.r-project.org/package=ffmanova</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>General linear modeling with multiple responses (MANCOVA). An overall p-value for each model term is calculated by the 50-50 MANOVA method by Langsrud (2002) <a href="doi:10.1111/1467-9884.00320" class="uri">doi:10.1111/1467-9884.00320</a>, which handles collinear responses. Rotation testing, described by Langsrud (2005) <a href="doi:10.1007/s11222-005-4789-5" class="uri">doi:10.1007/s11222-005-4789-5</a>, is used to compute adjusted single response p-values according to familywise error rates and false discovery rates (FDR). The approach to FDR is described in the appendix of Moen et al.&nbsp;(2005) <a href="doi:10.1128/AEM.71.4.2086-2094.2005" class="uri">doi:10.1128/AEM.71.4.2086-2094.2005</a>. Unbalanced designs are handled by Type II sums of squares as argued in Langsrud (2003) <a href="doi:10.1023/A:1023260610025" class="uri">doi:10.1023/A:1023260610025</a>. Furthermore, the Type II philosophy is extended to continuous design variables as described in Langsrud et al.&nbsp;(2007) <a href="doi:10.1080/02664760701594246" class="uri">doi:10.1080/02664760701594246</a>. This means that the method is invariant to scale changes and that common pitfalls are avoided.</p>
+</blockquote>
+</section>
+<section id="comparegroups-4.0-descriptives-by-groups" class="level3">
+<h3 class="anchored" data-anchor-id="comparegroups-4.0-descriptives-by-groups"><strong>compareGroups 4.0: Descriptives by groups</strong></h3>
+<p><em>tags</em>: #statistics #clinical data<br>
+[cran package link] <a href="https://cran.r-project.org/package=compareGroups" class="uri">https://cran.r-project.org/package=compareGroups</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>compareGroups is an R package available on CRAN which performs descriptive tables displaying means, standard deviation, quantiles or frequencies of several variables. Also, p-value to test equality between groups is computed using the appropiate test. With a very simple code, nice, compact and ready-to-publish descriptives table are displayed on R console. They can also be exported to different formats, such as Word, Excel, PDF or inserted in a R-Sweave or R-markdown d</p>
+</blockquote>
+</section>
+<section id="desctools-tools-for-descriptive-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="desctools-tools-for-descriptive-statistics"><strong>DescTools: Tools for Descriptive Statistics</strong></h3>
+<p><em>tags</em>: #statistics [cran package link] <a href="https://cran.r-project.org//package=DescTools" class="uri">https://cran.r-project.org//package=DescTools</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A collection of miscellaneous basic statistic functions and convenience wrappers for efficiently describing data. The author’s intention was to create a toolbox, which facilitates the (notoriously time consuming) first descriptive tasks in data analysis, consisting of calculating descriptive statistics, drawing graphical summaries and reporting the results. The package contains furthermore functions to produce documents using MS Word (or PowerPoint) and functions to import data from Excel. Many of the included functions can be found scattered in other packages and other sources written partly by Titans of R. The reason for collecting them here, was primarily to have them consolidated in ONE instead of dozens of packages (which themselves might depend on other packages which are not needed at all), and to provide a common and consistent interface as far as function and arguments naming, NA handling, recycling rules etc. are concerned. Google style guides were used as naming rules (in absence of convincing alternatives). The ‘BigCamelCase’ style was consequently applied to functions borrowed from contributed R packages as well.</p>
+</blockquote>
+</section>
+<section id="outforest-multivariate-outlier-detection-and-replacement" class="level3">
+<h3 class="anchored" data-anchor-id="outforest-multivariate-outlier-detection-and-replacement"><strong>outForest: Multivariate Outlier Detection and Replacement</strong></h3>
+<p><em>tags</em>: #random forest #outliers<br>
+[cran package link] <a href="https://cran.r-project.org/package=outForest" class="uri">https://cran.r-project.org/package=outForest</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides a random forest based implementation of the method described in Chapter 7.1.2 (Regression model based anomaly detection) of Chandola et al.&nbsp;(2009) <a href="doi:10.1145/1541880.1541882" class="uri">doi:10.1145/1541880.1541882</a>. It works as follows: Each numeric variable is regressed onto all other variables by a random forest. If the scaled absolute difference between observed value and out-of-bag prediction of the corresponding random forest is suspiciously large, then a value is considered an outlier. The package offers different options to replace such outliers, e.g.&nbsp;by realistic values found via predictive mean matching. Once the method is trained on a reference data, it can be applied to new data.</p>
+</blockquote>
+</section>
+<section id="multid-multivariate-difference-between-two-groups" class="level3">
+<h3 class="anchored" data-anchor-id="multid-multivariate-difference-between-two-groups"><strong>multid: Multivariate Difference Between Two Groups</strong></h3>
+<p><em>tags</em>: #multivariate #test<br>
+[cran package link] <a href="https://cran.r-project.org/package=multid" class="uri">https://cran.r-project.org/package=multid</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Estimation of multivariate differences between two groups (e.g., multivariate sex differences) with regularized regression methods and predictive approach. See Lönnqvist &amp; Ilmarinen (2021) <a href="doi:10.1007/s11109-021-09681-2" class="uri">doi:10.1007/s11109-021-09681-2</a> and Ilmarinen et al.&nbsp;(2021) <a href="doi:10.31234/osf.io/j59bs" class="uri">doi:10.31234/osf.io/j59bs</a>.</p>
+</blockquote>
+</section>
+<section id="simpr-flexible-tidyverse-friendly-simulations" class="level3">
+<h3 class="anchored" data-anchor-id="simpr-flexible-tidyverse-friendly-simulations"><strong>simpr: Flexible ‘Tidyverse’-Friendly Simulations</strong></h3>
+<p><em>tags</em>: #simulation #tidyverse<br>
+[cran package link] <a href="https://cran.r-project.org/package=simpr" class="uri">https://cran.r-project.org/package=simpr</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A general, ‘tidyverse’-friendly framework for simulation studies, design analysis, and power analysis. Specify data generation, define varying parameters, generate data, fit models, and tidy model results in a single pipeline, without needing loops or custom functions.</p>
+</blockquote>
+</section>
+<section id="ggfortify-data-visualization-tools-for-statistical-analysis-results" class="level3">
+<h3 class="anchored" data-anchor-id="ggfortify-data-visualization-tools-for-statistical-analysis-results"><strong>ggfortify: Data Visualization Tools for Statistical Analysis Results</strong></h3>
+<p><em>tags</em>: #statistics #datavis</p>
+<p>[cran package link] <a href="https://cran.r-project.org/web/packages/ggfortify/index.html" class="uri">https://cran.r-project.org/web/packages/ggfortify/index.html</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Unified plotting tools for statistics commonly used, such as GLM, time series, PCA families, clustering and survival analysis. The package offers a single plotting interface for these analysis results and plots in a unified style using ‘ggplot2’.</p>
+</blockquote>
+</section>
+<section id="mvtests-multivariate-hypothesis-tests" class="level3">
+<h3 class="anchored" data-anchor-id="mvtests-multivariate-hypothesis-tests"><strong>MVTests: Multivariate Hypothesis Tests</strong></h3>
+<p><em>tags</em>: #statistics #test #multivariate<br>
+[cran package link] <a href="https://cran.r-project.org/package=MVTests" class="uri">https://cran.r-project.org/package=MVTests</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Multivariate hypothesis tests and the confidence intervals. It can be used to test the hypothesizes about mean vector or vectors (one-sample, two independent samples, paired samples), covariance matrix (one or more matrices), and the correlation matrix. Moreover, it can be used for robust Hotelling T^2 test at one sample case in high dimensional data. For this package, we have benefited from the studies Rencher (2003), Nel and Merwe (1986) <a href="doi:10.1080/03610928608829342" class="uri">doi:10.1080/03610928608829342</a>, Tatlidil (1996), Tsagris (2014), Villasenor Alva and Estrada (2009) <a href="doi:10.1080/03610920802474465" class="uri">doi:10.1080/03610920802474465</a>.</p>
+</blockquote>
+</section>
+<section id="plsvarsel-variable-selection-in-partial-least-squares" class="level3">
+<h3 class="anchored" data-anchor-id="plsvarsel-variable-selection-in-partial-least-squares"><strong>plsVarSel: Variable Selection in Partial Least Squares</strong></h3>
+<p><em>tags</em>: #pls #chemometrics<br>
+[cran package link] <a href="https://cran.r-project.org/packages=plsVarSel" class="uri">https://cran.r-project.org/packages=plsVarSel</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Interfaces and methods for variable selection in Partial Least Squares. The methods include filter methods, wrapper methods and embedded methods. Both regression and classification is supported.</p>
+</blockquote>
+</section>
+<section id="rcmdrplugin.ezr-r-commander-plug-in-for-the-ezr-easy-r-package" class="level3">
+<h3 class="anchored" data-anchor-id="rcmdrplugin.ezr-r-commander-plug-in-for-the-ezr-easy-r-package"><strong>RcmdrPlugin.EZR: R Commander Plug-in for the EZR (Easy R) Package</strong></h3>
+<p><em>tags</em>: #statistics #ROC<br>
+[cran package link] <a href="https://cran.r-project.org/package=RcmdrPlugin.EZR/index.html" class="uri">https://cran.r-project.org/package=RcmdrPlugin.EZR/index.html</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>EZR (Easy R) adds a variety of statistical functions, including survival analyses, ROC analyses, metaanalyses, sample size calculation, and so on, to the R commander. EZR enables point-and-click easy access to statistical functions, especially for medical statistics. EZR is platform-independent and runs on Windows, Mac OS X, and UNIX. Its complete manual is available only in Japanese (Chugai Igakusha, ISBN: 978-4-498-10918-6, Nankodo, ISBN: 978-4-524-26158-1, Ohmsha, ISBN: 978-4-274-22632-8), but an report that introduced the investigation of EZR was published in Bone Marrow Transplantation (Nature Publishing Group) as an Open article. This report can be used as a simple manual. It can be freely downloaded from the journal website as shown below. This report has been cited in more than 3,000 scientific articles.</p>
+</blockquote>
+</section>
+<section id="rcmdrplugin.nmbu-r-commander-plug-in-for-university-level-applied-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="rcmdrplugin.nmbu-r-commander-plug-in-for-university-level-applied-statistics"><strong>RcmdrPlugin.NMBU: R Commander Plug-in for University Level Applied Statistics</strong></h3>
+<p><em>tags</em>: #PLS #LDA #QDA<br>
+[cran package link] <a href="https://cran.r-project.org/package=RcmdrPlugin.NMBU" class="uri">https://cran.r-project.org/package=RcmdrPlugin.NMBU</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>An R Commander “plug-in” extending functionality of linear models and providing an interface to Partial Least Squares Regression and Linear and Quadratic Discriminant analysis. Several statistical summaries are extended, predictions are offered for additional types of analyses, and extra plots, tests and mixed models are available.</p>
+</blockquote>
+</section>
+<section id="dataeditr-an-interactive-editor-for-viewing-entering-filtering-editing-data" class="level3">
+<h3 class="anchored" data-anchor-id="dataeditr-an-interactive-editor-for-viewing-entering-filtering-editing-data"><strong>DataEditR: An Interactive Editor for Viewing, Entering, Filtering &amp; Editing Data</strong></h3>
+<p><em>tags</em>: #tables #editor<br>
+[cran package link] <a href="https://cran.r-project.org/package=DataEditR" class="uri">https://cran.r-project.org/package=DataEditR</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>An interactive editor built on ‘rhandsontable’ to allow the interactive viewing, entering, filtering and editing of data in R <a href="https://dillonhammill.github.io/DataEditR/" class="uri">https://dillonhammill.github.io/DataEditR/</a>.</p>
+</blockquote>
+</section>
+<section id="fica-classical-reloaded-and-adaptive-fastica-algorithms" class="level3">
+<h3 class="anchored" data-anchor-id="fica-classical-reloaded-and-adaptive-fastica-algorithms"><strong>fICA: Classical, Reloaded and Adaptive FastICA Algorithms</strong></h3>
+<p><em>tags</em>: #ggplot #summary #plots<br>
+[cran package link] <a href="https://cran.r-project.org/package=fICA" class="uri">https://cran.r-project.org/package=fICA</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Algorithms for classical symmetric and deflation-based FastICA, reloaded deflation-based FastICA algorithm and an algorithm for adaptive deflation-based FastICA using multiple nonlinearities. For details, see Miettinen et al.&nbsp;(2014) <a href="doi:10.1109/TSP.2014.2356442" class="uri">doi:10.1109/TSP.2014.2356442</a> and Miettinen et al.&nbsp;(2017) <a href="doi:10.1016/j.sigpro.2016.08.028" class="uri">doi:10.1016/j.sigpro.2016.08.028</a>. The package is described in Miettinen, Nordhausen and Taskinen (2018) <a href="doi:10.32614/RJ-2018-046" class="uri">doi:10.32614/RJ-2018-046</a>.</p>
+</blockquote>
+</section>
+<section id="jfe-tools-and-gui-for-analyzing-time-series-data-of-just-finance-and-econometrics" class="level3">
+<h3 class="anchored" data-anchor-id="jfe-tools-and-gui-for-analyzing-time-series-data-of-just-finance-and-econometrics"><strong>JFE: Tools and GUI for Analyzing Time Series Data of Just Finance and Econometrics</strong></h3>
+<p><em>tags</em>: #econometrics #finance<br>
+[cran package link] <a href="https://cran.r-project.org/web/packages/JFE/index.html" class="uri">https://cran.r-project.org/web/packages/JFE/index.html</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Support the analysis of financial and econometric time series, including recursive forecasts for machine learning.</p>
+</blockquote>
+</section>
+<section id="anscombiser-create-datasets-with-identical-summary-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="anscombiser-create-datasets-with-identical-summary-statistics"><strong>anscombiser: Create Datasets with Identical Summary Statistics</strong></h3>
+<p><em>tags</em>: #statistics #anscombe<br>
+[cran package link] <a href="https://cran.r-project.org/package=anscombiser" class="uri">https://cran.r-project.org/package=anscombiser</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>The anscombiser package takes a simpler and quicker approach to the same problem, using Anscombe’s statistics. It uses shifting, scaling and rotating to transform the observations in an input dataset to achieve a target set of Anscombe’s statistics”</p>
+</blockquote>
+</section>
+<section id="randtoolbox-toolbox-for-pseudo-and-quasi-random-number-generation-and-random-generator-tests" class="level3">
+<h3 class="anchored" data-anchor-id="randtoolbox-toolbox-for-pseudo-and-quasi-random-number-generation-and-random-generator-tests"><strong>randtoolbox: Toolbox for Pseudo and Quasi Random Number Generation and Random Generator Tests</strong></h3>
+<p><em>tags</em>: #distributions<br>
+[cran package link] <a href="https://cran.r-project.org/package=randtoolbox" class="uri">https://cran.r-project.org/package=randtoolbox</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides (1) pseudo random generators - general linear congruential generators, multiple recursive generators and generalized feedback shift register (SF-Mersenne Twister algorithm and WELL generators); (2) quasi random generators - the Torus algorithm, the Sobol sequence, the Halton sequence (including the Van der Corput sequence) and (3) some generator tests - the gap test, the serial test, the poker test. See e.g.&nbsp;Gentle (2003) <a href="doi:10.1007/b97336" class="uri">doi:10.1007/b97336</a>. The package can be provided without the rngWELL dependency on demand. Take a look at the Distribution task view of types and tests of random number generators. Version in Memoriam of Diethelm and Barbara Wu</p>
+</blockquote>
+</section>
+</section>
+<section id="medicine" class="level2">
+<h2 class="anchored" data-anchor-id="medicine">Medicine</h2>
+<section id="visr-clinical-graphs-and-tables-adhering-to-graphical-principles" class="level3">
+<h3 class="anchored" data-anchor-id="visr-clinical-graphs-and-tables-adhering-to-graphical-principles"><strong>visR: Clinical Graphs and Tables Adhering to Graphical Principles</strong></h3>
+<p><em>tags</em>: #data #clinical<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=cfda" class="uri">https://CRAN.R-project.org/package=cfda</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>To enable fit-for-purpose, reusable clinical and medical research focused visualizations and tables with sensible defaults and based on graphical principles as described in: “Vandemeulebroecke et al.&nbsp;(2018)” <a href="doi:10.1002/pst.1912" class="uri">doi:10.1002/pst.1912</a>, “Vandemeulebroecke et al.&nbsp;(2019)” <a href="doi:10.1002/psp4.12455" class="uri">doi:10.1002/psp4.12455</a>, and “Morris et al.&nbsp;(2019)” <a href="doi:10.1136/bmjopen-2019-030215" class="uri">doi:10.1136/bmjopen-2019-030215</a>.</p>
+</blockquote>
+</section>
+<section id="vbp-blood-pressure-analysis-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="vbp-blood-pressure-analysis-in-r"><strong>vbp: Blood Pressure Analysis in R</strong></h3>
+<p><em>tags</em>: #statistics #clinical data<br>
+[cran package link] <a href="https://cran.r-project.org/package=bp" class="uri">https://cran.r-project.org/package=bp</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Cardiovascular disease (CVD) is the leading cause of death worldwide with Hypertension, specifically, affecting over 1.1 billion people annually. The goal of the package is to provide a comprehensive toolbox for analyzing blood pressure data using a variety of statistical metrics and visualizations to bring more clarity to CVD.</p>
+</blockquote>
+</section>
+</section>
+<section id="teaching" class="level2">
+<h2 class="anchored" data-anchor-id="teaching">Teaching</h2>
+<section id="testdriver-teaching-data-for-statistics-and-data-science" class="level3">
+<h3 class="anchored" data-anchor-id="testdriver-teaching-data-for-statistics-and-data-science"><strong>testDriveR: Teaching Data for Statistics and Data Science</strong></h3>
+<p><em>tags</em>: #plot #data analysis #ggplot<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=testDriveR" class="uri">https://CRAN.R-project.org/package=testDriveR</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides data sets for teaching statistics and data science courses. It includes a sample of data from John Edmund Kerrich’s famous coinflip experiment. These are data that I used for teaching SOC 4015 / SOC 5050 at Saint Louis University (SLU). The package also contains an R Markdown template with the required formatting for assignments in my courses SOC 4015, SOC 4650, SOC 5050, and SOC 5650 at SLU.</p>
+</blockquote>
+</section>
+</section>
+<section id="chemistry" class="level2">
+<h2 class="anchored" data-anchor-id="chemistry">Chemistry</h2>
+<section id="stoichcalc-r-functions-for-solving-stoichiometric-equations" class="level3">
+<h3 class="anchored" data-anchor-id="stoichcalc-r-functions-for-solving-stoichiometric-equations"><strong>stoichcalc: R Functions for Solving Stoichiometric Equations</strong></h3>
+<p><em>tags</em>: #chemistry #stoichiometry [cran package link] <a href="https://CRAN.R-project.org/package=stoichcalc" class="uri">https://CRAN.R-project.org/package=stoichcalc</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Given a list of substance compositions, a list of substances involved in a process, and a list of constraints in addition to mass conservation of elementary constituents, the package contains functions to build the substance composition matrix, to analyze the uniqueness of process stoichiometry, and to calculate stoichiometric coefficients if process stoichiometry is unique. (See Reichert, P. and Schuwirth, N., A generic framework for deriving process stoichiometry in enviromental models, Environmental Modelling and Software 25, 1241-1251, 2010 for more details.)</p>
+</blockquote>
+</section>
+<section id="inters-flexible-tools-for-estimating-interactions" class="level3">
+<h3 class="anchored" data-anchor-id="inters-flexible-tools-for-estimating-interactions"><strong>inters: Flexible Tools for Estimating Interactions</strong></h3>
+<p><em>tags</em>: #statistics #interactions<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=inters" class="uri">https://CRAN.R-project.org/package=inters</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A set of functions to estimate interactions flexibly in the face of possibly many controls. Implements the procedures described in Blackwell and Olson (2022) <a href="doi:10.1093/restud/rdt044" class="uri">doi:10.1093/restud/rdt044</a>.</p>
+</blockquote>
+</section>
+<section id="waves-vis-nir-spectral-analysis-wrapper" class="level3">
+<h3 class="anchored" data-anchor-id="waves-vis-nir-spectral-analysis-wrapper"><strong>waves: Vis-NIR Spectral Analysis Wrapper</strong></h3>
+<p><em>tags</em>: #spectroscopy #preprocessing #filtering #model training<br>
+[cran package link] <a href="https://cran.r-project.org/package=waves" class="uri">https://cran.r-project.org/package=waves</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Originally designed application in the context of resource-limited plant research and breeding programs, ‘waves’ provides an open-source solution to spectral data processing and model development by bringing useful packages together into a streamlined pipeline. This package is wrapper for functions related to the analysis of point visible and near-infrared reflectance measurements. It includes visualization, filtering, aggregation, preprocessing, cross-validation set formation, model training, and prediction functions to enable open-source association of spectral and reference data. This package is documented in a peer-reviewed manuscript in the Plant Phenome Journal <a href="doi:10.1002/ppj2.20012" class="uri">doi:10.1002/ppj2.20012</a>. Specialized cross-validation schemes are described in detail in Jarquín et al.&nbsp;(2017) <a href="doi:10.3835/plantgenome2016.12.0130" class="uri">doi:10.3835/plantgenome2016.12.0130</a>. Example data is from Ikeogu et al.&nbsp;(2017) <a href="doi:10.1371/journal.pone.0188918" class="uri">doi:10.1371/journal.pone.0188918</a>.</p>
+</blockquote>
+</section>
+<section id="msclassifr-automated-classification-of-mass-spectra" class="level3">
+<h3 class="anchored" data-anchor-id="msclassifr-automated-classification-of-mass-spectra"><strong>MSclassifR: Automated Classification of Mass Spectra</strong></h3>
+<p><em>tags</em>: #Classification #Mass-Spectra<br>
+[cran package link] <a href="https://cran.r-project.org//package=MSclassifR" class="uri">https://cran.r-project.org//package=MSclassifR</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Functions to classify mass spectra in known categories, and to determine discriminant mass-over-charge values. It includes easy-to-use functions for pre-processing mass spectra, functions to determine discriminant mass-over-charge values (m/z) from a library of mass spectra corresponding to different categories, and functions to predict the category (species, phenotypes, etc.) associated to a mass spectrum from a list of selected mass-over-charge values. Two vignettes illustrating how to use the functions of this package from real data sets are also available online to help users: <a href="https://agodmer.github.io/MSclassifR_examples/Vignettes/Vignettemsclassifr_Ecrobia.html" class="uri">https://agodmer.github.io/MSclassifR_examples/Vignettes/Vignettemsclassifr_Ecrobia.html</a> and <a href="https://agodmer.github.io/MSclassifR_examples/Vignettes/Vignettemsclassifr_Klebsiella.html" class="uri">https://agodmer.github.io/MSclassifR_examples/Vignettes/Vignettemsclassifr_Klebsiella.html</a>.</p>
+</blockquote>
+</section>
+<section id="nglviewer-load-a-pdb-in-r-in-order-to-view-it" class="level3">
+<h3 class="anchored" data-anchor-id="nglviewer-load-a-pdb-in-r-in-order-to-view-it"><strong>NGLVieweR: load a PDB in R in order to view it</strong></h3>
+<p><em>tags</em>: #chemistrys #visualization #molecular<br>
+[cran package link] <a href="https://cran.r-project.org/packages=NGLVieweR" class="uri">https://cran.r-project.org/packages=NGLVieweR</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides an ‘htmlwidgets’ <a href="https://www.htmlwidgets.org/" class="uri">https://www.htmlwidgets.org/</a> interface to ‘NGL.js’ <a href="http://nglviewer.org/ngl/api/" class="uri">http://nglviewer.org/ngl/api/</a>. ‘NGLvieweR’ can be used to visualize and interact with protein databank (‘PDB’) and structural files in R and Shiny applications. It includes a set of API functions to manipulate the viewer after creation in Shiny.</p>
+</blockquote>
+</section>
+</section>
+<section id="writing-reports-and-articles" class="level2">
+<h2 class="anchored" data-anchor-id="writing-reports-and-articles">Writing reports and articles</h2>
+<section id="utile.tools-summarize-data-for-publication" class="level3">
+<h3 class="anchored" data-anchor-id="utile.tools-summarize-data-for-publication"><strong>utile.tools: Summarize Data for Publication</strong></h3>
+<p><em>tags</em>: #statistic #reports #exploration<br>
+[cran package link] [https://CRAN.R-project.org/package=utile.tools]</p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A set of tools for preparing and summarizing data for publication purposes. Includes functions for tabulating models, means to produce human-readable summary statistics from raw data, macros for calculating duration of time, and simplistic hypothesis testing tools.</p>
+</blockquote>
+</section>
+<section id="rrtable-reproducible-research-with-a-table-of-r-codes" class="level3">
+<h3 class="anchored" data-anchor-id="rrtable-reproducible-research-with-a-table-of-r-codes"><strong>rrtable: Reproducible Research with a Table of R Codes</strong></h3>
+<p><em>tags</em>: #tables #reproducible research<br>
+[cran package link] <a href="https://cran.r-project.org/package=rrtable" class="uri">https://cran.r-project.org/package=rrtable</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Makes documents containing plots and tables from a table of R codes. Can make “HTML”, “pdf(‘LaTex’)”, “docx(‘MS Word’)” and “pptx(‘MS Powerpoint’)” documents with or without R code. In the package, modularized ‘shiny’ app codes are provided. These modules are intended for reuse across applications.</p>
+</blockquote>
+</section>
+<section id="reporter-creates-statistical-reports" class="level3">
+<h3 class="anchored" data-anchor-id="reporter-creates-statistical-reports"><strong>reporter: Creates Statistical Reports</strong></h3>
+<p><em>tags</em>: #statistics #report<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=reporter" class="uri">https://CRAN.R-project.org/package=reporter</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Contains functions to create regulatory-style statistical reports. Originally designed to create tables, listings, and figures for the pharmaceutical, biotechnology, and medical device industries, these reports are generalized enough that they could be used in any industry. Generates text, rich-text, PDF, HTML, and Microsoft Word file formats. The package specializes in printing wide and long tables with automatic page wrapping and splitting. Reports can be produced with a minimum of function calls, and without relying on other table packages. The package supports titles, footnotes, page header, page footers, spanning headers, page by variables, and automatic page numbering.</p>
+</blockquote>
+</section>
+<section id="pde-extract-tables-and-sentences-from-pdfs-with-user-interface" class="level3">
+<h3 class="anchored" data-anchor-id="pde-extract-tables-and-sentences-from-pdfs-with-user-interface"><strong>PDE: Extract Tables and Sentences from PDFs with User Interface</strong></h3>
+<p><em>tags</em>: #pdf #scraping<br>
+[cran package link] <a href="https://cran.r-project.org/packages=PDE" class="uri">https://cran.r-project.org/packages=PDE</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>PDE is a R package that easily extracts information and tables from PDF files. The PDE_analyzer_i() performs the sentence and table extraction while the included PDE_reader_i() allows the user-friendly visualization and quick-processing of the obtained results.</p>
+</blockquote>
+</section>
+<section id="tplyr-a-grammar-of-clinical-data-summary" class="level3">
+<h3 class="anchored" data-anchor-id="tplyr-a-grammar-of-clinical-data-summary"><strong>Tplyr: A Grammar of Clinical Data Summary</strong></h3>
+<p><em>tags</em>: #clinical #medical<br>
+[cran package link] <a href="https://cran.r-project.org/package=Tplyr" class="uri">https://cran.r-project.org/package=Tplyr</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A tool created to simplify the data manipulation necessary to create clinical reports.</p>
+</blockquote>
+</section>
+</section>
+<section id="coding" class="level2">
+<h2 class="anchored" data-anchor-id="coding">Coding</h2>
+<section id="mockr-mocking-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="mockr-mocking-in-r">mockr: Mocking in R</h3>
+<p><em>tags</em>: #testing<br>
+[cran package link] <a href="https://cran.r-project.org/package=mockr" class="uri">https://cran.r-project.org/package=mockr</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides a means to mock a package function, i.e., temporarily substitute it for testing. Designed as a drop-in replacement for the now deprecated ‘testthat::with_mock()’ and ‘testthat::local_mock()’.</p>
+</blockquote>
+</section>
+<section id="code-automated-c-code-generation-for-desolve-bvpsolve" class="level3">
+<h3 class="anchored" data-anchor-id="code-automated-c-code-generation-for-desolve-bvpsolve"><strong>cOde: Automated C Code Generation for ‘deSolve’, ‘bvpSolve’</strong></h3>
+<p><em>tags</em>: #C #Jacobians<br>
+[cran package link] <a href="https://cran.r-project.org/package=cOde" class="uri">https://cran.r-project.org/package=cOde</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Generates all necessary C functions allowing the user to work with the compiled-code interface of ode() and bvptwp(). The implementation supports “forcings” and “events”. Also provides functions to symbolically compute Jacobians, sensitivity equations and adjoint sensitivities being the basis for sensitivity analysis.</p>
+</blockquote>
+</section>
+<section id="matlab2r-translation-layer-from-matlab-to-r" class="level3">
+<h3 class="anchored" data-anchor-id="matlab2r-translation-layer-from-matlab-to-r"><strong>matlab2r: Translation Layer from MATLAB to R</strong></h3>
+<p><em>tags</em>: #R #Matlab<br>
+[cran package link] <a href="https://cran.r-project.org/package=matlab2r" class="uri">https://cran.r-project.org/package=matlab2r</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Allows users familiar with MATLAB to use MATLAB-named functions in R. Several basic MATLAB functions are written in this package to mimic the behavior of their original counterparts, with more to come as this package grows.</p>
+</blockquote>
+</section>
+<section id="lessr-less-code-more-results" class="level3">
+<h3 class="anchored" data-anchor-id="lessr-less-code-more-results"><strong>lessR: Less Code, More Results</strong></h3>
+<p><em>tags</em>: #coding<br>
+[cran package link] <a href="https://cran.r-project.org//package=lessR" class="uri">https://cran.r-project.org//package=lessR</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Each function accomplishes the work of several or more standard R functions. For example, two function calls, Read() and CountAll(), read the data and generate summary statistics for all variables in the data frame, plus histograms and bar charts as appropriate. Other functions provide for descriptive statistics, a comprehensive regression analysis, analysis of variance and t-test, plotting including the introduced here Violin/Box/Scatter plot for a numerical variable, bar chart, histogram, box plot, density curves, calibrated power curve, reading multiple data formats with the same function call, variable labels, color themes, Trellis graphics and a built-in help system. Also includes a confirmatory factor analysis of multiple indicator measurement models, pedagogical routines for data simulation such as for the Central Limit Theorem, and generation and rendering of R markdown instructions for interpretative output.</p>
+</blockquote>
+</section>
+<section id="groundhog-addressing-the-threat-that-r-poses-to-reproducible-research" class="level3">
+<h3 class="anchored" data-anchor-id="groundhog-addressing-the-threat-that-r-poses-to-reproducible-research"><strong>Groundhog: Addressing The Threat That R Poses To Reproducible Research</strong></h3>
+<p><em>tags</em>: #reproducibility<br>
+[cran package link] <a href="https://cran.r-project.org/package=groundhog" class="uri">https://cran.r-project.org/package=groundhog</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Make R scripts that rely on packages reproducible, by ensuring that every time a given script is run, the same version of the used packages are loaded (instead of whichever version the user running the script happens to have installed). This is achieved by using the new command groundhog.library() instead of the base command library(), and including a date in the call. The date is used to call on the same version of the package every time (the most recent version available on CRAN at that date).</p>
+</blockquote>
+</section>
+</section>
+<section id="graphics" class="level2">
+<h2 class="anchored" data-anchor-id="graphics">Graphics</h2>
+<section id="raymolecule-parse-and-render-molecular-structures-in-3d" class="level3">
+<h3 class="anchored" data-anchor-id="raymolecule-parse-and-render-molecular-structures-in-3d"><strong>raymolecule: Parse and Render Molecular Structures in 3D</strong></h3>
+<p><em>tags</em>: #chemistry #rendering<br>
+[cran package link] <a href="https://cran.r-project.org/package=raymolecule" class="uri">https://cran.r-project.org/package=raymolecule</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Downloads and parses ‘SDF’ (Structural Description Format) and ‘PDB’ (Protein Database) files for 3D rendering.</p>
+</blockquote>
+</section>
+</section>
+<section id="regression" class="level2">
+<h2 class="anchored" data-anchor-id="regression">Regression</h2>
+<section id="speedglm-fitting-linear-and-generalized-linear-models-to-large-data-sets" class="level3">
+<h3 class="anchored" data-anchor-id="speedglm-fitting-linear-and-generalized-linear-models-to-large-data-sets"><strong>speedglm: Fitting Linear and Generalized Linear Models to Large Data Sets</strong></h3>
+<p><em>tags</em>: #fitting #GLM<br>
+[cran package link] <a href="https://cran.r-project.org//package=speedglm" class="uri">https://cran.r-project.org//package=speedglm</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Fitting linear models and generalized linear models to large data sets by updating algorithms.</p>
+</blockquote>
+</section>
+<section id="modelsummary-summary-tables-and-plots-for-statistical-models-and-data-beautiful-customizable-and-publication-ready" class="level3">
+<h3 class="anchored" data-anchor-id="modelsummary-summary-tables-and-plots-for-statistical-models-and-data-beautiful-customizable-and-publication-ready"><strong>modelsummary: Summary Tables and Plots for Statistical Models and Data: Beautiful, Customizable, and Publication-Ready</strong></h3>
+<p><em>tags</em>: #models<br>
+[cran package link] <a href="https://cran.r-project.org/package=modelsummary" class="uri">https://cran.r-project.org/package=modelsummary</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Create beautiful and customizable tables to summarize several statistical models side-by-side. Draw coefficient plots, multi-level cross-tabs, dataset summaries, balance tables (a.k.a. “Table 1s”), and correlation matrices. This package supports dozens of statistical models, and it can produce tables in HTML, LaTeX, Word, Markdown, PDF, PowerPoint, Excel, RTF, JPG, or PNG. Tables can easily be embedded in ‘Rmarkdown’ or ‘knitr’ dynamic documents.</p>
+</blockquote>
+</section>
+</section>
+<section id="signal-processing" class="level2">
+<h2 class="anchored" data-anchor-id="signal-processing">Signal Processing</h2>
+<section id="gsignal-signal-processing-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="gsignal-signal-processing-in-r"><strong>gsignal: Signal Processing in R</strong></h3>
+<p><em>tags</em>: #signal processing #filters #boxcar<br>
+[cran package link] <a href="https://cran.r-project.org/packages=gsignal" class="uri">https://cran.r-project.org/packages=gsignal</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>R implementation of the ‘Octave’ package ‘signal’, containing a variety of signal processing tools, such as signal generation and measurement, correlation and convolution, filtering, filter design, filter analysis and conversion, power spectrum analysis, system identification, decimation and sample rate change, and windowing.</p>
+</blockquote>
+</section>
+</section>
+<section id="data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="data-analysis">Data analysis</h2>
+<section id="splittools-tools-for-data-splitting" class="level3">
+<h3 class="anchored" data-anchor-id="splittools-tools-for-data-splitting"><strong>splitTools: Tools for Data Splitting</strong></h3>
+<p><em>tags</em>: #data splitting<br>
+[cran package link] <a href="https://cran.r-project.org/package=splitTools" class="uri">https://cran.r-project.org/package=splitTools</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Fast, lightweight toolkit for data splitting. Data sets can be partitioned into disjoint groups (e.g.&nbsp;into training, validation, and test) or into (repeated) k-folds for subsequent cross-validation. Besides basic splits, the package supports stratified, grouped as well as blocked splitting. Furthermore, cross-validation folds for time series data can be created. See e.g.&nbsp;Hastie et al.&nbsp;(2001) <a href="doi:10.1007/978-0-387-84858-7" class="uri">doi:10.1007/978-0-387-84858-7</a> for the basic background on data partitioning and cross-validation.</p>
+</blockquote>
+</section>
+<section id="optedr-calculating-optimal-and-d-augmented-designs" class="level3">
+<h3 class="anchored" data-anchor-id="optedr-calculating-optimal-and-d-augmented-designs"><strong>optedr: Calculating Optimal and D-Augmented Designs</strong></h3>
+<p><em>tags</em>: #DoE #Chemometrics #optimal-design<br>
+[cran package link] <a href="https://cran.r-project.org//package=optedr" class="uri">https://cran.r-project.org//package=optedr</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Calculates D-, Ds-, A- and I-optimal designs for non-linear models, via an implementation of the cocktail algorithm (Yu, 2011, <a href="doi:10.1007/s11222-010-9183-2" class="uri">doi:10.1007/s11222-010-9183-2</a>). Compares designs via their efficiency, and D-augments any design with a controlled efficiency. An efficient rounding function has been provided to transform approximate designs to exact designs. <em>mynotes</em></p>
+</blockquote>
+</section>
+<section id="redamor-relational-data-modeler" class="level3">
+<h3 class="anchored" data-anchor-id="redamor-relational-data-modeler"><strong>ReDaMoR: Relational Data Modeler</strong></h3>
+<p><em>tags</em>: #database #relational #data<br>
+[cran package link] <a href="https://cran.r-project.org/package=ReDaMoR" class="uri">https://cran.r-project.org/package=ReDaMoR</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>The aim of this package is to manipulate relational data models in R. It provides functions to create, modify and export data models in json format. It also allows importing models created with ‘MySQL Workbench’ (<a href="https://www.mysql.com/products/workbench/" class="uri">https://www.mysql.com/products/workbench/</a>). These functions are accessible through a graphical user interface made with ‘shiny’. Constraints such as types, keys, uniqueness and mandatory fields are automatically checked and corrected when editing a model. Finally, real data can be confronted to a model to check their compatibility.</p>
+</blockquote>
+</section>
+<section id="explore-simplifies-exploratory-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="explore-simplifies-exploratory-data-analysis"><strong>explore: Simplifies Exploratory Data Analysis</strong></h3>
+<p><em>tags</em>: #graphs #visualization<br>
+[cran package link] <a href="https://cran.r-project.org/package=gridpattern" class="uri">https://cran.r-project.org/package=gridpattern</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Interactive data exploration with one line of code or use an easy to remember set of tidy functions for exploratory data analysis. Introduces three main verbs. explore() to graphically explore a variable or table, describe() to describe a variable or table and report() to create an automated report.</p>
+</blockquote>
+</section>
+<section id="esquisse-explore-and-visualize-your-data-interactivelly" class="level3">
+<h3 class="anchored" data-anchor-id="esquisse-explore-and-visualize-your-data-interactivelly"><strong>esquisse: Explore and Visualize Your Data Interactivelly</strong></h3>
+<p><em>tags</em>: #visualization #interactive<br>
+[cran package link] <a href="https://cran.r-project.org/package=esquisse" class="uri">https://cran.r-project.org/package=esquisse</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A ‘shiny’ gadget to create ‘ggplot2’ figures interactively with drag-and-drop to map your variables to different aesthetics. You can quickly visualize your data accordingly to their type, export in various formats, and retrieve the code to reproduce the plot.</p>
+</blockquote>
+</section>
+<section id="plfma-a-gui-to-view-design-and-export-various-graphs-of-data" class="level3">
+<h3 class="anchored" data-anchor-id="plfma-a-gui-to-view-design-and-export-various-graphs-of-data"><strong>plfMA: A GUI to View, Design and Export Various Graphs of Data</strong></h3>
+<p><em>tags</em>: #visualization #GUI<br>
+[cran package link] <a href="http://cran.stat.unipd.it/package=plfMA" class="uri">http://cran.stat.unipd.it/package=plfMA</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides a graphical user interface for viewing and designing various types of graphs of the data. The graphs can be saved in different formats of an image.</p>
+</blockquote>
+</section>
+<section id="datasets.load-interfaces-for-loading-datasets" class="level3">
+<h3 class="anchored" data-anchor-id="datasets.load-interfaces-for-loading-datasets"><strong>datasets.load: Interfaces for Loading Datasets</strong></h3>
+<p><em>tags</em>: #visualization #interactive<br>
+[cran package link] <a href="https://cran.r-project.org/packages/datasets.load/index.html" class="uri">https://cran.r-project.org/packages/datasets.load/index.html</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Visual interface for loading datasets in RStudio from all installed (including unloaded) packages, also includes command line interfaces.</p>
+</blockquote>
+</section>
+<section id="loon.shiny-automatically-create-a-shiny-app-based-on-interactive-loon-widgets" class="level3">
+<h3 class="anchored" data-anchor-id="loon.shiny-automatically-create-a-shiny-app-based-on-interactive-loon-widgets"><strong>loon.shiny: Automatically Create a ‘Shiny’ App Based on Interactive ‘Loon’ Widgets</strong></h3>
+<p><em>tags</em>: #data analysis<br>
+[cran package link] <a href="https://cran.r-project.org/package=loon.shiny" class="uri">https://cran.r-project.org/package=loon.shiny</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Package ‘shiny’ provides interactive web applications in R. Package ‘loon’ is an interactive toolkit engaged in open-ended, creative and unscripted data exploration. The ‘loon.shiny’ package can take ‘loon’ widgets and display a selfsame ‘shiny’ app.</p>
+</blockquote>
+</section>
+<section id="loon-interactive-statistical-data-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="loon-interactive-statistical-data-visualization"><strong>loon: Interactive Statistical Data Visualization</strong></h3>
+<p><em>tags</em>: #plot #data analysis<br>
+[cran package link] <a href="https://cran.r-project.org//package=loon" class="uri">https://cran.r-project.org//package=loon</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>An extendable toolkit for interactive data visualization and exploration.</p>
+</blockquote>
+</section>
+<section id="rio-a-swiss-army-knife-for-data-io" class="level3">
+<h3 class="anchored" data-anchor-id="rio-a-swiss-army-knife-for-data-io"><strong>rio: A Swiss-Army Knife for Data I/O</strong></h3>
+<p><em>tags</em>: #data input<br>
+[cran package link] <a href="https://cran.r-project.org/package=rio" class="uri">https://cran.r-project.org/package=rio</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Streamlined data import and export by making assumptions that the user is probably willing to make: ‘import()’ and ‘export()’ determine the data structure from the file extension, reasonable defaults are used for data import and export (e.g., ‘stringsAsFactors=FALSE’), web-based import is natively supported (including from SSL/HTTPS), compressed files can be read directly without explicit decompression, and fast import packages are used where appropriate. An additional convenience function, ‘convert()’, provides a simple method for converting between file types.</p>
+</blockquote>
+</section>
+<section id="tabxplor-user-friendly-tables-with-color-helpers-for-data-exploration" class="level3">
+<h3 class="anchored" data-anchor-id="tabxplor-user-friendly-tables-with-color-helpers-for-data-exploration"><strong>tabxplor: User-Friendly Tables with Color Helpers for Data Exploration</strong></h3>
+<p><em>tags</em>: #plots #tables<br>
+[cran package link] <a href="https://cran.r-project.org/package=tabxplor" class="uri">https://cran.r-project.org/package=tabxplor</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Make it easy to deal with multiple cross-tables in data exploration, by creating them, manipulating them, and adding color helpers to highlight important informations. All functions are “tidy”, pipe-friendly, and render data frames which can be easily manipulated. Tables can be exported to Excel and in html with formats and colors.</p>
+</blockquote>
+</section>
+<section id="groupdata2-creating-groups-from-data" class="level3">
+<h3 class="anchored" data-anchor-id="groupdata2-creating-groups-from-data"><strong>groupdata2: Creating Groups from Data</strong></h3>
+<p><em>tags</em>: #tables #data<br>
+[cran package link] <a href="https://cran.r-project.org//package=groupdata2" class="uri">https://cran.r-project.org//package=groupdata2</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>hods for dividing data into groups. Create balanced partitions and cross-validation folds. Perform time series windowing and general grouping and splitting of data. Balance existing groups with up- and downsampling or collapse them to fewer groups.</p>
+</blockquote>
+</section>
+<section id="conjurer-a-parametric-method-for-generating-synthetic-data" class="level3">
+<h3 class="anchored" data-anchor-id="conjurer-a-parametric-method-for-generating-synthetic-data"><strong>conjurer: A Parametric Method for Generating Synthetic Data</strong></h3>
+<p><em>tags</em>: #plot #colors<br>
+[cran package link] <a href="https://cran.r-project.org//package=conjurer" class="uri">https://cran.r-project.org//package=conjurer</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Builds synthetic data applicable across multiple domains. This package also provides flexibility to control data distribution to make it relevant to many industry examples</p>
+</blockquote>
+</section>
+<section id="owidr-a-package-for-importing-data-from-our-world-in-data" class="level3">
+<h3 class="anchored" data-anchor-id="owidr-a-package-for-importing-data-from-our-world-in-data"><strong>owidR: A Package for Importing Data from Our World in Data</strong></h3>
+<p><em>tags</em>: #data #statistics<br>
+[cran package link] <a href="https://cran.r-project.org/package=owidR" class="uri">https://cran.r-project.org/package=owidR</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Scrapes data from the Our World in Data website to offer easy to use functions for searching for datasets and downloading them into R.</p>
+</blockquote>
+</section>
+<section id="tidycharts-generate-tidy-charts-inspired-by-ibcs" class="level3">
+<h3 class="anchored" data-anchor-id="tidycharts-generate-tidy-charts-inspired-by-ibcs"><strong>tidycharts: Generate Tidy Charts Inspired by ‘IBCS’</strong></h3>
+<p><em>tags</em>: #plots [cran package link] <a href="https://cran.r-project.org/package=tidycharts" class="uri">https://cran.r-project.org/package=tidycharts</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>There is a wide range of R packages created for data visualization, but still, there was no simple and easily accessible way to create clean and transparent charts - up to now. The ‘tidycharts’ package enables the user to generate charts compliant with International Business Communication Standards (‘IBCS’). It means unified bar widths, colors, chart sizes, etc. Creating homogeneous reports has never been that easy! Additionally, users can apply semantic notation to indicate different data scenarios (plan, budget, forecast). What’s more, it is possible to customize the charts by creating a personal color pallet with the possibility of switching to default options after the experiments. We wanted the package to be helpful in writing reports, so we also made joining charts in a one, clear image possible. All charts are generated in SVG format and can be shown in the ‘RStudio’ viewer pane or exported to HTML output of ‘knitr’/‘markdown’.</p>
+</blockquote>
+</section>
+</section>
+<section id="extra" class="level2">
+<h2 class="anchored" data-anchor-id="extra">EXTRA</h2>
+<section id="tidydice-simulates-rolling-a-dice-and-flipping-a-coin" class="level3">
+<h3 class="anchored" data-anchor-id="tidydice-simulates-rolling-a-dice-and-flipping-a-coin"><strong>tidydice: simulates rolling a dice and flipping a coin</strong></h3>
+<p><em>tags</em>: #teaching #fun<br>
+[cran package link] <a href="https://cran.r-project.org//package=tidydice" class="uri">https://cran.r-project.org//package=tidydice</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>This package simulates rolling a dice and flipping a coin. Each experiment generates a tibble. Dice rolls and coin flips are simulated using sample(). The properties of the dice can be changed, like the number of sides. A coin flip is simulated using a two sided dice. Experiments can be combined with the pipe-operator.</p>
+</blockquote>
+</section>
+<section id="tilingpolygon-tiling-examples" class="level3">
+<h3 class="anchored" data-anchor-id="tilingpolygon-tiling-examples"><strong>tiling:Polygon Tiling Examples</strong></h3>
+<p><em>tags</em>: #arts #fun<br>
+[cran package link] <a href="https://cran.rstudio.com/web/package=gridpattern" class="uri">https://cran.rstudio.com/web/package=gridpattern</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Several uniform regular polygon tiling patterns can be achieved by use of grid.pattern_regular_polygon() plus occasionally grid.polygon() to set a background color. This vignette highlights several such tiling patterns plus a couple notable non-uniform tiling patterns.</p>
+</blockquote>
+</section>
+<section id="lingtypology-linguistic-typology-and-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="lingtypology-linguistic-typology-and-mapping"><strong>lingtypology: Linguistic Typology and Mapping</strong></h3>
+<p><em>tags</em>: #llinguisic mapping<br>
+[cran package link] <a href="https://cran.r-project.org/package=lingtypology" class="uri">https://cran.r-project.org/package=lingtypology</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides R with the Glottolog database <a href="https://glottolog.org/" class="uri">https://glottolog.org/</a> and some more abilities for purposes of linguistic mapping. The Glottolog database contains the catalogue of languages of the world. This package helps researchers to make a linguistic maps, using philosophy of the Cross-Linguistic Linked Data project <a href="https://clld.org/" class="uri">https://clld.org/</a>, which allows for while at the same time facilitating uniform access to the data across publications. A tutorial for this package is available on GitHub pages <a href="https://docs.ropensci.org/lingtypology/" class="uri">https://docs.ropensci.org/lingtypology/</a> and package vignette. Maps created by this package can be used both for the investigation and linguistic teaching. In addition, package provides an ability to download data from typological databases such as WALS, AUTOTYP and some others and to create your own database website.</p>
+</blockquote>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
