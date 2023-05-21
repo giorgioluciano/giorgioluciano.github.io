@@ -1,12 +1,34 @@
 ---
-title: "Fun with data"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  sort-ui: false
-  filter-ui: false
+title: "Giorgio's pages"
+image: headshot.jpg
+about:
+  template: trestles
+  image-shape: round
+  image-width: 23em
+  links:
+    - text: Github
+      href: https://github.com/giorgioluciano
+    - text: Twitter
+      href: https://twitter.com/giorgioluciano
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/giorgioluciano/
+    - text: Instagram
+      href: https://www.instagram.com/giorgioluciano5477/
+    - text: Behance
+      href: https://www.behance.net/giorgioluciano
+
 page-layout: full
 title-block-banner: true
 ---
+
+## About this blog
+
+I got a Ph.D in materials science and I'm a researcher with a variety of interests. I currently works as a researcher at the Italian National Council of Research (CNR) on topics related to the characterization and development of new materials.My interests also focus on lighting and rendering and creating scientific illustration. Here you will find my spaghetti code tutorials, blend files and other doodles
+
+### Code
+
+<https://github.com/giorgioluciano>
+
+### CrystalNodes
+
+<https://github.com/giorgioluciano/CrystalNodes>

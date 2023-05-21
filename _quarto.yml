@@ -2,16 +2,27 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "R, Python, Data and Spaghetti code"
+  title: "Spaghetti code"
   navbar:
+    left: 
+      - text: Code
+        file: listing.qmd
+      - text: CrystalNodes  
+        href: https://github.com/giorgioluciano/CrystalNodes
     right:
-      - about.qmd
       - icon: github
         href: https://github.com/giorgioluciano
       - icon: twitter
         href: https://twitter.com/giorgioluciano
       - icon: linkedin
-        href: https://github.com/giorgioluciano  
+        href: https://www.linkedin.com/in/giorgioluciano/
+      - icon: instagram
+        href: https://www.instagram.com/giorgioluciano5477/
+      - icon: behance
+        href: https://www.behance.net/giorgioluciano
+      - icon: stickies
+        href: https://www.giorgioluciano.co.place
+        
 format:
   html:
     theme: simplex
