@@ -31,4 +31,4 @@ I got a Ph.D in materials science and I'm a researcher with a variety of interes
 
 ### CrystalNodes
 
-<https://github.com/giorgioluciano/CrystalNodes>
+<https://giorgioluciano.github.io/CrystalNodes/>
