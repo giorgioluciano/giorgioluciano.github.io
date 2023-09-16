@@ -1,0 +1,259 @@
+---
+title: "Anscombe's Quartet"
+author: "Giorgio Luciano"
+date: "2023-09-16"
+categories: 
+  - R
+  - Fun
+---
+
+**Exploring Anscombe's Quartet with R, ggplot2, and Custom Functions**
+
+Anscombe's Quartet, known as the "Anscombe's Test," consists of four datasets with very similar descriptive statistics but visually distinct characteristics. These quartets serve as an enlightening example of the importance of visualizing data before drawing conclusions.
+
+In this post, we will delve into how to calculate and visualize Anscombe's Quartet using R and the powerful ggplot2 library. We'll also use custom functions to generate these quartets and analyze them.
+
+### **Introduction**
+
+Anscombe's Quartet was created by the statistician Francis Anscombe in 1973 to underscore the importance of data visualization before analysis. Despite having similar statistics, these datasets exhibit significantly different visual behaviors. Let's see how R and ggplot2 help us explore them.
+
+### **Setting Up the Environment**
+
+To get started, we need to load some libraries:
+
+```{r}
+
+library(data.table)
+library(ggplot2)
+library(patchwork)
+
+```
+
+### **Understanding Anscombe's Quartet**
+
+Anscombe's Quartet comprises four datasets, each with 11 data points. Here's a brief overview of the quartet:
+
+-   **Dataset 1:** A straightforward linear relationship between X and Y.
+
+-   **Dataset 2:** A linear relationship with an outlier.
+
+-   **Dataset 3:** A linear relationship with one point substantially different from the others.
+
+-   **Dataset 4:** A non-linear relationship.
+
+(see [Rpubs](https://rpubs.com/dgrtwo/tidy-anscombe) page)
+
+```{r}
+library(datasets)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+datasets::anscombe
+summary(anscombe)
+
+anscombe_tidy <- anscombe %>%
+    mutate(observation = seq_len(n())) %>%
+    gather(key, value, -observation) %>%
+    separate(key, c("variable", "set"), 1, convert = TRUE) %>%
+    mutate(set = c("I", "II", "III", "IV")[set]) %>%
+    spread(variable, value)
+
+head(anscombe_tidy)
+
+ggplot(anscombe_tidy, aes(x, y)) +
+    geom_point() +
+    facet_wrap(~ set) +
+    geom_smooth(method = "lm", se = FALSE)
+
+
+```
+
+### **Visualizing the Quartet**
+
+Now, let's integrate your custom R code and examples to generate and visualize Anscombe's Quartet:
+
+```{r}
+
+library(vtable)
+library(kableExtra)
+library(patchwork)
+
+
+# Note: Function to generate Anscombe's Quartet datasets for x2 we need a trick that can be also improved but for now as a brutal approx works
+
+
+plotreg <- function(df) {
+  formula <- y ~ x
+  
+  ggplot(df, aes(x = x, y = y)) +
+    geom_point(aes(size = 1), alpha = 0.3) +
+    geom_smooth(method = "lm", formula = formula, se = TRUE) +
+    coord_cartesian(xlim = c(4, 19), ylim = c(4, 14)) +  # Imposta i limiti di x e y
+    theme_light(base_size = 10) +
+    theme(legend.position = "none")
+}
+
+generate_noisy_points <- function(x, y, noise_level = 0.1) {
+  n <- length(x)
+  
+  # Generate random noise for x and y separately
+  noise_x <- rnorm(n, mean = 0, sd = noise_level)
+  noise_y <- rnorm(n, mean = 0, sd = noise_level)
+  
+  # Ensure that the sum of noise on x and y is approximately zero
+  noise_x <- noise_x - mean(noise_x)
+  noise_y <- noise_y - mean(noise_y)
+  
+  # Add noise to the original data
+  x_noisy <- x + noise_x
+  y_noisy <- y + noise_y
+  
+  return(data.frame(x = x_noisy, y = y_noisy))
+}
+
+# Function to generate approximated points with an option to add noise
+generate_approximated_points <- function(n, x, y, noise_level = 0) {
+  # Create a new interpolation based on the original data
+  interpolated_values <- approx(x, y, xout = seq(min(x), max(x), length.out = n))
+  
+  # Extract the interpolated points
+  x_interp <- interpolated_values$x
+  y_interp <- interpolated_values$y
+  
+  # Add noise if needed
+  if (noise_level > 0) {
+    noise <- rnorm(n, mean = 0, sd = noise_level)
+    x_interp <- x_interp + noise
+    y_interp <- y_interp + noise
+  }
+  
+  # Return the approximated points
+  return(data.frame(x = x_interp, y = y_interp))
+}
+
+
+multians <- function(npoints = 11, anscombe) {
+  x1 <- anscombe$x1
+  x2 <- anscombe$x2
+  x3 <- anscombe$x3
+  x4 <- anscombe$x4
+  y1 <- anscombe$y1
+  y2 <- anscombe$y2
+  y3 <- anscombe$y3
+  y4 <- anscombe$y4
+
+  ## Generate Quartet 1 ##
+  x_selected <- c(x1[2], x1[4], x1[11])
+  y_selected <- c(y1[2], y1[4], y1[11])
+
+  # Calculate the linear regression
+  linear_model <- lm(y_selected ~ x_selected)
+
+  # Extract coefficients of the line
+  intercept <- coef(linear_model)[1]
+  slope <- coef(linear_model)[2]
+
+  # Create a sinusoidal curve above or below the line
+  x_sin <- seq(min(x1), max(x1), length.out = npoints)  # x range for the sinusoid
+  amplitude <- 1  # Amplitude of the sinusoid
+  frequency <- 4  # Frequency of the sinusoid
+  phase <- pi / 2  # Phase of the sinusoid (for rotation)
+  sinusoid <- amplitude * sin(2 * pi * frequency * (x_sin - min(x1)) / (max(x1) - min(x1)) + phase)
+
+  # Generate points above or below the line
+  y_sin <- slope * x_sin + intercept + sinusoid
+  df1 <- data.frame(x = x_sin, y = y_sin)
+
+  ## Generate Quartet 2 ##
+  n_points_approximated <- npoints
+  noise_level <- 0.1
+
+  # Generate approximated points
+  approximated_points <- generate_approximated_points(n_points_approximated, x2, y2, noise_level = 0.1)
+
+  # Add noise to the approximated points
+  noisy_approximated_points <- generate_noisy_points(approximated_points$x, approximated_points$y, noise_level)
+
+  # Now, you have noisy approximated points in df2
+  df2 <- data.frame(x = noisy_approximated_points$x, y = noisy_approximated_points$y)
+
+  ## Generate Quartet 3 ##
+  lm_model <- lm(y3 ~ x3, subset = -c(3))
+  x_generated <- seq(min(x3), max(x3), length.out = npoints)
+  y_generated <- predict(lm_model, newdata = data.frame(x3 = x_generated))
+
+  x_outlier <- 13
+  y_outlier <- 12.74
+  x_generated <- c(x_generated, x_outlier)
+  y_generated <- c(y_generated, y_outlier)
+
+  df3 <- data.frame(x = x_generated, y = y_generated)
+
+  ## Generate Quartet 4 ##
+  
+  y4[9]
+  x <- c(rep(min(x4),npoints))
+  y <- c(seq(min(y4[-8]), max(y4[-8]), length.out = (npoints)))
+  x_new = c(x,x4[8])
+  y_new = c(y,y4[8])
+  df4 <- data.frame(x = x_new, y = y_new)
+
+  return(list(df1 = df1, df2 = df2, df3 = df3, df4 = df4))
+}
+
+
+
+# Generate and plot Quartet 1
+t1 <- multians(33,anscombe)
+
+p1 <- plotreg(t1$df1)
+p3 <- plotreg(t1$df3)
+p4 <- plotreg(t1$df4)
+p2 <- plotreg(t1$df2)
+
+(p1 | p2) / (p3 | p4)
+
+
+
+# Example of eight summaries (replace them with your own)
+summary1 <- st(t1$df1)
+summary5 <- st(data.frame(anscombe$x1,anscombe$y1))
+
+summary2 <- st(t1$df2)
+summary6 <- st(data.frame(anscombe$x2,anscombe$y2))
+
+summary3 <- st(t1$df3)
+summary7 <- st(data.frame(anscombe$x3,anscombe$y3))
+
+summary4 <- st(t1$df4)
+summary8 <- st(data.frame(anscombe$x4,anscombe$y4))
+
+
+summary1 
+summary5 
+
+summary2 
+summary6 
+
+summary3
+summary7 
+
+summary4 
+summary8
+
+
+
+
+
+
+
+
+
+```
+
+
+
+
+### **Conclusion**
+
+Anscombe's Quartet is a powerful reminder that descriptive statistics alone may not reveal the complete story of your data. Visualization is a crucial tool in data analysis, helping you uncover patterns, outliers, and unexpected relationships that numbers alone might miss. Still to do second figure

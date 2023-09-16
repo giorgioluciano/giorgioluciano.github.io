@@ -12,6 +12,9 @@
   {
     "listing": "/listing.html",
     "items": [
+      "/posts/Art2/index.html",
+      "/posts/Art1/Visualization.html",
+      "/posts/Tip05/Using Shiny Modules with Namespaces.html",
       "/posts/Packages Review 2022/index.html",
       "/posts/Tip01/index.html",
       "/posts/Tip02/index.html",

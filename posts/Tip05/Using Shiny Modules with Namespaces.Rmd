@@ -1,0 +1,63 @@
+---
+title: "Namespaces in shiny: Why you need them"
+author: "Giorgio Luciano and ChatGPT"
+date: "2023-09-16"
+categories: 
+  - R
+  - tutorials
+  - ggplot
+  - shiny
+  - tutorials
+---
+
+*This is the first in a series of tips/tutorials that would have been incredibly helpful to me before writing certain R scripts. Thanks to CHATGPT and the minimal time it takes to organize and transform them into blog posts, I've decided to save and write them in this format to keep them on record*
+
+In Shiny, when you create modules, it's essential to use namespaces (`NS`) to ensure that each module instance has unique IDs for its input and output elements. This prevents conflicts and unexpected behavior when working with multiple module instances.
+
+## Without Using Namespaces (Not Recommended)
+
+Let's start with an example where we create two instances of the same module without using namespaces:
+
+```{r, eval=FALSE}
+library(shiny)
+
+my_module <- function(id) {
+  tagList(
+    textInput(inputId = "text_input", label = "Enter text:"),
+    actionButton(inputId = "action_button", label = "Click me")
+  )
+}
+
+ui <- fluidPage(
+  my_module("module_1"),
+  my_module("module_2")
+)
+```
+
+In this example, both module_1 and module_2 share the same IDs for input elements (text_input and action_button). If we interact with one module, it will affect the other module as well, leading to unexpected behavior.
+
+##  Using Namespaces (Recommended) ## 
+Now, let's use namespaces to create unique IDs for each module instance:
+
+
+```{r, eval=FALSE}
+library(shiny)
+
+my_module <- function(id) {
+  ns <- NS(id)
+  tagList(
+    textInput(inputId = ns("text_input"), label = "Enter text:"),
+    actionButton(inputId = ns("action_button"), label = "Click me")
+  )
+}
+
+ui <- fluidPage(
+  my_module("module_1"),
+  my_module("module_2")
+)
+```
+
+In this example, we use NS to generate unique namespaces for each module instance (module_1 and module_2). As a result, the input element IDs are unique between instances, ensuring that interactions within one module do not affect the other module.
+
+### Conclusion
+When creating Shiny modules, it's highly recommended to use namespaces (NS) to prevent ID conflicts between module instances. This practice ensures that each module operates independently and avoids unexpected behavior when working with multiple modules in your Shiny app.
