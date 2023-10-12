@@ -1,0 +1,16 @@
+{
+  "hash": "7d8edca7c49552a725092d01b31f4ca7",
+  "result": {
+    "markdown": "---\ntitle: \"Dice Rolls in shiny\"\nauthor: \"Giorgio Luciano and ChatGPT\"\ndate: \"2023-10-12\"\ncategories: \n  - R\n  - fun\n  - Monty Hall problem\n---\n\n\n# Introduction\n\nIn this post, we'll explore how to create a simple Shiny app that simulates dice rolls and displays the statistics of the results. Shiny is a powerful R package that allows you to build interactive web applications. We'll use it to create a fun and interactive dice roll simulator.\n\n# Getting Started\n\nTo get started, you'll need to install the Shiny package if you haven't already. You can do this with the following command:\n\n\n::: {.cell}\n\n```{.r .cell-code}\ninstall.packages(\"shiny\")\nlibrary(shiny)\n\n# Define the user interface (UI)\nui <- fluidPage(\n  titlePanel(\"Dice Roll Simulator\"),\n  mainPanel(\n    actionButton(\"roll\", \"Roll Dice\"),\n    verbatimTextOutput(\"result\"),\n    plotOutput(\"dice_plot\")\n  )\n)\n```\n:::\n\n\n#Creating the App Logic\nNow, let's define the logic of our Shiny app. We'll keep track of the results of the dice rolls and update the statistics. We'll use reactive values to store the data.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(shiny)\n\n# Define the user interface (UI)\nui <- fluidPage(\n  titlePanel(\"Dice Roll Simulator\"),\n  mainPanel(\n    actionButton(\"roll\", \"Roll Dice\"),\n    verbatimTextOutput(\"result\"),\n    plotOutput(\"dice_plot\")\n  )\n)\nserver <- function(input, output) {\n  dice_rolls <- reactiveVal(integer(0))\n  \n  observeEvent(input$roll, {\n    result1 <- sample(1:6, 1, replace = TRUE)\n    result2 <- sample(1:6, 1, replace = TRUE)\n    dice_rolls(c(dice_rolls(), result1 + result2))\n  })\n  \n  output$result <- renderText({\n    latest_roll <- tail(dice_rolls(), 1)\n    if (is.null(latest_roll)) {\n      \"Press 'Roll Dice' to start.\"\n    } else {\n      paste(\"Latest roll result: \", latest_roll)\n    }\n  })\n  \n  output$dice_plot <- renderPlot({\n    if (length(dice_rolls()) > 0) {\n      dice_counts <- table(dice_rolls())\n      barplot(dice_counts, main = \"Dice Roll Statistics\", xlab = \"Result\", ylab = \"Count\", col = \"blue\")\n    }\n  })\n}\n\nshinyApp(ui, server)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\n\nListening on http://127.0.0.1:7742\n```\n:::\n\n::: {.cell-output-display}\n![](Dice-rolls-in-shiny_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n\n#Conclusion\n\nWith just a few lines of code, we've created an interactive dice roll simulator using Shiny. You can further customize the app, add more features, and change the appearance to suit your preferences. Shiny makes it easy to build web applications for data visualization and interactivity.\n\n",
+    "supporting": [
+      "Dice-rolls-in-shiny_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -14,6 +14,8 @@
     "items": [
       "/posts/Art2/index.html",
       "/posts/Art1/Visualization.html",
+      "/posts/diceRolls/Dice rolls in shiny.html",
+      "/posts/montyHall/Monty Hall.html",
       "/posts/Tip05/Using Shiny Modules with Namespaces.html",
       "/posts/Packages Review 2022/index.html",
       "/posts/Tip01/index.html",
