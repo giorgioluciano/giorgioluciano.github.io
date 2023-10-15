@@ -77,7 +77,7 @@ shinyApp(ui, server)
 
 ```
 
-#Conclusion
+# Conclusion
 
 With just a few lines of code, we've created an interactive dice roll simulator using Shiny. You can further customize the app, add more features, and change the appearance to suit your preferences. Shiny makes it easy to build web applications for data visualization and interactivity.
 
