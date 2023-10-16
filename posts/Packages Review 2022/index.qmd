@@ -7,8 +7,6 @@ categories:
   - packages
 ---
 
-**Summary**
-
 1.  List of packages I've found useful in my workflow during 2022 (in no particular order)
 
 ## Plot
