@@ -31,7 +31,7 @@ require(patchwork)
 Create a Mondrian and save it
 
 ```{r,fig.width = 2, fig.height = 2}
-set.seed(23)
+set.seed(34)
 Composition_10 <- canvas_squares(colors = colorPalette("boogy2"))
 saveCanvas(Composition_10 , filename = "Mondrian.png")
 Composition_10 
