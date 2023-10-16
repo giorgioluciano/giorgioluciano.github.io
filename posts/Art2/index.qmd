@@ -7,7 +7,7 @@ categories:
   - Fun
 ---
 
-**Exploring Anscombe's Quartet with R, ggplot2, and Custom Functions**
+### **Exploring Anscombe's Quartet with R, ggplot2, and Custom Functions**
 
 Anscombe's Quartet, known as the "Anscombe's Test," consists of four datasets with very similar descriptive statistics but visually distinct characteristics. These quartets serve as an enlightening example of the importance of visualizing data before drawing conclusions.
 
@@ -250,8 +250,6 @@ summary8
 
 
 ```
-
-
 
 
 ### **Conclusion**
