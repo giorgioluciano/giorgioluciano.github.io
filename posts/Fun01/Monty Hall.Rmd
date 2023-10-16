@@ -16,8 +16,6 @@ bibliography: references.bib
 5. Using R, a simulation with 10,000 scenarios is conducted, revealing that the win percentage is typically higher when switching doors in the Monty Hall problem.
 
 
-The Monty Hall problem, a famous probability puzzle, is introduced. The scenario involves a game show contestant choosing one door out of three, with one hiding a car and the others concealing goats. The host, Monty Hall, who knows what's behind each door, opens one of the remaining two doors to reveal a goat. The contestant must decide whether to stick with their initial choice or switch to the unopened door to maximize their chances of winning the car. Using R, a simulation with 10,000 scenarios is conducted, revealing that the win percentage is typically higher when switching doors in the Monty Hall problem.
-
 The Monty Hall problem is a famous probability puzzle. In this scenario, a contestant on a game show is presented with three doors. Behind one door, there is a car, while behind the other two, there are goats. The contestant chooses one door, and then the host, Monty Hall, who knows what is behind each door, opens one of the remaining two doors to reveal a goat.
 
 The contestant is then faced with a choice: stick with their initial choice or switch to the other unopened door. What should the contestant do to maximize their chances of winning the car?

@@ -1,5 +1,5 @@
 ---
-title: "Dice Rolls in shiny"
+title: "Central Limit Theorem with Dice Rolls"
 author: "Giorgio Luciano and ChatGPT"
 date: "2023-10-12"
 categories: 
