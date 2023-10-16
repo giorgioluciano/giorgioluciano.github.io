@@ -1,0 +1,79 @@
+---
+title: "Dice Rolls in shiny"
+author: "Giorgio Luciano and ChatGPT"
+date: "2023-10-12"
+categories: 
+  - R
+  - fun
+  - Dice
+---
+
+# **Title: Unveiling the Central Limit Theorem with Dice Rolls**
+
+**Summary:**
+
+1.  Dice rolls offer a fascinating insight into probability, especially when it comes to the sum of multiple dice rolls.
+
+2.  The Central Limit Theorem states that as the number of dice rolls increases, the distribution of sums approaches the Gaussian distribution.
+
+3.  In this blog post, we explore this intriguing concept, conduct real-world dice rolls, and use R to visualize the transformation from dice sums to Gaussian distribution.
+
+**Introduction:**
+
+Dice rolling is a pastime enjoyed by many, whether in board games or games of chance. But have you ever wondered how the sum of multiple dice rolls behaves when you roll them repeatedly? In this blog post, we embark on a journey into the world of dice rolls and the fascinating Central Limit Theorem. We'll uncover how the sum of dice rolls can transform into a Gaussian distribution as the number of rolls increases.
+
+**Understanding Dice Rolls:**
+
+To fully grasp how the sum of dice rolls approaches a Gaussian distribution, let's start with an overview of dice rolls. Imagine rolling a standard six-sided die, the kind commonly found in board games. Each roll yields a number between 1 and 6, with each outcome equally likely at 1/6.
+
+Now, what happens when we roll two dice and sum the results? In this scenario, the range of possible sums expands. You could obtain a sum of 2 (when both dice show 1) or a sum of 12 (when both dice display 6), with all possible combinations in between. For instance, you could achieve a sum of 7 when one die shows 3 and the other shows 4, or a sum of 4 when one die shows 2 and the other shows 2.
+
+Visualizing the sum of two dice rolls can be done using a bar chart. Notably, there are many more possible combinations resulting in a sum of 7 compared to combinations yielding sums of 2 or 12. This creates a triangular distribution, with a central peak at the most likely sum (in the case of two dice, that's 7) and tails tapering off as you move away from the peak.
+
+However, this triangular distribution will change as we increase the number of dice rolled and the total number of rolls. By continuing with our simulation, we will witness how this distribution transforms into a Gaussian distribution as we increase the value of n, as predicted by the Central Limit Theorem.
+
+Stay with us as we explore this phenomenon through a practical simulation and visualize the results using R.
+
+**Simulation and Visualization:**
+
+Let's see the theory in action. We'll use R to simulate multiple dice rolls and visualize how the distribution changes with an increasing value of n.
+
+```{r}
+# Load the necessary library
+library(ggplot2)
+
+# Number of dice rolls and number of dice
+n_rolls <- 10000
+n_dice <- c(2, 3, 4, 5, 6, 7,8,9, 10, 20, 50, 100)  # You can add more values
+
+# Function to simulate dice rolls and calculate the sum
+simulate_dice_rolls <- function(n_rolls, n_dice) {
+  results <- replicate(n_rolls, sum(sample(1:6, n_dice, replace = TRUE)))
+  return(results)
+}
+
+# Simulate dice rolls for various values of n_dice
+results_list <- lapply(n_dice, function(n) simulate_dice_rolls(n_rolls, n))
+
+# Create a data frame to store the results
+results_df <- data.frame(N_Dice = rep(n_dice, each = n_rolls), Sum = unlist(results_list))
+
+# Create a histogram to visualize the distributions
+p <- ggplot(results_df, aes(x = Sum)) +
+  geom_histogram(binwidth = 1, fill = "blue", color = "black") +
+  facet_wrap(~N_Dice, scales = "free") +
+  labs(title = "Sum of Dice Rolls vs. Number of Dice",
+       x = "Sum of Dice Rolls",
+       y = "Frequency")
+
+print(p)
+
+```
+
+**Conclusion:**
+
+In conclusion, the Central Limit Theorem offers an intriguing insight into the behavior of dice rolls. As we roll dice more and more times and sum the results, the distribution of the sums converges towards a Gaussian distribution, defying the original distribution of the dice rolls. This exemplifies the power and predictability of probability theory.
+
+Dice, which often symbolize chance and unpredictability, paradoxically adhere to mathematical order described by the Central Limit Theorem. It's yet another testament to how mathematics unveils hidden patterns in our everyday experiences.
+
+By understanding this phenomenon, we can better predict the outcomes of random events, whether in games of chance or in statistical analysis. The world of dice, in its apparent chaos, unveils the beauty of order through the Central Limit Theorem.
