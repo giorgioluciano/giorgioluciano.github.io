@@ -9,7 +9,7 @@
 <meta name="author" content="Giorgio Luciano">
 <meta name="dcterms.date" content="2023-03-04">
 
-<title>Spaghetti code - Tip 3: Functions for simulating data</title>
+<title>Spaghetti code - Snippet #3: Functions for simulating data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Tip 3: Functions for simulating data</h1>
+      <h1 class="title">Snippet #3: Functions for simulating data</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">R</div>
                 <div class="quarto-category">tutorials</div>
@@ -207,7 +207,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p><strong>Summary</strong></p>
 <ol type="1">
 <li>Example of creating variables using <code>runif</code> and <code>rnorm</code></li>
 <li>Writing a function that wraps all</li>
@@ -254,9 +253,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dataset1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   id       X1       X2
-1:  1 204.3145 178.4421
-2:  2 199.1834 171.2649
-3:  3 199.9155 178.7384</code></pre>
+1:  1 197.2499 176.9268
+2:  2 201.0947 175.0347
+3:  3 198.1961 184.9286</code></pre>
 </div>
 </div>
 <p>Example 2: this time we combine <code>runif</code> and <code>simpleDataset</code>. We simulate the values of the LDL cholesterol of <em>5</em> patients in <em>7</em> different times. The values for each patient are between a <em>min = 100</em> and a <em>max = 150</em> with a standard deviation between a min sd = 10 and max sd = 40. We also simulate two time that presents outliers values between a <em>min = 180</em> and <em>max = 200</em> and an <em>min sd = 10</em> and <em>max sd = 40 .</em> We merge the values for each patient (<em>7</em> times + <em>2</em> outliers times) and finally we use the function melt to reshape the dataset.</p>
@@ -270,20 +269,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>dat1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   id        X1        X2       X3        X4        X5
-1:  1 117.59261 107.40190 107.0587 115.83311 117.18850
-2:  2  89.06212  99.46896 131.0495 136.37290 126.45233
-3:  3 127.03899 114.04480 162.0236 137.53429  89.50593
-4:  4 133.36898 136.26173 142.7966 125.84509 118.90806
-5:  5  83.69833 114.24400 113.8036 106.70153  97.66876
-6:  6 114.78685  87.25041 157.0341  85.15342 114.10684
-7:  7 123.53685 117.38970 131.1965 122.51675 123.38179</code></pre>
+<pre><code>   id       X1        X2        X3       X4       X5
+1:  1 172.8649  98.66170  88.60691 134.8379 148.8885
+2:  2 154.9117  85.91489 129.09432 123.2841 102.7794
+3:  3 145.1273  96.58922 143.60335 151.1538 120.6656
+4:  4 134.2817 110.59180 106.70728 115.2461 109.2245
+5:  5 134.4426 155.34022  91.02061 125.6688 131.8244
+6:  6 173.8948 186.32459 103.81598 131.6370 139.8114
+7:  7 141.6318  83.11293  57.51251 147.8778 120.7095</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>outliers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   id       X1       X2       X3       X4       X5
-1:  1 160.5410 234.0097 197.2470 150.6875 177.5027
-2:  2 120.5312 197.2437 163.1016 190.7907 188.3518</code></pre>
+1:  1 181.3909 191.1691 190.4764 163.8657 184.6266
+2:  2 165.6857 214.7239 196.4899 223.4717 214.1952</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dato     <span class="ot">&lt;-</span><span class="fu">rbind</span>(dat1,outliers) </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dt.melt <span class="ot">&lt;-</span> <span class="fu">melt</span>(dat1, <span class="at">id.vars=</span><span class="st">"id"</span>)</span>
@@ -293,41 +292,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>dt.melt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    id category      var1 ncat
- 1:  1       X1 117.59261    1
- 2:  2       X1  89.06212    1
- 3:  3       X1 127.03899    1
- 4:  4       X1 133.36898    1
- 5:  5       X1  83.69833    1
- 6:  6       X1 114.78685    1
- 7:  7       X1 123.53685    1
- 8:  1       X2 107.40190    2
- 9:  2       X2  99.46896    2
-10:  3       X2 114.04480    2
-11:  4       X2 136.26173    2
-12:  5       X2 114.24400    2
-13:  6       X2  87.25041    2
-14:  7       X2 117.38970    2
-15:  1       X3 107.05867    3
-16:  2       X3 131.04952    3
-17:  3       X3 162.02356    3
-18:  4       X3 142.79661    3
-19:  5       X3 113.80359    3
-20:  6       X3 157.03406    3
-21:  7       X3 131.19651    3
-22:  1       X4 115.83311    4
-23:  2       X4 136.37290    4
-24:  3       X4 137.53429    4
-25:  4       X4 125.84509    4
-26:  5       X4 106.70153    4
-27:  6       X4  85.15342    4
-28:  7       X4 122.51675    4
-29:  1       X5 117.18850    5
-30:  2       X5 126.45233    5
-31:  3       X5  89.50593    5
-32:  4       X5 118.90806    5
-33:  5       X5  97.66876    5
-34:  6       X5 114.10684    5
-35:  7       X5 123.38179    5
+ 1:  1       X1 172.86491    1
+ 2:  2       X1 154.91173    1
+ 3:  3       X1 145.12734    1
+ 4:  4       X1 134.28166    1
+ 5:  5       X1 134.44264    1
+ 6:  6       X1 173.89481    1
+ 7:  7       X1 141.63185    1
+ 8:  1       X2  98.66170    2
+ 9:  2       X2  85.91489    2
+10:  3       X2  96.58922    2
+11:  4       X2 110.59180    2
+12:  5       X2 155.34022    2
+13:  6       X2 186.32459    2
+14:  7       X2  83.11293    2
+15:  1       X3  88.60691    3
+16:  2       X3 129.09432    3
+17:  3       X3 143.60335    3
+18:  4       X3 106.70728    3
+19:  5       X3  91.02061    3
+20:  6       X3 103.81598    3
+21:  7       X3  57.51251    3
+22:  1       X4 134.83791    4
+23:  2       X4 123.28412    4
+24:  3       X4 151.15377    4
+25:  4       X4 115.24605    4
+26:  5       X4 125.66884    4
+27:  6       X4 131.63700    4
+28:  7       X4 147.87776    4
+29:  1       X5 148.88849    5
+30:  2       X5 102.77942    5
+31:  3       X5 120.66558    5
+32:  4       X5 109.22450    5
+33:  5       X5 131.82435    5
+34:  6       X5 139.81145    5
+35:  7       X5 120.70949    5
     id category      var1 ncat</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(dt.melt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -335,7 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Classes 'data.table' and 'data.frame':  35 obs. of  4 variables:
  $ id      : chr  "1" "2" "3" "4" ...
  $ category: Factor w/ 5 levels "X1","X2","X3",..: 1 1 1 1 1 1 1 2 2 2 ...
- $ var1    : num  117.6 89.1 127 133.4 83.7 ...
+ $ var1    : num  173 155 145 134 134 ...
  $ ncat    : num  1 1 1 1 1 1 1 2 2 2 ...
  - attr(*, ".internal.selfref")=&lt;externalptr&gt; </code></pre>
 </div>

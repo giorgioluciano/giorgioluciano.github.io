@@ -1,5 +1,5 @@
 ---
-title: "Tip 3: Functions for simulating data"
+title: "Snippet #3: Functions for simulating data"
 author: "Giorgio Luciano"
 date: "2023-03-4"
 categories: 
@@ -7,8 +7,6 @@ categories:
   - tutorials
 bibliography: references.bib
 ---
-
-**Summary**
 
 1.  Example of creating variables using `runif` and `rnorm`
 2.  Writing a function that wraps all

@@ -1,5 +1,5 @@
 ---
-title: "Tip 2: Cleaning column names of an imported csv"
+title: "Snippet #2: Cleaning column names of an imported csv"
 author: "Giorgio Luciano"
 date: "2023-02-19"
 categories: 
@@ -7,9 +7,6 @@ categories:
   - tutorials
 bibliography: references.bib
 ---
-
-**Summary**
-
 1.  Import data from a csv file
 2.  Use the function `clean_names` from [@janitor]j R function
 3.  Write a function in base using `gsub` and `regex` to tackle specific issues
