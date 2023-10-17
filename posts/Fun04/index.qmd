@@ -1,0 +1,49 @@
+---
+title: "Coins and probability"
+author: "Giorgio Luciano"
+date: "2023-09-16"
+categories: 
+  - R
+  - Fun
+bibliography: references.bib
+---
+
+```{r}
+
+# install.packages("ggplot2")
+
+library(ggplot2)
+
+
+num_simulations <- 10000
+
+
+results <- replicate(num_simulations, {
+  tosses <- replicate(6, sample(c("Heads", "Tails"), 1))
+  run <- 1
+  while (!all(tosses == tosses[1])) {
+    tosses <- c(tosses[-1], sample(c("Heads", "Tails"), 1))
+    run <- run + 1
+  }
+  run
+})
+
+df <- data.frame(X = rep(1:sqrt(num_simulations), sqrt(num_simulations)),
+                 Y = rep(1:sqrt(num_simulations), each = sqrt(num_simulations)),
+                 Run = results)
+
+
+ggplot(df, aes(x = X, y = Y, fill = Run)) +
+  geom_tile() +
+  scale_fill_gradient(low = "white", high = "lightblue") +
+  labs(title = "Number of Tosses to Get 6 Identical Tosses",
+       x = "X",
+       y = "Y") +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  coord_fixed(ratio = 1)
+
+
+ggsave("coin_toss_simulation.png", width = 10, height = 10, dpi = 100)
+
+```

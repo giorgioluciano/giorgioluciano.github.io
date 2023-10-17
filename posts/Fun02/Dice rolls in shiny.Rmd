@@ -58,7 +58,7 @@ results_df <- data.frame(N_Dice = rep(n_dice, each = n_rolls), Sum = unlist(resu
 
 # Create a histogram to visualize the distributions
 p <- ggplot(results_df, aes(x = Sum)) +
-  geom_histogram(binwidth = 1, fill = "blue", color = "black") +
+  geom_histogram(binwidth = 1, fill = "lightblue", color = "black") +
   facet_wrap(~N_Dice, scales = "free") +
   labs(title = "Sum of Dice Rolls vs. Number of Dice",
        x = "Sum of Dice Rolls",
