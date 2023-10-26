@@ -367,7 +367,7 @@ library(ggplot2)
 
 # Create a histogram to visualize the distribution of exam scores
 p3 <- ggplot(dtm[variable == "var_random"], aes(y = value, group = variable)) +
-     geom_histogram(bins = 20, fill = "skyblue", color = "black", alpha = 0.7) +
+     geom_histogram(bins = 20, fill = "lightblue", color = "black", alpha = 0.7) +
      theme_minimal() +
      labs(title = "Distribution of Exam Scores",
           x = "Scores",
@@ -527,7 +527,7 @@ p5
 
 # Create a box plot to visualize the distribution of customer ages
 p6 <- ggplot(demographics_data, aes(y = Age, x = "Age")) +
-     geom_boxplot(fill = "skyblue", color = "black", alpha = 0.7) +
+     geom_boxplot(fill = "lightblue", color = "black", alpha = 0.7) +
      theme_minimal() +
      labs(title = "Customer Age Distribution (Box Plot)",
           x = "",

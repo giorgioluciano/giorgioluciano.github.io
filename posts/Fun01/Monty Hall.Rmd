@@ -70,8 +70,9 @@ Now, let's create a more visually appealing plot to display the results:
 
 ```{r}
 library(ggplot2)
+library(ggsci)
 p <- ggplot(data.frame(Strategy = c("Switch", "Stay"), Win_Percentage = c(switch_win_percent, stay_win_percent)), aes(x = Strategy, y = Win_Percentage)) +
-  geom_bar(stat = "identity", fill = c("blue", "red")) +
+  geom_bar(stat = "identity", fill = c("lightblue", "papayawhip")) +
   labs(title = "Win Percentage in Monty Hall Problem",
        x = "Strategy",
        y = "Win Percentage (%)") +
