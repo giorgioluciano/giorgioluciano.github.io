@@ -1,6 +1,6 @@
 ---
-title: "Simulating Coin Tosses and Analyzing Consecutive Series in R"
-author: "Giorgio Luciano and ChatGPT"
+title: ""
+author: "Giorgio Luciano"
 date: "2023-09-16"
 categories: 
   - R
@@ -8,82 +8,101 @@ categories:
 bibliography: references.bib
 ---
 
-Have you ever wondered about the probability of getting a consecutive series of heads or tails in a sequence of coin tosses? In this blog post, we'll guide you through using the R programming language to simulate n coin tosses and analyze consecutive series greater than a user-specified value "a."
 
-### **Simulating Coin Tosses in R**
 
-Simulating coin tosses in R is an effective way to model the behavior of a sequence of coin tosses. We'll use R's **`sample`** function to simulate coin flips (heads or tails) 10,000 times. Here's how you can do it:
+
 
 ```{r}
-# Define the possible outcomes of a coin flip
-possible_outcomes <- c("Heads", "Tails")
+library(viridis)  # Import the viridis color palette library
+library(ggplot2)
 
-# Simulate n coin tosses
-n <- 10000 # You can replace this value with your desired number of tosses
-tosses <- sample(possible_outcomes, n, replace = TRUE)
+set.seed(123)  # Set a seed for reproducibility
+num_flips <- 10000
+flips <- sample(c("Heads", "Tails"), num_flips, replace = TRUE)
 
-```
+# Image aspect ratio
+aspect_ratio <- 1  # You can customize the aspect ratio here
+n_col <- round(sqrt(num_flips) * aspect_ratio)
+n_row <- ceiling(num_flips / n_col)
 
-Now that we've simulated the coin tosses, let's move on to analyzing consecutive series.
+# Create a color matrix to represent coin flips
+colors <- ifelse(flips == "Heads", "red", "blue")
 
-### **Analyzing Consecutive Series**
+# Create matrices for Heads and Tails
+heads_matrix <- matrix(0, nrow = n_row, ncol = n_col)
+tails_matrix <- matrix(0, nrow = n_row, ncol = n_col)
 
-To analyze consecutive series of heads or tails, we need to count how often a series of length at least "a" occurs. Here's how you can do it in R:
-
-```{r}
-# Specify the desired value "a" for the series length
-a <- 3  # You can replace this value with your desired number
-
-# Initialize variables for counting
-series_count <- 0
-series_length <- 0
-
-# Iterate through the coin tosses and count the series
-for (toss in tosses) {
-  if (toss == "Heads") {
-    series_length <- series_length + 1
-    if (series_length >= a) {
-      series_count <- series_count + 1
-    }
+for (i in 1:num_flips) {
+  if (flips[i] == "Heads") {
+    heads_matrix[(i - 1) %/% n_col + 1, (i - 1) %% n_col + 1] <- 1
   } else {
-    series_length <- 0
+    tails_matrix[(i - 1) %/% n_col + 1, (i - 1) %% n_col + 1] <- 1
   }
 }
 
-# Print the result
-cat(paste("There were", series_count, "consecutive series of heads at least length", a))
+# Function to calculate the number of consecutive sequences
+calculate_sequences <- function(matrix) {
+  sequences <- matrix(0, nrow = nrow(matrix), ncol = ncol(matrix))
+  for (i in 1:nrow(matrix)) {
+    count <- 0
+    for (j in 1:ncol(matrix)) {
+      if (matrix[i, j] == 1) {
+        count <- count + 1
+        sequences[i, j] <- count
+      } else {
+        count <- 0
+      }
+    }
+  }
+  return(sequences)
+}
+
+# Calculate sequences for Heads and Tails matrices
+sequences_heads <- calculate_sequences(heads_matrix)
+sequences_tails <- calculate_sequences(tails_matrix)
+
+# Find the longest sequence for Heads and Tails
+longest_sequence_heads <- max(sequences_heads)
+longest_sequence_tails <- max(sequences_tails)
+
+# Create images with sequences and titles
+par(mfrow = c(1, 2))  # Display the two images side by side
+image(t(sequences_heads), col = viridis(100), main = paste("Heads Sequences (Max:", longest_sequence_heads, ")"), xaxt = "n", yaxt = "n")
+image(t(sequences_tails), col = inferno(100), main = paste("Tails Sequences (Max:", longest_sequence_tails, ")"), xaxt = "n", yaxt = "n")
+
+library(knitr)
+
+# Calculate sequences for Heads and Tails matrices
+sequences_heads <- calculate_sequences(heads_matrix)
+sequences_tails <- calculate_sequences(tails_matrix)
+
+# Calculate sequence lengths for Heads and Tails
+sequence_lengths_heads <- table(sequences_heads)
+sequence_lengths_tails <- table(sequences_tails)
+
+# Calculate the percentage of sequence lengths
+percentages_heads <- prop.table(sequence_lengths_heads) * 100
+percentages_tails <- prop.table(sequence_lengths_tails) * 100
+
+# Create data frames with lengths, absolute numbers, and percentages
+dataframe_heads <- data.frame(
+  Length = names(sequence_lengths_heads),
+  Absolute_Numbers = as.numeric(sequence_lengths_heads),
+  Percentage = percentages_heads
+)
+dataframe_tails <- data.frame(
+  Length = names(sequence_lengths_tails),
+  Absolute_Numbers = as.numeric(sequence_lengths_tails),
+  Percentage = percentages_tails
+)
+
+# Create formatted tables
+kable(dataframe_heads, caption = "Table of Heads Sequence Lengths")
+kable(dataframe_tails, caption = "Table of Tails Sequence Lengths")
+
+
+
 
 ```
 
-### **Visualizing Consecutive Series with a Heatmap**
 
-Now, let's take our analysis one step further by visualizing the consecutive series using a heatmap. To create a heatmap, we'll utilize the popular ggplot2 package in R:
-
-```{r}
-# Load the ggplot2 library
-library(ggplot2)
-
-# Create a data frame with information about series lengths
-series_data <- data.frame(Length = rep(1:a, each = a), 
-                           Count = rep(1:a, times = a))
-
-# Create a heatmap with ggplot2
-ggplot(series_data, aes(x = Length, y = Count, fill = Count)) +
-  geom_tile() +
-  scale_fill_gradient(low = "white", high = "blue") +
-  labs(
-    x = "Series Length",
-    y = "Count",
-    title = "Heatmap of Consecutive Series of Heads (Length 6)",
-    fill = "Count"
-  )
-
-```
-
-### **Conclusion**
-
-In this blog post, we've explored how to simulate coin tosses in R, analyze consecutive series, and take it a step further by visualizing the results with a heatmap using ggplot2. This is just one of the many fascinating applications of simulation in statistics and data analysis.
-
-You can use this approach to examine different scenarios and experiment with different values of "n" and "a" to see how they impact the outcome. Simulation is a powerful tool for gaining a better understanding of probabilistic concepts and solving a wide range of practical problems.
-
-We hope you found this post helpful for exploring coin toss simulation and consecutive series analysis in R. Happy coding!
