@@ -1,0 +1,74 @@
+---
+title: "Birthday Paradox"
+author: "Giorgio Luciano and ChatGPT"
+date: "2023-09-16"
+categories: 
+  - R
+  - Fun
+---
+
+# **Title: The Birthday Paradox: When Probability Plays Tricks**
+
+## **Introduction**
+
+In the realm of probability, there exist situations that are surprising and counterintuitive, and the "Birthday Paradox" is one of the most well-known examples. In this article, we will explore this intriguing paradox and use R to simulate and visualize its application. The Birthday Paradox is a classic demonstration of how probability can defy our expectations.
+
+## **What Is the Birthday Paradox?**
+
+The Birthday Paradox is a probabilistic problem concerning the likelihood that two people in a group share the same birthday. At first glance, it might seem like the probability is very low, but in reality, it's higher than you might think.
+
+### **Explanation of the Paradox**
+
+The paradox is based on the fact that there are many possible combinations of people's birthdays within a group. While it might appear that there is only a small chance that two people share a birthday, things change when we consider the entire group.
+
+## **Simulating the Birthday Paradox in R**
+
+Let's dive into action and use the R programming language to simulate the Birthday Paradox. We will see how the probabilities change as the group size increases.
+
+```{r}
+# Number of simulations
+num_simulations <- 10000
+
+# Function to check if there are shared birthdays in a group
+check_shared_birthday <- function(group_size) {
+  birthdays <- sample(1:365, group_size, replace = TRUE)
+  if (length(birthdays) == length(unique(birthdays))) {
+    return(FALSE)  # No shared birthdays
+  } else {
+    return(TRUE)   # Shared birthdays
+  }
+}
+
+# Simulate the Birthday Paradox
+simulate_birthday_paradox <- function(group_size) {
+  shared_birthday_count <- 0
+  for (i in 1:num_simulations) {
+    if (check_shared_birthday(group_size)) {
+      shared_birthday_count <- shared_birthday_count + 1
+    }
+  }
+  return(shared_birthday_count / num_simulations)
+}
+
+# Test the Birthday Paradox simulation for different group sizes
+group_sizes <- 2:100
+results <- numeric(length(group_sizes))
+
+for (i in 1:length(group_sizes)) {
+  results[i] <- simulate_birthday_paradox(group_sizes[i])
+}
+
+# Plot the results
+plot(group_sizes, results, type = "l", xlab = "Group Size", ylab = "Probability of Shared Birthday", main = "Birthday Paradox Simulation")
+abline(h = 0.5, col = "red", lty = 2)  # Add a line at 0.5 for reference
+
+
+
+
+```
+
+## **Conclusions**
+
+The Birthday Paradox is a captivating example of how probability can be counterintuitive. Despite our intuitions, the probability of finding two people with the same birthday is higher than it seems. This paradox is an opportunity to explore the laws of probability and how they can surprise us.
+
+In the next article, we may delve into other paradoxes or further applications of probability concepts. In the meantime, feel free to try out the R code and experiment with the Birthday Paradox. Randomness can always bring surprises!
