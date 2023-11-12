@@ -1,5 +1,5 @@
 ---
-title: "Namespaces in shiny: Why you need them"
+title: "The Illusion of Luck: How the Number Zero Always Wins in the Casino"
 author: "Giorgio Luciano and ChatGPT"
 date: "2023-11-12"
 categories: 
@@ -7,7 +7,6 @@ categories:
   - fun
 ---
 
-**The Illusion of Luck: How the Number Zero Always Wins in the Casino**
 
 **Introduction:** Have you ever wondered why casinos seem to have a mysterious edge, making them consistently profitable? Let's explore a paradox in the world of gambling, where the number zero takes center stage and helps the house always come out on top.
 

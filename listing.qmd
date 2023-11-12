@@ -2,5 +2,6 @@
 title: "Blog"
 listing:
   contents: posts
-  sort: "date"
+  type: table
+  fields: [image, date, title, author, reading-time]
 ---
