@@ -47,7 +47,7 @@ data <- data.frame(
 
 # Create a bar plot
 ggplot(data, aes(x = Scenario, y = Total_Winnings, fill = Scenario)) +
-  geom_bar(stat = "identity", position = "dodge") +
+  geom_bar(stat = "identity", position = "dodge",fill = c("lightblue", "papayawhip")) +
   labs(title = "Roulette Simulation: Comparing Outcomes",
        x = "Scenario",
        y = "Total Winnings") +

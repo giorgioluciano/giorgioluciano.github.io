@@ -9,7 +9,7 @@
 <meta name="author" content="Giorgio Luciano and ChatGPT">
 <meta name="dcterms.date" content="2023-11-12">
 
-<title>Spaghetti code - The Illusion of Luck: How the Number Zero Always Wins in the Casino</title>
+<title>Spaghetti code - Exploring Card Shuffling: A Visual Journey</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -194,10 +194,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">The Illusion of Luck: How the Number Zero Always Wins in the Casino</h1>
+      <h1 class="title">Exploring Card Shuffling: A Visual Journey</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">R</div>
                 <div class="quarto-category">fun</div>
+                <div class="quarto-category">cards</div>
               </div>
                   </div>
   </div>
@@ -233,61 +234,95 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<p><strong>Introduction:</strong> Have you ever wondered why casinos seem to have a mysterious edge, making them consistently profitable? Let’s explore a paradox in the world of gambling, where the number zero takes center stage and helps the house always come out on top.</p>
-<p><strong>The Roulette Dilemma:</strong> Consider the classic game of roulette, a staple in any casino. The thrill of the spinning wheel and the anticipation of where the ball will land attract countless gamblers. However, beneath the excitement lies a subtle advantage that consistently favors the house.</p>
-<p><strong>Simulating the Game:</strong> To illustrate this phenomenon, let’s simulate the game of roulette using the R programming language. We’ll focus on a simple bet: predicting whether the ball will land on red or black. In a fair game, the odds of winning such a bet would be 1 to 1. However, the introduction of the number zero alters the dynamics.</p>
+<p><em>Introduction: A Rainy Day, a Father’s Passion, and Card Games</em></p>
+<p>As a child, on days like today, when raindrops gently tapped against the window pane, my father, armed with a degree in economics and a love for statistics, would weave a world of numbers and cards to pass the time. His eyes would light up with enthusiasm as he shared the intricacies of card games, imparting not just the rules, but a deep appreciation for the unpredictable dance of shuffled decks.</p>
+<section id="simulating-card-shuffling" class="level3">
+<h3 class="anchored" data-anchor-id="simulating-card-shuffling"><strong>Simulating Card Shuffling</strong></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>play_roulette <span class="ot">&lt;-</span> <span class="cf">function</span>(bet, chosen_number, num_spins) {</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  roulette_numbers <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  results <span class="ot">&lt;-</span> <span class="fu">sample</span>(roulette_numbers, num_spins, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  winnings <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(results <span class="sc">==</span> chosen_number, <span class="dv">36</span>, <span class="dv">0</span>)  <span class="co"># 35 to 1 payout</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  winnings[bet <span class="sc">==</span> <span class="st">"red"</span> <span class="sc">&amp;</span> results <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">2</span>  <span class="co"># win if the color is red</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  winnings[bet <span class="sc">==</span> <span class="st">"black"</span> <span class="sc">&amp;</span> results <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">!=</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">2</span>  <span class="co"># win if the color is black</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  total_winnings <span class="ot">&lt;-</span> <span class="fu">sum</span>(winnings)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(total_winnings)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating plays with and without the house advantage</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Set the seed for reproducibility</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>without_advantage <span class="ot">&lt;-</span> <span class="fu">play_roulette</span>(<span class="st">"red"</span>, <span class="dv">17</span>, <span class="dv">5000</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Reset the same seed for comparison</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>with_advantage <span class="ot">&lt;-</span> <span class="fu">play_roulette</span>(<span class="st">"red"</span>, <span class="dv">17</span>, <span class="dv">5000</span>) <span class="sc">-</span> <span class="fl">0.05</span> <span class="sc">*</span> <span class="dv">1000</span>  <span class="co"># 5% house advantage</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing results</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Without the house advantage: "</span>, without_advantage, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Without the house advantage:  10538 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"With the house advantage: "</span>, with_advantage, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>With the house advantage:  10488 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data for plotting</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Scenario =</span> <span class="fu">c</span>(<span class="st">"Without Advantage"</span>, <span class="st">"With Advantage"</span>),</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Total_Winnings =</span> <span class="fu">c</span>(without_advantage, with_advantage)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a bar plot</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Scenario, <span class="at">y =</span> Total_Winnings, <span class="at">fill =</span> Scenario)) <span class="sc">+</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>,<span class="at">fill =</span> <span class="fu">c</span>(<span class="st">"lightblue"</span>, <span class="st">"papayawhip"</span>)) <span class="sc">+</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Roulette Simulation: Comparing Outcomes"</span>,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Scenario"</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Total Winnings"</span>) <span class="sc">+</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to perform a faro shuffle on a deck of cards</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>faro <span class="ot">&lt;-</span> <span class="cf">function</span>(deck, num_shuffles) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_shuffles) {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    half1 <span class="ot">&lt;-</span> deck[<span class="dv">1</span><span class="sc">:</span>(<span class="fu">length</span>(deck)<span class="sc">/</span><span class="dv">2</span>)]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    half2 <span class="ot">&lt;-</span> deck[(<span class="fu">length</span>(deck)<span class="sc">/</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span><span class="fu">length</span>(deck)]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    deck <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(half1)) {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>      deck <span class="ot">&lt;-</span> <span class="fu">c</span>(deck, half1[j], half2[j])</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(deck)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the required packages if not already installed</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"ggplot2"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the necessary packages</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to simulate the position of the ace of hearts after shuffling</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>simulate_ace_of_hearts_position <span class="ot">&lt;-</span> <span class="cf">function</span>(num_shuffles, num_simulations) {</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  original_deck <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">52</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  ace_position <span class="ot">&lt;-</span> <span class="fu">numeric</span>(num_simulations)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_simulations) {</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    shuffled_deck <span class="ot">&lt;-</span> <span class="fu">faro</span>(original_deck, num_shuffles)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    ace_position[i] <span class="ot">&lt;-</span> <span class="fu">which</span>(shuffled_deck <span class="sc">==</span> <span class="dv">12</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(ace_position)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation parameters</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>num_shuffles_list <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">30</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>num_simulations <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the simulation</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>ace_positions <span class="ot">&lt;-</span> <span class="fu">lapply</span>(num_shuffles_list, <span class="cf">function</span>(num_shuffles) {</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">simulate_ace_of_hearts_position</span>(num_shuffles, num_simulations)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data for the plot</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">Num_Shuffles =</span> <span class="fu">rep</span>(num_shuffles_list, <span class="at">each =</span> num_simulations),</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ace_Position =</span> <span class="fu">unlist</span>(ace_positions)</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a line plot with a ribbon in ggplot2</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Num_Shuffles, <span class="at">y =</span> Ace_Position)) <span class="sc">+</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> Ace_Position <span class="sc">-</span> <span class="dv">5</span>, <span class="at">ymax =</span> Ace_Position <span class="sc">+</span> <span class="dv">5</span>), <span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> Ace_Position), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Ace of Hearts Position relative to Initial Position"</span>,</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Number of Shuffles"</span>,</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Ace of Hearts Position"</span>) <span class="sc">+</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Illusion-Of-Luck_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<p><img src="Card-Shuffling_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p><strong>The House Edge:</strong> In our simulation, we introduced a slight modification to the payouts, reducing them just enough to create a 5% advantage for the house. This mirrors the real-world scenario where the presence of zero in roulette gives the casino an edge.</p>
-<p><strong>Comparing Outcomes:</strong> Running our simulation both with and without the house advantage reveals a stark contrast. The casino consistently comes out ahead in the long run, showcasing how the number zero plays a crucial role in tipping the odds in favor of the house.</p>
-<p><strong>Conclusion:</strong> The illusion of luck in casinos often stems from subtle yet significant factors, such as the presence of zero in games like roulette. Understanding these nuances can provide valuable insights into the mechanics of gambling and why, ultimately, the house always wins.</p>
-<p>As you ponder the next spin of the roulette wheel, remember that behind the excitement lies a carefully crafted system where even the seemingly neutral zero plays a pivotal role in ensuring the casino’s enduring success.</p>
+<p>About the <strong>faro</strong> function: it simulates a faro shuffle on a deck of cards. It takes two parameters:</p>
+<ul>
+<li><p><strong><code>deck</code></strong>: A numeric vector representing the deck of cards.</p></li>
+<li><p><strong><code>num_shuffles</code></strong>: The number of faro shuffles to perform.</p></li>
+</ul>
+<p>The function splits the deck into two halves, iterates through the halves, and interleaves the cards to perform a faro shuffle. It repeats this process for the specified number of shuffles and returns the resulting deck.</p>
+</section>
+<section id="visualizing-the-results" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-the-results"><strong>Visualizing the Results</strong></h3>
+<p>The resulting visualization, created using Plotly, showcases the position of the ace of hearts over a range of shuffling scenarios. The black line represents the evolving position, while the light blue ribbon indicates a range of plus or minus 5 positions around the initial placement.</p>
+<p>The interactivity of Plotly allows viewers to explore how the position of the ace of hearts changes as the number of shuffles increases. Hover over the line to see specific data points and observe the dynamic nature of the shuffling process.</p>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion"><strong>Conclusion</strong></h3>
+<p>Through this visual exploration, we gain insights into the inherent randomness of card shuffling. The fluctuating position of the ace of hearts highlights the complex interplay of probability and chance in card games.</p>
+<p>Feel free to experiment with the provided R code, adjusting parameters and exploring different aspects of card shuffling. The visual representation serves as a captivating way to understand the nuances of this seemingly simple yet intriguing process.</p>
+<p>Stay tuned for more explorations and visualizations in future blog posts!</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
