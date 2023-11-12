@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
@@ -202,9 +202,6 @@ ul.task-list li input[type="checkbox"] {
          <option value="listing-title-sort" data-direction="asc">
           Title
         </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
      </select>
   </div>
     <div class="input-group input-group-sm quarto-listing-filter">
@@ -225,205 +222,12 @@ ul.task-list li input[type="checkbox"] {
 <a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
 </th>
 <th>
-<a class="sort" data-sort="listing-author" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Author</a>
-</th>
-<th>
 Reading Time
 </th>
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-categories="R,Fun" data-listing-date-sort="1698879600000" data-listing-file-modified-sort="1698940015160" data-listing-reading-time-sort="3.135" data-listing-title-sort="Analyzing Coin Flip Sequences with R" data-listing-filename-sort="index.qmd">
-<td class="listing-image">
-<div class="table-img" style="height: 40px;">
-&nbsp;
-</div>
-</td>
-<td class="listing-date">
-Nov 2, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/Fun04/index.html" class="title">Analyzing Coin Flip Sequences with R</a>
-</td>
-<td class="listing-author">
-Giorgio Luciano and ChatGPT
-</td>
-<td class="listing-reading-time">
-3 min
-</td>
-</tr>
-<tr data-index="1" data-categories="R,Fun" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1698942897656" data-listing-reading-time-sort="5.88" data-listing-title-sort="Anscombe's Quartet" data-listing-filename-sort="index.qmd">
-<td class="listing-image">
-<div class="table-img" style="height: 40px;">
-&nbsp;
-</div>
-</td>
-<td class="listing-date">
-Sep 16, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/Fun03/index.html" class="title">Anscombe’s Quartet</a>
-</td>
-<td class="listing-author">
-Giorgio Luciano
-</td>
-<td class="listing-reading-time">
-5 min
-</td>
-</tr>
-<tr data-index="2" data-categories="R,Fun" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1698942950327" data-listing-reading-time-sort="2.13" data-listing-title-sort="Birthday Paradox" data-listing-filename-sort="index.qmd">
-<td class="listing-image">
-<div class="table-img" style="height: 40px;">
-&nbsp;
-</div>
-</td>
-<td class="listing-date">
-Sep 16, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/Fun06/index.html" class="title">Birthday Paradox</a>
-</td>
-<td class="listing-author">
-Giorgio Luciano and ChatGPT
-</td>
-<td class="listing-reading-time">
-2 min
-</td>
-</tr>
-<tr data-index="3" data-categories="R,fun,Dice" data-listing-date-sort="1697061600000" data-listing-file-modified-sort="1698942388234" data-listing-reading-time-sort="3.555" data-listing-title-sort="Central Limit Theorem with Dice Rolls" data-listing-filename-sort="Dice rolls in shiny.Rmd">
-<td class="listing-image">
-<div class="table-img" style="height: 40px;">
-&nbsp;
-</div>
-</td>
-<td class="listing-date">
-Oct 12, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/Fun02/Dice rolls in shiny.html" class="title">Central Limit Theorem with Dice Rolls</a>
-</td>
-<td class="listing-author">
-Giorgio Luciano and ChatGPT
-</td>
-<td class="listing-reading-time">
-3 min
-</td>
-</tr>
-<tr data-index="4" data-categories="R,tutorials,ggplot,visualization,recipes" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1698309640227" data-listing-reading-time-sort="19.11" data-listing-title-sort="Data Visualization" data-listing-filename-sort="Visualization.Rmd">
-<td class="listing-image">
-<div class="table-img" style="height: 40px;">
-&nbsp;
-</div>
-</td>
-<td class="listing-date">
-Sep 16, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/Tut1/Visualization.html" class="title">Data Visualization</a>
-</td>
-<td class="listing-author">
-Giorgio Luciano and ChatGPT
-</td>
-<td class="listing-reading-time">
-19 min
-</td>
-</tr>
-<tr data-index="5" data-categories="R,fun,cards" data-listing-date-sort="1699743600000" data-listing-file-modified-sort="1699784498741" data-listing-reading-time-sort="2.92" data-listing-title-sort="Exploring Card Shuffling: A Visual Journey" data-listing-filename-sort="Card Shuffling.Rmd">
-<td class="listing-image">
-<div class="table-img" style="height: 40px;">
-&nbsp;
-</div>
-</td>
-<td class="listing-date">
-Nov 12, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/Fun08/Card Shuffling.html" class="title">Exploring Card Shuffling: A Visual Journey</a>
-</td>
-<td class="listing-author">
-Giorgio Luciano and ChatGPT
-</td>
-<td class="listing-reading-time">
-2 min
-</td>
-</tr>
-<tr data-index="6" data-categories="R,fun" data-listing-date-sort="1699743600000" data-listing-file-modified-sort="1699784224220" data-listing-reading-time-sort="2.22" data-listing-title-sort="Exploring Card Shuffling: A Visual Journey" data-listing-filename-sort="Illusion Of Luck.Rmd">
-<td class="listing-image">
-<div class="table-img" style="height: 40px;">
-&nbsp;
-</div>
-</td>
-<td class="listing-date">
-Nov 12, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/Fun08/Illusion Of Luck.html" class="title">Exploring Card Shuffling: A Visual Journey</a>
-</td>
-<td class="listing-author">
-Giorgio Luciano and ChatGPT
-</td>
-<td class="listing-reading-time">
-2 min
-</td>
-</tr>
-<tr data-index="7" data-categories="R,fun,Monty Hall problem" data-listing-date-sort="1697061600000" data-listing-file-modified-sort="1698942341533" data-listing-reading-time-sort="2.45" data-listing-title-sort="Monty Hall simulation" data-listing-filename-sort="Monty Hall.Rmd">
-<td class="listing-image">
-<div class="table-img" style="height: 40px;">
-&nbsp;
-</div>
-</td>
-<td class="listing-date">
-Oct 12, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/Fun01/Monty Hall.html" class="title">Monty Hall simulation</a>
-</td>
-<td class="listing-author">
-Giorgio Luciano and ChatGPT
-</td>
-<td class="listing-reading-time">
-2 min
-</td>
-</tr>
-<tr data-index="8" data-categories="R,tutorials,ggplot,shiny,tutorials" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1698501420760" data-listing-reading-time-sort="2.86" data-listing-title-sort="Namespaces in shiny: Why you need them" data-listing-filename-sort="Using Shiny Modules with Namespaces.Rmd">
-<td class="listing-image">
-<div class="table-img" style="height: 40px;">
-&nbsp;
-</div>
-</td>
-<td class="listing-date">
-Sep 16, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/Snip05/Using Shiny Modules with Namespaces.html" class="title">Namespaces in shiny: Why you need them</a>
-</td>
-<td class="listing-author">
-Giorgio Luciano and ChatGPT
-</td>
-<td class="listing-reading-time">
-2 min
-</td>
-</tr>
-<tr data-index="9" data-categories="R,packages" data-listing-date-sort="1679526000000" data-listing-file-modified-sort="1697478051855" data-listing-reading-time-sort="32.845" data-listing-title-sort="R Packages 2022 list" data-listing-filename-sort="index.qmd">
-<td class="listing-image">
-<div class="table-img" style="height: 40px;">
-&nbsp;
-</div>
-</td>
-<td class="listing-date">
-Mar 23, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/Packages Review 2022/index.html" class="title">R Packages 2022 list</a>
-</td>
-<td class="listing-author">
-Giorgio Luciano
-</td>
-<td class="listing-reading-time">
-32 min
-</td>
-</tr>
-<tr data-index="10" data-categories="R,tutorials" data-listing-date-sort="1676761200000" data-listing-file-modified-sort="1697478051856" data-listing-reading-time-sort="1.005" data-listing-title-sort="Snippet #1: ggplot loops" data-listing-filename-sort="index.qmd">
+<tr data-index="0" data-categories="R,tutorials" data-listing-date-sort="1676761200000" data-listing-file-modified-sort="1697478051856" data-listing-reading-time-sort="1.005" data-listing-title-sort="Snippet #1: ggplot loops" data-listing-filename-sort="index.qmd">
 <td class="listing-image">
 <div class="table-img" style="height: 40px;">
 &nbsp;
@@ -435,14 +239,11 @@ Feb 19, 2023
 <td class="listing-title">
 <a href="./posts/Snip01/index.html" class="title">Snippet #1: ggplot loops</a>
 </td>
-<td class="listing-author">
-Giorgio Luciano
-</td>
 <td class="listing-reading-time">
 1 min
 </td>
 </tr>
-<tr data-index="11" data-categories="R,tutorials" data-listing-date-sort="1676761200000" data-listing-file-modified-sort="1697478051882" data-listing-reading-time-sort="1.46" data-listing-title-sort="Snippet #2: Cleaning column names of an imported csv" data-listing-filename-sort="index.qmd">
+<tr data-index="1" data-categories="R,tutorials" data-listing-date-sort="1676761200000" data-listing-file-modified-sort="1697478051882" data-listing-reading-time-sort="1.46" data-listing-title-sort="Snippet #2: Cleaning column names of an imported csv" data-listing-filename-sort="index.qmd">
 <td class="listing-image">
 <div class="table-img" style="height: 40px;">
 &nbsp;
@@ -454,14 +255,11 @@ Feb 19, 2023
 <td class="listing-title">
 <a href="./posts/Snip02/index.html" class="title">Snippet #2: Cleaning column names of an imported csv</a>
 </td>
-<td class="listing-author">
-Giorgio Luciano
-</td>
 <td class="listing-reading-time">
 1 min
 </td>
 </tr>
-<tr data-index="12" data-categories="R,tutorials" data-listing-date-sort="1677884400000" data-listing-file-modified-sort="1697478051888" data-listing-reading-time-sort="1.615" data-listing-title-sort="Snippet #3: Functions for simulating data" data-listing-filename-sort="index.qmd">
+<tr data-index="2" data-categories="R,tutorials" data-listing-date-sort="1677884400000" data-listing-file-modified-sort="1697478051888" data-listing-reading-time-sort="1.615" data-listing-title-sort="Snippet #3: Functions for simulating data" data-listing-filename-sort="index.qmd">
 <td class="listing-image">
 <div class="table-img" style="height: 40px;">
 &nbsp;
@@ -473,14 +271,11 @@ Mar 4, 2023
 <td class="listing-title">
 <a href="./posts/Snip03/index.html" class="title">Snippet #3: Functions for simulating data</a>
 </td>
-<td class="listing-author">
-Giorgio Luciano
-</td>
 <td class="listing-reading-time">
 1 min
 </td>
 </tr>
-<tr data-index="13" data-categories="R,tutorials,ggplot,visualization,recipes" data-listing-date-sort="1678489200000" data-listing-file-modified-sort="1697478051890" data-listing-reading-time-sort="1.33" data-listing-title-sort="Snippet #4: boxplots and scatterplots: simple recipes" data-listing-filename-sort="index.qmd">
+<tr data-index="3" data-categories="R,tutorials,ggplot,visualization,recipes" data-listing-date-sort="1678489200000" data-listing-file-modified-sort="1697478051890" data-listing-reading-time-sort="1.33" data-listing-title-sort="Snippet #4: boxplots and scatterplots: simple recipes" data-listing-filename-sort="index.qmd">
 <td class="listing-image">
 <div class="table-img" style="height: 40px;">
 &nbsp;
@@ -492,14 +287,139 @@ Mar 11, 2023
 <td class="listing-title">
 <a href="./posts/Snip04/index.html" class="title">Snippet #4: boxplots and scatterplots: simple recipes</a>
 </td>
-<td class="listing-author">
-Giorgio Luciano
-</td>
 <td class="listing-reading-time">
 1 min
 </td>
 </tr>
-<tr data-index="14" data-categories="R,fun" data-listing-date-sort="1699743600000" data-listing-file-modified-sort="1699780905090" data-listing-reading-time-sort="2.505" data-listing-title-sort="The Illusion of Luck: How the Number Zero Always Wins in the Casino" data-listing-filename-sort="Illusion Of Luck.Rmd">
+<tr data-index="4" data-categories="R,packages" data-listing-date-sort="1679526000000" data-listing-file-modified-sort="1697478051855" data-listing-reading-time-sort="32.845" data-listing-title-sort="R Packages 2022 list" data-listing-filename-sort="index.qmd">
+<td class="listing-image">
+<div class="table-img" style="height: 40px;">
+&nbsp;
+</div>
+</td>
+<td class="listing-date">
+Mar 23, 2023
+</td>
+<td class="listing-title">
+<a href="./posts/Packages Review 2022/index.html" class="title">R Packages 2022 list</a>
+</td>
+<td class="listing-reading-time">
+32 min
+</td>
+</tr>
+<tr data-index="5" data-categories="R,Fun" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1698942897656" data-listing-reading-time-sort="5.88" data-listing-title-sort="Anscombe's Quartet" data-listing-filename-sort="index.qmd">
+<td class="listing-image">
+<div class="table-img" style="height: 40px;">
+&nbsp;
+</div>
+</td>
+<td class="listing-date">
+Sep 16, 2023
+</td>
+<td class="listing-title">
+<a href="./posts/Fun03/index.html" class="title">Anscombe’s Quartet</a>
+</td>
+<td class="listing-reading-time">
+5 min
+</td>
+</tr>
+<tr data-index="6" data-categories="R,Fun" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1698942950327" data-listing-reading-time-sort="2.13" data-listing-title-sort="Birthday Paradox" data-listing-filename-sort="index.qmd">
+<td class="listing-image">
+<div class="table-img" style="height: 40px;">
+&nbsp;
+</div>
+</td>
+<td class="listing-date">
+Sep 16, 2023
+</td>
+<td class="listing-title">
+<a href="./posts/Fun06/index.html" class="title">Birthday Paradox</a>
+</td>
+<td class="listing-reading-time">
+2 min
+</td>
+</tr>
+<tr data-index="7" data-categories="R,tutorials,ggplot,shiny,tutorials" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1698501420760" data-listing-reading-time-sort="2.86" data-listing-title-sort="Namespaces in shiny: Why you need them" data-listing-filename-sort="Using Shiny Modules with Namespaces.Rmd">
+<td class="listing-image">
+<div class="table-img" style="height: 40px;">
+&nbsp;
+</div>
+</td>
+<td class="listing-date">
+Sep 16, 2023
+</td>
+<td class="listing-title">
+<a href="./posts/Snip05/Using Shiny Modules with Namespaces.html" class="title">Namespaces in shiny: Why you need them</a>
+</td>
+<td class="listing-reading-time">
+2 min
+</td>
+</tr>
+<tr data-index="8" data-categories="R,tutorials,ggplot,visualization,recipes" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1698309640227" data-listing-reading-time-sort="19.11" data-listing-title-sort="Data Visualization" data-listing-filename-sort="Visualization.Rmd">
+<td class="listing-image">
+<div class="table-img" style="height: 40px;">
+&nbsp;
+</div>
+</td>
+<td class="listing-date">
+Sep 16, 2023
+</td>
+<td class="listing-title">
+<a href="./posts/Tut1/Visualization.html" class="title">Data Visualization</a>
+</td>
+<td class="listing-reading-time">
+19 min
+</td>
+</tr>
+<tr data-index="9" data-categories="R,fun,Monty Hall problem" data-listing-date-sort="1697061600000" data-listing-file-modified-sort="1698942341533" data-listing-reading-time-sort="2.45" data-listing-title-sort="Monty Hall simulation" data-listing-filename-sort="Monty Hall.Rmd">
+<td class="listing-image">
+<div class="table-img" style="height: 40px;">
+&nbsp;
+</div>
+</td>
+<td class="listing-date">
+Oct 12, 2023
+</td>
+<td class="listing-title">
+<a href="./posts/Fun01/Monty Hall.html" class="title">Monty Hall simulation</a>
+</td>
+<td class="listing-reading-time">
+2 min
+</td>
+</tr>
+<tr data-index="10" data-categories="R,fun,Dice" data-listing-date-sort="1697061600000" data-listing-file-modified-sort="1698942388234" data-listing-reading-time-sort="3.555" data-listing-title-sort="Central Limit Theorem with Dice Rolls" data-listing-filename-sort="Dice rolls in shiny.Rmd">
+<td class="listing-image">
+<div class="table-img" style="height: 40px;">
+&nbsp;
+</div>
+</td>
+<td class="listing-date">
+Oct 12, 2023
+</td>
+<td class="listing-title">
+<a href="./posts/Fun02/Dice rolls in shiny.html" class="title">Central Limit Theorem with Dice Rolls</a>
+</td>
+<td class="listing-reading-time">
+3 min
+</td>
+</tr>
+<tr data-index="11" data-categories="R,Fun" data-listing-date-sort="1698879600000" data-listing-file-modified-sort="1698940015160" data-listing-reading-time-sort="3.135" data-listing-title-sort="Analyzing Coin Flip Sequences with R" data-listing-filename-sort="index.qmd">
+<td class="listing-image">
+<div class="table-img" style="height: 40px;">
+&nbsp;
+</div>
+</td>
+<td class="listing-date">
+Nov 2, 2023
+</td>
+<td class="listing-title">
+<a href="./posts/Fun04/index.html" class="title">Analyzing Coin Flip Sequences with R</a>
+</td>
+<td class="listing-reading-time">
+3 min
+</td>
+</tr>
+<tr data-index="12" data-categories="R,fun" data-listing-date-sort="1699743600000" data-listing-file-modified-sort="1699780905090" data-listing-reading-time-sort="2.505" data-listing-title-sort="The Illusion of Luck: How the Number Zero Always Wins in the Casino" data-listing-filename-sort="Illusion Of Luck.Rmd">
 <td class="listing-image">
 <div class="table-img" style="height: 40px;">
 &nbsp;
@@ -511,8 +431,21 @@ Nov 12, 2023
 <td class="listing-title">
 <a href="./posts/Fun07/Illusion Of Luck.html" class="title">The Illusion of Luck: How the Number Zero Always Wins in the Casino</a>
 </td>
-<td class="listing-author">
-Giorgio Luciano and ChatGPT
+<td class="listing-reading-time">
+2 min
+</td>
+</tr>
+<tr data-index="13" data-categories="R,fun,cards" data-listing-date-sort="1699743600000" data-listing-file-modified-sort="1699784498741" data-listing-reading-time-sort="2.92" data-listing-title-sort="Exploring Card Shuffling: A Visual Journey" data-listing-filename-sort="Card Shuffling.Rmd">
+<td class="listing-image">
+<div class="table-img" style="height: 40px;">
+&nbsp;
+</div>
+</td>
+<td class="listing-date">
+Nov 12, 2023
+</td>
+<td class="listing-title">
+<a href="./posts/Fun08/Card Shuffling.html" class="title">Exploring Card Shuffling: A Visual Journey</a>
 </td>
 <td class="listing-reading-time">
 2 min
