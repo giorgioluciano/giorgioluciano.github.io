@@ -8,7 +8,13 @@ categories:
 bibliography: references.bib
 ---
 
-Analyzing Coin Flip Sequences with R
+1.  Explore the captivating world of coin flip sequences through a dynamic R code snippet.
+
+2.  Engage in the simulation of 50,000 coin flips, utilizing the viridis and ggplot2 libraries for insightful visualizations.
+
+3.  Uncover the step-by-step breakdown of the code, offering a comprehensive guide to understanding coin flip sequences.
+
+## *Analyzing Coin Flip Sequences with R*
 
 In this blog post, we'll dive into a fun R code snippet that simulates a series of coin flips and analyzes the resulting sequences. We'll use the viridis and ggplot2 libraries to create visual representations of the sequences and gain insights into the outcomes. Let's break down the code step by step.
 
@@ -25,7 +31,7 @@ flips <- sample(c("Heads", "Tails"), num_flips, replace = TRUE)
 
 Here, we load the necessary libraries and set a seed for reproducibility. We simulate 50,000 coin flips, storing the results in the flips variable.
 
-## **Creating a Color Matrix**
+Creating a Color Matrix
 
 ```{r}
 # Image aspect ratio
@@ -40,7 +46,7 @@ colors <- ifelse(flips == "Heads", "red", "blue")
 
 ```
 
-## **Matrix Manipulation**
+Matrix Manipulation
 
 ```{r}
 # Create matrices for Heads and Tails
@@ -79,8 +85,7 @@ calculate_sequences <- function(matrix) {
 }
 ```
 
-
-## **Visualizing Sequences**
+Visualizing Sequences
 
 ```{r}
 # Calculate sequences for Heads and Tails matrices
@@ -92,10 +97,8 @@ longest_sequence_heads <- max(sequences_heads)
 longest_sequence_tails <- max(sequences_tails)
 ```
 
-
 We define a function **`calculate_sequences`** that calculates the number of consecutive sequences in a matrix. This function is used to analyze the sequences of heads and tails.
 
-## **Creating Images**
 
 ```{r}
 # Create images with sequences and titles
@@ -104,8 +107,7 @@ image(t(sequences_heads), col = viridis(100), main = paste("Heads Sequences (Max
 image(t(sequences_tails), col = inferno(100), main = paste("Tails Sequences (Max:", longest_sequence_tails, ")"), xaxt = "n", yaxt = "n")
 ```
 
-## **Table Generation**
-
+Table Generation
 
 ```{r}
 library(knitr)
@@ -139,7 +141,7 @@ kable(dataframe_tails, caption = "Table of Tails Sequence Lengths")
 We use the knitr library to generate tables that display the lengths, absolute numbers, and percentages of the sequences for both heads and tails.
 
 ## **Conclusion**
+
 In this blog post, we explored a fascinating R code snippet that simulates coin flips and analyzes the resulting sequences. We visualized the sequences and created tables to gain insights into the distribution of sequence lengths. This code is a great starting point for exploring and visualizing sequential data in R.
 
 Feel free to try this code on your own and customize it to suit your needs. Happy coding!
-

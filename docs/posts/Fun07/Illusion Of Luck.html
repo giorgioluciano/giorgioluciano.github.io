@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,9 +19,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,43 +49,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -120,7 +91,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -139,53 +111,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Spaghetti code</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../listing.html">
+    <a class="nav-link" href="../../listing.html" rel="" target="">
  <span class="menu-text">Code</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://github.com/giorgioluciano/CrystalNodes">
+    <a class="nav-link" href="https://github.com/giorgioluciano/CrystalNodes" rel="" target="">
  <span class="menu-text">CrystalNodes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/giorgioluciano"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/giorgioluciano" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/giorgioluciano"><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/giorgioluciano" rel="" target=""><i class="bi bi-twitter" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/giorgioluciano/"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/giorgioluciano/" rel="" target=""><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/giorgioluciano5477/"><i class="bi bi-instagram" role="img">
+    <a class="nav-link" href="https://www.instagram.com/giorgioluciano5477/" rel="" target=""><i class="bi bi-instagram" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.behance.net/giorgioluciano"><i class="bi bi-behance" role="img">
+    <a class="nav-link" href="https://www.behance.net/giorgioluciano" rel="" target=""><i class="bi bi-behance" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.giorgioluciano.co.place"><i class="bi bi-stickies" role="img">
+    <a class="nav-link" href="https://www.giorgioluciano.co.place" rel="" target=""><i class="bi bi-stickies" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -233,9 +207,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<p><strong>Introduction:</strong> Have you ever wondered why casinos seem to have a mysterious edge, making them consistently profitable? Let’s explore a paradox in the world of gambling, where the number zero takes center stage and helps the house always come out on top.</p>
-<p><strong>The Roulette Dilemma:</strong> Consider the classic game of roulette, a staple in any casino. The thrill of the spinning wheel and the anticipation of where the ball will land attract countless gamblers. However, beneath the excitement lies a subtle advantage that consistently favors the house.</p>
-<p><strong>Simulating the Game:</strong> To illustrate this phenomenon, let’s simulate the game of roulette using the R programming language. We’ll focus on a simple bet: predicting whether the ball will land on red or black. In a fair game, the odds of winning such a bet would be 1 to 1. However, the introduction of the number zero alters the dynamics.</p>
+<ol type="1">
+<li><p>Introduction:</p>
+<ul>
+<li>Explores the profitability of casinos and introduces a gambling paradox related to the number zero favoring the house.</li>
+</ul></li>
+<li><p>Roulette Dilemma and Simulating the Game:</p>
+<ul>
+<li><p>Describes the classic game of roulette and its subtle advantage for the house.</p></li>
+<li><p>Introduces R programming for simulating roulette plays, focusing on predicting red or black outcomes.</p></li>
+<li><p>Highlights the impact of the number zero on altering the game dynamics.</p></li>
+</ul></li>
+<li><p>play_roulette Function and Simulating Plays:</p>
+<ul>
+<li><p>Defines the <strong><code>play_roulette</code></strong> function to simulate roulette plays based on specified parameters.</p></li>
+<li><p>Utilizes <strong><code>set.seed(123)</code></strong> for reproducibility and simulates plays both with and without a 5% house advantage.</p></li>
+</ul></li>
+<li><p>Comparing Results and Data Preparation:</p>
+<ul>
+<li><p>Compares total winnings for both scenarios using <strong><code>cat</code></strong> statements.</p></li>
+<li><p>Prepares data for plotting, creating a data frame with scenarios and total winnings.</p></li>
+</ul></li>
+<li><p>Creating a Bar Plot, The House Edge, and Conclusion:</p>
+<ul>
+<li><p>Utilizes ggplot2 to create a bar plot, visually comparing total winnings for each scenario.</p></li>
+<li><p>Discusses the house edge introduced by modifying payouts.</p></li>
+<li><p>Concludes by emphasizing the illusion of luck in casinos, the role of zero, and why the house consistently wins.</p></li>
+</ul></li>
+</ol>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction"><strong>Introduction:</strong></h2>
+<p>Have you ever wondered why casinos seem to have a mysterious edge, making them consistently profitable? Let’s explore a paradox in the world of gambling, where the number zero takes center stage and helps the house always come out on top.</p>
+</section>
+<section id="the-roulette-dilemma" class="level2">
+<h2 class="anchored" data-anchor-id="the-roulette-dilemma"><strong>The Roulette Dilemma:</strong></h2>
+<p>Take a moment to delve into the rich history surrounding the classic roulette game, an indelible fixture in the tapestry of any casino. Fanciful stories about its origin abound, including tales of its invention by the 17th-century French mathematician Blaise Pascal, a French monk, or even the Chinese—supposedly transmitted to France by Dominican monks. However, the historical reality reveals a more nuanced narrative.</p>
+<p>In truth, roulette’s roots trace back to France in the early 18th century, emerging from the older games of hoca and portique. It wasn’t until 1716 in Bordeaux that it was first mentioned under its current name. Over the years, roulette underwent several modifications, ultimately achieving its present layout and wheel structure around 1790. This pivotal moment marked its rapid ascent to the status of the leading game in the burgeoning casinos and gambling houses of Europe.</p>
+<p>The game faced adversity during the years 1836 to 1933 when it was banned in France. Despite these challenges, roulette endured, eventually making a triumphant return to the gaming scene. The ebb and flow of its history reflect not only the evolution of a game but also its resilience and enduring appeal, contributing to the perpetual dilemma faced by those enticed by the timeless charm of the roulette wheel.</p>
+</section>
+<section id="simulating-the-game" class="level2">
+<h2 class="anchored" data-anchor-id="simulating-the-game"><strong>Simulating the Game:</strong></h2>
+<p>To illustrate this phenomenon, let’s simulate the game of roulette using the R programming language. We’ll focus on a simple bet: predicting whether the ball will land on red or black. In a fair game, the odds of winning such a bet would be 1 to 1. However, the introduction of the number zero alters the dynamics.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -282,12 +294,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="Illusion-Of-Luck_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p><strong>The House Edge:</strong> In our simulation, we introduced a slight modification to the payouts, reducing them just enough to create a 5% advantage for the house. This mirrors the real-world scenario where the presence of zero in roulette gives the casino an edge.</p>
-<p><strong>Comparing Outcomes:</strong> Running our simulation both with and without the house advantage reveals a stark contrast. The casino consistently comes out ahead in the long run, showcasing how the number zero plays a crucial role in tipping the odds in favor of the house.</p>
-<p><strong>Conclusion:</strong> The illusion of luck in casinos often stems from subtle yet significant factors, such as the presence of zero in games like roulette. Understanding these nuances can provide valuable insights into the mechanics of gambling and why, ultimately, the house always wins.</p>
+<ol type="1">
+<li><p><strong><code>play_roulette</code> Function:</strong></p>
+<ul>
+<li><p>This function simulates playing roulette based on specified parameters.</p></li>
+<li><p>It generates random roulette numbers for a given number of spins.</p></li>
+<li><p>Calculates winnings based on the chosen number and adjusts for bets on red or black, considering a 5% house advantage.</p></li>
+</ul></li>
+<li><p><strong>Simulating Plays:</strong></p>
+<ul>
+<li><p>The code uses <strong><code>set.seed(123)</code></strong> to ensure reproducibility in random number generation.</p></li>
+<li><p>It simulates roulette plays both with and without a house advantage (5% reduction in winnings for the scenario with the house advantage).</p></li>
+</ul></li>
+<li><p><strong>Comparing Results:</strong></p>
+<ul>
+<li>The <strong><code>cat</code></strong> statements print the total winnings for each scenario, allowing a direct comparison of outcomes.</li>
+</ul></li>
+<li><p><strong>Data Preparation for Plotting:</strong></p>
+<ul>
+<li>Creates a data frame (<strong><code>data</code></strong>) containing scenarios (“Without Advantage” and “With Advantage”) and their corresponding total winnings.</li>
+</ul></li>
+<li><p><strong>Creating a Bar Plot with ggplot2:</strong></p>
+<ul>
+<li><p>Utilizes ggplot2 to generate a bar plot.</p></li>
+<li><p><strong><code>geom_bar</code></strong> represents the data as bars, positioned side by side (<strong><code>position = "dodge"</code></strong>).</p></li>
+<li><p>The plot is customized with a minimal theme, a title (“Roulette Simulation: Comparing Outcomes”), and axis labels (“Scenario” and “Total Winnings”).</p></li>
+<li><p>Different colors (“lightblue” and “papayawhip”) are assigned to each scenario for clarity.</p></li>
+</ul></li>
+</ol>
+</section>
+<section id="the-house-edge" class="level2">
+<h2 class="anchored" data-anchor-id="the-house-edge"><strong>The House Edge:</strong></h2>
+<p>In our simulation, we introduced a slight modification to the payouts, reducing them just enough to create a 5% advantage for the house. This mirrors the real-world scenario where the presence of zero in roulette gives the casino an edge.</p>
+</section>
+<section id="comparing-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-outcomes"><strong>Comparing Outcomes:</strong></h2>
+<p>Running our simulation both with and without the house advantage reveals a stark contrast. The casino consistently comes out ahead in the long run, showcasing how the number zero plays a crucial role in tipping the odds in favor of the house.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion"><strong>Conclusion:</strong></h2>
+<p>The illusion of luck in casinos often stems from subtle yet significant factors, such as the presence of zero in games like roulette. Understanding these nuances can provide valuable insights into the mechanics of gambling and why, ultimately, the house always wins.</p>
 <p>As you ponder the next spin of the roulette wheel, remember that behind the excitement lies a carefully crafted system where even the seemingly neutral zero plays a pivotal role in ensuring the casino’s enduring success.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -317,9 +367,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -384,6 +448,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

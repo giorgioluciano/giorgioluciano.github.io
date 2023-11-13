@@ -8,8 +8,6 @@ categories:
   - Dice
 ---
 
-# **Title: Unveiling the Central Limit Theorem with Dice Rolls**
-
 1.  Dice rolls offer a fascinating insight into probability, especially when it comes to the sum of multiple dice rolls.
 
 2.  The Central Limit Theorem states that as the number of dice rolls increases, the distribution of sums approaches the Gaussian distribution.
