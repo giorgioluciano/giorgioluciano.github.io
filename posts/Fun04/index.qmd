@@ -1,147 +1,153 @@
 ---
-title: "Analyzing Coin Flip Sequences with R"
-author: "Giorgio Luciano and ChatGPT"
-date: "2023-11-2"
-categories: 
+title: "Exploring Coin Flip Sequences with Simulation in R"
+author: "Your Name"
+date: "2023-11-15"
+categories:
   - R
-  - Fun
-bibliography: references.bib
+  - Simulation
+tags:
+  - Probability
+  - Coin Flip
 ---
 
-1.  Explore the captivating world of coin flip sequences through a dynamic R code snippet.
+1.  Dive into the world of coin flip sequences using R simulations. Objective: Understand the probabilities of consecutive sequences of heads or tails. Simulating Coin Flips
 
-2.  Engage in the simulation of 50,000 coin flips, utilizing the viridis and ggplot2 libraries for insightful visualizations.
+2.  Utilize R to simulate coin flips with varying numbers (100, 1000, 10000, 100000) for experimentation. simulate_tosses function generates sequences of "Heads" and "Tails." Analyzing Consecutive Sequences
 
-3.  Uncover the step-by-step breakdown of the code, offering a comprehensive guide to understanding coin flip sequences.
+3.  Define count_consecutive_sequences function to analyze lengths of consecutive sequences. Obtain counts for different scenarios: 100 tosses, 1000 tosses, 10000 tosses, and 100000 tosses. Visualizing the Results
 
-## *Analyzing Coin Flip Sequences with R*
+4.  Use ggplot2 to create line plots (create_plot function) illustrating consecutive sequence counts. Arrange plots with gridExtra to compare scenarios side by side. Results and Insights
 
-In this blog post, we'll dive into a fun R code snippet that simulates a series of coin flips and analyzes the resulting sequences. We'll use the viridis and ggplot2 libraries to create visual representations of the sequences and gain insights into the outcomes. Let's break down the code step by step.
+5.  Longer consecutive sequences are more likely with a larger number of tosses. Simulation provides valuable insights into the probability distribution of sequences. Conclusion
 
-Setting Up the Environment
+6.  Probability exploration through simulation is a powerful tool. Whether a statistician, data scientist, or curious individual, simulations offer insights into chance. Encouragement to experiment with parameters and observe changes in results.
+
+## *Introduction*
+
+In this blog post, we will dive into the fascinating world of coin flip sequences. Leveraging the capabilities of R, we will conduct simulations to gain insights into the probabilities of consecutive sequences of heads or tails.
+
+## *Simulating Coin Flips*
+
+Let's kick things off by simulating coin flips using R. We'll conduct experiments with varying numbers of flips to observe how the results evolve.
 
 ```{r}
-library(viridis)  # Import the viridis color palette library
+# Function to simulate coin tosses
+simulate_tosses <- function(n) {
+  set.seed(42)  # Set seed for reproducibility
+  flips <- sample(c("Heads", "Tails"), n, replace = TRUE)
+  return(flips)
+}
+
+# Simulate coin flips for different scenarios
+flips_100 <- simulate_tosses(100)
+flips_1000 <- simulate_tosses(1000)
+flips_10000 <- simulate_tosses(10000)
+flips_100000 <- simulate_tosses(100000)
+
+```
+
+## *Analyzing Consecutive Sequences*
+
+Moving on, we'll analyze the consecutive sequences of heads or tails in each simulation. We'll count the length of these sequences to gain insights into their distribution.
+
+```{r}
+# Function to count consecutive sequences
+count_consecutive_sequences <- function(flips) {
+  count <- rep(0, length(flips))
+  counter <- 1
+
+  for (i in 2:length(flips)) {
+    if (flips[i] == flips[i-1]) {
+      counter <- counter + 1
+    } else {
+      counter <- 1
+    }
+    count[i] <- counter
+  }
+
+  return(count)
+}
+
+# Function to create a plot for consecutive sequences
+create_plot <- function(consecutive_counts, n) {
+  data <- data.frame(Launch = 1:length(consecutive_counts), Consecutive = consecutive_counts)
+  
+  library(ggplot2)
+  
+  plot <- ggplot(data, aes(x = Launch, y = Consecutive)) +
+    geom_line() +
+    labs(title = paste("Consecutive Sequences -", n, "Tosses"),
+         x = "Toss Number",
+         y = "Consecutive Count") +
+    theme_minimal()
+  
+  return(plot)
+}
+
+# Analyze consecutive sequences for different scenarios
+consecutive_counts_100 <- count_consecutive_sequences(flips_100)
+consecutive_counts_1000 <- count_consecutive_sequences(flips_1000)
+consecutive_counts_10000 <- count_consecutive_sequences(flips_10000)
+consecutive_counts_100000 <- count_consecutive_sequences(flips_100000)
+```
+
+## *Visualizing the Results*
+
+Now, let's create visualizations to better understand the distribution of consecutive sequences. We'll use the ggplot2 library to craft insightful graphs and gridExtra to arrange them together.
+
+```{r}
+# Create plots
+plot_100 <- create_plot(consecutive_counts_100, 100)
+plot_1000 <- create_plot(consecutive_counts_1000, 1000)
+plot_10000 <- create_plot(consecutive_counts_10000, 10000)
+plot_100000 <- create_plot(consecutive_counts_100000, 100000)
+
+# Use gridExtra to arrange the plots
+library(gridExtra)
+grid.arrange(plot_100, plot_1000, plot_10000, plot_100000, ncol = 2)
+```
+
+```{r}
+# Function to simulate coin tosses and plot the maximum consecutive sequence
+simulate_and_plot_max_sequence <- function(n) {
+  # Simulate coin tosses
+  flips <- simulate_tosses(n)
+  
+  # Analyze consecutive sequences
+  consecutive_counts <- count_consecutive_sequences(flips)
+  
+  # Return the maximum consecutive sequence
+  return(max(consecutive_counts))
+}
+
+# Vector to store results
+max_sequences <- c()
+
+# Perform simulations with increasing numbers of tosses
+for (n_tosses in c(100, 2000, 10000, 100000)) {
+  max_sequence <- simulate_and_plot_max_sequence(n_tosses)
+  max_sequences <- c(max_sequences, max_sequence)
+}
+
+# Plot the results
 library(ggplot2)
 
-set.seed(123)  # Set a seed for reproducibility
-num_flips <- 50000
-flips <- sample(c("Heads", "Tails"), num_flips, replace = TRUE)
+data <- data.frame(Num_Tosses = c(100, 2000, 10000, 100000), Max_Sequence = max_sequences)
+
+plot <- ggplot(data, aes(x = Num_Tosses, y = Max_Sequence)) +
+  geom_line() +
+  labs(title = "Maximum Consecutive Sequence vs. Number of Tosses",
+       x = "Number of Tosses",
+       y = "Max Consecutive Sequence") +
+  theme_minimal()
+
+print(plot)
 ```
 
-Here, we load the necessary libraries and set a seed for reproducibility. We simulate 50,000 coin flips, storing the results in the flips variable.
+## *Results and Insights*
 
-Creating a Color Matrix
+After simulating coin flips and analyzing consecutive sequences, we've gained valuable insights into the probability of encountering various sequences. As expected, with a larger number of flips, the likelihood of encountering longer consecutive sequences increases.
 
-```{r}
-# Image aspect ratio
-aspect_ratio <- 1  # You can customize the aspect ratio here
-n_col <- round(sqrt(num_flips) * aspect_ratio)
-n_row <- ceiling(num_flips / n_col)
+Conclusion Exploring probability through simulation is a powerful way to grasp the nuances of random processes. Whether you're a statistician, data scientist, or simply curious, these simulations provide a fascinating glimpse into the world of chance.
 
-# Create a color matrix to represent coin flips
-colors <- ifelse(flips == "Heads", "red", "blue")
-
-
-
-```
-
-Matrix Manipulation
-
-```{r}
-# Create matrices for Heads and Tails
-heads_matrix <- matrix(0, nrow = n_row, ncol = n_col)
-tails_matrix <- matrix(0, nrow = n_row, ncol = n_col)
-
-for (i in 1:num_flips) {
-  if (flips[i] == "Heads") {
-    heads_matrix[(i - 1) %/% n_col + 1, (i - 1) %% n_col + 1] <- 1
-  } else {
-    tails_matrix[(i - 1) %/% n_col + 1, (i - 1) %% n_col + 1] <- 1
-  }
-}
-```
-
-We create matrices **`heads_matrix`** and **`tails_matrix`** to represent the sequences of heads and tails. These matrices help us analyze the coin flip sequences.
-
-## **Analyzing Sequences**
-
-```{r}
-# Function to calculate the number of consecutive sequences
-calculate_sequences <- function(matrix) {
-  sequences <- matrix(0, nrow = nrow(matrix), ncol = ncol(matrix))
-  for (i in 1:nrow(matrix)) {
-    count <- 0
-    for (j in 1:ncol(matrix)) {
-      if (matrix[i, j] == 1) {
-        count <- count + 1
-        sequences[i, j] <- count
-      } else {
-        count <- 0
-      }
-    }
-  }
-  return(sequences)
-}
-```
-
-Visualizing Sequences
-
-```{r}
-# Calculate sequences for Heads and Tails matrices
-sequences_heads <- calculate_sequences(heads_matrix)
-sequences_tails <- calculate_sequences(tails_matrix)
-
-# Find the longest sequence for Heads and Tails
-longest_sequence_heads <- max(sequences_heads)
-longest_sequence_tails <- max(sequences_tails)
-```
-
-We define a function **`calculate_sequences`** that calculates the number of consecutive sequences in a matrix. This function is used to analyze the sequences of heads and tails.
-
-
-```{r}
-# Create images with sequences and titles
-par(mfrow = c(1, 2))  # Display the two images side by side
-image(t(sequences_heads), col = viridis(100), main = paste("Heads Sequences (Max:", longest_sequence_heads, ")"), xaxt = "n", yaxt = "n")
-image(t(sequences_tails), col = inferno(100), main = paste("Tails Sequences (Max:", longest_sequence_tails, ")"), xaxt = "n", yaxt = "n")
-```
-
-Table Generation
-
-```{r}
-library(knitr)
-
-# Calculate sequence lengths for Heads and Tails
-sequence_lengths_heads <- table(sequences_heads)
-sequence_lengths_tails <- table(sequences_tails)
-
-# Calculate the percentage of sequence lengths
-percentages_heads <- prop.table(sequence_lengths_heads) * 100
-percentages_tails <- prop.table(sequence_lengths_tails) * 100
-
-# Create data frames with lengths, absolute numbers, and percentages
-dataframe_heads <- data.frame(
-  Length = names(sequence_lengths_heads),
-  Absolute_Numbers = as.numeric(sequence_lengths_heads),
-  Percentage = percentages_heads
-)
-dataframe_tails <- data.frame(
-  Length = names(sequence_lengths_tails),
-  Absolute_Numbers = as.numeric(sequence_lengths_tails),
-  Percentage = percentages_tails
-)
-
-# Create formatted tables
-kable(dataframe_heads, caption = "Table of Heads Sequence Lengths")
-
-kable(dataframe_tails, caption = "Table of Tails Sequence Lengths")
-```
-
-We use the knitr library to generate tables that display the lengths, absolute numbers, and percentages of the sequences for both heads and tails.
-
-## **Conclusion**
-
-In this blog post, we explored a fascinating R code snippet that simulates coin flips and analyzes the resulting sequences. We visualized the sequences and created tables to gain insights into the distribution of sequence lengths. This code is a great starting point for exploring and visualizing sequential data in R.
-
-Feel free to try this code on your own and customize it to suit your needs. Happy coding!
+Feel free to experiment with different parameters, such as the number of flips or the probability of getting heads or tails, and observe how the results change. Happy exploring!

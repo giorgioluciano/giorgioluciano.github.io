@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Giorgio Luciano and ChatGPT">
-<meta name="dcterms.date" content="2023-11-02">
+<meta name="author" content="Your Name">
+<meta name="dcterms.date" content="2023-11-15">
 
-<title>Spaghetti code - Analyzing Coin Flip Sequences with R</title>
+<title>Spaghetti code - Exploring Coin Flip Sequences with Simulation in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -168,10 +168,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Analyzing Coin Flip Sequences with R</h1>
+      <h1 class="title">Exploring Coin Flip Sequences with Simulation in R</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">R</div>
-                <div class="quarto-category">Fun</div>
+                <div class="quarto-category">Simulation</div>
               </div>
                   </div>
   </div>
@@ -182,14 +182,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Giorgio Luciano and ChatGPT </p>
+               <p>Your Name </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 2, 2023</p>
+        <p class="date">November 15, 2023</p>
       </div>
     </div>
     
@@ -208,363 +208,144 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <ol type="1">
-<li><p>Explore the captivating world of coin flip sequences through a dynamic R code snippet.</p></li>
-<li><p>Engage in the simulation of 50,000 coin flips, utilizing the viridis and ggplot2 libraries for insightful visualizations.</p></li>
-<li><p>Uncover the step-by-step breakdown of the code, offering a comprehensive guide to understanding coin flip sequences.</p></li>
+<li><p>Dive into the world of coin flip sequences using R simulations. Objective: Understand the probabilities of consecutive sequences of heads or tails. Simulating Coin Flips</p></li>
+<li><p>Utilize R to simulate coin flips with varying numbers (100, 1000, 10000, 100000) for experimentation. simulate_tosses function generates sequences of “Heads” and “Tails.” Analyzing Consecutive Sequences</p></li>
+<li><p>Define count_consecutive_sequences function to analyze lengths of consecutive sequences. Obtain counts for different scenarios: 100 tosses, 1000 tosses, 10000 tosses, and 100000 tosses. Visualizing the Results</p></li>
+<li><p>Use ggplot2 to create line plots (create_plot function) illustrating consecutive sequence counts. Arrange plots with gridExtra to compare scenarios side by side. Results and Insights</p></li>
+<li><p>Longer consecutive sequences are more likely with a larger number of tosses. Simulation provides valuable insights into the probability distribution of sequences. Conclusion</p></li>
+<li><p>Probability exploration through simulation is a powerful tool. Whether a statistician, data scientist, or curious individual, simulations offer insights into chance. Encouragement to experiment with parameters and observe changes in results.</p></li>
 </ol>
-<section id="analyzing-coin-flip-sequences-with-r" class="level2">
-<h2 class="anchored" data-anchor-id="analyzing-coin-flip-sequences-with-r"><em>Analyzing Coin Flip Sequences with R</em></h2>
-<p>In this blog post, we’ll dive into a fun R code snippet that simulates a series of coin flips and analyzes the resulting sequences. We’ll use the viridis and ggplot2 libraries to create visual representations of the sequences and gain insights into the outcomes. Let’s break down the code step by step.</p>
-<p>Setting Up the Environment</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)  <span class="co"># Import the viridis color palette library</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: il pacchetto 'viridis' è stato creato con R versione 4.3.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Caricamento del pacchetto richiesto: viridisLite</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Set a seed for reproducibility</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>num_flips <span class="ot">&lt;-</span> <span class="dv">50000</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>flips <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Heads"</span>, <span class="st">"Tails"</span>), num_flips, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Here, we load the necessary libraries and set a seed for reproducibility. We simulate 50,000 coin flips, storing the results in the flips variable.</p>
-<p>Creating a Color Matrix</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Image aspect ratio</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>aspect_ratio <span class="ot">&lt;-</span> <span class="dv">1</span>  <span class="co"># You can customize the aspect ratio here</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>n_col <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sqrt</span>(num_flips) <span class="sc">*</span> aspect_ratio)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>n_row <span class="ot">&lt;-</span> <span class="fu">ceiling</span>(num_flips <span class="sc">/</span> n_col)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a color matrix to represent coin flips</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(flips <span class="sc">==</span> <span class="st">"Heads"</span>, <span class="st">"red"</span>, <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Matrix Manipulation</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create matrices for Heads and Tails</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>heads_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> n_row, <span class="at">ncol =</span> n_col)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>tails_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> n_row, <span class="at">ncol =</span> n_col)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_flips) {</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (flips[i] <span class="sc">==</span> <span class="st">"Heads"</span>) {</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    heads_matrix[(i <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">%/%</span> n_col <span class="sc">+</span> <span class="dv">1</span>, (i <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">%%</span> n_col <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    tails_matrix[(i <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">%/%</span> n_col <span class="sc">+</span> <span class="dv">1</span>, (i <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">%%</span> n_col <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We create matrices <strong><code>heads_matrix</code></strong> and <strong><code>tails_matrix</code></strong> to represent the sequences of heads and tails. These matrices help us analyze the coin flip sequences.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction"><em>Introduction</em></h2>
+<p>In this blog post, we will dive into the fascinating world of coin flip sequences. Leveraging the capabilities of R, we will conduct simulations to gain insights into the probabilities of consecutive sequences of heads or tails.</p>
 </section>
-<section id="analyzing-sequences" class="level2">
-<h2 class="anchored" data-anchor-id="analyzing-sequences"><strong>Analyzing Sequences</strong></h2>
+<section id="simulating-coin-flips" class="level2">
+<h2 class="anchored" data-anchor-id="simulating-coin-flips"><em>Simulating Coin Flips</em></h2>
+<p>Let’s kick things off by simulating coin flips using R. We’ll conduct experiments with varying numbers of flips to observe how the results evolve.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to calculate the number of consecutive sequences</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>calculate_sequences <span class="ot">&lt;-</span> <span class="cf">function</span>(matrix) {</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  sequences <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="fu">nrow</span>(matrix), <span class="at">ncol =</span> <span class="fu">ncol</span>(matrix))</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(matrix)) {</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    count <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(matrix)) {</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (matrix[i, j] <span class="sc">==</span> <span class="dv">1</span>) {</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        count <span class="ot">&lt;-</span> count <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        sequences[i, j] <span class="ot">&lt;-</span> count</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        count <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sequences)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to simulate coin tosses</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>simulate_tosses <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">42</span>)  <span class="co"># Set seed for reproducibility</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  flips <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Heads"</span>, <span class="st">"Tails"</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(flips)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate coin flips for different scenarios</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>flips_100 <span class="ot">&lt;-</span> <span class="fu">simulate_tosses</span>(<span class="dv">100</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>flips_1000 <span class="ot">&lt;-</span> <span class="fu">simulate_tosses</span>(<span class="dv">1000</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>flips_10000 <span class="ot">&lt;-</span> <span class="fu">simulate_tosses</span>(<span class="dv">10000</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>flips_100000 <span class="ot">&lt;-</span> <span class="fu">simulate_tosses</span>(<span class="dv">100000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Visualizing Sequences</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate sequences for Heads and Tails matrices</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sequences_heads <span class="ot">&lt;-</span> <span class="fu">calculate_sequences</span>(heads_matrix)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sequences_tails <span class="ot">&lt;-</span> <span class="fu">calculate_sequences</span>(tails_matrix)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the longest sequence for Heads and Tails</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>longest_sequence_heads <span class="ot">&lt;-</span> <span class="fu">max</span>(sequences_heads)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>longest_sequence_tails <span class="ot">&lt;-</span> <span class="fu">max</span>(sequences_tails)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We define a function <strong><code>calculate_sequences</code></strong> that calculates the number of consecutive sequences in a matrix. This function is used to analyze the sequences of heads and tails.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create images with sequences and titles</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))  <span class="co"># Display the two images side by side</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(<span class="fu">t</span>(sequences_heads), <span class="at">col =</span> <span class="fu">viridis</span>(<span class="dv">100</span>), <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Heads Sequences (Max:"</span>, longest_sequence_heads, <span class="st">")"</span>), <span class="at">xaxt =</span> <span class="st">"n"</span>, <span class="at">yaxt =</span> <span class="st">"n"</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(<span class="fu">t</span>(sequences_tails), <span class="at">col =</span> <span class="fu">inferno</span>(<span class="dv">100</span>), <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Tails Sequences (Max:"</span>, longest_sequence_tails, <span class="st">")"</span>), <span class="at">xaxt =</span> <span class="st">"n"</span>, <span class="at">yaxt =</span> <span class="st">"n"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Table Generation</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate sequence lengths for Heads and Tails</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>sequence_lengths_heads <span class="ot">&lt;-</span> <span class="fu">table</span>(sequences_heads)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>sequence_lengths_tails <span class="ot">&lt;-</span> <span class="fu">table</span>(sequences_tails)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the percentage of sequence lengths</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>percentages_heads <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(sequence_lengths_heads) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>percentages_tails <span class="ot">&lt;-</span> <span class="fu">prop.table</span>(sequence_lengths_tails) <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data frames with lengths, absolute numbers, and percentages</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>dataframe_heads <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">Length =</span> <span class="fu">names</span>(sequence_lengths_heads),</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">Absolute_Numbers =</span> <span class="fu">as.numeric</span>(sequence_lengths_heads),</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">Percentage =</span> percentages_heads</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>dataframe_tails <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">Length =</span> <span class="fu">names</span>(sequence_lengths_tails),</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">Absolute_Numbers =</span> <span class="fu">as.numeric</span>(sequence_lengths_tails),</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">Percentage =</span> percentages_tails</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Create formatted tables</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(dataframe_heads, <span class="at">caption =</span> <span class="st">"Table of Heads Sequence Lengths"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Table of Heads Sequence Lengths</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Length</th>
-<th style="text-align: right;">Absolute_Numbers</th>
-<th style="text-align: left;">Percentage.sequences_heads</th>
-<th style="text-align: right;">Percentage.Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">25107</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">50.0378667</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">12544</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">25.0000000</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2</td>
-<td style="text-align: right;">6269</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: right;">12.4940210</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">3137</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">6.2519930</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">1570</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">3.1289860</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">5</td>
-<td style="text-align: right;">789</td>
-<td style="text-align: left;">5</td>
-<td style="text-align: right;">1.5724649</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">6</td>
-<td style="text-align: right;">368</td>
-<td style="text-align: left;">6</td>
-<td style="text-align: right;">0.7334184</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">7</td>
-<td style="text-align: right;">191</td>
-<td style="text-align: left;">7</td>
-<td style="text-align: right;">0.3806601</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">8</td>
-<td style="text-align: right;">95</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: right;">0.1893335</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">9</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: right;">0.1096142</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">10</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: left;">10</td>
-<td style="text-align: right;">0.0538106</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">11</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: right;">0.0239158</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">12</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: right;">0.0119579</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">13</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">13</td>
-<td style="text-align: right;">0.0039860</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">14</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">14</td>
-<td style="text-align: right;">0.0039860</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">15</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">15</td>
-<td style="text-align: right;">0.0019930</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">16</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">16</td>
-<td style="text-align: right;">0.0019930</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(dataframe_tails, <span class="at">caption =</span> <span class="st">"Table of Tails Sequence Lengths"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Table of Tails Sequence Lengths</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Length</th>
-<th style="text-align: right;">Absolute_Numbers</th>
-<th style="text-align: left;">Percentage.sequences_tails</th>
-<th style="text-align: right;">Percentage.Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">25245</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">50.3128986</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">12535</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">24.9820631</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2</td>
-<td style="text-align: right;">6143</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: right;">12.2429050</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">3130</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">6.2380421</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">1570</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">3.1289860</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">5</td>
-<td style="text-align: right;">779</td>
-<td style="text-align: left;">5</td>
-<td style="text-align: right;">1.5525351</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">6</td>
-<td style="text-align: right;">376</td>
-<td style="text-align: left;">6</td>
-<td style="text-align: right;">0.7493622</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">7</td>
-<td style="text-align: right;">188</td>
-<td style="text-align: left;">7</td>
-<td style="text-align: right;">0.3746811</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">8</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: right;">0.1953125</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">9</td>
-<td style="text-align: right;">53</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: right;">0.1056282</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">10</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: left;">10</td>
-<td style="text-align: right;">0.0558036</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">11</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: right;">0.0259088</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">12</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: right;">0.0139509</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">13</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">13</td>
-<td style="text-align: right;">0.0079719</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">14</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">14</td>
-<td style="text-align: right;">0.0059790</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">15</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">15</td>
-<td style="text-align: right;">0.0039860</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">16</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">16</td>
-<td style="text-align: right;">0.0039860</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>We use the knitr library to generate tables that display the lengths, absolute numbers, and percentages of the sequences for both heads and tails.</p>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion"><strong>Conclusion</strong></h2>
-<p>In this blog post, we explored a fascinating R code snippet that simulates coin flips and analyzes the resulting sequences. We visualized the sequences and created tables to gain insights into the distribution of sequence lengths. This code is a great starting point for exploring and visualizing sequential data in R.</p>
-<p>Feel free to try this code on your own and customize it to suit your needs. Happy coding!</p>
+<section id="analyzing-consecutive-sequences" class="level2">
+<h2 class="anchored" data-anchor-id="analyzing-consecutive-sequences"><em>Analyzing Consecutive Sequences</em></h2>
+<p>Moving on, we’ll analyze the consecutive sequences of heads or tails in each simulation. We’ll count the length of these sequences to gain insights into their distribution.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to count consecutive sequences</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>count_consecutive_sequences <span class="ot">&lt;-</span> <span class="cf">function</span>(flips) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  count <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">length</span>(flips))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  counter <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="fu">length</span>(flips)) {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (flips[i] <span class="sc">==</span> flips[i<span class="dv">-1</span>]) {</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      counter <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    count[i] <span class="ot">&lt;-</span> counter</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(count)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to create a plot for consecutive sequences</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>create_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(consecutive_counts, n) {</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Launch =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(consecutive_counts), <span class="at">Consecutive =</span> consecutive_counts)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Launch, <span class="at">y =</span> Consecutive)) <span class="sc">+</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Consecutive Sequences -"</span>, n, <span class="st">"Tosses"</span>),</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Toss Number"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Consecutive Count"</span>) <span class="sc">+</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(plot)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyze consecutive sequences for different scenarios</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>consecutive_counts_100 <span class="ot">&lt;-</span> <span class="fu">count_consecutive_sequences</span>(flips_100)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>consecutive_counts_1000 <span class="ot">&lt;-</span> <span class="fu">count_consecutive_sequences</span>(flips_1000)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>consecutive_counts_10000 <span class="ot">&lt;-</span> <span class="fu">count_consecutive_sequences</span>(flips_10000)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>consecutive_counts_100000 <span class="ot">&lt;-</span> <span class="fu">count_consecutive_sequences</span>(flips_100000)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualizing-the-results" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-the-results"><em>Visualizing the Results</em></h2>
+<p>Now, let’s create visualizations to better understand the distribution of consecutive sequences. We’ll use the ggplot2 library to craft insightful graphs and gridExtra to arrange them together.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create plots</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plot_100 <span class="ot">&lt;-</span> <span class="fu">create_plot</span>(consecutive_counts_100, <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: il pacchetto 'ggplot2' è stato creato con R versione 4.3.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plot_1000 <span class="ot">&lt;-</span> <span class="fu">create_plot</span>(consecutive_counts_1000, <span class="dv">1000</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plot_10000 <span class="ot">&lt;-</span> <span class="fu">create_plot</span>(consecutive_counts_10000, <span class="dv">10000</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plot_100000 <span class="ot">&lt;-</span> <span class="fu">create_plot</span>(consecutive_counts_100000, <span class="dv">100000</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Use gridExtra to arrange the plots</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(plot_100, plot_1000, plot_10000, plot_100000, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to simulate coin tosses and plot the maximum consecutive sequence</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>simulate_and_plot_max_sequence <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate coin tosses</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  flips <span class="ot">&lt;-</span> <span class="fu">simulate_tosses</span>(n)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Analyze consecutive sequences</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  consecutive_counts <span class="ot">&lt;-</span> <span class="fu">count_consecutive_sequences</span>(flips)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return the maximum consecutive sequence</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">max</span>(consecutive_counts))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector to store results</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>max_sequences <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform simulations with increasing numbers of tosses</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n_tosses <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">2000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>)) {</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  max_sequence <span class="ot">&lt;-</span> <span class="fu">simulate_and_plot_max_sequence</span>(n_tosses)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  max_sequences <span class="ot">&lt;-</span> <span class="fu">c</span>(max_sequences, max_sequence)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Num_Tosses =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">2000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>), <span class="at">Max_Sequence =</span> max_sequences)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Num_Tosses, <span class="at">y =</span> Max_Sequence)) <span class="sc">+</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Maximum Consecutive Sequence vs. Number of Tosses"</span>,</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Number of Tosses"</span>,</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Max Consecutive Sequence"</span>) <span class="sc">+</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="results-and-insights" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-insights"><em>Results and Insights</em></h2>
+<p>After simulating coin flips and analyzing consecutive sequences, we’ve gained valuable insights into the probability of encountering various sequences. As expected, with a larger number of flips, the likelihood of encountering longer consecutive sequences increases.</p>
+<p>Conclusion Exploring probability through simulation is a powerful way to grasp the nuances of random processes. Whether you’re a statistician, data scientist, or simply curious, these simulations provide a fascinating glimpse into the world of chance.</p>
+<p>Feel free to experiment with different parameters, such as the number of flips or the probability of getting heads or tails, and observe how the results change. Happy exploring!</p>
 
 
 </section>
