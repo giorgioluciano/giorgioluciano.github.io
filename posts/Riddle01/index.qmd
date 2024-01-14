@@ -25,7 +25,7 @@ we can break down the analysis into different cases:
 
 2.  **Case 2: Both players take different types of dice (without repetition of the same combination).**
 
-We'll generate plots for each case and then provide a summary of the results. Let's proceed with the updated code:
+We'll generate plots for each case and then provide a summary of the results. Here's the code:
 
 ```{r}
 library(ggplot2)
