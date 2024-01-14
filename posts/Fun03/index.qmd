@@ -254,4 +254,3 @@ summary8
 Anscombe's Quartet is a powerful reminder that descriptive statistics alone may not reveal the complete story of your data. Visualization is a crucial tool in data analysis, helping you uncover patterns, outliers, and unexpected relationships that numbers alone might miss.
 
 [@10.1145/3231772; @a23325bf-6a64-3bba-a051-ebe1b2dce874]
-
