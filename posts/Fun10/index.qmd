@@ -1,0 +1,95 @@
+---
+title: "A Mathematical Exploration of Pizza Sizes"
+author: "Giorgio Luciano and ChatGPT4o"
+date: "`r Sys.Date()`"
+
+---
+
+
+# Introduction
+
+Pizza, a beloved culinary delight, comes in various sizes. To better understand the implications of pizza size on the amount of pizza consumed, we establish a new standard unit called the *standard pizza radius*, denoted by the letter $a$, which measures 6 inches. This article examines how the area of a pizza changes with size and demonstrates that one extra-large pizza can provide more pizza than two standard-sized pizzas.
+
+# The Area of a Standard Pizza
+
+The area of a pizza, approximated as a circle, with a radius of one standard pizza radius ($a$) is given by the formula:
+
+$$
+\text{Area}_{\text{standard}} = \pi a^2
+$$
+
+# The Area of an Extra-Large Pizza
+
+For an extra-large pizza with a radius $r = 1.5a$, the area can be calculated as follows:
+
+$$
+\text{Area}_{\text{extra-large}} = \pi (1.5a)^2 = \pi \cdot 1.5^2 \cdot a^2 = \pi \cdot 2.25 \cdot a^2
+$$
+
+# Comparison: Two Standard Pizzas vs. One Extra-Large Pizza
+
+The combined area of two standard pizzas with radius $a$ is:
+
+$$
+\text{Area}_{\text{two standard}} = 2 \cdot \pi a^2
+$$
+
+Comparing this to the area of one extra-large pizza:
+
+$$
+\pi \cdot 2.25 \cdot a^2 > 2 \cdot \pi a^2
+$$
+
+Simplifying, we find:
+
+$$
+2.25 \pi a^2 > 2 \pi a^2
+$$
+
+Thus, the area of one extra-large pizza is greater than the combined area of two standard pizzas.
+
+# Minimum Radius for Extra-Large Pizza to Always Be Larger
+
+To determine the minimum radius $r = n \cdot a$ for the extra-large pizza to always have a greater area than two standard pizzas, we start with the inequality:
+
+$$
+\pi (n \cdot a)^2 > 2 \cdot \pi a^2
+$$
+
+Simplifying, we get:
+
+$$
+n^2 \cdot \pi a^2 > 2 \cdot \pi a^2
+$$
+
+$$
+n^2 > 2
+$$
+
+$$
+n > \sqrt{2}
+$$
+
+$$
+n > 1.4142
+$$
+
+Therefore, the radius of the extra-large pizza must be at least $\sqrt{2}$ times the radius of a standard pizza to ensure its area is always greater than that of two standard pizzas.
+
+# A Practical Example: Pizza Napoletana
+
+In Italy, according to the *Disciplinare verace pizza napoletana* (guidelines for authentic Neapolitan pizza), the radius of a pizza ranges from 22 to 35 cm. Let's compare the area of two pizzas with a 22 cm radius to one pizza with a 33 cm radius.
+
+-   **Two pizzas with 22 cm radius:**
+
+$$
+2 \cdot \pi \cdot 22^2 = 2 \cdot \pi \cdot 484 = 2 \cdot 1520.56 = 3039.52 \, \text{cm}^2
+$$
+
+-   **One pizza with 33 cm radius:**
+
+$$
+\pi \cdot 33^2 = \pi \cdot 1089 = 3419.46 \, \text{cm}^2
+$$
+
+This calculation confirms that one pizza with a 33 cm radius has a greater area than two pizzas with a 22 cm radius. Therefore, it is mathematically established that consuming one extra-large pizza results in more pizza than consuming two smaller ones.

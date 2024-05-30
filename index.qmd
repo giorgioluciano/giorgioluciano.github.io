@@ -29,7 +29,6 @@ I got a Ph.D in materials science and I'm a researcher with a variety of interes
 
 <https://giorgioluciano.github.io/listing.html>
 
-
 ### Code
 
 <https://github.com/giorgioluciano>
@@ -37,3 +36,9 @@ I got a Ph.D in materials science and I'm a researcher with a variety of interes
 ### CrystalNodes
 
 <https://giorgioluciano.github.io/CrystalNodes/>
+
+### Essential Computer Graphics Techniques book
+
+<https://giorgioluciano.github.io/ESGT/>
+
+
