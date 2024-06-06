@@ -23,9 +23,10 @@ title-block-banner: true
 
 ## About this blog
 
-I got a Ph.D in materials science and I'm a researcher with a variety of interests. I currently works as a researcher at the Italian National Council of Research (CNR) on topics related to the characterization and development of new materials.My interests also focus on lighting and rendering and creating scientific illustration. Here you will find my spaghetti code tutorials, blend files and other doodles
+I got a Ph.D in materials science and I'm a researcher with a variety of interests. I currently works as a researcher at the Italian National Council of Research (CNR) on topics related to the characterization and development of new materials.My interests also focus on lighting and rendering and creating scientific illustration. Here you will find my code tutorials, blend files and other doodles
 
 ### Blog
+
 
 <https://giorgioluciano.github.io/listing.html>
 
@@ -39,6 +40,7 @@ I got a Ph.D in materials science and I'm a researcher with a variety of interes
 
 ### Essential Computer Graphics Techniques book
 
-<https://giorgioluciano.github.io/ESGT/>
+All the images of my book in high resolution
 
+<https://github.com/giorgioluciano/ESGT/>
 
