@@ -2,7 +2,7 @@
 title: "Blog"
 listing:
   contents: posts
-  type: table
+  type: default
   sort: "date"
   fields: [image, date, title, reading-time]
 ---
