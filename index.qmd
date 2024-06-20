@@ -16,7 +16,7 @@ about:
       href: https://www.instagram.com/giorgioluciano5477/
     - text: Behance
       href: https://www.behance.net/giorgioluciano
-
+    
 page-layout: full
 title-block-banner: true
 ---
