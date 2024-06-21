@@ -118,7 +118,7 @@ editor:
 ### **equatiomatic: Transform Models into 'LaTeX' Equations**
 
 *tags*: #statistics\ #latex\ #regression\ #models\
-\[cran package link\] <https://CRAN.R-project.org/package=equatiomatic >
+\[cran package link\] <https://CRAN.R-project.org/package=equatiomatic>
 
 *description from the author/vignette*\
 
@@ -128,7 +128,7 @@ editor:
 ### **bulkreadr: The Ultimate Tool for Reading Data in Bulk**
 
 *tags*:   #bulk import\
-\[cran package link\] <https://CRAN.R-project.org/package=bulkreadr >
+\[cran package link\] <https://CRAN.R-project.org/package=bulkreadr>
 
 *description from the author/vignette*\
 
@@ -150,7 +150,7 @@ editor:
 ### **ftExtra: Extensions for 'Flextable'**
 
 *tags*:   #tables\ #flextables\
-\[cran package link\] <https://CRAN.R-project.org/package=ftExtra >
+\[cran package link\] <https://CRAN.R-project.org/package=ftExtra>
 
 *description from the author/vignette*\
 
@@ -164,7 +164,7 @@ editor:
 ### **PlayerChart: Generate Pizza Chart: Player Stats 0-100**
 
 *tags*:   #statistics\ 
-\[cran package link\] <https://CRAN.R-project.org/package=PlayerChart >
+\[cran package link\] <https://CRAN.R-project.org/package=PlayerChart>
 
 *description from the author/vignette*\
 
@@ -175,7 +175,7 @@ editor:
 ### **gameR: Color Palettes Inspired by Video Games**
 
 *tags*:   #statistics\ 
-\[cran package link\] <https://CRAN.R-project.org/package=gameR >
+\[cran package link\] <https://CRAN.R-project.org/package=gameR>
 
 *description from the author/vignette*\
 
