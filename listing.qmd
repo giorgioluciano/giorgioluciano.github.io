@@ -4,4 +4,6 @@ listing:
   contents: posts
   type: default
   fields: [image, date, title, reading-time]
+  sort: 
+    -"date"
 ---

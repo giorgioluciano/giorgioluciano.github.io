@@ -19,6 +19,7 @@ about:
     
 page-layout: full
 title-block-banner: true
+categories: true
 ---
 
 ## About this blog
