@@ -25,7 +25,7 @@ website:
         
 format:
   html:
-    theme: simplex
+    theme: cosmo
     css: styles.css
 
 editor: visual
