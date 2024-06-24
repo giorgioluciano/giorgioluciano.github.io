@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "My Blog"
+  title: "Giorgio Luciano"
   navbar:
     left: 
       - text: Code
@@ -22,13 +22,13 @@ website:
         href: https://www.behance.net/giorgioluciano
       - icon: stickies
         href: https://www.giorgioluciano.co.place
-        
+cookie-consent: true        
 format:
   html:
     theme: 
       light: flatly
       dark: darkly
-    css: styles.css
+      css: styles.css
 
 editor: visual
 

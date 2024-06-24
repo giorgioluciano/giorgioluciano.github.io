@@ -1,5 +1,5 @@
 ---
-title: "Blog"
+title: "Giorgio Luciano" 
 listing:
   contents: posts
   categories: true
