@@ -1,7 +1,7 @@
 ---
 title: "A Mathematical Exploration of Pizza Sizes"
 author: "Giorgio Luciano and ChatGPT4o"
-date: "`r Sys.Date()`"
+date: "2024-06-12"
 
 ---
 
