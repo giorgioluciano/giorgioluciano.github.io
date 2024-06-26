@@ -3,7 +3,7 @@ project:
   output-dir: docs
 website:
   title: "Giorgio Luciano"
-  site-url: https://albert-rapp.de
+  site-url: https://giorgioluciano.github.io
   navbar:
     left: 
       - text: Code
