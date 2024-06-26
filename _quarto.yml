@@ -25,10 +25,13 @@ website:
 cookie-consent: true        
 format:
   html:
-    theme: 
-      light: flatly
-      dark: darkly
-     css: styles.css
+    toc: true
+    theme:
+      light: [cosmo, theme.scss]
+    code-copy: true
+    code-overflow: wrap
+    css: styles.css
+  
 
 editor: visual
 

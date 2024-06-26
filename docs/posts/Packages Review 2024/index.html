@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Giorgio Luciano">
+<meta name="dcterms.date" content="2024-06-19">
+
+<title>Giorgio Luciano - R Packages 2024 list so far</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Giorgio Luciano</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../listing.html">
+ <span class="menu-text">Code</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/giorgioluciano/CrystalNodes">
+ <span class="menu-text">CrystalNodes</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/giorgioluciano"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/giorgioluciano"><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/giorgioluciano/"><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/giorgioluciano5477/"><i class="bi bi-instagram" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.behance.net/giorgioluciano"><i class="bi bi-behance" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.giorgioluciano.co.place"><i class="bi bi-stickies" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">R Packages 2024 list so far</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">packages</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Giorgio Luciano </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 19, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#plot" id="toc-plot" class="nav-link active" data-scroll-target="#plot">Plot</a>
+  <ul class="collapse">
+  <li><a href="#spiralize-visualize-data-on-spirals" id="toc-spiralize-visualize-data-on-spirals" class="nav-link" data-scroll-target="#spiralize-visualize-data-on-spirals"><strong>spiralize: Visualize Data on Spirals</strong></a></li>
+  <li><a href="#panelview-visualizing-panel-data" id="toc-panelview-visualizing-panel-data" class="nav-link" data-scroll-target="#panelview-visualizing-panel-data"><strong>panelView: Visualizing Panel Data</strong></a></li>
+  </ul></li>
+  <li><a href="#spectroscopy" id="toc-spectroscopy" class="nav-link" data-scroll-target="#spectroscopy">Spectroscopy</a>
+  <ul class="collapse">
+  <li><a href="#openspecy-analyze-process-identify-and-share-raman-and-ftir-spectra" id="toc-openspecy-analyze-process-identify-and-share-raman-and-ftir-spectra" class="nav-link" data-scroll-target="#openspecy-analyze-process-identify-and-share-raman-and-ftir-spectra"><strong>OpenSpecy: Analyze, Process, Identify, and Share Raman and (FT)IR Spectra</strong></a></li>
+  <li><a href="#plsvarsel-variable-selection-in-partial-least-squares" id="toc-plsvarsel-variable-selection-in-partial-least-squares" class="nav-link" data-scroll-target="#plsvarsel-variable-selection-in-partial-least-squares"><strong>plsVarSel: Variable Selection in Partial Least Squares</strong></a></li>
+  </ul></li>
+  <li><a href="#statistics" id="toc-statistics" class="nav-link" data-scroll-target="#statistics">Statistics</a>
+  <ul class="collapse">
+  <li><a href="#qreport-statistical-reporting-with-quarto" id="toc-qreport-statistical-reporting-with-quarto" class="nav-link" data-scroll-target="#qreport-statistical-reporting-with-quarto"><strong>qreport: Statistical Reporting with ‘Quarto’</strong></a></li>
+  <li><a href="#sjplot-data-visualization-for-statistics-in-social-science" id="toc-sjplot-data-visualization-for-statistics-in-social-science" class="nav-link" data-scroll-target="#sjplot-data-visualization-for-statistics-in-social-science"><strong>sjPlot: Data Visualization for Statistics in Social Science</strong></a></li>
+  <li><a href="#mvet-multivariate-estimates-and-tests" id="toc-mvet-multivariate-estimates-and-tests" class="nav-link" data-scroll-target="#mvet-multivariate-estimates-and-tests"><strong>MVET: Multivariate Estimates and Tests</strong></a></li>
+  <li><a href="#pbox-exploring-multivariate-spaces-with-probability-boxes" id="toc-pbox-exploring-multivariate-spaces-with-probability-boxes" class="nav-link" data-scroll-target="#pbox-exploring-multivariate-spaces-with-probability-boxes"><strong>pbox: Exploring Multivariate Spaces with Probability Boxes</strong></a></li>
+  <li><a href="#equatiomatic-transform-models-into-latex-equations" id="toc-equatiomatic-transform-models-into-latex-equations" class="nav-link" data-scroll-target="#equatiomatic-transform-models-into-latex-equations"><strong>equatiomatic: Transform Models into ‘LaTeX’ Equations</strong></a></li>
+  <li><a href="#bulkreadr-the-ultimate-tool-for-reading-data-in-bulk" id="toc-bulkreadr-the-ultimate-tool-for-reading-data-in-bulk" class="nav-link" data-scroll-target="#bulkreadr-the-ultimate-tool-for-reading-data-in-bulk"><strong>bulkreadr: The Ultimate Tool for Reading Data in Bulk</strong></a></li>
+  </ul></li>
+  <li><a href="#simulated-data" id="toc-simulated-data" class="nav-link" data-scroll-target="#simulated-data">Simulated data</a>
+  <ul class="collapse">
+  <li><a href="#rsurv-random-generation-of-survival-data" id="toc-rsurv-random-generation-of-survival-data" class="nav-link" data-scroll-target="#rsurv-random-generation-of-survival-data"><strong>rsurv: Random Generation of Survival Data</strong></a></li>
+  </ul></li>
+  <li><a href="#reporting-and-formatting" id="toc-reporting-and-formatting" class="nav-link" data-scroll-target="#reporting-and-formatting">Reporting and Formatting</a>
+  <ul class="collapse">
+  <li><a href="#ftextra-extensions-for-flextable" id="toc-ftextra-extensions-for-flextable" class="nav-link" data-scroll-target="#ftextra-extensions-for-flextable"><strong>ftExtra: Extensions for ‘Flextable’</strong></a></li>
+  </ul></li>
+  <li><a href="#fun" id="toc-fun" class="nav-link" data-scroll-target="#fun">Fun</a>
+  <ul class="collapse">
+  <li><a href="#playerchart-generate-pizza-chart-player-stats-0-100" id="toc-playerchart-generate-pizza-chart-player-stats-0-100" class="nav-link" data-scroll-target="#playerchart-generate-pizza-chart-player-stats-0-100"><strong>PlayerChart: Generate Pizza Chart: Player Stats 0-100</strong></a></li>
+  <li><a href="#gamer-color-palettes-inspired-by-video-games" id="toc-gamer-color-palettes-inspired-by-video-games" class="nav-link" data-scroll-target="#gamer-color-palettes-inspired-by-video-games"><strong>gameR: Color Palettes Inspired by Video Games</strong></a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<ol type="1">
+<li>List of packages I’ve found useful in my workflow during 2024 (so far)</li>
+</ol>
+<section id="plot" class="level2">
+<h2 class="anchored" data-anchor-id="plot">Plot</h2>
+<section id="spiralize-visualize-data-on-spirals" class="level3">
+<h3 class="anchored" data-anchor-id="spiralize-visualize-data-on-spirals"><strong>spiralize: Visualize Data on Spirals</strong></h3>
+<p><em>tags</em>: #plot<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=spiralize" class="uri">https://CRAN.R-project.org/package=spiralize</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>It visualizes data along an Archimedean spiral <a href="https://en.wikipedia.org/wiki/Archimedean_spiral" class="uri">https://en.wikipedia.org/wiki/Archimedean_spiral</a>, makes so-called spiral graph or spiral chart. It has two major advantages for visualization: 1. It is able to &gt;visualize data with very long axis with high resolution. 2. It is efficient for time series data to reveal periodic patterns.</p>
+</blockquote>
+</section>
+<section id="panelview-visualizing-panel-data" class="level3">
+<h3 class="anchored" data-anchor-id="panelview-visualizing-panel-data"><strong>panelView: Visualizing Panel Data</strong></h3>
+<p><em>tags</em>: #plot<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=panelView" class="uri">https://CRAN.R-project.org/package=panelView</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Visualizes panel data. It has three main functionalities: (1) it plots the treatment status and missing values in a panel dataset; (2) it visualizes the temporal dynamics of a main variable of interest; (3) it depicts the bivariate relationships between a treatment variable and an outcome variable either by unit or in aggregate. For details, see <a href="doi:10.18637/jss.v107.i07" class="uri">doi:10.18637/jss.v107.i07</a>.</p>
+</blockquote>
+</section>
+</section>
+<section id="spectroscopy" class="level2">
+<h2 class="anchored" data-anchor-id="spectroscopy">Spectroscopy</h2>
+<section id="openspecy-analyze-process-identify-and-share-raman-and-ftir-spectra" class="level3">
+<h3 class="anchored" data-anchor-id="openspecy-analyze-process-identify-and-share-raman-and-ftir-spectra"><strong>OpenSpecy: Analyze, Process, Identify, and Share Raman and (FT)IR Spectra</strong></h3>
+<p><em>tags</em>: #spectroscopy<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=OpenSpecy" class="uri">https://CRAN.R-project.org/package=OpenSpecy</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Raman and (FT)IR spectral analysis tool for plastic particles and other environmental samples (Cowger et al.&nbsp;2021, <a href="doi:10.1021/acs.analchem.1c00123" class="uri">doi:10.1021/acs.analchem.1c00123</a>). With read_any(), Open Specy provides a single function for reading individual, batch, or map spectral data files like .asp, .csv, .jdx, .spc, .spa, .0, and .zip. process_spec() simplifies processing spectra, including smoothing, baseline correction, range restriction and flattening, intensity conversions, wavenumber alignment, and min-max normalization. Spectra can be identified in batch using an onboard reference library (Cowger et al.&nbsp;2020, <a href="doi:10.1177/0003702820929064" class="uri">doi:10.1177/0003702820929064</a>) using match_spec(). A Shiny app is available via run_app() or online at&gt; <a href="https://openanalysis.org/openspecy/" class="uri">https://openanalysis.org/openspecy/</a>.</p>
+</blockquote>
+</section>
+<section id="plsvarsel-variable-selection-in-partial-least-squares" class="level3">
+<h3 class="anchored" data-anchor-id="plsvarsel-variable-selection-in-partial-least-squares"><strong>plsVarSel: Variable Selection in Partial Least Squares</strong></h3>
+<p><em>tags</em>: #pls&nbsp;#partial least squares&nbsp;#regression<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=plsVarSel" class="uri">https://CRAN.R-project.org/package=plsVarSel</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Interfaces and methods for variable selection in Partial Least Squares. The methods include filter methods, wrapper methods and embedded methods. Both regression and classification is supported.</p>
+</blockquote>
+</section>
+</section>
+<section id="statistics" class="level2">
+<h2 class="anchored" data-anchor-id="statistics">Statistics</h2>
+<section id="qreport-statistical-reporting-with-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="qreport-statistical-reporting-with-quarto"><strong>qreport: Statistical Reporting with ‘Quarto’</strong></h3>
+<p><em>tags</em>: #statistics<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=qreport" class="uri">https://CRAN.R-project.org/package=qreport</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Provides statistical components, tables, and graphs that are useful in ‘Quarto’ and ‘RMarkdown’ reports and that produce ‘Quarto’ elements for special formatting such as tabs and marginal notes and graphs. Some of the functions produce entire report sections with tabs, e.g., the missing data report created by missChk(). Functions for inserting variables and tables inside ‘graphviz’ and ‘mermaid’ diagrams are included, and so are special clinical trial graphics for adverse event reporting.</p>
+</blockquote>
+</section>
+<section id="sjplot-data-visualization-for-statistics-in-social-science" class="level3">
+<h3 class="anchored" data-anchor-id="sjplot-data-visualization-for-statistics-in-social-science"><strong>sjPlot: Data Visualization for Statistics in Social Science</strong></h3>
+<p><em>tags</em>: #statistics&nbsp;#social science [cran package link] <a href="https://CRAN.R-project.org/package=sjPlot" class="uri">https://CRAN.R-project.org/package=sjPlot</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Collection of plotting and table output functions for data visualization. Results of various statistical analyses (that are commonly used in social sciences) can be visualized using this package, including simple and cross tabulated frequencies, histograms, box plots, (generalized) linear models, mixed effects models, principal component analysis and correlation matrices, cluster analyses, scatter plots, stacked scales, effects plots of regression models (including interaction terms) and much more. This package supports labelled data.</p>
+</blockquote>
+</section>
+<section id="mvet-multivariate-estimates-and-tests" class="level3">
+<h3 class="anchored" data-anchor-id="mvet-multivariate-estimates-and-tests"><strong>MVET: Multivariate Estimates and Tests</strong></h3>
+<p><em>tags</em>: #statistics<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=MVET" class="uri">https://CRAN.R-project.org/package=MVET</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Multivariate estimation and testing, currently a package for testing parametric data. To deal with parametric data, various multivariate normality tests and outlier detection are performed and visualized using the ‘ggplot2’ package. Homogeneity tests for covariance matrices are also possible, as well as the Hotelling’s T-square test and the multivariate analysis of variance test. We are exploring additional tests and visualization techniques, such as profile analysis and randomized complete block design, to be made available in the future and making them easily accessible to users.</p>
+</blockquote>
+</section>
+<section id="pbox-exploring-multivariate-spaces-with-probability-boxes" class="level3">
+<h3 class="anchored" data-anchor-id="pbox-exploring-multivariate-spaces-with-probability-boxes"><strong>pbox: Exploring Multivariate Spaces with Probability Boxes</strong></h3>
+<p><em>tags</em>: #statistics<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=pbox" class="uri">https://CRAN.R-project.org/package=pbox</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Advanced statistical library offering a method to encapsulate and query the probability space of a dataset effortlessly using Probability Boxes (p-boxes). Its distinctive feature lies in the ease with which users can navigate and analyze marginal, joint, and conditional probabilities while taking into account the underlying correlation structure inherent in the data using copula theory and models. A comprehensive explanation is available in the paper “pbox: Exploring Multivariate Spaces with Probability Boxes” to be published in the Journal of Statistical Software.</p>
+</blockquote>
+</section>
+<section id="equatiomatic-transform-models-into-latex-equations" class="level3">
+<h3 class="anchored" data-anchor-id="equatiomatic-transform-models-into-latex-equations"><strong>equatiomatic: Transform Models into ‘LaTeX’ Equations</strong></h3>
+<p><em>tags</em>: #statistics&nbsp;#latex&nbsp;#regression&nbsp;#models<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=equatiomatic" class="uri">https://CRAN.R-project.org/package=equatiomatic</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>The goal of ‘equatiomatic’ is to reduce the pain associated with writing ‘LaTeX’ formulas from fitted models. The primary function of the package, extract_eq(), takes a fitted model object as its input and returns the corresponding ‘LaTeX’ code for the model.</p>
+</blockquote>
+</section>
+<section id="bulkreadr-the-ultimate-tool-for-reading-data-in-bulk" class="level3">
+<h3 class="anchored" data-anchor-id="bulkreadr-the-ultimate-tool-for-reading-data-in-bulk"><strong>bulkreadr: The Ultimate Tool for Reading Data in Bulk</strong></h3>
+<p><em>tags</em>: #bulk import<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=bulkreadr" class="uri">https://CRAN.R-project.org/package=bulkreadr</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Designed to simplify and streamline the process of reading and processing large volumes of data in R, this package offers a collection of functions tailored for bulk data operations. It enables users to efficiently read multiple sheets from Microsoft Excel and Google Sheets workbooks, as well as various CSV files from a directory. The data is returned as organized data frames, facilitating further analysis and manipulation. Ideal for handling extensive data sets or batch processing tasks, bulkreadr empowers users to manage data in bulk effortlessly, saving time and effort in data preparation workflows. Additionally, the package seamlessly works with labelled data from SPSS and Stata.</p>
+</blockquote>
+</section>
+</section>
+<section id="simulated-data" class="level2">
+<h2 class="anchored" data-anchor-id="simulated-data">Simulated data</h2>
+<section id="rsurv-random-generation-of-survival-data" class="level3">
+<h3 class="anchored" data-anchor-id="rsurv-random-generation-of-survival-data"><strong>rsurv: Random Generation of Survival Data</strong></h3>
+<p><em>tags</em>: #rsurv<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=rsurv" class="uri">https://CRAN.R-project.org/package=rsurv</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Random generation of survival data from a wide range of regression models, including accelerated failure time (AFT), proportional hazards (PH), proportional odds (PO), accelerated hazard (AH), Yang and Prentice (YP), and extended hazard (EH) models. The package ‘rsurv’ also stands out by its ability to generate survival data from an unlimited number of baseline distributions provided that an implementation of the quantile function of the chosen baseline distribution is available in R. Another nice feature of the package ‘rsurv’ lies in the fact that linear predictors are specified via a formula-based approach, facilitating the inclusion of categorical variables and interaction terms. The functions implemented in the package ‘rsurv’ can also be employed to simulate survival data with more complex structures, such as survival data with different types of censoring mechanisms, survival data with cure fraction, survival data with random effects (frailties), multivariate survival data, and competing risks survival data. Details about the R package ‘rsurv’ can be found in Demarqui (2024) <a href="doi:10.48550/arXiv.2406.01750" class="uri">doi:10.48550/arXiv.2406.01750</a>.</p>
+</blockquote>
+</section>
+</section>
+<section id="reporting-and-formatting" class="level2">
+<h2 class="anchored" data-anchor-id="reporting-and-formatting">Reporting and Formatting</h2>
+<section id="ftextra-extensions-for-flextable" class="level3">
+<h3 class="anchored" data-anchor-id="ftextra-extensions-for-flextable"><strong>ftExtra: Extensions for ‘Flextable’</strong></h3>
+<p><em>tags</em>: #tables&nbsp;#flextables<br>
+[cran package link] <a href="https://CRAN.R-project.org/package=ftExtra" class="uri">https://CRAN.R-project.org/package=ftExtra</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Build display tables easily by extending the functionality of the ‘flextable’ package. Features include spanning header, grouping rows, parsing markdown and so on.</p>
+</blockquote>
+</section>
+</section>
+<section id="fun" class="level2">
+<h2 class="anchored" data-anchor-id="fun">Fun</h2>
+<section id="playerchart-generate-pizza-chart-player-stats-0-100" class="level3">
+<h3 class="anchored" data-anchor-id="playerchart-generate-pizza-chart-player-stats-0-100"><strong>PlayerChart: Generate Pizza Chart: Player Stats 0-100</strong></h3>
+<p><em>tags</em>: #statistics&nbsp; [cran package link] <a href="https://CRAN.R-project.org/package=PlayerChart" class="uri">https://CRAN.R-project.org/package=PlayerChart</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Create an interactive pizza chart visualizing a specific player’s statistics across various attributes in a sports dataset. The chart is constructed based on input parameters: ‘data’, a dataframe containing player data for any sports; ‘player_stats_col’, a vector specifying the names of the columns from the dataframe that will be used to create slices in the pizza chart, with statistics ranging between 0 and 100; ‘name_col’, specifying the name of the column in the dataframe that contains the player names; and ‘player_name’, representing the specific player whose statistics will be visualized in the chart, serving as the chart title.</p>
+</blockquote>
+</section>
+<section id="gamer-color-palettes-inspired-by-video-games" class="level3">
+<h3 class="anchored" data-anchor-id="gamer-color-palettes-inspired-by-video-games"><strong>gameR: Color Palettes Inspired by Video Games</strong></h3>
+<p><em>tags</em>: #statistics&nbsp; [cran package link] <a href="https://CRAN.R-project.org/package=gameR" class="uri">https://CRAN.R-project.org/package=gameR</a></p>
+<p><em>description from the author/vignette</em><br>
+</p>
+<blockquote class="blockquote">
+<p>Palettes based on video games.</p>
+</blockquote>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
