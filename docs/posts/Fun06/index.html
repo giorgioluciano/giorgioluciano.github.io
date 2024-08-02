@@ -179,11 +179,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </i> 
  <span class="menu-text"></span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.giorgioluciano.co.place"><i class="bi bi-stickies" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
@@ -227,19 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><strong>Introduction?</strong></a></li>
-  <li><a href="#what-is-the-birthday-paradox" id="toc-what-is-the-birthday-paradox" class="nav-link" data-scroll-target="#what-is-the-birthday-paradox"><strong>What Is the Birthday Paradox?</strong></a>
-  <ul class="collapse">
-  <li><a href="#explanation-of-the-paradox" id="toc-explanation-of-the-paradox" class="nav-link" data-scroll-target="#explanation-of-the-paradox"><strong>Explanation of the Paradox</strong></a></li>
-  </ul></li>
-  <li><a href="#simulating-the-birthday-paradox-in-r" id="toc-simulating-the-birthday-paradox-in-r" class="nav-link" data-scroll-target="#simulating-the-birthday-paradox-in-r"><strong>Simulating the Birthday Paradox in R</strong></a></li>
-  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><strong>Conclusions</strong></a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -253,20 +236,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>R code for simulating the Birthday Paradox is provided, illustrating how probabilities change with increasing group size. The simulation involves checking for shared birthdays through multiple iterations to calculate the overall probability.</p></li>
 <li><p>Despite intuition, the Birthday Paradox illustrates that the probability of two people sharing a birthday is higher than anticipated.</p></li>
 </ol>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction"><strong>Introduction?</strong></h2>
 <p>In the realm of probability, there exist situations that are surprising and counterintuitive, and the “Birthday Paradox” is one of the most well-known examples. In this article, we will explore this intriguing paradox and use R to simulate and visualize its application. The Birthday Paradox is a classic demonstration of how probability can defy our expectations.</p>
-</section>
-<section id="what-is-the-birthday-paradox" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-the-birthday-paradox"><strong>What Is the Birthday Paradox?</strong></h2>
 <p>The Birthday Paradox is a probabilistic problem concerning the likelihood that two people in a group share the same birthday. At first glance, it might seem like the probability is very low, but in reality, it’s higher than you might think.</p>
-<section id="explanation-of-the-paradox" class="level3">
-<h3 class="anchored" data-anchor-id="explanation-of-the-paradox"><strong>Explanation of the Paradox</strong></h3>
 <p>The paradox is based on the fact that there are many possible combinations of people’s birthdays within a group. While it might appear that there is only a small chance that two people share a birthday, things change when we consider the entire group.</p>
-</section>
-</section>
-<section id="simulating-the-birthday-paradox-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="simulating-the-birthday-paradox-in-r"><strong>Simulating the Birthday Paradox in R</strong></h2>
 <p>Let’s dive into action and use the R programming language to simulate the Birthday Paradox. We will see how the probabilities change as the group size increases.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of simulations</span></span>
@@ -308,14 +280,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="conclusions" class="level2">
-<h2 class="anchored" data-anchor-id="conclusions"><strong>Conclusions</strong></h2>
 <p>The Birthday Paradox is a captivating example of how probability can be counterintuitive. Despite our intuitions, the probability of finding two people with the same birthday is higher than it seems. This paradox is an opportunity to explore the laws of probability and how they can surprise us.</p>
-<p>In the next article, we may delve into other paradoxes or further applications of probability concepts. In the meantime, feel free to try out the R code and experiment with the Birthday Paradox. Randomness can always bring surprises!</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

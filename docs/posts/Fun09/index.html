@@ -9,7 +9,7 @@
 <meta name="author" content="Giorgio Luciano and ChatGPT">
 <meta name="dcterms.date" content="2024-01-12">
 
-<title>Spaghetti code - Exploring the Frequency of Number 0 in a Year of Roulette Spins: A Simulation in R</title>
+<title>Giorgio Luciano - Exploring the Frequency of Number 0 in a Year of Roulette Spins: A Simulation in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -128,7 +128,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Spaghetti code</span>
+    <span class="navbar-title">Giorgio Luciano</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -176,11 +176,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://www.behance.net/giorgioluciano"><i class="bi bi-behance" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.giorgioluciano.co.place"><i class="bi bi-stickies" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -226,21 +221,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section id="exploring-the-frequency-of-number-0-in-a-year-of-roulette-spins-a-simulation-in-r" class="level1">
-<h1><strong>Exploring the Frequency of Number 0 in a Year of Roulette Spins: A Simulation in R</strong></h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction"><strong><em>Introduction</em></strong></h2>
 <p>In this blog post, we’ll delve into the realm of casino roulette and use R simulations to estimate the frequency of the number 0 appearing over the span of a year (40 spins per hour x 24 hours x 365 days) . Roulette, a classic casino game, is known for its unpredictability, making it an interesting subject for probability exploration.</p>
-</section>
-<section id="simulating-roulette-spins" class="level2">
-<h2 class="anchored" data-anchor-id="simulating-roulette-spins"><strong><em>Simulating Roulette Spins</em></strong></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to simulate roulette spins</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>simulate_roulette_spins <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
@@ -255,9 +245,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>spins_100000 <span class="ot">&lt;-</span> <span class="fu">simulate_roulette_spins</span>(<span class="dv">100000</span>)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>spins_1_year <span class="ot">&lt;-</span> <span class="fu">simulate_roulette_spins</span>(<span class="dv">365</span> <span class="sc">*</span> <span class="dv">24</span> <span class="sc">*</span> <span class="dv">40</span>)  <span class="co"># One year of spins</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="analyzing-frequency-of-number-0" class="level2">
-<h2 class="anchored" data-anchor-id="analyzing-frequency-of-number-0"><strong><em>Analyzing Frequency of Number 0</em></strong></h2>
 <p>Moving on, let’s analyze the frequency of the number 0 in each simulation. We’ll count the occurrences to gain insights into its distribution.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to count occurrences of number 0</span></span>
@@ -271,9 +258,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>zero_count_100000 <span class="ot">&lt;-</span> <span class="fu">count_zero_occurrences</span>(spins_100000)</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>zero_count_1_year <span class="ot">&lt;-</span> <span class="fu">count_zero_occurrences</span>(spins_1_year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="visualizing-the-results" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-the-results"><strong>Visualizing the Results</strong></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a bar plot for zero occurrences</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -293,21 +277,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section>
-<section id="results-and-insights" class="level2">
-<h2 class="anchored" data-anchor-id="results-and-insights">Results and Insights</h2>
 <p>After simulating roulette spins and analyzing the frequency of the number 0, we’ll gain valuable insights into the likelihood of encountering this specific outcome over different scenarios.</p>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion"><strong>Conclusion</strong></h2>
 <p>Exploring the probability of specific outcomes in casino games through simulation provides a fascinating glimpse into the world of chance. Whether you’re interested in statistics, data science, or simply curious, these simulations offer an engaging way to understand the dynamics of games of chance.</p>
 <p>Feel free to experiment with different parameters, such as the number of spins or the distribution of numbers on the roulette wheel, and observe how the results change. Happy exploring!</p>
 <p>Note: a fast search with bing about how many time does a roulette spin in a vegas casino : Explore</p>
 <p><a href="https://www.casinoonline.tf/how-many-times-does-a-roulette-wheel-spin-in-an-hour/">The average roulette wheel spins around <strong>40-50 times per hour</strong> when playing roulette at a casino in Las Vegas<sup>1</sup></a>. <a href="https://www.casinoonline.tf/how-many-times-does-a-roulette-wheel-spin-in-an-hour/">However, this can vary depending on the type of wheel, the number of players at the table, and how quickly bets are placed<sup>1</sup></a>. If you want to know more about roulette and the game’s current standing around the world, you can check out this <a href="https://thecasinowizard.com/news/roulette-facts-figures-and-statistics/">guide which provides a list of the most relevant roulette wheel odds and stats about the game, where you’ll learn everything about one of the world’s most popular casino games and how some odds work in your favor<sup>2</sup></a>.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

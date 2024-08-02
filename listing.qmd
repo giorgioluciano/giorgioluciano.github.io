@@ -4,5 +4,5 @@ listing:
   contents: posts
   categories: true
   type: default
-  fields: [image, date, title, reading-time]
+  fields: [image, date, title, description, categories,  reading-time]
 ---

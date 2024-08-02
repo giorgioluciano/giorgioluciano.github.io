@@ -22,11 +22,9 @@ tags:
 
 6.  Probability exploration through simulation is a powerful tool. Whether a statistician, data scientist, or curious individual, simulations offer insights into chance. Encouragement to experiment with parameters and observe changes in results.
 
-## *Introduction*
 
 In this blog post, we will dive into the fascinating world of coin flip sequences. Leveraging the capabilities of R, we will conduct simulations to gain insights into the probabilities of consecutive sequences of heads or tails.
 
-## *Simulating Coin Flips*
 
 Let's kick things off by simulating coin flips using R. We'll conduct experiments with varying numbers of flips to observe how the results evolve.
 
@@ -46,7 +44,6 @@ flips_100000 <- simulate_tosses(100000)
 
 ```
 
-## *Analyzing Consecutive Sequences*
 
 Moving on, we'll analyze the consecutive sequences of heads or tails in each simulation. We'll count the length of these sequences to gain insights into their distribution.
 
@@ -91,7 +88,6 @@ consecutive_counts_10000 <- count_consecutive_sequences(flips_10000)
 consecutive_counts_100000 <- count_consecutive_sequences(flips_100000)
 ```
 
-## *Visualizing the Results*
 
 Now, let's create visualizations to better understand the distribution of consecutive sequences. We'll use the ggplot2 library to craft insightful graphs and gridExtra to arrange them together.
 
@@ -144,7 +140,6 @@ plot <- ggplot(data, aes(x = Num_Tosses, y = Max_Sequence)) +
 print(plot)
 ```
 
-## *Results and Insights*
 
 After simulating coin flips and analyzing consecutive sequences, we've gained valuable insights into the probability of encountering various sequences. As expected, with a larger number of flips, the likelihood of encountering longer consecutive sequences increases.
 

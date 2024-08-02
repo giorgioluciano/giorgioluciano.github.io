@@ -21,18 +21,16 @@ website:
         href: https://www.instagram.com/giorgioluciano5477/
       - icon: behance
         href: https://www.behance.net/giorgioluciano
-      - icon: stickies
-        href: https://www.giorgioluciano.co.place
+   
 cookie-consent: true        
 format:
   html:
     toc: true
     theme:
-      light: [cosmo, theme.scss]
+      light: [trestles, theme.scss]
     code-copy: true
     code-overflow: wrap
     css: styles.css
   
-
 editor: visual
 

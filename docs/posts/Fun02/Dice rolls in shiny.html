@@ -9,7 +9,7 @@
 <meta name="author" content="Giorgio Luciano and ChatGPT">
 <meta name="dcterms.date" content="2023-10-12">
 
-<title>Spaghetti code - Central Limit Theorem with Dice Rolls</title>
+<title>Giorgio Luciano - Central Limit Theorem with Dice Rolls</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -128,7 +128,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -136,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Spaghetti code</span>
+    <span class="navbar-title">Giorgio Luciano</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -176,11 +176,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://www.behance.net/giorgioluciano"><i class="bi bi-behance" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.giorgioluciano.co.place"><i class="bi bi-stickies" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -227,29 +222,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section id="title-unveiling-the-central-limit-theorem-with-dice-rolls" class="level1">
-<h1><strong>Title: Unveiling the Central Limit Theorem with Dice Rolls</strong></h1>
 <ol type="1">
 <li><p>Dice rolls offer a fascinating insight into probability, especially when it comes to the sum of multiple dice rolls.</p></li>
 <li><p>The Central Limit Theorem states that as the number of dice rolls increases, the distribution of sums approaches the Gaussian distribution.</p></li>
 <li><p>In this blog post, we explore this intriguing concept, conduct real-world dice rolls, and use R to visualize the transformation from dice sums to Gaussian distribution.</p></li>
 </ol>
-<p><strong>Introduction:</strong></p>
 <p>Dice rolling is a pastime enjoyed by many, whether in board games or games of chance. But have you ever wondered how the sum of multiple dice rolls behaves when you roll them repeatedly? In this blog post, we embark on a journey into the world of dice rolls and the fascinating Central Limit Theorem. We’ll uncover how the sum of dice rolls can transform into a Gaussian distribution as the number of rolls increases.</p>
-<p><strong>Understanding Dice Rolls:</strong></p>
 <p>To fully grasp how the sum of dice rolls approaches a Gaussian distribution, let’s start with an overview of dice rolls. Imagine rolling a standard six-sided die, the kind commonly found in board games. Each roll yields a number between 1 and 6, with each outcome equally likely at 1/6.</p>
 <p>Now, what happens when we roll two dice and sum the results? In this scenario, the range of possible sums expands. You could obtain a sum of 2 (when both dice show 1) or a sum of 12 (when both dice display 6), with all possible combinations in between. For instance, you could achieve a sum of 7 when one die shows 3 and the other shows 4, or a sum of 4 when one die shows 2 and the other shows 2.</p>
 <p>Visualizing the sum of two dice rolls can be done using a bar chart. Notably, there are many more possible combinations resulting in a sum of 7 compared to combinations yielding sums of 2 or 12. This creates a triangular distribution, with a central peak at the most likely sum (in the case of two dice, that’s 7) and tails tapering off as you move away from the peak.</p>
 <p>However, this triangular distribution will change as we increase the number of dice rolled and the total number of rolls. By continuing with our simulation, we will witness how this distribution transforms into a Gaussian distribution as we increase the value of n, as predicted by the Central Limit Theorem.</p>
-<p>Stay with us as we explore this phenomenon through a practical simulation and visualize the results using R.</p>
-<p><strong>Simulation and Visualization:</strong></p>
 <p>Let’s see the theory in action. We’ll use R to simulate multiple dice rolls and visualize how the distribution changes with an increasing value of n.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the necessary library</span></span>
@@ -284,13 +275,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="Dice-rolls-in-shiny_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p><strong>Conclusion:</strong></p>
 <p>In conclusion, the Central Limit Theorem offers an intriguing insight into the behavior of dice rolls. As we roll dice more and more times and sum the results, the distribution of the sums converges towards a Gaussian distribution, defying the original distribution of the dice rolls. This exemplifies the power and predictability of probability theory.</p>
-<p>Dice, which often symbolize chance and unpredictability, paradoxically adhere to mathematical order described by the Central Limit Theorem. It’s yet another testament to how mathematics unveils hidden patterns in our everyday experiences.</p>
-<p>By understanding this phenomenon, we can better predict the outcomes of random events, whether in games of chance or in statistical analysis. The world of dice, in its apparent chaos, unveils the beauty of order through the Central Limit Theorem.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

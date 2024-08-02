@@ -39,19 +39,8 @@ categories:
 
     -   Concludes by emphasizing the illusion of luck in casinos, the role of zero, and why the house consistently wins.
 
-## **Introduction:**
 
 Have you ever wondered why casinos seem to have a mysterious edge, making them consistently profitable? Let's explore a paradox in the world of gambling, where the number zero takes center stage and helps the house always come out on top.
-
-## **The Roulette Dilemma:**
-
-Take a moment to delve into the rich history surrounding the classic roulette game, an indelible fixture in the tapestry of any casino. Fanciful stories about its origin abound, including tales of its invention by the 17th-century French mathematician Blaise Pascal, a French monk, or even the Chinese---supposedly transmitted to France by Dominican monks. However, the historical reality reveals a more nuanced narrative.
-
-In truth, roulette's roots trace back to France in the early 18th century, emerging from the older games of hoca and portique. It wasn't until 1716 in Bordeaux that it was first mentioned under its current name. Over the years, roulette underwent several modifications, ultimately achieving its present layout and wheel structure around 1790. This pivotal moment marked its rapid ascent to the status of the leading game in the burgeoning casinos and gambling houses of Europe.
-
-The game faced adversity during the years 1836 to 1933 when it was banned in France. Despite these challenges, roulette endured, eventually making a triumphant return to the gaming scene. The ebb and flow of its history reflect not only the evolution of a game but also its resilience and enduring appeal, contributing to the perpetual dilemma faced by those enticed by the timeless charm of the roulette wheel.
-
-## **Simulating the Game:**
 
 To illustrate this phenomenon, let's simulate the game of roulette using the R programming language. We'll focus on a simple bet: predicting whether the ball will land on red or black. In a fair game, the odds of winning such a bet would be 1 to 1. However, the introduction of the number zero alters the dynamics.
 
@@ -97,29 +86,23 @@ ggplot(data, aes(x = Scenario, y = Total_Winnings, fill = Scenario)) +
 
 ```
 
-1.  **`play_roulette` Function:**
-
     -   This function simulates playing roulette based on specified parameters.
 
     -   It generates random roulette numbers for a given number of spins.
 
     -   Calculates winnings based on the chosen number and adjusts for bets on red or black, considering a 5% house advantage.
 
-2.  **Simulating Plays:**
 
     -   The code uses **`set.seed(123)`** to ensure reproducibility in random number generation.
 
     -   It simulates roulette plays both with and without a house advantage (5% reduction in winnings for the scenario with the house advantage).
 
-3.  **Comparing Results:**
 
     -   The **`cat`** statements print the total winnings for each scenario, allowing a direct comparison of outcomes.
 
-4.  **Data Preparation for Plotting:**
 
     -   Creates a data frame (**`data`**) containing scenarios ("Without Advantage" and "With Advantage") and their corresponding total winnings.
 
-5.  **Creating a Bar Plot with ggplot2:**
 
     -   Utilizes ggplot2 to generate a bar plot.
 
@@ -129,15 +112,10 @@ ggplot(data, aes(x = Scenario, y = Total_Winnings, fill = Scenario)) +
 
     -   Different colors ("lightblue" and "papayawhip") are assigned to each scenario for clarity.
 
-## **The House Edge:**
 
 In our simulation, we introduced a slight modification to the payouts, reducing them just enough to create a 5% advantage for the house. This mirrors the real-world scenario where the presence of zero in roulette gives the casino an edge.
 
-## **Comparing Outcomes:**
-
 Running our simulation both with and without the house advantage reveals a stark contrast. The casino consistently comes out ahead in the long run, showcasing how the number zero plays a crucial role in tipping the odds in favor of the house.
-
-## **Conclusion:**
 
 The illusion of luck in casinos often stems from subtle yet significant factors, such as the presence of zero in games like roulette. Understanding these nuances can provide valuable insights into the mechanics of gambling and why, ultimately, the house always wins.
 

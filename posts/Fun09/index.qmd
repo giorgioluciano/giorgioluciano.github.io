@@ -8,13 +8,7 @@ categories:
 bibliography: references.bib
 ---
 
-# **Exploring the Frequency of Number 0 in a Year of Roulette Spins: A Simulation in R**
-
-## ***Introduction***
-
 In this blog post, we'll delve into the realm of casino roulette and use R simulations to estimate the frequency of the number 0 appearing over the span of a year (40 spins per hour x 24 hours x 365 days) . Roulette, a classic casino game, is known for its unpredictability, making it an interesting subject for probability exploration.
-
-## ***Simulating Roulette Spins***
 
 ```{r}
 # Function to simulate roulette spins
@@ -31,8 +25,6 @@ spins_100000 <- simulate_roulette_spins(100000)
 spins_1_year <- simulate_roulette_spins(365 * 24 * 40)  # One year of spins
 ```
 
-## ***Analyzing Frequency of Number 0***
-
 Moving on, let's analyze the frequency of the number 0 in each simulation. We'll count the occurrences to gain insights into its distribution.
 
 ```{r}
@@ -47,8 +39,6 @@ zero_count_10000 <- count_zero_occurrences(spins_10000)
 zero_count_100000 <- count_zero_occurrences(spins_100000)
 zero_count_1_year <- count_zero_occurrences(spins_1_year)
 ```
-
-## **Visualizing the Results**
 
 ```{r}
 # Create a bar plot for zero occurrences
@@ -67,11 +57,7 @@ plot <- ggplot(data, aes(x = Scenario, y = Zero_Count)) +
 print(plot)
 ```
 
-## Results and Insights
-
 After simulating roulette spins and analyzing the frequency of the number 0, we'll gain valuable insights into the likelihood of encountering this specific outcome over different scenarios.
-
-## **Conclusion**
 
 Exploring the probability of specific outcomes in casino games through simulation provides a fascinating glimpse into the world of chance. Whether you're interested in statistics, data science, or simply curious, these simulations offer an engaging way to understand the dynamics of games of chance.
 

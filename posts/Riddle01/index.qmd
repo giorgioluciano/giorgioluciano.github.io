@@ -8,10 +8,6 @@ categories:
 bibliography: references.bib
 ---
 
-# **Unraveling the DnD Dice Duel Riddle with Monte Carlo Simulation in R**
-
-## ***Introduction***
-
 Embark on a journey into the realm of Dungeons & Dragons as we unravel a captivating fiddle riddle involving a dice duel. Using the power of the R programming language and the Monte Carlo simulation method, we'll simulate the outcomes of duels between two players, each armed with a bag containing six distinct DnD dice. Prepare to explore the fascinating world of probability and randomness! See the riddle posted [here](https://open.substack.com/pub/thefiddler/p/can-you-roll-the-dungeon-masters?r=2xmwww&utm_campaign=post&utm_medium=web "Can You Roll the Dungeon Master’s Dice?") by [Fiddler on the Proof](https://thefiddler.substack.com/)
 
 At a table sit two individuals, each equipped with a bag housing six DnD dice: a d4, a d6, a d8, a d10, a d12, and a d20. The challenge is to randomly select one die from each bag and roll them simultaneously. For example, if a d4 and a d12 are chosen, both players roll their respective dice, hoping for fortuitous results. Monte Carlo Simulation in R:
@@ -126,6 +122,5 @@ print(summary_case2)
 
 ```
 
-## Analyzing the Duel Results
 
 Through the marriage of R programming and Monte Carlo simulation, we've successfully deciphered the intricacies of the DnD dice duel riddle. Whether you're a seasoned tabletop gamer or a data science enthusiast, this approach serves as a versatile tool for exploring and comprehending complex scenarios governed by chance. As you embark on your own coding adventures, may the rolls be ever in your favor! Happy coding!
