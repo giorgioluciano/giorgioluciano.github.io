@@ -4,5 +4,10 @@ listing:
   contents: posts
   categories: true
   type: default
+  sort-ui: true
+  filter-ui: true
   fields: [image, date, title, description, categories,  reading-time]
+  feed: true
+page-layout: full
+title-block-banner: false
 ---

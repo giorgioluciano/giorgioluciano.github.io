@@ -93,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
-</head>
+<link rel="alternate" type="application/rss+xml" title="Giorgio Luciano" href="listing.xml"></head>
 
 <body class="nav-fixed">
 
@@ -153,14 +153,14 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
     <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(18)</span></div><div class="category" data-category="Dice">Dice <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Fun">Fun <span class="quarto-category-count">(4)</span></div><div class="category" data-category="Monty Hall problem">Monty Hall problem <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(17)</span></div><div class="category" data-category="Simulation">Simulation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cards">cards <span class="quarto-category-count">(1)</span></div><div class="category" data-category="fun">fun <span class="quarto-category-count">(4)</span></div><div class="category" data-category="ggplot">ggplot <span class="quarto-category-count">(3)</span></div><div class="category" data-category="packages">packages <span class="quarto-category-count">(2)</span></div><div class="category" data-category="recipes">recipes <span class="quarto-category-count">(2)</span></div><div class="category" data-category="shiny">shiny <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tutorials">tutorials <span class="quarto-category-count">(7)</span></div><div class="category" data-category="visualization">visualization <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -184,17 +184,39 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1718143200000" data-listing-file-modified-sort="1722609020360" data-listing-reading-time-sort="1.9">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1718143200000" data-listing-file-modified-sort="1722693349622" data-listing-reading-time-sort="1.89">
 <div class="thumbnail">
-<a href="./posts/Fun10/index.html">
+<a href="./posts/005_Pizza/pizza.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Fun10/index.html"></a></p>
+</a><p><a href="./posts/005_Pizza/pizza.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Fun10/index.html">
+<a href="./posts/005_Pizza/pizza.html">
 <h3 class="no-anchor listing-title">
 A Mathematical Exploration of Pizza Sizes
 </h3>
@@ -202,12 +224,12 @@ A Mathematical Exploration of Pizza Sizes
 
 </div>
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Fun10/index.html -->
+Pizza, a…<em></em><span class="math inline"></span>
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Fun10/index.html">
+<a href="./posts/005_Pizza/pizza.html">
 <div class="listing-date">
 Jun 12, 2024
 </div>
@@ -217,16 +239,16 @@ Jun 12, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="R,Fun" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1722608088463" data-listing-reading-time-sort="5.69">
+<div class="quarto-post image-right" data-index="1" data-categories="R,Fun" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1722694128757" data-listing-reading-time-sort="5.05">
 <div class="thumbnail">
-<a href="./posts/Fun03/index.html">
+<a href="./posts/016_Anscombe/Anscombe.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Fun03/index.html"></a></p>
+</a><p><a href="./posts/016_Anscombe/Anscombe.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Fun03/index.html">
+<a href="./posts/016_Anscombe/Anscombe.html">
 <h3 class="no-anchor listing-title">
 Anscombe’s Quartet
 </h3>
@@ -242,14 +264,14 @@ R
 Fun
 </div>
 </div>
-<a href="./posts/Fun03/index.html">
+<a href="./posts/016_Anscombe/Anscombe.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Fun03/index.html -->
+Anscombe’s Quartet, known as the “Anscombe’s Test,” consists of four datasets with very…
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Fun03/index.html">
+<a href="./posts/016_Anscombe/Anscombe.html">
 <div class="listing-date">
 Sep 16, 2023
 </div>
@@ -259,16 +281,16 @@ Sep 16, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="R,fun,Dice" data-listing-date-sort="1697061600000" data-listing-file-modified-sort="1722608035200" data-listing-reading-time-sort="3.08">
+<div class="quarto-post image-right" data-index="2" data-categories="R,fun,Dice" data-listing-date-sort="1697061600000" data-listing-file-modified-sort="1722693685798" data-listing-reading-time-sort="2.735">
 <div class="thumbnail">
-<a href="./posts/Fun02/Dice rolls in shiny.html">
+<a href="./posts/009_Dice_rolls/Dice rolls in shiny.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Fun02/Dice rolls in shiny.html"></a></p>
+</a><p><a href="./posts/009_Dice_rolls/Dice rolls in shiny.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Fun02/Dice rolls in shiny.html">
+<a href="./posts/009_Dice_rolls/Dice rolls in shiny.html">
 <h3 class="no-anchor listing-title">
 Central Limit Theorem with Dice Rolls
 </h3>
@@ -287,33 +309,33 @@ fun
 Dice
 </div>
 </div>
-<a href="./posts/Fun02/Dice rolls in shiny.html">
+<a href="./posts/009_Dice_rolls/Dice rolls in shiny.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Fun02/Dice rolls in shiny.html -->
+Dice rolling is a pastime enjoyed by many, whether in board games or games of chance. But have you ever wondered how the sum of multiple dice rolls behaves when you roll…
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Fun02/Dice rolls in shiny.html">
+<a href="./posts/009_Dice_rolls/Dice rolls in shiny.html">
 <div class="listing-date">
 Oct 12, 2023
 </div>
 <div class="listing-reading-time">
-3 min
+2 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="R,tutorials,ggplot,visualization,recipes" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1722609314690" data-listing-reading-time-sort="19.11">
+<div class="quarto-post image-right" data-index="3" data-categories="R,tutorials,ggplot,visualization,recipes" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1722693745151" data-listing-reading-time-sort="18.375">
 <div class="thumbnail">
-<a href="./posts/Tut1/Visualization.html">
+<a href="./posts/010_Data_Visualization/Visualization.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Tut1/Visualization.html"></a></p>
+</a><p><a href="./posts/010_Data_Visualization/Visualization.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Tut1/Visualization.html">
+<a href="./posts/010_Data_Visualization/Visualization.html">
 <h3 class="no-anchor listing-title">
 Data Visualization
 </h3>
@@ -338,33 +360,33 @@ visualization
 recipes
 </div>
 </div>
-<a href="./posts/Tut1/Visualization.html">
+<a href="./posts/010_Data_Visualization/Visualization.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Tut1/Visualization.html -->
+Exploratory Data Analysis (EDA) is the crucial first step in the data analysis process. Before applying complex statistical models or machine learning algorithms, it is…
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Tut1/Visualization.html">
+<a href="./posts/010_Data_Visualization/Visualization.html">
 <div class="listing-date">
 Sep 16, 2023
 </div>
 <div class="listing-reading-time">
-19 min
+18 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="R,fun,cards" data-listing-date-sort="1699743600000" data-listing-file-modified-sort="1722608785912" data-listing-reading-time-sort="4.07">
+<div class="quarto-post image-right" data-index="4" data-categories="R,fun,cards" data-listing-date-sort="1699743600000" data-listing-file-modified-sort="1722694085373" data-listing-reading-time-sort="2.81">
 <div class="thumbnail">
-<a href="./posts/Fun08/Card Shuffling.html">
+<a href="./posts/014_Card_Shuffling/Card Shuffling.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Fun08/Card Shuffling.html"></a></p>
+</a><p><a href="./posts/014_Card_Shuffling/Card Shuffling.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Fun08/Card Shuffling.html">
+<a href="./posts/014_Card_Shuffling/Card Shuffling.html">
 <h3 class="no-anchor listing-title">
 Exploring Card Shuffling: A Visual Journey
 </h3>
@@ -383,33 +405,33 @@ fun
 cards
 </div>
 </div>
-<a href="./posts/Fun08/Card Shuffling.html">
+<a href="./posts/014_Card_Shuffling/Card Shuffling.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Fun08/Card Shuffling.html -->
+Today, we embark on a visual exploration of card shuffling, delving into a captivating technique known as the Faro shuffle.…
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Fun08/Card Shuffling.html">
+<a href="./posts/014_Card_Shuffling/Card Shuffling.html">
 <div class="listing-date">
 Nov 12, 2023
 </div>
 <div class="listing-reading-time">
-4 min
+2 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="R,Simulation" data-listing-date-sort="1700002800000" data-listing-file-modified-sort="1722608154448" data-listing-reading-time-sort="3.68">
+<div class="quarto-post image-right" data-index="5" data-categories="R,Simulation" data-listing-date-sort="1700002800000" data-listing-file-modified-sort="1722693829775" data-listing-reading-time-sort="2.87">
 <div class="thumbnail">
-<a href="./posts/Fun04/index.html">
+<a href="./posts/012_Coin_Toss/Coin_Toss.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Fun04/index.html"></a></p>
+</a><p><a href="./posts/012_Coin_Toss/Coin_Toss.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Fun04/index.html">
+<a href="./posts/012_Coin_Toss/Coin_Toss.html">
 <h3 class="no-anchor listing-title">
 Exploring Coin Flip Sequences with Simulation in R
 </h3>
@@ -425,33 +447,33 @@ R
 Simulation
 </div>
 </div>
-<a href="./posts/Fun04/index.html">
+<a href="./posts/012_Coin_Toss/Coin_Toss.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Fun04/index.html -->
+In this blog post, we will dive into the…
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Fun04/index.html">
+<a href="./posts/012_Coin_Toss/Coin_Toss.html">
 <div class="listing-date">
 Nov 15, 2023
 </div>
 <div class="listing-reading-time">
-3 min
+2 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="R,Fun" data-listing-date-sort="1705014000000" data-listing-file-modified-sort="1722608817447" data-listing-reading-time-sort="2.34">
+<div class="quarto-post image-right" data-index="6" data-categories="R,Fun" data-listing-date-sort="1705014000000" data-listing-file-modified-sort="1722692596224" data-listing-reading-time-sort="2.34">
 <div class="thumbnail">
-<a href="./posts/Fun09/index.html">
+<a href="./posts/001_Zero_Roulette/Zero_Roulette.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Fun09/index.html"></a></p>
+</a><p><a href="./posts/001_Zero_Roulette/Zero_Roulette.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Fun09/index.html">
+<a href="./posts/001_Zero_Roulette/Zero_Roulette.html">
 <h3 class="no-anchor listing-title">
 Exploring the Frequency of Number 0 in a Year of Roulette Spins: A Simulation in R
 </h3>
@@ -467,14 +489,14 @@ R
 Fun
 </div>
 </div>
-<a href="./posts/Fun09/index.html">
+<a href="./posts/001_Zero_Roulette/Zero_Roulette.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Fun09/index.html -->
+In this blog post, we’ll delve into the realm of casino roulette and use R simulations to estimate the frequency of the number 0 appearing over the span of a…
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Fun09/index.html">
+<a href="./posts/001_Zero_Roulette/Zero_Roulette.html">
 <div class="listing-date">
 Jan 12, 2024
 </div>
@@ -484,16 +506,16 @@ Jan 12, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="R,fun,Monty Hall problem" data-listing-date-sort="1697061600000" data-listing-file-modified-sort="1718869177839" data-listing-reading-time-sort="2.475">
+<div class="quarto-post image-right" data-index="7" data-categories="R,fun,Monty Hall problem" data-listing-date-sort="1697061600000" data-listing-file-modified-sort="1722693597247" data-listing-reading-time-sort="1.93">
 <div class="thumbnail">
-<a href="./posts/Fun01/Monty Hall.html">
+<a href="./posts/006_Monthy_Hall/Monty Hall.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Fun01/Monty Hall.html"></a></p>
+</a><p><a href="./posts/006_Monthy_Hall/Monty Hall.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Fun01/Monty Hall.html">
+<a href="./posts/006_Monthy_Hall/Monty Hall.html">
 <h3 class="no-anchor listing-title">
 Monty Hall simulation
 </h3>
@@ -512,33 +534,33 @@ fun
 Monty Hall problem
 </div>
 </div>
-<a href="./posts/Fun01/Monty Hall.html">
+<a href="./posts/006_Monthy_Hall/Monty Hall.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Fun01/Monty Hall.html -->
+The Monty Hall problem is a famous probability puzzle. In this scenario, a contestant on a game show is presented with three doors. Behind one door, there is a car, while…
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Fun01/Monty Hall.html">
+<a href="./posts/006_Monthy_Hall/Monty Hall.html">
 <div class="listing-date">
 Oct 12, 2023
 </div>
 <div class="listing-reading-time">
-2 min
+1 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="R,tutorials,ggplot,shiny,tutorials" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1698501420760" data-listing-reading-time-sort="2.86">
+<div class="quarto-post image-right" data-index="8" data-categories="R,tutorials,ggplot,shiny,tutorials" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1722692625272" data-listing-reading-time-sort="2.845">
 <div class="thumbnail">
-<a href="./posts/Snip05/Using Shiny Modules with Namespaces.html">
+<a href="./posts/002_Shiny_Namespace/Using Shiny Modules with Namespaces.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Snip05/Using Shiny Modules with Namespaces.html"></a></p>
+</a><p><a href="./posts/002_Shiny_Namespace/Using Shiny Modules with Namespaces.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Snip05/Using Shiny Modules with Namespaces.html">
+<a href="./posts/002_Shiny_Namespace/Using Shiny Modules with Namespaces.html">
 <h3 class="no-anchor listing-title">
 Namespaces in shiny: Why you need them
 </h3>
@@ -563,14 +585,14 @@ shiny
 tutorials
 </div>
 </div>
-<a href="./posts/Snip05/Using Shiny Modules with Namespaces.html">
+<a href="./posts/002_Shiny_Namespace/Using Shiny Modules with Namespaces.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Snip05/Using Shiny Modules with Namespaces.html -->
+In this example, both module_1 and…
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Snip05/Using Shiny Modules with Namespaces.html">
+<a href="./posts/002_Shiny_Namespace/Using Shiny Modules with Namespaces.html">
 <div class="listing-date">
 Sep 16, 2023
 </div>
@@ -607,7 +629,7 @@ packages
 </div>
 <a href="./posts/Packages Review 2022/index.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Packages Review 2022/index.html -->
+
 </div>
 </a>
 </div>
@@ -649,7 +671,8 @@ packages
 </div>
 <a href="./posts/Packages Review 2024/index.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Packages Review 2024/index.html -->
+<em>tags</em>: #plot<br>
+[cran package link] https://CRAN.R-project.org/package=spiralize
 </div>
 </a>
 </div>
@@ -666,14 +689,14 @@ Jun 19, 2024
 </div>
 <div class="quarto-post image-right" data-index="11" data-categories="R,tutorials" data-listing-date-sort="1676761200000" data-listing-file-modified-sort="1722607480880" data-listing-reading-time-sort="1.005">
 <div class="thumbnail">
-<a href="./posts/Snip01/index.html">
+<a href="./posts/008_ggplot_loops/ggplot_loops.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Snip01/index.html"></a></p>
+</a><p><a href="./posts/008_ggplot_loops/ggplot_loops.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Snip01/index.html">
+<a href="./posts/008_ggplot_loops/ggplot_loops.html">
 <h3 class="no-anchor listing-title">
 Snippet #1: ggplot loops
 </h3>
@@ -689,14 +712,14 @@ R
 tutorials
 </div>
 </div>
-<a href="./posts/Snip01/index.html">
+<a href="./posts/008_ggplot_loops/ggplot_loops.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Snip01/index.html -->
+
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Snip01/index.html">
+<a href="./posts/008_ggplot_loops/ggplot_loops.html">
 <div class="listing-date">
 Feb 19, 2023
 </div>
@@ -708,14 +731,14 @@ Feb 19, 2023
 </div>
 <div class="quarto-post image-right" data-index="12" data-categories="R,tutorials" data-listing-date-sort="1676761200000" data-listing-file-modified-sort="1697478051882" data-listing-reading-time-sort="1.46">
 <div class="thumbnail">
-<a href="./posts/Snip02/index.html">
+<a href="./posts/013_Clean_csv/Cleaning_csv.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Snip02/index.html"></a></p>
+</a><p><a href="./posts/013_Clean_csv/Cleaning_csv.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Snip02/index.html">
+<a href="./posts/013_Clean_csv/Cleaning_csv.html">
 <h3 class="no-anchor listing-title">
 Snippet #2: Cleaning column names of an imported csv
 </h3>
@@ -731,14 +754,14 @@ R
 tutorials
 </div>
 </div>
-<a href="./posts/Snip02/index.html">
+<a href="./posts/013_Clean_csv/Cleaning_csv.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Snip02/index.html -->
+
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Snip02/index.html">
+<a href="./posts/013_Clean_csv/Cleaning_csv.html">
 <div class="listing-date">
 Feb 19, 2023
 </div>
@@ -750,14 +773,14 @@ Feb 19, 2023
 </div>
 <div class="quarto-post image-right" data-index="13" data-categories="R,tutorials" data-listing-date-sort="1677884400000" data-listing-file-modified-sort="1697478051888" data-listing-reading-time-sort="1.615">
 <div class="thumbnail">
-<a href="./posts/Snip03/index.html">
+<a href="./posts/011_Data_Simulation/Data_Simulation.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Snip03/index.html"></a></p>
+</a><p><a href="./posts/011_Data_Simulation/Data_Simulation.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Snip03/index.html">
+<a href="./posts/011_Data_Simulation/Data_Simulation.html">
 <h3 class="no-anchor listing-title">
 Snippet #3: Functions for simulating data
 </h3>
@@ -773,14 +796,14 @@ R
 tutorials
 </div>
 </div>
-<a href="./posts/Snip03/index.html">
+<a href="./posts/011_Data_Simulation/Data_Simulation.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Snip03/index.html -->
+
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Snip03/index.html">
+<a href="./posts/011_Data_Simulation/Data_Simulation.html">
 <div class="listing-date">
 Mar 4, 2023
 </div>
@@ -790,16 +813,16 @@ Mar 4, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="R,tutorials,ggplot,visualization,recipes" data-listing-date-sort="1678489200000" data-listing-file-modified-sort="1697478051890" data-listing-reading-time-sort="1.33">
+<div class="quarto-post image-right" data-index="14" data-categories="R,tutorials,ggplot,visualization,recipes" data-listing-date-sort="1678489200000" data-listing-file-modified-sort="1722692659072" data-listing-reading-time-sort="1.33">
 <div class="thumbnail">
-<a href="./posts/Snip04/index.html">
+<a href="./posts/003_Scatterplot/Scatterplot.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Snip04/index.html"></a></p>
+</a><p><a href="./posts/003_Scatterplot/Scatterplot.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Snip04/index.html">
+<a href="./posts/003_Scatterplot/Scatterplot.html">
 <h3 class="no-anchor listing-title">
 Snippet #4: boxplots and scatterplots: simple recipes
 </h3>
@@ -824,14 +847,14 @@ visualization
 recipes
 </div>
 </div>
-<a href="./posts/Snip04/index.html">
+<a href="./posts/003_Scatterplot/Scatterplot.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Snip04/index.html -->
+Example 1: We want to visualize the difference between two groups of patients that follow two different diets. <em>Group A</em> has an average of total cholesterol of <em>180</em> with a…<em></em><em></em><em></em>
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Snip04/index.html">
+<a href="./posts/003_Scatterplot/Scatterplot.html">
 <div class="listing-date">
 Mar 11, 2023
 </div>
@@ -841,16 +864,16 @@ Mar 11, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="R,Fun" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1722608445886" data-listing-reading-time-sort="2.46">
+<div class="quarto-post image-right" data-index="15" data-categories="R,Fun" data-listing-date-sort="1694815200000" data-listing-file-modified-sort="1722693496567" data-listing-reading-time-sort="1.57">
 <div class="thumbnail">
-<a href="./posts/Fun06/index.html">
+<a href="./posts/015_Birthday_Paradox/ Birthday_Paradox.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Fun06/index.html"></a></p>
+</a><p><a href="./posts/015_Birthday_Paradox/ Birthday_Paradox.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Fun06/index.html">
+<a href="./posts/015_Birthday_Paradox/ Birthday_Paradox.html">
 <h3 class="no-anchor listing-title">
 The Birthday Paradox: When Probability Plays Tricks
 </h3>
@@ -866,33 +889,33 @@ R
 Fun
 </div>
 </div>
-<a href="./posts/Fun06/index.html">
+<a href="./posts/015_Birthday_Paradox/ Birthday_Paradox.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Fun06/index.html -->
+The Birthday Paradox is a probabilistic problem concerning the…
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Fun06/index.html">
+<a href="./posts/015_Birthday_Paradox/ Birthday_Paradox.html">
 <div class="listing-date">
 Sep 16, 2023
 </div>
 <div class="listing-reading-time">
-2 min
+1 min
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="R,fun" data-listing-date-sort="1699743600000" data-listing-file-modified-sort="1722608635104" data-listing-reading-time-sort="4.58">
+<div class="quarto-post image-right" data-index="16" data-categories="R,fun" data-listing-date-sort="1699743600000" data-listing-file-modified-sort="1722693637013" data-listing-reading-time-sort="3.36">
 <div class="thumbnail">
-<a href="./posts/Fun07/Illusion Of Luck.html">
+<a href="./posts/007_Illusion_Of_Luck/Illusion Of Luck.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Fun07/Illusion Of Luck.html"></a></p>
+</a><p><a href="./posts/007_Illusion_Of_Luck/Illusion Of Luck.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Fun07/Illusion Of Luck.html">
+<a href="./posts/007_Illusion_Of_Luck/Illusion Of Luck.html">
 <h3 class="no-anchor listing-title">
 The Illusion of Luck: How the Number Zero Always Wins in the Casino
 </h3>
@@ -908,33 +931,33 @@ R
 fun
 </div>
 </div>
-<a href="./posts/Fun07/Illusion Of Luck.html">
+<a href="./posts/007_Illusion_Of_Luck/Illusion Of Luck.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Fun07/Illusion Of Luck.html -->
+Have you ever wondered why casinos seem to have a mysterious…
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Fun07/Illusion Of Luck.html">
+<a href="./posts/007_Illusion_Of_Luck/Illusion Of Luck.html">
 <div class="listing-date">
 Nov 12, 2023
 </div>
 <div class="listing-reading-time">
-4 min
+3 min
 </div>
 </a>
 </div>
 </div>
 <div class="quarto-post image-right" data-index="17" data-categories="R,Fun" data-listing-date-sort="1705186800000" data-listing-file-modified-sort="1722609098448" data-listing-reading-time-sort="5.485">
 <div class="thumbnail">
-<a href="./posts/Riddle01/index.html">
+<a href="./posts/004_Riddle01/index.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Riddle01/index.html"></a></p>
+</a><p><a href="./posts/004_Riddle01/index.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Riddle01/index.html">
+<a href="./posts/004_Riddle01/index.html">
 <h3 class="no-anchor listing-title">
 Unraveling the DnD Dice Duel Riddle with Monte Carlo Simulation in R
 </h3>
@@ -950,14 +973,14 @@ R
 Fun
 </div>
 </div>
-<a href="./posts/Riddle01/index.html">
+<a href="./posts/004_Riddle01/index.html">
 <div class="listing-description">
-<!-- desc(5A0113B34292)[max=175]:posts/Riddle01/index.html -->
+
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Riddle01/index.html">
+<a href="./posts/004_Riddle01/index.html">
 <div class="listing-date">
 Jan 14, 2024
 </div>

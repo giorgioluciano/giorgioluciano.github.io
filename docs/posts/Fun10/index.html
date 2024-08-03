@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Giorgio Luciano and ChatGPT4o">
-<meta name="dcterms.date" content="2024-05-17">
+<meta name="dcterms.date" content="2024-06-12">
 
-<title>Spaghetti code - A Mathematical Exploration of Pizza Sizes</title>
+<title>Giorgio Luciano - A Mathematical Exploration of Pizza Sizes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Spaghetti code</span>
+    <span class="navbar-title">Giorgio Luciano</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -117,11 +117,6 @@ ul.task-list li input[type="checkbox"] {
 </i> 
  <span class="menu-text"></span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.giorgioluciano.co.place"><i class="bi bi-stickies" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
@@ -149,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 17, 2024</p>
+        <p class="date">June 12, 2024</p>
       </div>
     </div>
     
@@ -160,33 +155,24 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
 <p>Pizza, a beloved culinary delight, comes in various sizes. To better understand the implications of pizza size on the amount of pizza consumed, we establish a new standard unit called the <em>standard pizza radius</em>, denoted by the letter <span class="math inline">\(a\)</span>, which measures 6 inches. This article examines how the area of a pizza changes with size and demonstrates that one extra-large pizza can provide more pizza than two standard-sized pizzas.</p>
-</section>
-<section id="the-area-of-a-standard-pizza" class="level1">
-<h1>The Area of a Standard Pizza</h1>
 <p>The area of a pizza, approximated as a circle, with a radius of one standard pizza radius (<span class="math inline">\(a\)</span>) is given by the formula:</p>
 <p><span class="math display">\[
 \text{Area}_{\text{standard}} = \pi a^2
 \]</span></p>
-</section>
-<section id="the-area-of-an-extra-large-pizza" class="level1">
-<h1>The Area of an Extra-Large Pizza</h1>
 <p>For an extra-large pizza with a radius <span class="math inline">\(r = 1.5a\)</span>, the area can be calculated as follows:</p>
 <p><span class="math display">\[
 \text{Area}_{\text{extra-large}} = \pi (1.5a)^2 = \pi \cdot 1.5^2 \cdot a^2 = \pi \cdot 2.25 \cdot a^2
 \]</span></p>
-</section>
-<section id="comparison-two-standard-pizzas-vs.-one-extra-large-pizza" class="level1">
-<h1>Comparison: Two Standard Pizzas vs.&nbsp;One Extra-Large Pizza</h1>
 <p>The combined area of two standard pizzas with radius <span class="math inline">\(a\)</span> is:</p>
 <p><span class="math display">\[
 \text{Area}_{\text{two standard}} = 2 \cdot \pi a^2
@@ -200,9 +186,6 @@ ul.task-list li input[type="checkbox"] {
 2.25 \pi a^2 &gt; 2 \pi a^2
 \]</span></p>
 <p>Thus, the area of one extra-large pizza is greater than the combined area of two standard pizzas.</p>
-</section>
-<section id="minimum-radius-for-extra-large-pizza-to-always-be-larger" class="level1">
-<h1>Minimum Radius for Extra-Large Pizza to Always Be Larger</h1>
 <p>To determine the minimum radius <span class="math inline">\(r = n \cdot a\)</span> for the extra-large pizza to always have a greater area than two standard pizzas, we start with the inequality:</p>
 <p><span class="math display">\[
 \pi (n \cdot a)^2 &gt; 2 \cdot \pi a^2
@@ -221,26 +204,18 @@ n &gt; \sqrt{2}
 n &gt; 1.4142
 \]</span></p>
 <p>Therefore, the radius of the extra-large pizza must be at least <span class="math inline">\(\sqrt{2}\)</span> times the radius of a standard pizza to ensure its area is always greater than that of two standard pizzas.</p>
-</section>
-<section id="a-practical-example-pizza-napoletana" class="level1">
-<h1>A Practical Example: Pizza Napoletana</h1>
 <p>In Italy, according to the <em>Disciplinare verace pizza napoletana</em> (guidelines for authentic Neapolitan pizza), the radius of a pizza ranges from 22 to 35 cm. Let’s compare the area of two pizzas with a 22 cm radius to one pizza with a 33 cm radius.</p>
-<ul>
-<li><strong>Two pizzas with 22 cm radius:</strong></li>
-</ul>
 <p><span class="math display">\[
 2 \cdot \pi \cdot 22^2 = 2 \cdot \pi \cdot 484 = 2 \cdot 1520.56 = 3039.52 \, \text{cm}^2
 \]</span></p>
 <ul>
-<li><strong>One pizza with 33 cm radius:</strong></li>
-</ul>
-<p><span class="math display">\[
+<li><span class="math display">\[
 \pi \cdot 33^2 = \pi \cdot 1089 = 3419.46 \, \text{cm}^2
-\]</span></p>
+\]</span></li>
+</ul>
 <p>This calculation confirms that one pizza with a 33 cm radius has a greater area than two pizzas with a 22 cm radius. Therefore, it is mathematically established that consuming one extra-large pizza results in more pizza than consuming two smaller ones.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
