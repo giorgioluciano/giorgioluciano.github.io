@@ -37,25 +37,27 @@ Per esigenze serie di gestione dei dati, è consigliabile utilizzare un vero e p
 
 Quando qualcuno fornisce dei dati da analizzare, è importante rispettare determinati criteri per garantire un'analisi accurata ed efficiente.
 
-#### 1. **Convenzioni di Denominazione delle Colonne e delle Righe**
+#### 1. **Convenzioni di Denominazione dei File**
 
-I nomi di colonne e righe devono seguire le stesse regole di chiarezza e coerenza. Un nome significativo delle colonne aiuta a capire immediatamente cosa rappresentano i dati senza necessità di ulteriori spiegazioni.
+Il nome di un file deve essere chiaro, descrittivo e privo di caratteri speciali. Usare nomi significativi è essenziale per assicurarsi che chiunque possa capire il contenuto del file senza doverlo aprire. Evitare nomi vaghi o generici come *"database_ultima_versione"* o *"file_finale"*, che non offrono informazioni utili.
 
-**Ecco alcune linee guida per i nomi di colonne e righe:**
-
--   **Nomi significativi**:\
-    Utilizzare nomi che descrivano esattamente i dati contenuti. Ad esempio, invece di usare nomi come *"var1"* o *"colonna1"*, usare nomi più specifici come *"età_paziente"* o *"quantità_venduta"*.
+Ecco alcune buone pratiche per la denominazione dei file:
 
 -   **Esempi corretti**:
 
-    -   *"nome_paziente"*, *"data_vendita"*, *"prezzo_unitario"*
+    -   *"2024924_nome_trial_autore_versione.csv"*
 
 -   **Esempi da evitare**:
 
-    -   *"colonna1"*, *"dato_A"*, *"x1"*
+    -   *"file_versione_definitiva_finale.xlsx"*
 
--   **Evitare caratteri speciali**:\
-    Così come per i nomi di file, evitare caratteri come spazi, trattini e simboli speciali (*"/"*, *"&"*, *"\#"*, etc.). Utilizzare l’underscore (`_`) o il camelCase (es. *"nomeCliente"*) per separare le parole nei nomi delle colonne.
+    -   *"dati123*.xls"\*
+
+Evitate caratteri speciali come spazi o simboli che possono causare problemi in vari sistemi e software. Caratteri da evitare includono:
+
+-   `/`, `\`, `*`, `&`, `#`, `%`, `@`
+
+Invece, utilizzate underscore (`_`) per separare parole (es. *"nome_file_corretto.xlsx"*).
 
 #### 2. **Convenzioni di Denominazione delle Colonne e delle Righe**
 
@@ -64,11 +66,11 @@ I nomi di colonne e righe devono seguire le stesse regole di chiarezza e coerenz
 **Ecco alcune linee guida per i nomi di colonne e righe:**
 
 -   **Nomi significativi**:\
-    Utilizzare nomi che descrivano esattamente i dati contenuti. Ad esempio, invece di usare nomi come *"var1"* o *"colonna1"*, usare nomi più specifici come *"eta_paziente" o "Vitamina\_*d*"*.
+    Utilizzare nomi che descrivano esattamente i dati contenuti. Ad esempio, invece di usare nomi come *"var1"* o *"colonna1"*, usare nomi più specifici come *"eta_paziente" o "Vitamina_D"*.
 
 -   **Esempi corretti**:
 
-    -   *"nome_paziente"*, *"Vitamina_d"*
+    -   *"nome_paziente", "eta","altezza","peso","BMI","Vitamina_D"*
 
 -   **Esempi da evitare**:
 

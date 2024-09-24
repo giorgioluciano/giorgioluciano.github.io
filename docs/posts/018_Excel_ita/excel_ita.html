@@ -212,35 +212,37 @@ Le query SQL nei database permettono di effettuare analisi molto più complesse 
 <section id="criteri-essenziali-per-la-gestione-dei-dati" class="level3">
 <h3 class="anchored" data-anchor-id="criteri-essenziali-per-la-gestione-dei-dati">Criteri Essenziali per la Gestione dei Dati</h3>
 <p>Quando qualcuno fornisce dei dati da analizzare, è importante rispettare determinati criteri per garantire un’analisi accurata ed efficiente.</p>
-<section id="convenzioni-di-denominazione-delle-colonne-e-delle-righe" class="level4">
-<h4 class="anchored" data-anchor-id="convenzioni-di-denominazione-delle-colonne-e-delle-righe">1. <strong>Convenzioni di Denominazione delle Colonne e delle Righe</strong></h4>
-<p>I nomi di colonne e righe devono seguire le stesse regole di chiarezza e coerenza. Un nome significativo delle colonne aiuta a capire immediatamente cosa rappresentano i dati senza necessità di ulteriori spiegazioni.</p>
-<p><strong>Ecco alcune linee guida per i nomi di colonne e righe:</strong></p>
+<section id="convenzioni-di-denominazione-dei-file" class="level4">
+<h4 class="anchored" data-anchor-id="convenzioni-di-denominazione-dei-file">1. <strong>Convenzioni di Denominazione dei File</strong></h4>
+<p>Il nome di un file deve essere chiaro, descrittivo e privo di caratteri speciali. Usare nomi significativi è essenziale per assicurarsi che chiunque possa capire il contenuto del file senza doverlo aprire. Evitare nomi vaghi o generici come <em>“database_ultima_versione”</em> o <em>“file_finale”</em>, che non offrono informazioni utili.</p>
+<p>Ecco alcune buone pratiche per la denominazione dei file:</p>
 <ul>
-<li><p><strong>Nomi significativi</strong>:<br>
-Utilizzare nomi che descrivano esattamente i dati contenuti. Ad esempio, invece di usare nomi come <em>“var1”</em> o <em>“colonna1”</em>, usare nomi più specifici come <em>“età_paziente”</em> o <em>“quantità_venduta”</em>.</p></li>
 <li><p><strong>Esempi corretti</strong>:</p>
 <ul>
-<li><em>“nome_paziente”</em>, <em>“data_vendita”</em>, <em>“prezzo_unitario”</em></li>
+<li><em>“2024924_nome_trial_autore_versione.csv”</em></li>
 </ul></li>
 <li><p><strong>Esempi da evitare</strong>:</p>
 <ul>
-<li><em>“colonna1”</em>, <em>“dato_A”</em>, <em>“x1”</em></li>
+<li><p><em>“file_versione_definitiva_finale.xlsx”</em></p></li>
+<li><p><em>“dati123</em>.xls”*</p></li>
 </ul></li>
-<li><p><strong>Evitare caratteri speciali</strong>:<br>
-Così come per i nomi di file, evitare caratteri come spazi, trattini e simboli speciali (<em>“/”</em>, <em>“&amp;”</em>, <em>“#”</em>, etc.). Utilizzare l’underscore (<code>_</code>) o il camelCase (es. <em>“nomeCliente”</em>) per separare le parole nei nomi delle colonne.</p></li>
 </ul>
+<p>Evitate caratteri speciali come spazi o simboli che possono causare problemi in vari sistemi e software. Caratteri da evitare includono:</p>
+<ul>
+<li><code>/</code>, <code>\</code>, <code>*</code>, <code>&amp;</code>, <code>#</code>, <code>%</code>, <code>@</code></li>
+</ul>
+<p>Invece, utilizzate underscore (<code>_</code>) per separare parole (es. <em>“nome_file_corretto.xlsx”</em>).</p>
 </section>
-<section id="convenzioni-di-denominazione-delle-colonne-e-delle-righe-1" class="level4">
-<h4 class="anchored" data-anchor-id="convenzioni-di-denominazione-delle-colonne-e-delle-righe-1">2. <strong>Convenzioni di Denominazione delle Colonne e delle Righe</strong></h4>
+<section id="convenzioni-di-denominazione-delle-colonne-e-delle-righe" class="level4">
+<h4 class="anchored" data-anchor-id="convenzioni-di-denominazione-delle-colonne-e-delle-righe">2. <strong>Convenzioni di Denominazione delle Colonne e delle Righe</strong></h4>
 <p>I nomi di colonne e righe devono seguire le stesse regole di chiarezza e coerenza. Un nome significativo delle colonne aiuta a capire immediatamente cosa rappresentano i dati senza necessità di ulteriori spiegazioni.</p>
 <p><strong>Ecco alcune linee guida per i nomi di colonne e righe:</strong></p>
 <ul>
 <li><p><strong>Nomi significativi</strong>:<br>
-Utilizzare nomi che descrivano esattamente i dati contenuti. Ad esempio, invece di usare nomi come <em>“var1”</em> o <em>“colonna1”</em>, usare nomi più specifici come <em>“eta_paziente” o “Vitamina_<em>d</em>”</em>.</p></li>
+Utilizzare nomi che descrivano esattamente i dati contenuti. Ad esempio, invece di usare nomi come <em>“var1”</em> o <em>“colonna1”</em>, usare nomi più specifici come <em>“eta_paziente” o “Vitamina_D”</em>.</p></li>
 <li><p><strong>Esempi corretti</strong>:</p>
 <ul>
-<li><em>“nome_paziente”</em>, <em>“Vitamina_d”</em></li>
+<li><em>“nome_paziente”, “eta”,“altezza”,“peso”,“BMI”,“Vitamina_D”</em></li>
 </ul></li>
 <li><p><strong>Esempi da evitare</strong>:</p>
 <ul>
