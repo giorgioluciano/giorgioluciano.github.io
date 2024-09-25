@@ -1,0 +1,83 @@
+---
+title: "Confronto tra Excel e Database nella Gestione Clinica dei Dati: Errori E Sicurezza"
+author: "Giorgio Luciano & AI"
+date: "2024-09-24"
+categories: 
+  - Essential
+  - Tutorial
+---
+
+### **Confronto tra Excel e Database nella Gestione Clinica dei Dati: Errori e Sicurezza**
+
+#### **Caso Excel: Errore nel Valore di una Glicemia**
+
+Un errore comune in Excel è l'inserimento di valori non corretti a causa di formati non standardizzati. Supponiamo di avere una tabella in cui si registrano i valori di glicemia dei pazienti. Il formato corretto richiede l'uso del punto come separatore decimale (ad esempio, **5.8** mmol/L), ma un utente inserisce erroneamente un valore con la virgola (**5,8**).
+
+Esempio di tabella:
+
+| Paziente   | Valore di glicemia (mmol/L) |
+|------------|-----------------------------|
+| Paziente A | 5.6                         |
+| Paziente B | 6.2                         |
+| Paziente C | 5,8                         |
+| Paziente D | 7.1                         |
+
+In questo caso, Excel potrebbe trattare **5,8** come testo, non come numero, perché la virgola è interpretata come un separatore non numerico. Di conseguenza, il valore **5,8** verrebbe ignorato durante i calcoli. Per esempio, se si tenta di calcolare la media dei valori con la formula `=MEDIA(B2:B5)`, Excel considererà solo i valori numerici (5.6, 6.2 e 7.1), restituendo una media non corretta.
+
+-   **Media calcolata da Excel (ignorando 5,8)**:\
+    (5.6+6.2+7.1)/3=6.3(5.6 + 6.2 + 7.1) / 3 = 6.3(5.6+6.2+7.1)/3=6.3
+
+-   **Media corretta (includendo 5.8)**:\
+    (5.6+6.2+5.8+7.1)/4=6.175(5.6 + 6.2 + 5.8 + 7.1) / 4 = 6.175(5.6+6.2+5.8+7.1)/4=6.175
+
+Questo errore può facilmente passare inosservato, portando a conclusioni cliniche sbagliate.
+
+#### **Caso Database: Prevenzione dell'Errore**
+
+In un database, l'inserimento di dati con formato errato viene automaticamente bloccato. Supponiamo che la colonna dei valori glicemici sia definita come **DECIMAL** o **FLOAT**, dove è richiesto l'uso del punto decimale. Se si tenta di inserire un valore con la virgola, il database restituirà un errore, impedendo l'inserimento errato.
+
+``` sql
+CREATE TABLE glicemia (
+      paziente VARCHAR(50), 
+      valore_glicemia DECIMAL(4,1) );
+
+INSERT INTO glicemia (paziente, valore_glicemia) VALUES ('Paziente C', '5,8');
+```
+
+Questo comando genererebbe un errore simile a:
+
+**`ERROR: invalid input syntax for type numeric: "5,8"`**
+
+Il database obbliga l'utente a correggere l'errore prima di continuare, prevenendo errori nei calcoli successivi.
+
+#### **Caso Excel: Mancanza di Controllo sugli Accessi**
+
+Excel non offre un sistema avanzato di controllo sugli accessi e tracciamento delle modifiche. Supponiamo che un file Excel venga utilizzato per gestire i dati clinici di pazienti, con il rischio che qualsiasi utente con accesso possa modificare i dati (intenzionalmente o accidentalmente) senza lasciare traccia.
+
+Esempio:
+
+| ID Paziente | Nome        | Diagnosi               | Terapia       | Medico        |
+|-------------|-------------|------------------------|---------------|---------------|
+| 001         | Mario Rossi | Ipertensione           | ACE Inibitori | Dott. Bianchi |
+| 002         | Anna Verdi  | Diabete Tipo 2         | Insulina      | Dott. Neri    |
+| 003         | Luca Blu    | Insufficienza cardiaca | Betabloccanti | Dott. Verdi   |
+
+Un operatore sanitario potrebbe per errore modificare la terapia di un paziente, sostituendo "Insulina" con "Metformina" per Anna Verdi. In questo scenario, non ci sarebbe alcun modo di risalire a chi ha apportato la modifica, poiché Excel non tiene traccia delle modifiche, esponendo i dati clinici a gravi rischi.
+
+#### **Caso Database: Robustezza nella Gestione della Sicurezza**
+
+Un database offre robusti meccanismi di controllo degli accessi, con permessi specifici per ogni ruolo. Ad esempio, solo determinati utenti possono modificare i dati sensibili, mentre altri hanno accesso in sola lettura. Inoltre, ogni modifica viene tracciata automaticamente, registrando chi ha fatto la modifica e quando.
+
+Esempio di gestione degli accessi:
+
+``` sql
+GRANT SELECT ON cartella_clinica TO infermiera;
+GRANT UPDATE ON terapia TO medico;
+```
+
+Ogni modifica viene registrata, e se qualcuno cambia la terapia, è possibile risalire all'operatore e correggere l'errore.\
+Esempio di log delle modifiche:
+
+| ID Paziente | Operatore   | Campo Modificato | Valore Precedente | Valore Nuovo | Data Modifica    |
+|-------------|-------------|------------------|-------------------|--------------|------------------|
+| 002         | infermiera1 | Terapia          | Insulina          | Metformina   | 2024-09-24 10:30 |

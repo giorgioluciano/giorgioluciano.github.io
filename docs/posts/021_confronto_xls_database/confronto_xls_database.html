@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Giorgio Luciano">
+<meta name="author" content="Giorgio Luciano &amp; AI">
 <meta name="dcterms.date" content="2024-09-24">
 
-<title>Giorgio Luciano - Criteri Essenziali per La Gestione Dati</title>
+<title>Giorgio Luciano - Confronto tra Excel e Database nella Gestione Clinica dei Dati: Errori E Sicurezza</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -136,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Criteri Essenziali per La Gestione Dati</h1>
+      <h1 class="title">Confronto tra Excel e Database nella Gestione Clinica dei Dati: Errori E Sicurezza</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Essential</div>
                 <div class="quarto-category">Tutorial</div>
@@ -150,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Giorgio Luciano </p>
+               <p>Giorgio Luciano &amp; AI </p>
             </div>
     </div>
       
@@ -173,12 +207,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#excel-non-è-un-database-linee-guida-essenziali-per-una-corretta-gestione-dei-dati" id="toc-excel-non-è-un-database-linee-guida-essenziali-per-una-corretta-gestione-dei-dati" class="nav-link active" data-scroll-target="#excel-non-è-un-database-linee-guida-essenziali-per-una-corretta-gestione-dei-dati"><strong>Excel non è un Database: Linee Guida Essenziali per una Corretta Gestione dei Dati</strong></a>
-  <ul class="collapse">
-  <li><a href="#perché-excel-non-è-un-database" id="toc-perché-excel-non-è-un-database" class="nav-link" data-scroll-target="#perché-excel-non-è-un-database"><strong>Perché Excel non è un Database</strong></a></li>
-  <li><a href="#criteri-essenziali-per-la-gestione-dei-dati" id="toc-criteri-essenziali-per-la-gestione-dei-dati" class="nav-link" data-scroll-target="#criteri-essenziali-per-la-gestione-dei-dati"><strong>Criteri Essenziali per la Gestione dei Dati</strong></a></li>
-  <li><a href="#ulteriori-linee-guida-per-dati-clinici" id="toc-ulteriori-linee-guida-per-dati-clinici" class="nav-link" data-scroll-target="#ulteriori-linee-guida-per-dati-clinici">Ulteriori Linee Guida per Dati Clinici</a></li>
-  </ul></li>
+  <li><a href="#confronto-tra-excel-e-database-nella-gestione-clinica-dei-dati-errori-e-sicurezza" id="toc-confronto-tra-excel-e-database-nella-gestione-clinica-dei-dati-errori-e-sicurezza" class="nav-link active" data-scroll-target="#confronto-tra-excel-e-database-nella-gestione-clinica-dei-dati-errori-e-sicurezza"><strong>Confronto tra Excel e Database nella Gestione Clinica dei Dati: Errori e Sicurezza</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -189,126 +218,144 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="excel-non-è-un-database-linee-guida-essenziali-per-una-corretta-gestione-dei-dati" class="level1">
-<h1><strong>Excel non è un Database: Linee Guida Essenziali per una Corretta Gestione dei Dati</strong></h1>
-<p>È fondamentale comprendere la differenza tra un foglio di calcolo e un database, nonché l’importanza di una corretta gestione dei dati. Di seguito sono riportati motivi per cui Excel non dovrebbe essere utilizzato come database, insieme a criteri essenziali per gestire e analizzare i dati in modo efficace.</p>
-<section id="perché-excel-non-è-un-database" class="level3">
-<h3 class="anchored" data-anchor-id="perché-excel-non-è-un-database"><strong>Perché Excel non è un Database</strong></h3>
-<p><strong>1. Limitata integrità e validazione dei dati</strong><br>
-Excel permette di inserire qualsiasi tipo di dato in qualsiasi cella, senza un controllo rigido sulla coerenza. I database, al contrario, richiedono la definizione di tipi di dati e limitano gli inserimenti in base a queste regole, garantendo maggiore integrità.</p>
-<p><strong>2. Mancanza di robuste funzionalità di sicurezza</strong><br>
-I database offrono un controllo più sofisticato sugli accessi, con ruoli, permessi e log di attività. In Excel, chiunque con accesso al file può modificarlo senza lasciare traccia, mettendo a rischio la sicurezza dei dati.</p>
-<p><strong>3. Difficoltà nella gestione di grandi set di dati</strong><br>
-Quando i dati superano certe dimensioni (milioni di righe o centinaia di colonne), Excel diventa inefficiente e può bloccarsi. I database sono progettati per gestire grandi volumi di dati in modo efficiente.</p>
-<p><strong>4. Limitate capacità di collaborazione multiutente</strong><br>
-Excel ha funzionalità di condivisione, ma i conflitti tra versioni possono facilmente emergere. I database, invece, sono progettati per la collaborazione simultanea senza perdita di dati.</p>
-<p><strong>5. Assenza di strumenti complessi di interrogazione e reporting</strong><br>
-Le query SQL nei database permettono analisi molto più complesse rispetto a quanto sia possibile in Excel. I database offrono anche reportistica avanzata con strumenti di Business Intelligence (BI).</p>
-<p>Clicca qui per ulteriori info</p>
-</section>
-<section id="criteri-essenziali-per-la-gestione-dei-dati" class="level3">
-<h3 class="anchored" data-anchor-id="criteri-essenziali-per-la-gestione-dei-dati"><strong>Criteri Essenziali per la Gestione dei Dati</strong></h3>
-<p>Quando si gestiscono dati per l’analisi, è importante rispettare determinati criteri per garantire accuratezza ed efficienza.</p>
-<section id="convenzioni-di-denominazione-dei-file" class="level4">
-<h4 class="anchored" data-anchor-id="convenzioni-di-denominazione-dei-file"><strong>1. Convenzioni di Denominazione dei File</strong></h4>
-<p>Il nome di un file deve essere chiaro, descrittivo e privo di caratteri speciali. Utilizzare nomi significativi è essenziale per garantire che chiunque possa capire il contenuto del file senza doverlo aprire. Evitare nomi vaghi come <strong>“database_ultima_versione”</strong> o <strong>“file_finale”</strong>, che non offrono informazioni utili.</p>
-<p><strong>Esempi corretti:</strong></p>
+<section id="confronto-tra-excel-e-database-nella-gestione-clinica-dei-dati-errori-e-sicurezza" class="level3">
+<h3 class="anchored" data-anchor-id="confronto-tra-excel-e-database-nella-gestione-clinica-dei-dati-errori-e-sicurezza"><strong>Confronto tra Excel e Database nella Gestione Clinica dei Dati: Errori e Sicurezza</strong></h3>
+<section id="caso-excel-errore-nel-valore-di-una-glicemia" class="level4">
+<h4 class="anchored" data-anchor-id="caso-excel-errore-nel-valore-di-una-glicemia"><strong>Caso Excel: Errore nel Valore di una Glicemia</strong></h4>
+<p>Un errore comune in Excel è l’inserimento di valori non corretti a causa di formati non standardizzati. Supponiamo di avere una tabella in cui si registrano i valori di glicemia dei pazienti. Il formato corretto richiede l’uso del punto come separatore decimale (ad esempio, <strong>5.8</strong> mmol/L), ma un utente inserisce erroneamente un valore con la virgola (<strong>5,8</strong>).</p>
+<p>Esempio di tabella:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Paziente</th>
+<th>Valore di glicemia (mmol/L)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Paziente A</td>
+<td>5.6</td>
+</tr>
+<tr class="even">
+<td>Paziente B</td>
+<td>6.2</td>
+</tr>
+<tr class="odd">
+<td>Paziente C</td>
+<td>5,8</td>
+</tr>
+<tr class="even">
+<td>Paziente D</td>
+<td>7.1</td>
+</tr>
+</tbody>
+</table>
+<p>In questo caso, Excel potrebbe trattare <strong>5,8</strong> come testo, non come numero, perché la virgola è interpretata come un separatore non numerico. Di conseguenza, il valore <strong>5,8</strong> verrebbe ignorato durante i calcoli. Per esempio, se si tenta di calcolare la media dei valori con la formula <code>=MEDIA(B2:B5)</code>, Excel considererà solo i valori numerici (5.6, 6.2 e 7.1), restituendo una media non corretta.</p>
 <ul>
-<li><p>“2024924_nome_trial_autore_versione.csv”</p></li>
-<li><p>“2023_report_emoglobina_livelli.xls”</p></li>
-<li><p>“esame_glucosio_pazienti_clinica_X_v3.xlsx”</p></li>
+<li><p><strong>Media calcolata da Excel (ignorando 5,8)</strong>:<br>
+(5.6+6.2+7.1)/3=6.3(5.6 + 6.2 + 7.1) / 3 = 6.3(5.6+6.2+7.1)/3=6.3</p></li>
+<li><p><strong>Media corretta (includendo 5.8)</strong>:<br>
+(5.6+6.2+5.8+7.1)/4=6.175(5.6 + 6.2 + 5.8 + 7.1) / 4 = 6.175(5.6+6.2+5.8+7.1)/4=6.175</p></li>
 </ul>
-<p><strong>Esempi da evitare:</strong></p>
-<ul>
-<li><p>“file_versione_definitiva_finale.xlsx”</p></li>
-<li><p>“dati123.xls”</p></li>
-</ul>
-<p><strong>Evitare caratteri speciali:</strong><br>
-Evita l’uso di caratteri come:<br>
-/ \ * &amp; # % @ ( ) [ ] { }</p>
-<p><strong>Esempi corretti:</strong></p>
-<ul>
-<li><p>“dati_pazienti_2023.xlsx”</p></li>
-<li><p>“analisi_vitaminaD_v2.csv”</p></li>
-</ul>
-<p><strong>Esempi da evitare:</strong></p>
-<ul>
-<li><p>“dati/pazienti(2023).xlsx”</p></li>
-<li><p>“report&amp;finale#versione.xls”</p></li>
-</ul>
+<p>Questo errore può facilmente passare inosservato, portando a conclusioni cliniche sbagliate.</p>
 </section>
-<section id="convenzioni-di-denominazione-delle-colonne-e-delle-righe" class="level4">
-<h4 class="anchored" data-anchor-id="convenzioni-di-denominazione-delle-colonne-e-delle-righe"><strong>2. Convenzioni di Denominazione delle Colonne e delle Righe</strong></h4>
-<p>I nomi di colonne e righe devono essere chiari e coerenti. Un nome significativo aiuta a capire immediatamente cosa rappresentano i dati senza necessità di ulteriori spiegazioni.</p>
-<p><strong>Nomi significativi:</strong><br>
-Utilizzare nomi che descrivano esattamente i dati contenuti. Ad esempio, invece di usare nomi come <strong>“var1”</strong> o <strong>“colonna1”</strong>, usare nomi più specifici come <strong>“eta_paziente”</strong> o <strong>“Vitamina_D”</strong>.</p>
-<p><strong>Esempi corretti:</strong></p>
-<ul>
-<li><p>“nome_paziente”</p></li>
-<li><p>“eta”</p></li>
-<li><p>“altezza”</p></li>
-<li><p>“peso”</p></li>
-<li><p>“BMI”</p></li>
-<li><p>“Vitamina_D”</p></li>
-</ul>
-<p><strong>Esempi da evitare:</strong></p>
-<ul>
-<li><p>“colonna1”</p></li>
-<li><p>“dato_A”</p></li>
-<li><p>“x1”</p></li>
-</ul>
-<p><strong>Evitare caratteri speciali:</strong><br>
-Come per i nomi dei file, evitare caratteri come spazi, trattini e simboli speciali (“/”, “&amp;”, “#”, etc.) e lettere accentate. Usare l’underscore (_) o il camelCase (es. “nomeCliente”) per separare le parole.</p>
+<section id="caso-database-prevenzione-dellerrore" class="level4">
+<h4 class="anchored" data-anchor-id="caso-database-prevenzione-dellerrore"><strong>Caso Database: Prevenzione dell’Errore</strong></h4>
+<p>In un database, l’inserimento di dati con formato errato viene automaticamente bloccato. Supponiamo che la colonna dei valori glicemici sia definita come <strong>DECIMAL</strong> o <strong>FLOAT</strong>, dove è richiesto l’uso del punto decimale. Se si tenta di inserire un valore con la virgola, il database restituirà un errore, impedendo l’inserimento errato.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> glicemia (</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>      paziente <span class="dt">VARCHAR</span>(<span class="dv">50</span>), </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      valore_glicemia <span class="dt">DECIMAL</span>(<span class="dv">4</span>,<span class="dv">1</span>) );</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> glicemia (paziente, valore_glicemia) <span class="kw">VALUES</span> (<span class="st">'Paziente C'</span>, <span class="st">'5,8'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Questo comando genererebbe un errore simile a:</p>
+<p><strong><code>ERROR: invalid input syntax for type numeric: "5,8"</code></strong></p>
+<p>Il database obbliga l’utente a correggere l’errore prima di continuare, prevenendo errori nei calcoli successivi.</p>
 </section>
-<section id="coerenza-nei-nomi" class="level4">
-<h4 class="anchored" data-anchor-id="coerenza-nei-nomi"><strong>3. Coerenza nei Nomi</strong></h4>
-<p>Evitare l’uso misto di maiuscole e minuscole, inglese e italiano, spazi e underscore. I nomi devono seguire un formato coerente per evitare confusione.</p>
-<p><strong>Esempi da evitare:</strong></p>
-<ul>
-<li><p>“NomePaziente” (uso misto di maiuscole e minuscole)</p></li>
-<li><p>“pressione_Sanguigna” (uso misto di lingue)</p></li>
-<li><p>“data nascita” (uso di spazi)</p></li>
-</ul>
-<p><strong>Esempi corretti:</strong></p>
-<ul>
-<li><p>“nome_paziente”</p></li>
-<li><p>“pressione_sistolica”</p></li>
-<li><p>“data_nascita”</p></li>
-</ul>
+<section id="caso-excel-mancanza-di-controllo-sugli-accessi" class="level4">
+<h4 class="anchored" data-anchor-id="caso-excel-mancanza-di-controllo-sugli-accessi"><strong>Caso Excel: Mancanza di Controllo sugli Accessi</strong></h4>
+<p>Excel non offre un sistema avanzato di controllo sugli accessi e tracciamento delle modifiche. Supponiamo che un file Excel venga utilizzato per gestire i dati clinici di pazienti, con il rischio che qualsiasi utente con accesso possa modificare i dati (intenzionalmente o accidentalmente) senza lasciare traccia.</p>
+<p>Esempio:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 30%">
+<col style="width: 18%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ID Paziente</th>
+<th>Nome</th>
+<th>Diagnosi</th>
+<th>Terapia</th>
+<th>Medico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>001</td>
+<td>Mario Rossi</td>
+<td>Ipertensione</td>
+<td>ACE Inibitori</td>
+<td>Dott. Bianchi</td>
+</tr>
+<tr class="even">
+<td>002</td>
+<td>Anna Verdi</td>
+<td>Diabete Tipo 2</td>
+<td>Insulina</td>
+<td>Dott. Neri</td>
+</tr>
+<tr class="odd">
+<td>003</td>
+<td>Luca Blu</td>
+<td>Insufficienza cardiaca</td>
+<td>Betabloccanti</td>
+<td>Dott. Verdi</td>
+</tr>
+</tbody>
+</table>
+<p>Un operatore sanitario potrebbe per errore modificare la terapia di un paziente, sostituendo “Insulina” con “Metformina” per Anna Verdi. In questo scenario, non ci sarebbe alcun modo di risalire a chi ha apportato la modifica, poiché Excel non tiene traccia delle modifiche, esponendo i dati clinici a gravi rischi.</p>
 </section>
-<section id="sensibilità-alle-maiuscole" class="level4">
-<h4 class="anchored" data-anchor-id="sensibilità-alle-maiuscole"><strong>4. Sensibilità alle Maiuscole</strong></h4>
-<p>Utilizzare lettere maiuscole e minuscole in modo coerente e intenzionale. La distinzione tra maiuscole e minuscole può essere significativa, soprattutto nei database case-sensitive.</p>
-</section>
-<section id="celle-vuote" class="level4">
-<h4 class="anchored" data-anchor-id="celle-vuote"><strong>5. Celle Vuote</strong></h4>
-<p>Una cella vuota può avere diversi significati. Assicurarsi di chiarire sempre cosa indica una cella vuota (dati non misurati, fuori scala, mancanti, etc.) per evitare ambiguità.</p>
-</section>
-<section id="zero-vs.-dati-mancanti" class="level4">
-<h4 class="anchored" data-anchor-id="zero-vs.-dati-mancanti"><strong>6. Zero vs.&nbsp;Dati Mancanti</strong></h4>
-<p>Assicurarsi di distinguere tra uno zero e un dato mancante. Utilizzare valori specifici come <strong>“NA”</strong> o <strong>“null”</strong> per indicare dati mancanti e non confonderli con zeri.</p>
-</section>
-<section id="notazione-numerica-coerente" class="level4">
-<h4 class="anchored" data-anchor-id="notazione-numerica-coerente"><strong>7. Notazione Numerica Coerente</strong></h4>
-<p>Le virgole e i punti hanno significati diversi nella notazione numerica a seconda del paese. Assicurarsi di utilizzare una notazione numerica coerente per evitare ambiguità nei valori.</p>
-</section>
-<section id="evitare-duplicati" class="level4">
-<h4 class="anchored" data-anchor-id="evitare-duplicati"><strong>8. Evitare Duplicati</strong></h4>
-<p>Non ci dovrebbero essere righe o colonne duplicate, a meno che non ci sia una ragione specifica e giustificata. I duplicati possono falsare i risultati dell’analisi.</p>
-<p>Seguendo queste linee guida, i vostri dati saranno puliti, coerenti e pronti per un’analisi accurata</p>
-</section>
-</section>
-<section id="ulteriori-linee-guida-per-dati-clinici" class="level3">
-<h3 class="anchored" data-anchor-id="ulteriori-linee-guida-per-dati-clinici">Ulteriori Linee Guida per Dati Clinici</h3>
-<p>Quando si gestiscono dati clinici o sensibili, sono necessarie ulteriori precauzioni:</p>
-<ol type="1">
-<li><p><strong>Identificazione del Paziente</strong><br>
-Assicurarsi che i nomi dei pazienti (o gli ID se i nomi non possono essere riportati) siano coerenti e corretti. Errori nei dati identificativi possono portare a gravi conseguenze cliniche.</p></li>
-<li><p><strong>Controllo di Errori Macroscopici</strong><br>
-Controllare errori macroscopici come altezze di 170 metri, pazienti che pesano 8 kg o con BMI irrealistici (&gt;30 o &lt;1). Questi errori evidenti possono influire negativamente sull’analisi.</p></li>
-<li><p><strong>Formattazione Condizionale</strong><br>
-Applicare una formattazione condizionale ai dati quando possibile (es. evidenziare automaticamente le celle con valori fuori dal range atteso). Questo può aiutare a individuare rapidamente e visivamente gli errori nei dati. <a href="https://giorgioluciano.github.io/posts/020_Formattazione_condizionale/formattazione_condizionale.html">Clicca qui per una guida alla formattazione condizionale</a></p></li>
-</ol>
+<section id="caso-database-robustezza-nella-gestione-della-sicurezza" class="level4">
+<h4 class="anchored" data-anchor-id="caso-database-robustezza-nella-gestione-della-sicurezza"><strong>Caso Database: Robustezza nella Gestione della Sicurezza</strong></h4>
+<p>Un database offre robusti meccanismi di controllo degli accessi, con permessi specifici per ogni ruolo. Ad esempio, solo determinati utenti possono modificare i dati sensibili, mentre altri hanno accesso in sola lettura. Inoltre, ogni modifica viene tracciata automaticamente, registrando chi ha fatto la modifica e quando.</p>
+<p>Esempio di gestione degli accessi:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">GRANT</span> <span class="kw">SELECT</span> <span class="kw">ON</span> cartella_clinica <span class="kw">TO</span> infermiera;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">GRANT</span> <span class="kw">UPDATE</span> <span class="kw">ON</span> terapia <span class="kw">TO</span> medico;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ogni modifica viene registrata, e se qualcuno cambia la terapia, è possibile risalire all’operatore e correggere l’errore.<br>
+Esempio di log delle modifiche:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 14%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>ID Paziente</th>
+<th>Operatore</th>
+<th>Campo Modificato</th>
+<th>Valore Precedente</th>
+<th>Valore Nuovo</th>
+<th>Data Modifica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>002</td>
+<td>infermiera1</td>
+<td>Terapia</td>
+<td>Insulina</td>
+<td>Metformina</td>
+<td>2024-09-24 10:30</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
