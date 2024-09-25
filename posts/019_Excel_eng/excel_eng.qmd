@@ -45,7 +45,7 @@ Here are some best practices for naming files:
 
 -   **Good examples**:
 
-    -   *"sales_Q3_2023.xlsx"*
+    -   *"yyyymmdd_trial_name_author_revision"*
 
     -   *"hospitalXYZ_patient_data.csv"*
 
@@ -72,7 +72,7 @@ Just like file names, column and row names should follow the same rules of clari
 
 -   **Good examples**:
 
-    -   *"patient_name"*, *"sale_date"*, *"unit_price"*
+    -   *"patient_name"*, *"Vitamin D" , "Cholesterol"*
 
 -   **Examples to avoid**:
 

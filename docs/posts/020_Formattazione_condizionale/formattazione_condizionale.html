@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Giorgio Luciano">
+<meta name="author" content="Giorgio Luciano &amp; AI">
 <meta name="dcterms.date" content="2024-09-24">
 
-<title>Giorgio Luciano - Non-Negotiables for Your Data</title>
+<title>Giorgio Luciano - Formattazione condizionale in Excel</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -136,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Non-Negotiables for Your Data</h1>
+      <h1 class="title">Formattazione condizionale in Excel</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Essential</div>
                 <div class="quarto-category">Tutorial</div>
@@ -150,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Giorgio Luciano </p>
+               <p>Giorgio Luciano &amp; AI </p>
             </div>
     </div>
       
@@ -173,10 +173,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#non-negotiables-for-your-data" id="toc-non-negotiables-for-your-data" class="nav-link active" data-scroll-target="#non-negotiables-for-your-data"><strong>Non-Negotiables for Your Data</strong></a>
+  <li><a href="#formattazione-condizionale" id="toc-formattazione-condizionale" class="nav-link active" data-scroll-target="#formattazione-condizionale">Formattazione Condizionale</a>
   <ul class="collapse">
-  <li><a href="#why-excel-is-not-a-database" id="toc-why-excel-is-not-a-database" class="nav-link" data-scroll-target="#why-excel-is-not-a-database">Why Excel Is Not a Database</a></li>
-  <li><a href="#key-guidelines-for-data-management" id="toc-key-guidelines-for-data-management" class="nav-link" data-scroll-target="#key-guidelines-for-data-management">Key Guidelines for Data Management</a></li>
+  <li><a href="#passaggi-per-eseguire-la-formattazione-condizionale-in-excel" id="toc-passaggi-per-eseguire-la-formattazione-condizionale-in-excel" class="nav-link" data-scroll-target="#passaggi-per-eseguire-la-formattazione-condizionale-in-excel">Passaggi per eseguire la formattazione condizionale in Excel</a></li>
+  <li><a href="#esempio-di-analisi-del-sangue" id="toc-esempio-di-analisi-del-sangue" class="nav-link" data-scroll-target="#esempio-di-analisi-del-sangue">Esempio di analisi del sangue</a></li>
+  <li><a href="#obiettivo" id="toc-obiettivo" class="nav-link" data-scroll-target="#obiettivo">Obiettivo:</a></li>
+  <li><a href="#passaggi-per-applicare-la-formattazione-condizionale" id="toc-passaggi-per-applicare-la-formattazione-condizionale" class="nav-link" data-scroll-target="#passaggi-per-applicare-la-formattazione-condizionale">Passaggi per applicare la formattazione condizionale:</a></li>
+  <li><a href="#risultato-finale" id="toc-risultato-finale" class="nav-link" data-scroll-target="#risultato-finale">Risultato finale:</a></li>
+  <li><a href="#interpretazione" id="toc-interpretazione" class="nav-link" data-scroll-target="#interpretazione">Interpretazione:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -188,85 +192,157 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="non-negotiables-for-your-data" class="level1">
-<h1><strong>Non-Negotiables for Your Data</strong></h1>
-<p>In today’s data-driven world, it is essential to understand the difference between a spreadsheet and a database, as well as the importance of proper data management. This post will explain why Excel should not be used as a database and provide key guidelines for effectively managing and analyzing data.</p>
-<section id="why-excel-is-not-a-database" class="level3">
-<h3 class="anchored" data-anchor-id="why-excel-is-not-a-database">Why Excel Is Not a Database</h3>
-<p>While Excel is a powerful tool for many tasks, it’s important to recognize its limitations when it comes to data management. Here are some key reasons why:</p>
+<section id="formattazione-condizionale" class="level1">
+<h1>Formattazione Condizionale</h1>
+<p>La <strong>formattazione condizionale</strong> in Excel consente di applicare automaticamente stili di formattazione (come colori delle celle, stili di carattere o bordi) alle celle in base a determinate condizioni o criteri specifici. Ecco i passaggi per eseguire una formattazione condizionale in Excel:</p>
+<section id="passaggi-per-eseguire-la-formattazione-condizionale-in-excel" class="level3">
+<h3 class="anchored" data-anchor-id="passaggi-per-eseguire-la-formattazione-condizionale-in-excel">Passaggi per eseguire la formattazione condizionale in Excel</h3>
 <ol type="1">
-<li><p><strong>Limited Data Integrity and Validation</strong><br>
-Excel allows users to input any type of data in any cell without strict consistency checks. Databases, on the other hand, enforce data types and restrict entries based on predefined rules.</p></li>
-<li><p><strong>Lack of Robust Security Features</strong><br>
-Databases provide more advanced access control, including roles, permissions, and activity logs. In Excel, anyone with file access can modify the data without any trace.</p></li>
-<li><p><strong>Difficulty Handling Large Datasets</strong><br>
-As data grows (millions of rows or hundreds of columns), Excel becomes inefficient and prone to crashing. Databases are designed to handle large datasets efficiently.</p></li>
-<li><p><strong>Limited Multi-user Collaboration</strong><br>
-Although Excel offers sharing features, version conflicts can easily arise. Databases are built for simultaneous collaboration without data loss.</p></li>
-<li><p><strong>Lack of Advanced Querying and Reporting Tools</strong><br>
-SQL queries in databases allow for far more complex analyses than Excel can handle. Additionally, databases offer advanced reporting features with Business Intelligence (BI) tools.</p></li>
+<li><p><strong>Seleziona le celle da formattare:</strong></p>
+<ul>
+<li>Evidenzia l’intervallo di celle su cui vuoi applicare la formattazione condizionale. Ad esempio, se vuoi applicarla a un elenco di valori numerici, seleziona l’intervallo come <strong>A1</strong></li>
+</ul></li>
+<li><p><strong>Apri il menu di formattazione condizionale:</strong></p>
+<ul>
+<li><p>Vai alla scheda <strong>Home</strong> della barra multifunzione.</p></li>
+<li><p>Nel gruppo <strong>Stili</strong>, clicca su <strong>Formattazione condizionale</strong>.</p></li>
+</ul>
+<p><strong>Scegli il tipo di regola:</strong> Dal menu a discesa della formattazione condizionale, puoi scegliere diversi tipi di regole in base alle tue esigenze:</p>
+<ul>
+<li><p><strong>Regole predefinite</strong>:</p>
+<ul>
+<li><p><strong>Evidenzia regole celle</strong>: Usa questa opzione per applicare la formattazione a celle che soddisfano una condizione come “maggiore di”, “minore di”, “tra”, “testo che contiene”, ecc.</p></li>
+<li><p><strong>Barre dati</strong>: Applica barre colorate all’interno delle celle per rappresentare i valori numerici.</p></li>
+<li><p><strong>Scale di colori</strong>: Applica diverse sfumature di colori in base ai valori delle celle.</p></li>
+<li><p><strong>Set di icone</strong>: Applica icone (frecce, segni di spunta, semafori) per rappresentare i valori delle celle rispetto a una scala di valori.</p></li>
+</ul></li>
+<li><p><strong>Nuova regola</strong>: Clicca su <strong>Nuova regola</strong> per creare condizioni personalizzate. Ad esempio, puoi applicare una formattazione basata su formule specifiche.</p></li>
+</ul>
+<p><img src="images/Excel_fig2.png" class="img-fluid"></p></li>
+<li><p><strong>Definisci il criterio di formattazione:</strong> Selezionando una delle opzioni predefinite, potrai impostare le condizioni. Ad esempio, se scegli “Maggiore di”, inserisci il valore di riferimento nella casella, ad esempio <strong>50</strong>, per formattare tutte le celle che contengono un valore superiore a 50.</p>
+<p>Esempio: Se scegli <strong>Evidenzia regole celle &gt; Maggiore di…</strong>, puoi inserire il numero 50 e poi scegliere uno stile di formattazione come il riempimento rosso chiaro con testo rosso scuro.</p>
+<p><img src="images/Excel_fig4.png" class="img-fluid"></p></li>
+<li><p><strong>Scegli uno stile di formattazione:</strong></p>
+<ul>
+<li>Seleziona lo stile che desideri applicare alle celle che soddisfano la condizione. Puoi scegliere tra colori di riempimento, colori del testo o bordi, oppure personalizzare lo stile cliccando su <strong>Formato personalizzato</strong>.</li>
+</ul>
+<p><img src="images/Excel_fig5.png" class="img-fluid"></p></li>
+<li><p><strong>Applica la regola:</strong></p>
+<ul>
+<li>Dopo aver configurato la regola, clicca su <strong>OK</strong> per applicare la formattazione condizionale alle celle selezionate.</li>
+</ul></li>
 </ol>
-<p>For serious data management needs, it’s advisable to use a dedicated database system like MySQL, PostgreSQL, or MongoDB.</p>
+<p>Ecco un esempio di come usare la <strong>formattazione condizionale in Excel</strong> per un’<strong>analisi del sangue</strong>. Supponiamo che tu abbia un foglio con i risultati di vari esami del sangue per diversi pazienti, e vuoi evidenziare i risultati che sono al di fuori dei range normali per facilitare l’identificazione di valori critici.</p>
 </section>
-<section id="key-guidelines-for-data-management" class="level3">
-<h3 class="anchored" data-anchor-id="key-guidelines-for-data-management">Key Guidelines for Data Management</h3>
-<p>When someone provides data for analysis, it’s important to adhere to certain standards to ensure accurate and efficient analysis.</p>
-<section id="file-naming-conventions" class="level4">
-<h4 class="anchored" data-anchor-id="file-naming-conventions">1. <strong>File Naming Conventions</strong></h4>
-<p>File names should be clear, descriptive, and free of special characters. Using meaningful names is essential to ensure that anyone can understand the content of the file without having to open it. Avoid vague or generic names like <em>“database_latest_version”</em> or <em>“final_file”</em>, which provide little context.</p>
-<p>Here are some best practices for naming files:</p>
-<ul>
-<li><p><strong>Good examples</strong>:</p>
-<ul>
-<li><p><em>“yyyymmdd_trial_name_author_revision”</em></p></li>
-<li><p><em>“hospitalXYZ_patient_data.csv”</em></p></li>
-</ul></li>
-<li><p><strong>Examples to avoid</strong>:</p>
-<ul>
-<li><p><em>“final_final_version_file.xlsx”</em></p></li>
-<li><p><em>“data123</em>.xls”*</p></li>
-</ul></li>
-</ul>
-<p>Avoid special characters like spaces or symbols that can cause issues in different systems and software. Characters to avoid include:</p>
-<ul>
-<li><code>/</code>, <code>\</code>, <code>*</code>, <code>&amp;</code>, <code>#</code>, <code>%</code>, <code>@</code></li>
-</ul>
-<p>Instead, use underscores (<code>_</code>) to separate words (e.g., <em>“correct_file_name.xlsx”</em>).</p>
+<section id="esempio-di-analisi-del-sangue" class="level3">
+<h3 class="anchored" data-anchor-id="esempio-di-analisi-del-sangue">Esempio di analisi del sangue</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 24%">
+<col style="width: 27%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Paziente</strong></th>
+<th><strong>Emoglobina (g/dL)</strong></th>
+<th><strong>Colesterolo (mg/dL)</strong></th>
+<th><strong>Glucosio (mg/dL)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mario Rossi</td>
+<td>12.5</td>
+<td>180</td>
+<td>95</td>
+</tr>
+<tr class="even">
+<td>Anna Verdi</td>
+<td>14.8</td>
+<td>240</td>
+<td>110</td>
+</tr>
+<tr class="odd">
+<td>Luca Blu</td>
+<td>11.2</td>
+<td>170</td>
+<td>160</td>
+</tr>
+<tr class="even">
+<td>Giulia Gialli</td>
+<td>13.6</td>
+<td>220</td>
+<td>85</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="column-and-row-naming-conventions" class="level4">
-<h4 class="anchored" data-anchor-id="column-and-row-naming-conventions">2. <strong>Column and Row Naming Conventions</strong></h4>
-<p>Just like file names, column and row names should follow the same rules of clarity and consistency. Meaningful column names help everyone immediately understand the data without needing extra explanations.</p>
-<p><strong>Here are some guidelines for naming columns and rows:</strong></p>
+<section id="obiettivo" class="level3">
+<h3 class="anchored" data-anchor-id="obiettivo">Obiettivo:</h3>
+<p>Evidenziare i valori:</p>
 <ul>
-<li><p><strong>Use meaningful names</strong>:<br>
-Columns should clearly describe the data they contain. Instead of using generic names like <em>“var1”</em> or <em>“column1”</em>, use more specific names like <em>“patient_age”</em> or <em>“quantity_sold”</em>.</p></li>
-<li><p><strong>Good examples</strong>:</p>
-<ul>
-<li><em>“patient_name”</em>, <em>“Vitamin D” , “Cholesterol”</em></li>
-</ul></li>
-<li><p><strong>Examples to avoid</strong>:</p>
-<ul>
-<li><em>“column1”</em>, <em>“data_A”</em>, <em>“x1”</em></li>
-</ul></li>
-<li><p><strong>Avoid special characters</strong>:<br>
-Like file names, avoid characters like spaces, dashes, or special symbols (<em>“/”</em>, <em>“&amp;”</em>, <em>“#”</em>, etc.). Use underscores (<code>_</code>) or camelCase (e.g., <em>“customerName”</em>) to separate words in column names.</p></li>
+<li><p><strong>Emoglobina</strong> al di fuori del range normale (tra 12 e 16 g/dL).</p></li>
+<li><p><strong>Colesterolo</strong> superiore a 200 mg/dL (indica colesterolo alto).</p></li>
+<li><p><strong>Glucosio</strong> superiore a 100 mg/dL (indica glicemia alta).</p></li>
 </ul>
-<ol start="3" type="1">
-<li><p><strong>Case Sensitivity</strong><br>
-Be intentional with the use of uppercase and lowercase letters to differentiate categories, data types, or names. Case sensitivity can be important, especially when working with case-sensitive databases or programming languages.</p></li>
-<li><p><strong>Empty Cells</strong><br>
-An empty cell has meaning. Is it an unmeasured value? An out-of-scale value? A missing value? Or data that cannot be retrieved? Always clarify the meaning of empty cells to avoid ambiguity.</p></li>
-<li><p><strong>Zero vs.&nbsp;Missing Data</strong><br>
-Zero is different from missing data. Ensure that this distinction is clear in the dataset, perhaps by using a specific value (e.g., “NA” or “null”) to indicate missing data.</p></li>
-<li><p><strong>Consistent Numeric Notation</strong><br>
-Commas and periods have different meanings in numerical notation depending on the region (e.g., 1,000 in the US means “one thousand,” whereas in Europe it may mean “one”). Use consistent and clear numeric notation throughout the document.</p></li>
-<li><p><strong>Avoid Duplicates</strong><br>
-There should be no duplicate rows or columns unless there is a specific and justified reason for their presence. Duplicates can skew analysis results.</p></li>
-</ol>
-<p>Following these guidelines will ensure your data is clean, consistent, and ready for accurate analysis. Remember, good data management practices are the foundation for reliable research and decision-making.</p>
+</section>
+<section id="passaggi-per-applicare-la-formattazione-condizionale" class="level3">
+<h3 class="anchored" data-anchor-id="passaggi-per-applicare-la-formattazione-condizionale">Passaggi per applicare la formattazione condizionale:</h3>
+<section id="formattazione-per-lemoglobina-fuori-dal-range-normale" class="level4">
+<h4 class="anchored" data-anchor-id="formattazione-per-lemoglobina-fuori-dal-range-normale">1. Formattazione per l’emoglobina fuori dal range normale</h4>
+<p>Vogliamo evidenziare in <strong>rosso</strong> i valori di <strong>Emoglobina</strong> che sono al di sotto di <strong>12 g/dL</strong> o al di sopra di <strong>16 g/dL</strong>.</p>
+<ul>
+<li><p><strong>Seleziona l’intervallo</strong> delle celle che contiene i valori dell’emoglobina (es. <strong>B2</strong></p>
+<p>).</p></li>
+<li><p>Vai su <strong>Home &gt; Formattazione condizionale &gt; Nuova regola</strong>.</p></li>
+<li><p>Clicca su <strong>Utilizza una formula per determinare le celle da formattare</strong>.</p></li>
+<li><p>Inserisci la seguente formula per evidenziare i valori inferiori a 12 o superiori a 16:</p></li>
+</ul>
+<p><code>=O(B2&lt;12, B2&gt;16)</code></p>
+<ul>
+<li><p>Clicca su <strong>Formato…</strong> e scegli un riempimento rosso o un colore di testo rosso per evidenziare i valori fuori range.</p></li>
+<li><p>Clicca su <strong>OK</strong> per applicare la regola.</p></li>
+</ul>
+</section>
+<section id="formattazione-per-il-colesterolo-alto" class="level4">
+<h4 class="anchored" data-anchor-id="formattazione-per-il-colesterolo-alto">2. Formattazione per il colesterolo alto</h4>
+<p>Vogliamo evidenziare in <strong>giallo</strong> i valori di <strong>Colesterolo</strong> superiori a <strong>200 mg/dL</strong>.</p>
+<ul>
+<li><p><strong>Seleziona l’intervallo</strong> delle celle con i valori del colesterolo (es. <strong>C2</strong>).</p></li>
+<li><p>Vai su <strong>Home &gt; Formattazione condizionale &gt; Evidenzia regole celle &gt; Maggiore di…</strong>.</p></li>
+<li><p>Nella finestra che si apre, inserisci <strong>200</strong> come valore.</p></li>
+<li><p>Seleziona uno stile di formattazione predefinito o clicca su <strong>Formato personalizzato</strong> e scegli un riempimento giallo.</p></li>
+<li><p>Clicca su <strong>OK</strong>.</p></li>
+</ul>
+</section>
+<section id="formattazione-per-il-glucosio-alto" class="level4">
+<h4 class="anchored" data-anchor-id="formattazione-per-il-glucosio-alto">3. Formattazione per il glucosio alto</h4>
+<p>Vogliamo evidenziare in <strong>arancione</strong> i valori di <strong>Glucosio</strong> superiori a <strong>100 mg/dL</strong>.</p>
+<ul>
+<li><p><strong>Seleziona l’intervallo</strong> delle celle con i valori del glucosio (es. <strong>D2</strong>).</p></li>
+<li><p>Vai su <strong>Home &gt; Formattazione condizionale &gt; Evidenzia regole celle &gt; Maggiore di…</strong>.</p></li>
+<li><p>Inserisci <strong>100</strong> come valore.</p></li>
+<li><p>Seleziona uno stile di formattazione con riempimento arancione per i valori che superano il limite.</p></li>
+<li><p>Clicca su <strong>OK</strong>.</p></li>
+</ul>
+</section>
+</section>
+<section id="risultato-finale" class="level3">
+<h3 class="anchored" data-anchor-id="risultato-finale">Risultato finale:</h3>
+<p>Dopo aver applicato queste regole, la tabella potrebbe apparire così:</p>
+<p><img src="images/Excel_fig7.png" class="img-fluid"></p>
+</section>
+<section id="interpretazione" class="level3">
+<h3 class="anchored" data-anchor-id="interpretazione">Interpretazione:</h3>
+<ul>
+<li><p>I valori di <strong>Anna Verdi</strong> e <strong>Luca Blu</strong> sono evidenziati per il colesterolo e il glucosio elevati, rispettivamente in ciano e arancione.</p></li>
+<li><p>Il valore dell’emoglobina di <strong>Luca Blu</strong> è evidenziato in rosso poiché è inferiore al valore normale di 12 g/dL.</p></li>
+<li><p>In questo modo, è facile individuare rapidamente i pazienti con valori critici, consentendo un’analisi più efficiente e una migliore gestione clinica.</p></li>
+</ul>
 
 
-</section>
 </section>
 </section>
 
