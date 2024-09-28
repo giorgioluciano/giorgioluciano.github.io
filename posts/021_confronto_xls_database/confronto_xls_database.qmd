@@ -57,7 +57,7 @@ Excel non offre un sistema avanzato di controllo sugli accessi e tracciamento de
 Esempio:
 
 | ID Paziente | Nome        | Diagnosi               | Terapia       | Medico        |
-|-------------|-------------|------------------------|---------------|---------------|
+|--------------|--------------|-----------------|--------------|--------------|
 | 001         | Mario Rossi | Ipertensione           | ACE Inibitori | Dott. Bianchi |
 | 002         | Anna Verdi  | Diabete Tipo 2         | Insulina      | Dott. Neri    |
 | 003         | Luca Blu    | Insufficienza cardiaca | Betabloccanti | Dott. Verdi   |
@@ -79,5 +79,55 @@ Ogni modifica viene registrata, e se qualcuno cambia la terapia, è possibile ri
 Esempio di log delle modifiche:
 
 | ID Paziente | Operatore   | Campo Modificato | Valore Precedente | Valore Nuovo | Data Modifica    |
-|-------------|-------------|------------------|-------------------|--------------|------------------|
+|------------|------------|------------|------------|------------|------------|
 | 002         | infermiera1 | Terapia          | Insulina          | Metformina   | 2024-09-24 10:30 |
+
+#### **Caso Excel: Duplicazione dei Dati**
+
+Un altro rischio comune in Excel è la duplicazione accidentale dei dati. Supponiamo che durante l'inserimento di nuovi pazienti, un utente copi e incolli una riga esistente invece di crearne una nuova, modificando solo alcune informazioni e lasciando altri campi inalterati.
+
+Esempio di tabella:
+
+| ID Paziente | Nome        | Diagnosi               | Terapia       | Medico        |
+|-------------|-------------|------------------------|---------------|---------------|
+| 001         | Mario Rossi | Ipertensione           | ACE Inibitori | Dott. Bianchi |
+| 002         | Anna Verdi  | Diabete Tipo 2         | Insulina      | Dott. Neri    |
+| 003         | Mario Rossi | Insufficienza Cardiaca | Betabloccanti | Dott. Bianchi |
+
+In questo caso, abbiamo due pazienti con lo stesso nome, ma terapie e diagnosi diverse. Questa duplicazione potrebbe non essere immediatamente evidente e potrebbe causare confusione clinica o errori nella gestione del paziente. Excel non dispone di controlli per rilevare automaticamente questi errori.
+
+#### **Caso Database: Eliminazione delle Duplicazioni**
+
+Un database può evitare questo tipo di errore utilizzando vincoli di unicità. Se la colonna "ID Paziente" è definita come chiave primaria, nessun duplicato sarà consentito.\
+Sebbene Excel sia uno strumento potente e molto utilizzato per la gestione dei dati, può presentare alcune limitazioni, specialmente quando si tratta di gestire dati sensibili come quelli clinici. Un database strutturato offre un livello superiore di controllo e sicurezza, prevenendo errori comuni come quelli dovuti a formati non standardizzati o duplicazioni. La scelta dello strumento giusto dipende dalle esigenze specifiche e dalla complessità dei dati da gestire, con l'obiettivo di garantire sempre accuratezza e sicurezza.
+
+Esempio:
+
+``` sql
+CREATE TABLE cartella_clinica (
+    id_paziente INT PRIMARY KEY,
+    nome VARCHAR(100),
+    diagnosi VARCHAR(100),
+    terapia VARCHAR(100),
+    medico VARCHAR(100)
+);
+```
+
+Se si tenta di inserire un nuovo paziente con un ID già esistente:
+
+``` sql
+INSERT INTO cartella_clinica (id_paziente, nome, diagnosi, terapia, medico)
+VALUES (003, 'Mario Rossi', 'Ipertensione', 'ACE Inibitori', 'Dott. Bianchi');
+```
+
+Il database restituirebbe un errore simile a:
+
+``` sql
+ERROR: duplicate key value violates unique constraint "cartella_clinica_pkey"
+```
+
+Questo impedisce l’inserimento accidentale di dati duplicati, preservando l’integrità dei dati clinici.
+
+------------------------------------------------------------------------
+
+L'utilizzo di Excel per la gestione di dati clinici comporta rischi significativi di errori dovuti a formati incoerenti, duplicazioni e mancanza di tracciabilità. Al contrario, un database offre strumenti avanzati per prevenire questi problemi, garantendo una maggiore sicurezza, precisione e affidabilità nella gestione dei dati clinici.
