@@ -57,7 +57,7 @@ Excel non offre un sistema avanzato di controllo sugli accessi e tracciamento de
 Esempio:
 
 | ID Paziente | Nome        | Diagnosi               | Terapia       | Medico        |
-|--------------|--------------|-----------------|--------------|--------------|
+|-------------|-------------|------------------------|---------------|---------------|
 | 001         | Mario Rossi | Ipertensione           | ACE Inibitori | Dott. Bianchi |
 | 002         | Anna Verdi  | Diabete Tipo 2         | Insulina      | Dott. Neri    |
 | 003         | Luca Blu    | Insufficienza cardiaca | Betabloccanti | Dott. Verdi   |
@@ -79,7 +79,7 @@ Ogni modifica viene registrata, e se qualcuno cambia la terapia, è possibile ri
 Esempio di log delle modifiche:
 
 | ID Paziente | Operatore   | Campo Modificato | Valore Precedente | Valore Nuovo | Data Modifica    |
-|------------|------------|------------|------------|------------|------------|
+|-------------|-------------|------------------|-------------------|--------------|------------------|
 | 002         | infermiera1 | Terapia          | Insulina          | Metformina   | 2024-09-24 10:30 |
 
 #### **Caso Excel: Duplicazione dei Dati**
