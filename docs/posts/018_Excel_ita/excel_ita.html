@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,7 +19,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
 </style>
@@ -47,13 +47,7 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -62,10 +56,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-submit-button-title": "Submit"
   }
 }</script>
 
@@ -76,59 +68,57 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
+      <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Giorgio Luciano</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../listing.html"> 
-<span class="menu-text">Code</span></a>
+    <a class="nav-link" href="../../listing.html">
+ <span class="menu-text">Code</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://github.com/giorgioluciano/CrystalNodes"> 
-<span class="menu-text">CrystalNodes</span></a>
+    <a class="nav-link" href="https://github.com/giorgioluciano/CrystalNodes">
+ <span class="menu-text">CrystalNodes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/giorgioluciano"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/giorgioluciano"><i class="bi bi-github" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/giorgioluciano"> <i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://twitter.com/giorgioluciano"><i class="bi bi-twitter" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/giorgioluciano/"> <i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/giorgioluciano/"><i class="bi bi-linkedin" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/giorgioluciano5477/"> <i class="bi bi-instagram" role="img">
+    <a class="nav-link" href="https://www.instagram.com/giorgioluciano5477/"><i class="bi bi-instagram" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.behance.net/giorgioluciano"> <i class="bi bi-behance" role="img">
+    <a class="nav-link" href="https://www.behance.net/giorgioluciano"><i class="bi bi-behance" role="img">
 </i> 
-<span class="menu-text"></span></a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
+              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
-</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -178,13 +168,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#perché-excel-non-è-un-database" id="toc-perché-excel-non-è-un-database" class="nav-link" data-scroll-target="#perché-excel-non-è-un-database"><strong>Perché Excel non è un Database</strong></a></li>
   <li><a href="#criteri-essenziali-per-la-gestione-dei-dati" id="toc-criteri-essenziali-per-la-gestione-dei-dati" class="nav-link" data-scroll-target="#criteri-essenziali-per-la-gestione-dei-dati"><strong>Criteri Essenziali per la Gestione dei Dati</strong></a></li>
   <li><a href="#ulteriori-linee-guida-per-dati-clinici" id="toc-ulteriori-linee-guida-per-dati-clinici" class="nav-link" data-scroll-target="#ulteriori-linee-guida-per-dati-clinici">Ulteriori Linee Guida per Dati Clinici</a></li>
+  <li><a href="#faq-domande-frequenti-su-excel-e-la-gestione-dei-dati" id="toc-faq-domande-frequenti-su-excel-e-la-gestione-dei-dati" class="nav-link" data-scroll-target="#faq-domande-frequenti-su-excel-e-la-gestione-dei-dati"><strong>FAQ: Domande Frequenti su Excel e la Gestione dei Dati</strong></a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
-
 
 
 
@@ -204,7 +194,7 @@ Quando i dati superano certe dimensioni (milioni di righe o centinaia di colonne
 Excel ha funzionalità di condivisione, ma i conflitti tra versioni possono facilmente emergere. I database, invece, sono progettati per la collaborazione simultanea senza perdita di dati.</p>
 <p><strong>5. Assenza di strumenti complessi di interrogazione e reporting</strong><br>
 Le query SQL nei database permettono analisi molto più complesse rispetto a quanto sia possibile in Excel. I database offrono anche reportistica avanzata con strumenti di Business Intelligence (BI).</p>
-<p>Clicca qui per ulteriori info</p>
+<p><a href="https://giorgioluciano.github.io/posts/021_confronto_xls_database/confronto_xls_database.html">Clicca qui per ulteriori info</a></p>
 </section>
 <section id="criteri-essenziali-per-la-gestione-dei-dati" class="level3">
 <h3 class="anchored" data-anchor-id="criteri-essenziali-per-la-gestione-dei-dati"><strong>Criteri Essenziali per la Gestione dei Dati</strong></h3>
@@ -309,6 +299,29 @@ Controllare errori macroscopici come altezze di 170 metri, pazienti che pesano 8
 <li><p><strong>Formattazione Condizionale</strong><br>
 Applicare una formattazione condizionale ai dati quando possibile (es. evidenziare automaticamente le celle con valori fuori dal range atteso). Questo può aiutare a individuare rapidamente e visivamente gli errori nei dati. <a href="https://giorgioluciano.github.io/posts/020_Formattazione_condizionale/formattazione_condizionale.html">Clicca qui per una guida alla formattazione condizionale</a></p></li>
 </ol>
+</section>
+<section id="faq-domande-frequenti-su-excel-e-la-gestione-dei-dati" class="level3">
+<h3 class="anchored" data-anchor-id="faq-domande-frequenti-su-excel-e-la-gestione-dei-dati"><strong>FAQ: Domande Frequenti su Excel e la Gestione dei Dati</strong></h3>
+<p><strong>1. Posso utilizzare Excel come database per piccoli set di dati?</strong><br>
+Sì, Excel può essere utilizzato per piccoli set di dati, soprattutto se si tratta di progetti temporanei o analisi rapide. Tuttavia, anche per set di dati piccoli, un database garantisce maggiore integrità, sicurezza e scalabilità, evitando potenziali problemi quando il volume dei dati cresce.</p>
+<p><strong>2. Perché Excel non è consigliato per dati sensibili come quelli clinici?</strong><br>
+Excel non offre controlli di accesso avanzati o log di modifica, esponendo i dati a errori accidentali o manipolazioni non tracciate. Inoltre, non è possibile crittografare o proteggere adeguatamente i dati sensibili in un foglio di calcolo, aumentando il rischio di violazioni della privacy.</p>
+<p><strong>3. Quali sono i principali rischi di sicurezza nell’utilizzare Excel per la gestione dei dati clinici?</strong><br>
+I principali rischi includono:</p>
+<ul>
+<li><p>Modifiche accidentali o intenzionali non tracciate.</p></li>
+<li><p>Accesso non autorizzato ai dati.</p></li>
+<li><p>Mancanza di crittografia e protezione dei dati.</p></li>
+<li><p>Difficoltà nel mantenere la coerenza e l’integrità dei dati, specialmente in ambienti multiutente.</p></li>
+</ul>
+<p><strong>4. È possibile limitare chi può accedere e modificare i dati in un file Excel?</strong><br>
+Excel offre alcune funzionalità di protezione, come la protezione delle celle e l’impostazione di password per l’accesso ai fogli. Tuttavia, queste misure sono deboli rispetto ai sistemi di sicurezza avanzati disponibili in un database relazionale, che permettono controlli granulari su chi può visualizzare o modificare i dati.</p>
+<p><strong>5. Come posso gestire i duplicati in Excel?</strong><br>
+Excel fornisce strumenti per individuare e rimuovere duplicati, ma il controllo deve essere eseguito manualmente o tramite formule. Nei database, le chiavi primarie possono essere utilizzate per garantire che non ci siano duplicati nei record, offrendo una maggiore automazione e affidabilità.</p>
+<p><strong>6. Cosa devo fare se il mio file Excel diventa troppo grande e lento da usare?</strong><br>
+Se un file Excel diventa troppo grande, è probabile che tu abbia superato i limiti operativi del foglio di calcolo. In questi casi, è consigliabile migrare i dati in un database che può gestire volumi molto più grandi di righe e colonne in modo efficiente, senza rallentamenti.</p>
+<p><strong>7. Come posso evitare di commettere errori di formattazione numerica (es. virgola e punto decimale)?</strong><br>
+Assicurati di impostare correttamente le preferenze regionali nel software che utilizzi per gestire i dati. Nei database, puoi specificare in modo preciso il formato numerico accettato per evitare ambiguità, cosa che Excel non può garantire automaticamente senza un’attenta configurazione.</p>
 
 
 </section>
@@ -342,23 +355,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -394,27 +393,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/giorgioluciano\.github\.io");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -424,17 +406,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -446,245 +419,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -725,7 +462,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 
