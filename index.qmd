@@ -2,7 +2,7 @@
 title: "Giorgio's pages"
 listing:
   contents: posts
-  sort: "date desc"
+  sort: "date desc desc"
   type: default
   categories: true
   feed: true

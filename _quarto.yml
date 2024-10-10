@@ -21,7 +21,7 @@ website:
         href: https://www.instagram.com/giorgioluciano5477/
       - icon: behance
         href: https://www.behance.net/giorgioluciano
-    - icon: rss
+      - icon: rss
         href: index.xml
 cookie-consent: true        
 format:
