@@ -1,5 +1,11 @@
 ---
 title: "Giorgio's pages"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  feed: true
 image: headshot.jpg
 about:
   template: trestles
@@ -26,7 +32,6 @@ title-block-banner: true
 I got a Ph.D in materials science and I'm a researcher with a variety of interests. I currently works as a researcher at the Italian National Council of Research (CNR) on topics related to the characterization and development of new materials. My interests are also in 3D CG (lighting and rendering), and creating scientific illustration. Here you will find my code tutorials, blend files and other doodles
 
 ### Blog
-
 
 <https://giorgioluciano.github.io/listing.html>
 
