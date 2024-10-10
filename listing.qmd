@@ -5,6 +5,7 @@ listing:
   categories: true
   type: default
   sort-ui: true
+  sort: "date desc"
   filter-ui: true
   fields: [image, date, title, description, categories,  reading-time]
   feed: true

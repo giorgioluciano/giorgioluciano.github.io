@@ -4,6 +4,7 @@ project:
 website:
   title: "Giorgio Luciano"
   site-url: https://giorgioluciano.github.io
+  reader-mode: true
   navbar:
     left: 
       - text: Code
@@ -24,7 +25,8 @@ website:
       - icon: behance
         href: https://www.behance.net/giorgioluciano
       - icon: rss
-        href: index.xml
+        href: listings.xml
+
 cookie-consent: true        
 format:
   html:
