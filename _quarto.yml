@@ -10,6 +10,8 @@ website:
         file: listing.qmd
       - text: CrystalNodes  
         href: https://github.com/giorgioluciano/CrystalNodes
+      - text: ESGT
+        href: https://github.com/giorgioluciano/ESGT/
     right:
       - icon: github
         href: https://github.com/giorgioluciano
