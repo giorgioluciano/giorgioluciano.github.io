@@ -1,16 +1,9 @@
 ---
-title: "Giorgio's pages"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: default
-  categories: true
-  feed: true
 image: headshot.jpg
 about:
   template: trestles
   image-shape: round
-  image-width: 23em
+  image-width: 20em
   links:
     - text: Github
       href: https://github.com/giorgioluciano
@@ -27,25 +20,16 @@ page-layout: full
 title-block-banner: true
 ---
 
-## About this blog
+### [Blog](https://giorgioluciano.github.io/listing.html)
 
-I got a Ph.D in materials science and I'm a researcher with a variety of interests. I currently works as a researcher at the Italian National Council of Research (CNR) on topics related to the characterization and development of new materials. My interests are also in 3D CG (lighting and rendering), and creating scientific illustration. Here you will find my code tutorials, blend files and other doodles
+### [Code](https://github.com/giorgioluciano)
 
-### Blog
+### [CrystalNodes](https://giorgioluciano.github.io/CrystalNodes/)
 
-<https://giorgioluciano.github.io/listing.html>
-
-### Code
-
-<https://github.com/giorgioluciano>
-
-### CrystalNodes
-
-<https://giorgioluciano.github.io/CrystalNodes/>
-
-### Essential Computer Graphics Techniques book
+### [Essential Computer Graphics Techniques book](https://github.com/giorgioluciano/ESGT/)
 
 All the images of my book in high resolution
 
-<https://github.com/giorgioluciano/ESGT/>
+# About me
 
+I got a Ph.D in materials science and I'm a researcher with a variety of interests. I currently works as a researcher at the Italian National Council of Research (CNR) on topics related to the characterization and development of new materials. My interests are also in 3D CG (lighting and rendering), and creating scientific illustration. Here you will find my code tutorials, blend files and other doodles
