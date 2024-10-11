@@ -9,7 +9,7 @@ website:
   navbar:
     left: 
       - text: Code
-        file: listing.qmd
+        file: https://github.com/giorgioluciano
       - text: CrystalNodes  
         href: https://github.com/giorgioluciano/CrystalNodes
       - text: ESGT
@@ -26,10 +26,7 @@ website:
       - icon: behance
         href: https://www.behance.net/giorgioluciano
       - icon: rss
-        href: index.xml
-
-
-  
+        href: listing.xml
 
 cookie-consent: true        
 format:

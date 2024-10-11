@@ -1,135 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://giorgioluciano.github.io/posts/Fun06/index.html</loc>
-    <lastmod>2024-08-02T14:21:06.620Z</lastmod>
-  </url>
-  <url>
     <loc>https://giorgioluciano.github.io/index.html</loc>
-    <lastmod>2024-10-11T13:18:55.930Z</lastmod>
+    <lastmod>2024-10-11T19:51:18.397Z</lastmod>
   </url>
   <url>
     <loc>https://giorgioluciano.github.io/listing.html</loc>
-    <lastmod>2024-10-11T13:18:50.807Z</lastmod>
+    <lastmod>2024-10-11T19:51:19.808Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/Riddle01/index.html</loc>
-    <lastmod>2024-06-26T11:38:52.172Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/001_Zero_Roulette/index.html</loc>
+    <lastmod>2024-10-11T19:51:20.607Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/Snip01/index.html</loc>
-    <lastmod>2024-08-02T14:04:58.997Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/002_Shiny_Namespace/index.html</loc>
+    <lastmod>2024-10-11T19:51:21.353Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/Fun01/Monty Hall.html</loc>
-    <lastmod>2024-08-02T14:05:40.159Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/003_Scatterplot/index.html</loc>
+    <lastmod>2024-10-11T19:51:22.114Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/Fun02/Dice rolls in shiny.html</loc>
-    <lastmod>2024-08-02T14:14:01.152Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/004_Riddle01/index.html</loc>
+    <lastmod>2024-10-11T19:51:22.931Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/Fun04/index.html</loc>
-    <lastmod>2024-08-02T14:16:00.528Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/005_Pizza/index.html</loc>
+    <lastmod>2024-10-11T19:51:23.360Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/Fun03/index.html</loc>
-    <lastmod>2024-08-02T14:14:56.740Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/006_Monthy_Hall/index.html</loc>
+    <lastmod>2024-10-11T19:51:24.070Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/Fun07/Illusion Of Luck.html</loc>
-    <lastmod>2024-08-02T14:24:00.434Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/007_Illusion_Of_Luck/index.html</loc>
+    <lastmod>2024-10-11T19:51:24.781Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/Fun08/Card Shuffling.html</loc>
-    <lastmod>2024-08-02T14:26:32.223Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/008_ggplot_loops/index.html</loc>
+    <lastmod>2024-10-11T19:51:25.579Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/Fun09/index.html</loc>
-    <lastmod>2024-08-02T14:27:02.819Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/009_Dice_rolls/index.html</loc>
+    <lastmod>2024-10-11T19:51:26.298Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/Fun10/pizza.html</loc>
-    <lastmod>2024-08-03T13:17:46.462Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/010_Data_Visualization/index.html</loc>
+    <lastmod>2024-10-11T19:51:27.938Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/Fun03/Anscombe.html</loc>
-    <lastmod>2024-08-03T13:19:48.655Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/011_Data_Simulation/index.html</loc>
+    <lastmod>2024-10-11T19:51:28.641Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/Snip04/Scatterplot.html</loc>
-    <lastmod>2024-08-03T13:27:47.538Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/012_Coin_Toss/index.html</loc>
+    <lastmod>2024-10-11T19:51:29.385Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/001_Zero_Roulette/Zero_Roulette.html</loc>
-    <lastmod>2024-08-03T13:43:20.821Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/013_Clean_csv/index.html</loc>
+    <lastmod>2024-10-11T19:51:30.150Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/002_Shiny_Namespace/Using Shiny Modules with Namespaces.html</loc>
-    <lastmod>2024-08-03T13:43:49.085Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/014_Card_Shuffling/index.html</loc>
+    <lastmod>2024-10-11T19:51:30.858Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/003_Scatterplot/Scatterplot.html</loc>
-    <lastmod>2024-08-03T13:44:28.873Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/015_Birthday_Paradox/index.html</loc>
+    <lastmod>2024-10-11T19:51:31.578Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/005_Pizza/pizza.html</loc>
-    <lastmod>2024-08-03T13:55:51.624Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/016_Anscombe/index.html</loc>
+    <lastmod>2024-10-11T19:51:32.571Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/016_Anscombe/Anscombe.html</loc>
-    <lastmod>2024-08-03T14:08:57.463Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/018_Excel_Ita/index.html</loc>
+    <lastmod>2024-10-11T19:51:33.100Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/015_Birthday_Paradox/ Birthday_Paradox.html</loc>
-    <lastmod>2024-08-03T13:58:36.361Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/019_Excel_Eng/index.html</loc>
+    <lastmod>2024-10-11T19:51:33.563Z</lastmod>
   </url>
   <url>
-    <loc>https://giorgioluciano.github.io/posts/006_Monthy_Hall/Monty Hall.html</loc>
-    <lastmod>2024-08-03T14:00:02.963Z</lastmod>
-  </url>
-  <url>
-    <loc>https://giorgioluciano.github.io/posts/007_Illusion_Of_Luck/Illusion Of Luck.html</loc>
-    <lastmod>2024-08-03T14:00:42.283Z</lastmod>
-  </url>
-  <url>
-    <loc>https://giorgioluciano.github.io/posts/009_Dice_rolls/Dice rolls in shiny.html</loc>
-    <lastmod>2024-08-03T14:01:33.559Z</lastmod>
-  </url>
-  <url>
-    <loc>https://giorgioluciano.github.io/posts/010_Data_Visualization/Visualization.html</loc>
-    <lastmod>2024-08-03T14:02:39.772Z</lastmod>
-  </url>
-  <url>
-    <loc>https://giorgioluciano.github.io/posts/012_Coin_Toss/Coin_Toss.html</loc>
-    <lastmod>2024-08-03T14:03:58.478Z</lastmod>
-  </url>
-  <url>
-    <loc>https://giorgioluciano.github.io/posts/014_Card_Shuffling/Card Shuffling.html</loc>
-    <lastmod>2024-08-03T14:08:16.241Z</lastmod>
-  </url>
-  <url>
-    <loc>https://giorgioluciano.github.io/posts/018_Excel_ita/excel_ita.html</loc>
-    <lastmod>2024-09-25T13:07:49.340Z</lastmod>
-  </url>
-  <url>
-    <loc>https://giorgioluciano.github.io/posts/019_Excel_eng/excel_eng.html</loc>
-    <lastmod>2024-09-25T05:31:58.701Z</lastmod>
-  </url>
-  <url>
-    <loc>https://giorgioluciano.github.io/posts/020_Formattazione_condizionale/formattazione_condizionale.html</loc>
-    <lastmod>2024-09-25T10:09:41.821Z</lastmod>
+    <loc>https://giorgioluciano.github.io/posts/020_Formattazione_condizionale/index.html</loc>
+    <lastmod>2024-10-11T19:51:34.071Z</lastmod>
   </url>
   <url>
     <loc>https://giorgioluciano.github.io/posts/021_confronto_xls_database/confronto_xls_database.html</loc>
-    <lastmod>2024-09-29T07:15:09.233Z</lastmod>
-  </url>
-  <url>
-    <loc>https://giorgioluciano.github.io/posts/018_Excel_Ita/excel_ita.html</loc>
-    <lastmod>2024-10-01T18:44:41.310Z</lastmod>
+    <lastmod>2024-10-11T19:51:34.582Z</lastmod>
   </url>
   <url>
     <loc>https://giorgioluciano.github.io/posts/022_pitfall_curves/pitfall_curves.html</loc>
-    <lastmod>2024-10-11T12:36:47.871Z</lastmod>
+    <lastmod>2024-10-11T19:51:35.352Z</lastmod>
+  </url>
+  <url>
+    <loc>https://giorgioluciano.github.io/posts/Packages Review 2022/index.html</loc>
+    <lastmod>2024-10-11T19:51:36.720Z</lastmod>
+  </url>
+  <url>
+    <loc>https://giorgioluciano.github.io/posts/Packages Review 2024/index.html</loc>
+    <lastmod>2024-10-11T19:51:37.249Z</lastmod>
   </url>
 </urlset>

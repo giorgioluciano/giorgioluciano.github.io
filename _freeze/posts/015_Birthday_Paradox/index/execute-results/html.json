@@ -1,0 +1,16 @@
+{
+  "hash": "e96470f02ddce9383848cbfe0c6ba45c",
+  "result": {
+    "markdown": "---\ntitle: \"The Birthday Paradox: When Probability Plays Tricks\"\nauthor: \"Giorgio Luciano and ChatGPT 3.5\"\ndate: \"2023-09-16\"\ncategories: \n  - R\n  - Fun\n---\n\n\nThe Birthday Paradox is a probabilistic problem concerning the likelihood that two people in a group share the same birthday. At first glance, it might seem like the probability is very low, but in reality, it's higher than you might think.\n\nThe paradox is based on the fact that there are many possible combinations of people's birthdays within a group. While it might appear that there is only a small chance that two people share a birthday, things change when we consider the entire group.\n\nLet's dive into action and use the R programming language to simulate the Birthday Paradox. We will see how the probabilities change as the group size increases.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Number of simulations\nnum_simulations <- 10000\n\n# Function to check if there are shared birthdays in a group\ncheck_shared_birthday <- function(group_size) {\n  birthdays <- sample(1:365, group_size, replace = TRUE)\n  if (length(birthdays) == length(unique(birthdays))) {\n    return(FALSE)  # No shared birthdays\n  } else {\n    return(TRUE)   # Shared birthdays\n  }\n}\n\n# Simulate the Birthday Paradox\nsimulate_birthday_paradox <- function(group_size) {\n  shared_birthday_count <- 0\n  for (i in 1:num_simulations) {\n    if (check_shared_birthday(group_size)) {\n      shared_birthday_count <- shared_birthday_count + 1\n    }\n  }\n  return(shared_birthday_count / num_simulations)\n}\n\n# Test the Birthday Paradox simulation for different group sizes\ngroup_sizes <- 2:100\nresults <- numeric(length(group_sizes))\n\nfor (i in 1:length(group_sizes)) {\n  results[i] <- simulate_birthday_paradox(group_sizes[i])\n}\n\n# Plot the results\nplot(group_sizes, results, type = \"l\", xlab = \"Group Size\", ylab = \"Probability of Shared Birthday\", main = \"Birthday Paradox Simulation\")\nabline(h = 0.5, col = \"red\", lty = 2)  # Add a line at 0.5 for reference\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\n\nThe Birthday Paradox is a captivating example of how probability can be counterintuitive. Despite our intuitions, the probability of finding two people with the same birthday is higher than it seems. This paradox is an opportunity to explore the laws of probability and how they can surprise us.\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
