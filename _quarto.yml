@@ -4,7 +4,8 @@ project:
 website:
   title: "giorgioluciano.github.io"
   site-url: https://giorgioluciano.github.io
-  reader-mode: true
+  description: "Provides tutorials  alongside practical examples in R. Topics include statistical simulations, data visualization, and common challenges in scientific analysis. The content is designed to offer useful insights for those working with data, without unnecessary complexity."
+  
   navbar:
     left: 
       - text: Code
@@ -25,12 +26,10 @@ website:
       - icon: behance
         href: https://www.behance.net/giorgioluciano
       - icon: rss
-        href: listings.xml
-feed:
-  type: rss
-  title: "giorgioluciano.github.io"
-  description: "Provides tutorials  alongside practical examples in R. Topics include statistical simulations, data visualization, and common challenges in scientific analysis. The content is designed to offer useful insights for those working with data, without unnecessary complexity."
-  language: en
+        href: index.xml
+
+
+  
 
 cookie-consent: true        
 format:
