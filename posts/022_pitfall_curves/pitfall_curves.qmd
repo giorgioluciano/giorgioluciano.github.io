@@ -1,7 +1,7 @@
 ---
 title: "The Pitfall of Arbitrary Curve Deconvolution: A Cautionary Tale for Scientists and Students"
 author: "Giorgio Luciano & AI"
-date: "2024-09-24"
+date: "2024-10-11"
 categories: 
   - Essential
   - Tutorial

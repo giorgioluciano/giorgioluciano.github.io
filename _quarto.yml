@@ -28,7 +28,6 @@ website:
         href: listings.xml
 feed:
   type: rss
-  categories: [blog, posts]
   title: "giorgioluciano.github.io"
   description: "Provides tutorials  alongside practical examples in R. Topics include statistical simulations, data visualization, and common challenges in scientific analysis. The content is designed to offer useful insights for those working with data, without unnecessary complexity."
   language: en
