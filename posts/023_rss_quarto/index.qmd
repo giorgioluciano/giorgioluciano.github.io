@@ -1,0 +1,43 @@
+
+---
+title: "Configuring Your RSS Feed in Quarto: A Crucial Naming Tip"
+author: "Giorgio Luciano & AI"
+date: "2024-10-11"
+categories: [Quarto, RSS, Web Development]
+---
+
+Creating an RSS feed for your Quarto blog can be tricky, but there's one essential detail that can save you a lot of frustration: matching your file names correctly.
+
+## The Key to Success: Matching Names
+
+When configuring your RSS feed in the `_quarto.yml` file, ensure that the name you use for the RSS icon matches the name of your listing file. This might seem minor, but it's crucial for your RSS feed to work properly.
+
+### Example:
+
+If your blog's main listing file is named `blog.qmd` (instead of the default `index.qmd`), your `_quarto.yml` configuration should reflect this:
+
+```yaml
+website:
+  navbar:
+    right:
+      - icon: rss
+        href: blog.xml  # Note: This matches the 'blog.qmd' file name
+```
+
+### Common Mistake:
+
+A frequent error is using `index.xml` when your listing file is actually named `blog.qmd`. This mismatch can prevent your RSS feed from functioning correctly.
+
+## Why This Matters
+
+Quarto uses these file names to generate the correct RSS feed file. When the names don't match, the RSS feed might not be created or updated as expected, leaving your subscribers without new content.
+
+## Quick Checklist:
+
+1. Identify your main listing file name (e.g., `blog.qmd`, `index.qmd`)
+2. Ensure your `_quarto.yml` RSS configuration uses the same name (e.g., `blog.xml`, `index.xml`)
+3. Double-check for any typos or discrepancies
+
+By paying attention to this naming convention, you'll ensure your Quarto RSS feed works smoothly, keeping your readers up-to-date with your latest posts.
+
+Remember, in the world of web development and blogging, sometimes the smallest details make the biggest difference!

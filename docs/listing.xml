@@ -135,6 +135,57 @@ Warning in nls.lm(par = start, fn = FCT, jac = jac, control = control, lower = l
   <pubDate>Thu, 10 Oct 2024 22:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>Configuring Your RSS Feed in Quarto: A Crucial Naming Tip</title>
+  <dc:creator>Giorgio Luciano &amp; AI</dc:creator>
+  <link>https://giorgioluciano.github.io/posts/023_rss_quarto/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Creating an RSS feed for your Quarto blog can be tricky, but there’s one essential detail that can save you a lot of frustration: matching your file names correctly.</p>
+<section id="the-key-to-success-matching-names" class="level2">
+<h2 class="anchored" data-anchor-id="the-key-to-success-matching-names">The Key to Success: Matching Names</h2>
+<p>When configuring your RSS feed in the <code>_quarto.yml</code> file, ensure that the name you use for the RSS icon matches the name of your listing file. This might seem minor, but it’s crucial for your RSS feed to work properly.</p>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example:</h3>
+<p>If your blog’s main listing file is named <code>blog.qmd</code> (instead of the default <code>index.qmd</code>), your <code>_quarto.yml</code> configuration should reflect this:</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><span class="fu" style="color: #4758AB;">website</span><span class="kw" style="color: #003B4F;">:</span></span>
+<span id="cb1-2"><span class="at" style="color: #657422;">  </span><span class="fu" style="color: #4758AB;">navbar</span><span class="kw" style="color: #003B4F;">:</span></span>
+<span id="cb1-3"><span class="at" style="color: #657422;">    </span><span class="fu" style="color: #4758AB;">right</span><span class="kw" style="color: #003B4F;">:</span></span>
+<span id="cb1-4"><span class="at" style="color: #657422;">      </span><span class="kw" style="color: #003B4F;">-</span><span class="at" style="color: #657422;"> </span><span class="fu" style="color: #4758AB;">icon</span><span class="kw" style="color: #003B4F;">:</span><span class="at" style="color: #657422;"> rss</span></span>
+<span id="cb1-5"><span class="at" style="color: #657422;">        </span><span class="fu" style="color: #4758AB;">href</span><span class="kw" style="color: #003B4F;">:</span><span class="at" style="color: #657422;"> blog.xml</span><span class="co" style="color: #5E5E5E;">  # Note: This matches the 'blog.qmd' file name</span></span></code></pre></div>
+</section>
+<section id="common-mistake" class="level3">
+<h3 class="anchored" data-anchor-id="common-mistake">Common Mistake:</h3>
+<p>A frequent error is using <code>index.xml</code> when your listing file is actually named <code>blog.qmd</code>. This mismatch can prevent your RSS feed from functioning correctly.</p>
+</section>
+</section>
+<section id="why-this-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-matters">Why This Matters</h2>
+<p>Quarto uses these file names to generate the correct RSS feed file. When the names don’t match, the RSS feed might not be created or updated as expected, leaving your subscribers without new content.</p>
+</section>
+<section id="quick-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="quick-checklist">Quick Checklist:</h2>
+<ol type="1">
+<li>Identify your main listing file name (e.g., <code>blog.qmd</code>, <code>index.qmd</code>)</li>
+<li>Ensure your <code>_quarto.yml</code> RSS configuration uses the same name (e.g., <code>blog.xml</code>, <code>index.xml</code>)</li>
+<li>Double-check for any typos or discrepancies</li>
+</ol>
+<p>By paying attention to this naming convention, you’ll ensure your Quarto RSS feed works smoothly, keeping your readers up-to-date with your latest posts.</p>
+<p>Remember, in the world of web development and blogging, sometimes the smallest details make the biggest difference!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>Quarto</category>
+  <category>RSS</category>
+  <category>Web Development</category>
+  <guid>https://giorgioluciano.github.io/posts/023_rss_quarto/index.html</guid>
+  <pubDate>Thu, 10 Oct 2024 22:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Criteri Essenziali per La Gestione Dati</title>
   <dc:creator>Giorgio Luciano</dc:creator>
   <link>https://giorgioluciano.github.io/posts/018_Excel_Ita/index.html</link>
@@ -4093,85 +4144,6 @@ Szafir, Danielle Albers. 2018. <span>“The Good, the Bad, and the Biased: Five 
   <category>packages</category>
   <guid>https://giorgioluciano.github.io/posts/Packages Review 2022/index.html</guid>
   <pubDate>Wed, 22 Mar 2023 23:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Snippet #4: boxplots and scatterplots: simple recipes</title>
-  <dc:creator>Giorgio Luciano</dc:creator>
-  <link>https://giorgioluciano.github.io/posts/003_Scatterplot/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<ol type="1">
-<li>Simulate data, check and assign <em>data types</em></li>
-<li>Create a scatterplot with <code>ggplot</code></li>
-<li>Create violin plot with <code>ggstatsplot</code></li>
-</ol>
-<p>Example 1: We want to visualize the difference between two groups of patients that follow two different diets. <em>Group A</em> has an average of total cholesterol of <em>180</em> with a standard deviation of <em>20</em> while <em>Group B</em> and average of <em>200</em> with a standard deviation of 40</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;">library</span>(MASS)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;">library</span>(ggplot2)</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;">library</span>(data.table)</span>
-<span id="cb1-4"></span>
-<span id="cb1-5"></span>
-<span id="cb1-6">npatientsA <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="dv" style="color: #AD0000;">500</span></span>
-<span id="cb1-7">npatientsB <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="dv" style="color: #AD0000;">520</span></span>
-<span id="cb1-8">cholA <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">mvrnorm</span>(<span class="at" style="color: #657422;">n=</span>npatientsA, <span class="at" style="color: #657422;">mu=</span><span class="dv" style="color: #AD0000;">180</span>, <span class="at" style="color: #657422;">Sigma=</span><span class="dv" style="color: #AD0000;">20</span>, <span class="at" style="color: #657422;">empirical=</span>T)</span>
-<span id="cb1-9">cholB <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">mvrnorm</span>(<span class="at" style="color: #657422;">n=</span>npatientsB, <span class="at" style="color: #657422;">mu=</span><span class="dv" style="color: #AD0000;">200</span>, <span class="at" style="color: #657422;">Sigma=</span><span class="dv" style="color: #AD0000;">40</span>, <span class="at" style="color: #657422;">empirical=</span>T)</span>
-<span id="cb1-10"></span>
-<span id="cb1-11">dataA <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">cbind</span>(cholA,<span class="fu" style="color: #4758AB;">rep</span>(<span class="st" style="color: #20794D;">"A"</span>,npatientsA))  </span>
-<span id="cb1-12">dataB <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">cbind</span>(cholB,<span class="fu" style="color: #4758AB;">rep</span>(<span class="st" style="color: #20794D;">"B"</span>,npatientsB))  </span>
-<span id="cb1-13"></span>
-<span id="cb1-14">data <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">data.frame</span>(<span class="fu" style="color: #4758AB;">rbind</span>(dataA,dataB))</span>
-<span id="cb1-15"><span class="fu" style="color: #4758AB;">colnames</span>(data) <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Cholesterol"</span>,<span class="st" style="color: #20794D;">"group"</span>)</span>
-<span id="cb1-16">data<span class="sc" style="color: #5E5E5E;">$</span>Cholesterol <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as.numeric</span>(data<span class="sc" style="color: #5E5E5E;">$</span>Cholesterol)</span>
-<span id="cb1-17"></span>
-<span id="cb1-18">p1 <span class="ot" style="color: #003B4F;">&lt;-</span><span class="fu" style="color: #4758AB;">ggplot</span>(data, <span class="fu" style="color: #4758AB;">aes</span>(<span class="at" style="color: #657422;">x =</span> group, <span class="at" style="color: #657422;">y =</span> Cholesterol)) <span class="sc" style="color: #5E5E5E;">+</span> <span class="fu" style="color: #4758AB;">geom_jitter</span>(<span class="at" style="color: #657422;">alpha=</span><span class="fl" style="color: #AD0000;">0.05</span>) </span>
-<span id="cb1-19"></span>
-<span id="cb1-20">p1</span></code></pre></div>
-<div class="cell-output-display">
-<p><img src="https://giorgioluciano.github.io/posts/003_Scatterplot/index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>A few observations on the code. First of all, we need to input the data in a <code>data.frame</code> otherwise ggplot will give us an error. The second observation is that since we put <code>chr</code> labels on our groups we needed to define Cholesterol <code>as.numeric</code> in order to avoid unwanted resultsstrange results. Try to comment the line <code>data$Cholesterol &lt;- as.numeric(data$Cholesterol)</code> and you can see by yourself what will happen. (hint: a “labelstorm!”)</p>
-<p>Jiiter plots is one of my favorite way to represent data. data and immediately understand the distribution of your data and also avoid the pitfall of boxplot (see <span class="citation" data-cites="matejka2017">(Matejka and Fitzmaurice 2017)</span>)</p>
-<p>If you need inferential statistics on your data another resource is <span class="citation" data-cites="ggstatsplot">(Patil 2021)</span>. See the following example with our data. <strong>NOTE</strong> that we nee to transform the group label <em>as.factor</em></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;">library</span>(ggstatsplot)</span></code></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>You can cite this package as:
-     Patil, I. (2021). Visualizations with statistical details: The 'ggstatsplot' approach.
-     Journal of Open Source Software, 6(61), 3167, doi:10.21105/joss.03167</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">data<span class="sc" style="color: #5E5E5E;">$</span>group <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">as.factor</span>(data<span class="sc" style="color: #5E5E5E;">$</span>group)</span>
-<span id="cb4-2"></span>
-<span id="cb4-3">pstack  <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">ggbetweenstats</span>(data,group,Cholesterol)</span>
-<span id="cb4-4">                          </span>
-<span id="cb4-5">pstack    </span></code></pre></div>
-<div class="cell-output-display">
-<p><img src="https://giorgioluciano.github.io/posts/003_Scatterplot/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-matejka2017" class="csl-entry">
-Matejka, Justin, and George Fitzmaurice. 2017. <span>“Same Stats, Different Graphs.”</span> <em>Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems</em>, May. <a href="https://doi.org/10.1145/3025453.3025912">https://doi.org/10.1145/3025453.3025912</a>.
-</div>
-<div id="ref-ggstatsplot" class="csl-entry">
-Patil, Indrajeet. 2021. <span>“<span></span>Visualizations with Statistical Details: The <span></span>’Ggstatsplot’<span></span> Approach<span></span>”</span> 6: 3167. <a href="https://doi.org/10.21105/joss.03167">https://doi.org/10.21105/joss.03167</a>.
-</div>
-</div></section></div> ]]></description>
-  <category>R</category>
-  <category>tutorials</category>
-  <category>ggplot</category>
-  <category>visualization</category>
-  <category>recipes</category>
-  <guid>https://giorgioluciano.github.io/posts/003_Scatterplot/index.html</guid>
-  <pubDate>Fri, 10 Mar 2023 23:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
