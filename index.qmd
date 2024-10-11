@@ -22,9 +22,15 @@ title-block-banner: true
 
 ### [Blog](https://giorgioluciano.github.io/listing.html)
 
+Provides tutorials alongside practical examples in R. Topics include statistical simulations, data visualization, and common challenges in scientific analysis. The content is designed to offer useful insights for those working with data, without unnecessary complexity.
+
 ### [Code](https://github.com/giorgioluciano)
 
+Repository featuring a collection of tutorials and 3D Blender projects. It focuses on Python programming applied to statistics. Contributions and collaborations are welcome!
+
 ### [CrystalNodes](https://giorgioluciano.github.io/CrystalNodes/)
+
+Crystal Nodes (CN) is an addon for the 3D modelling & animation program [Blender](https://blender.org/) that enables easy creation of crystals illustrations. CN is focused on providing tools for drawing Crystallography illustrations and it is not (for now) a computational tool for calculating inorganic structures
 
 ### [Essential Computer Graphics Techniques book](https://github.com/giorgioluciano/ESGT/)
 

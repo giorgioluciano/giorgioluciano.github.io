@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "Giorgio Luciano"
+  title: "giorgioluciano.github.io"
   site-url: https://giorgioluciano.github.io
   reader-mode: true
   navbar:
@@ -26,6 +26,12 @@ website:
         href: https://www.behance.net/giorgioluciano
       - icon: rss
         href: listings.xml
+feed:
+  type: rss
+  categories: [blog, posts]
+  title: "giorgioluciano.github.io"
+  description: "Provides tutorials  alongside practical examples in R. Topics include statistical simulations, data visualization, and common challenges in scientific analysis. The content is designed to offer useful insights for those working with data, without unnecessary complexity."
+  language: en
 
 cookie-consent: true        
 format:
