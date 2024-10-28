@@ -1,6 +1,6 @@
 ---
 title: "Exploring Coin Flip Sequences with Simulation in R"
-author: "Giorgio Luciano and ChatGPT"
+author: "Giorgio Luciano"
 date: "2023-11-15"
 categories:
   - R

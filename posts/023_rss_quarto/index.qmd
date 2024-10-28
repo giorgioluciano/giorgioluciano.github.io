@@ -1,7 +1,7 @@
 
 ---
 title: "Configuring Your RSS Feed in Quarto: A Crucial Naming Tip"
-author: "Giorgio Luciano & AI"
+author: "Giorgio Luciano"
 date: "2024-10-11"
 categories: [Quarto, RSS, Web Development]
 ---

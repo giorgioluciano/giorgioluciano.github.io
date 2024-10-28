@@ -1,6 +1,6 @@
 ---
 title: "The Birthday Paradox: When Probability Plays Tricks"
-author: "Giorgio Luciano and ChatGPT 3.5"
+author: "Giorgio Luciano"
 date: "2023-09-16"
 categories: 
   - R

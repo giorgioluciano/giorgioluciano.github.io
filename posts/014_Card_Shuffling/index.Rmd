@@ -1,6 +1,6 @@
 ---
 title: "Exploring Card Shuffling: A Visual Journey"
-author: "Giorgio Luciano and ChatGPT"
+author: "Giorgio Luciano"
 date: "2023-11-12"
 categories: 
   - R

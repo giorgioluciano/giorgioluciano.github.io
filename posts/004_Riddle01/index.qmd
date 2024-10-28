@@ -1,6 +1,6 @@
 ---
 title: "Unraveling the DnD Dice Duel Riddle with Monte Carlo Simulation in R"
-author: "Giorgio Luciano and ChatGPT 3.5"
+author: "Giorgio Luciano"
 date: "2024-1-14"
 categories: 
   - R

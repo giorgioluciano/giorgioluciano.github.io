@@ -1,6 +1,6 @@
 ---
 title: "Data Visualization"
-author: "Giorgio Luciano and ChatGPT"
+author: "Giorgio Luciano"
 date: "2023-09-16"
 categories: 
   - R

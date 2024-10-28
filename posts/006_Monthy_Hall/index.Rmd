@@ -1,6 +1,6 @@
 ---
 title: "Monty Hall simulation"
-author: "Giorgio Luciano and ChatGPT"
+author: "Giorgio Luciano"
 date: "2023-10-12"
 categories: 
   - R

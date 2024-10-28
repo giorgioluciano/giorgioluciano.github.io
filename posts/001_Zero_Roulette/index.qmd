@@ -1,6 +1,6 @@
 ---
 title: "Exploring the Frequency of Number 0 in a Year of Roulette Spins: A Simulation in R"
-author: "Giorgio Luciano and ChatGPT"
+author: "Giorgio Luciano"
 date: "2024-1-12"
 categories: 
   - R

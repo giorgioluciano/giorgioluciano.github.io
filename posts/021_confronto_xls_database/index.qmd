@@ -1,6 +1,6 @@
 ---
 title: "Confronto tra Excel e Database nella Gestione Clinica dei Dati: Errori E Sicurezza"
-author: "Giorgio Luciano & AI"
+author: "Giorgio Luciano"
 date: "2024-09-24"
 categories: 
   - Essential

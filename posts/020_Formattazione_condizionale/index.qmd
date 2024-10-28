@@ -1,6 +1,6 @@
 ---
 title: "Formattazione condizionale in Excel"
-author: "Giorgio Luciano & AI"
+author: "Giorgio Luciano"
 date: "2024-09-24"
 categories: 
   - Essential

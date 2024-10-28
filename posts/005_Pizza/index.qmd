@@ -1,6 +1,6 @@
 ---
 title: "A Mathematical Exploration of Pizza Sizes"
-author: "Giorgio Luciano and ChatGPT4o"
+author: "Giorgio Luciano"
 date: "2024-06-12"
 
 ---

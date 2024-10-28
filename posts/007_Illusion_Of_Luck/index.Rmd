@@ -1,6 +1,6 @@
 ---
 title: "The Illusion of Luck: How the Number Zero Always Wins in the Casino"
-author: "Giorgio Luciano and ChatGPT"
+author: "Giorgio Luciano"
 date: "2023-11-12"
 categories: 
   - R
