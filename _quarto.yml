@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "giorgioluciano.github.io"
+  title: "Data & Molecule Bits"
   site-url: https://giorgioluciano.github.io
   description: "Provides tutorials  alongside practical examples in R. Topics include statistical simulations, data visualization, and common challenges in scientific analysis. The content is designed to offer useful insights for those working with data, without unnecessary complexity."
   
