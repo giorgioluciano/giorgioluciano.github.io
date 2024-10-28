@@ -2,12 +2,12 @@
   {
     "listing": "/listing.html",
     "items": [
-      "/posts/022_pitfall_curves/pitfall_curves.html",
+      "/posts/022_pitfall_curves/index.html",
       "/posts/023_rss_quarto/index.html",
       "/posts/018_Excel_Ita/index.html",
       "/posts/019_Excel_Eng/index.html",
       "/posts/020_Formattazione_condizionale/index.html",
-      "/posts/021_confronto_xls_database/confronto_xls_database.html",
+      "/posts/021_confronto_xls_database/index.html",
       "/posts/Packages Review 2024/index.html",
       "/posts/005_Pizza/index.html",
       "/posts/004_Riddle01/index.html",
@@ -22,6 +22,7 @@
       "/posts/015_Birthday_Paradox/index.html",
       "/posts/016_Anscombe/index.html",
       "/posts/Packages Review 2022/index.html",
+      "/posts/003_Scatterplot/index.html",
       "/posts/003_Scatterplot/index.html",
       "/posts/011_Data_Simulation/index.html",
       "/posts/008_ggplot_loops/index.html",
