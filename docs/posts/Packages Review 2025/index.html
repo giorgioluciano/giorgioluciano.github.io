@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Giorgio Luciano">
-<meta name="dcterms.date" content="2024-06-12">
 
-<title>A Mathematical Exploration of Pizza Sizes – Data &amp; Molecule Bits</title>
+<title>Interesting New R Packages (2025) – Data &amp; Molecule Bits</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,35 +68,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -175,24 +144,18 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">A Mathematical Exploration of Pizza Sizes</h1>
+      <h1 class="title">Interesting New R Packages (2025)</h1>
                       </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Giorgio Luciano </p>
-            </div>
-    </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 12, 2024</p>
+        <p class="date">Invalid Date</p>
       </div>
     </div>
     
@@ -203,8 +166,16 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#demographictable-create-demographic-table" id="toc-demographictable-create-demographic-table" class="nav-link active" data-scroll-target="#demographictable-create-demographic-table"><strong>DemographicTable: Create Demographic Table</strong></a></li>
+  <li><a href="#testcorr-testing-zero-correlation" id="toc-testcorr-testing-zero-correlation" class="nav-link" data-scroll-target="#testcorr-testing-zero-correlation"><strong>testcorr: Testing Zero Correlation</strong></a></li>
+  <li><a href="#jmv-the-jamovi-analyses" id="toc-jmv-the-jamovi-analyses" class="nav-link" data-scroll-target="#jmv-the-jamovi-analyses"><strong>jmv: The ‘jamovi’ Analyses</strong></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -213,56 +184,44 @@ window.Quarto = {
 
 
 
-<p>Pizza, a beloved culinary delight, comes in various sizes. To better understand the implications of pizza size on the amount of pizza consumed, we establish a new standard unit called the <em>standard pizza radius</em>, denoted by the letter <span class="math inline">\(a\)</span>, which measures 6 inches. This article examines how the area of a pizza changes with size and demonstrates that one extra-large pizza can provide more pizza than two standard-sized pizzas.</p>
-<p>The area of a pizza, approximated as a circle, with a radius of one standard pizza radius (<span class="math inline">\(a\)</span>) is given by the formula:</p>
-<p><span class="math display">\[
-\text{Area}_{\text{standard}} = \pi a^2
-\]</span></p>
-<p>For an extra-large pizza with a radius <span class="math inline">\(r = 1.5a\)</span>, the area can be calculated as follows:</p>
-<p><span class="math display">\[
-\text{Area}_{\text{extra-large}} = \pi (1.5a)^2 = \pi \cdot 1.5^2 \cdot a^2 = \pi \cdot 2.25 \cdot a^2
-\]</span></p>
-<p>The combined area of two standard pizzas with radius <span class="math inline">\(a\)</span> is:</p>
-<p><span class="math display">\[
-\text{Area}_{\text{two standard}} = 2 \cdot \pi a^2
-\]</span></p>
-<p>Comparing this to the area of one extra-large pizza:</p>
-<p><span class="math display">\[
-\pi \cdot 2.25 \cdot a^2 &gt; 2 \cdot \pi a^2
-\]</span></p>
-<p>Simplifying, we find:</p>
-<p><span class="math display">\[
-2.25 \pi a^2 &gt; 2 \pi a^2
-\]</span></p>
-<p>Thus, the area of one extra-large pizza is greater than the combined area of two standard pizzas.</p>
-<p>To determine the minimum radius <span class="math inline">\(r = n \cdot a\)</span> for the extra-large pizza to always have a greater area than two standard pizzas, we start with the inequality:</p>
-<p><span class="math display">\[
-\pi (n \cdot a)^2 &gt; 2 \cdot \pi a^2
-\]</span></p>
-<p>Simplifying, we get:</p>
-<p><span class="math display">\[
-n^2 \cdot \pi a^2 &gt; 2 \cdot \pi a^2
-\]</span></p>
-<p><span class="math display">\[
-n^2 &gt; 2
-\]</span></p>
-<p><span class="math display">\[
-n &gt; \sqrt{2}
-\]</span></p>
-<p><span class="math display">\[
-n &gt; 1.4142
-\]</span></p>
-<p>Therefore, the radius of the extra-large pizza must be at least <span class="math inline">\(\sqrt{2}\)</span> times the radius of a standard pizza to ensure its area is always greater than that of two standard pizzas.</p>
-<p>In Italy, according to the <em>Disciplinare verace pizza napoletana</em> (guidelines for authentic Neapolitan pizza), the radius of a pizza ranges from 22 to 35 cm. Let’s compare the area of two pizzas with a 22 cm radius to one pizza with a 33 cm radius.</p>
-<p><span class="math display">\[
-2 \cdot \pi \cdot 22^2 = 2 \cdot \pi \cdot 484 = 2 \cdot 1520.56 = 3039.52 \, \text{cm}^2
-\]</span></p>
-<p><span class="math display">\[
-\pi \cdot 33^2 = \pi \cdot 1089 = 3419.46 \, \text{cm}^2
-\]</span></p>
-<p>This calculation confirms that one pizza with a 33 cm radius has a greater area than two pizzas with a 22 cm radius. Therefore, it is mathematically established that consuming one extra-large pizza results in more pizza than consuming two smaller ones.</p>
+<p>Here are some of the most interesting R packages I’ve discovered among the 2025 releases. These are especially useful for demographic statistics, teaching, and time series correlation analysis.</p>
+<hr>
+<section id="demographictable-create-demographic-table" class="level3">
+<h3 class="anchored" data-anchor-id="demographictable-create-demographic-table"><strong>DemographicTable: Create Demographic Table</strong></h3>
+<p><em>tags</em>: #statistics #table<br>
+<a href="https://CRAN.R-project.org/package=DemographicTable">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>To create demographic tables with simple summary statistics, with optional comparison(s) over one or more groups.</p>
+<p><em>I like this package because I’ve always been interested in demographic statistics and it offers a straightforward way to create descriptive tables, easily integrated with workflows using <code>flextable</code> and <code>officer</code>.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="testcorr-testing-zero-correlation" class="level3">
+<h3 class="anchored" data-anchor-id="testcorr-testing-zero-correlation"><strong>testcorr: Testing Zero Correlation</strong></h3>
+<p><em>tags</em>: #statistics #correlation #timeseries<br>
+<a href="https://CRAN.R-project.org/package=testcorr">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Computes the test statistics for examining the significance of autocorrelation in univariate time series, cross-correlation in bivariate time series, Pearson correlations in multivariate series, and test statistics for the i.i.d. property of univariate series.</p>
+<p><em>I feature this one because students often ask me about correlation testing, and standard tests are not always well-known or directly available: this package covers autocorrelation, cross-correlation, and more for time series data, with robust methods.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="jmv-the-jamovi-analyses" class="level3">
+<h3 class="anchored" data-anchor-id="jmv-the-jamovi-analyses"><strong>jmv: The ‘jamovi’ Analyses</strong></h3>
+<p><em>tags</em>: #statistics #suite #teaching<br>
+<a href="https://CRAN.R-project.org/package=jmv">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A suite of common statistical methods such as descriptives, t-tests, ANOVAs, regression, correlation matrices, proportion tests, contingency tables, and factor analysis. This package is also useable from the ‘jamovi’ statistical spreadsheet (see <a href="https://www.jamovi.org">jamovi.org</a> for more information).</p>
+<p><em>Jamovi is a great all-in-one suite for statistical analysis, perfect even for beginners. My students find it intuitive and well documented. You can use it seamlessly from R or via its modern, open-source GUI. Super versatile!</em></p>
+</blockquote>
+<hr>
+<p><em>Stay tuned for more package highlights soon!</em></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

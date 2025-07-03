@@ -1,0 +1,298 @@
+---
+title: "Interesting New R Packages (2025)"
+date: "`r Sys.Date()`"
+format: html
+---
+
+Here are some of the most interesting R packages I’ve discovered among the 2025 releases. These are especially useful for demographic statistics, teaching, and time series correlation analysis.
+
+------------------------------------------------------------------------
+
+### **DemographicTable: Create Demographic Table**
+
+*tags*: #statistics #table\
+[cran package link](https://CRAN.R-project.org/package=DemographicTable)
+
+*description from the author/vignette*
+
+> To create demographic tables with simple summary statistics, with optional comparison(s) over one or more groups.
+>
+> *I like this package because I’ve always been interested in demographic statistics and it offers a straightforward way to create descriptive tables, easily integrated with workflows using `flextable` and `officer`.*
+
+------------------------------------------------------------------------
+
+### **testcorr: Testing Zero Correlation**
+
+*tags*: #statistics #correlation #timeseries\
+[cran package link](https://CRAN.R-project.org/package=testcorr)
+
+*description from the author/vignette*
+
+> Computes the test statistics for examining the significance of autocorrelation in univariate time series, cross-correlation in bivariate time series, Pearson correlations in multivariate series, and test statistics for the i.i.d. property of univariate series.
+>
+> *I feature this one because students often ask me about correlation testing, and standard tests are not always well-known or directly available: this package covers autocorrelation, cross-correlation, and more for time series data, with robust methods.*
+
+------------------------------------------------------------------------
+
+### **jmv: The 'jamovi' Analyses**
+
+*tags*: #statistics #suite #teaching\
+[cran package link](https://CRAN.R-project.org/package=jmv)
+
+*description from the author/vignette*
+
+> A suite of common statistical methods such as descriptives, t-tests, ANOVAs, regression, correlation matrices, proportion tests, contingency tables, and factor analysis. This package is also useable from the 'jamovi' statistical spreadsheet (see [jamovi.org](https://www.jamovi.org) for more information).
+>
+> *Jamovi is a great all-in-one suite for statistical analysis, perfect even for beginners. My students find it intuitive and well documented. You can use it seamlessly from R or via its modern, open-source GUI. Super versatile!*
+
+------------------------------------------------------------------------
+
+---
+
+### **explore: Simplifies Exploratory Data Analysis**
+
+*tags*: #eda #exploratory #reporting  
+[cran package link](https://CRAN.R-project.org/package=explore)
+
+*description from the author/vignette*  
+
+> Interactive data exploration with one line of code, automated reporting, or an easy set of tidy functions for low-code exploratory data analysis.  
+>
+> *Great for quickly getting an overview of any dataset, especially when you want interactive or automated EDA without coding everything by hand. Very handy for teaching, reporting, or the first step in any data project!*
+
+------------------------------------------------------------------------
+
+### **groupcompare: Comparing Two Groups Using Various Descriptive Statistics**
+
+*tags*: #statistics #group-comparison  
+[cran package link](https://CRAN.R-project.org/package=groupcompare)
+
+*description from the author/vignette*  
+
+> Compares two independent or paired groups across a range of descriptive statistics, including mean, median, variance, interquartile range, skewness, kurtosis, and more. Supports t-tests, Wilcoxon tests, permutation tests, and bootstrap techniques for significance.  
+>
+> *I find this very useful for classroom demonstrations, as it integrates a wide range of classic and robust group comparison methods in a unified and clear interface.*
+
+------------------------------------------------------------------------
+
+### **WINS: The R WINS Package**
+
+*tags*: #statistics #clinical-trials #survival  
+[cran package link](https://CRAN.R-project.org/package=WINS)
+
+*description from the author/vignette*  
+
+> Calculates win statistics (win ratio, net benefit, and win odds) for prioritized multiple endpoints, and plots win statistics/proportions over time. Handles continuous, ordinal, binary, and time-to-event outcomes, supports stratified, IPCW, and IPTW analysis, and can simulate datasets with dependent endpoints.  
+>
+> *A comprehensive tool for modern clinical trial analysis, especially when working with complex endpoints and time-to-event data. The simulation features are a nice bonus!*
+
+------------------------------------------------------------------------
+
+### **reproducibleRchunks: Automated Reproducibility Checks for R Markdown Documents**
+
+*tags*: #reproducibility #rmarkdown #automation  
+[cran package link](https://CRAN.R-project.org/package=reproducibleRchunks)
+
+*description from the author/vignette*  
+
+> Provides reproducible R chunks in R Markdown that automatically check computational results for reproducibility by creating JSON metadata. Includes a comprehensive tutorial as a preprint by Brandmaier & Peikert (2024, [doi:10.31234/osf.io/3zjvf](https://doi.org/10.31234/osf.io/3zjvf)).  
+>
+> *This is a must for anyone interested in reproducible research or preparing teaching material that students can actually verify. I love how it brings automated checking into daily workflows!*
+
+------------------------------------------------------------------------
+### **automatedtests: Automating Choosing Statistical Tests**
+
+*tags*: #statistics #testing #automation  
+[cran package link](https://CRAN.R-project.org/package=automatedtests)
+
+*description from the author/vignette*  
+
+> Automatically selects and runs the most appropriate statistical test for your data, returning clear, easy-to-read results. Ideal for all experience levels.  
+>
+> *Perfect for beginners or for quickly prototyping an analysis without having to look up which test to use. I can see this saving a lot of time and headaches!*
+
+------------------------------------------------------------------------
+### **loon: Interactive Statistical Data Visualization**
+
+*tags*: #visualization #interactive  
+[cran package link](https://CRAN.R-project.org/package=loon)
+
+*description from the author/vignette*  
+
+> An extendable toolkit for interactive data visualization and exploration.  
+>
+> *If you want to go beyond static ggplot2 plots and truly explore your data interactively (brushing, linking, tours), loon is a powerful and flexible choice. Excellent for teaching and exploring multivariate relationships!*
+
+------------------------------------------------------------------------
+
+### **nullabor: Tools for Graphical Inference**
+
+*tags*: #visualization #inference #simulation  
+[cran package link](https://CRAN.R-project.org/package=nullabor)
+
+*description from the author/vignette*  
+
+> Tools for visual inference. Generate null data sets and null plots using permutation and simulation. Calculate distance metrics for a lineup, and examine the distributions of metrics.
+>
+> *I love how this package makes graphical inference and the idea of "null plots" accessible. It's a fantastic way to teach or perform visual statistical checks and compare your actual data to simulated randomness.*
+
+------------------------------------------------------------------------
+
+### **dittoViz: User Friendly Data Visualization**
+
+*tags*: #visualization #dataviz #accessibility  
+[cran package link](https://CRAN.R-project.org/package=dittoViz)
+
+*description from the author/vignette*  
+
+> A comprehensive visualization toolkit built with coders of all skill levels and color-vision impaired audiences in mind. It allows creation of finely-tuned, publication-quality figures from single function calls. Visualizations include scatter plots, compositional bar plots, violin, box, and ridge plots, and more. Customization ranges from size and title adjustments to discrete-group circling and labeling, hidden data overlay upon cursor hovering via ggplotly() conversion, and many more, all with simple, discrete inputs. Color blindness friendliness is powered by legend adjustments (enlarged keys), and by allowing the use of shapes or letter-overlay in addition to the carefully selected dittoColors().
+>
+> *Great for high-quality plots quickly, with fantastic accessibility features—perfect for teaching, publications, and anyone needing colorblind-friendly visuals!*
+
+------------------------------------------------------------------------
+
+### **SudokuDesigns: Sudoku as an Experimental Design**
+
+*tags*: #design #experimentaldesign #sudoku  
+[cran package link](https://CRAN.R-project.org/package=SudokuDesigns)
+
+*description from the author/vignette*  
+
+> Sudoku designs can be used as experimental designs which tackle one extra source of variation than conventional Latin square designs. Although Sudoku designs are similar to Latin square designs, only addition is the region concept. Some very important functions related to row-column designs as well as block designs along with basic functions are included in this package.
+>
+> *For fans of both experimental design and puzzles! This package is a cool intersection of statistics and Sudoku, offering fresh inspiration for designing experiments or teaching design concepts in a fun way.*
+
+------------------------------------------------------------------------
+
+### **elaborator: A 'shiny' Application for Exploring Laboratory Data**
+
+*tags*: #shiny #labdata #exploration  
+[cran package link](https://CRAN.R-project.org/package=elaborator)
+
+*description from the author/vignette*  
+
+> A novel concept for generating knowledge and gaining insights into laboratory data. You will be able to efficiently and easily explore your laboratory data from different perspectives.
+>
+> *I appreciate any tool that makes laboratory data more accessible and interactive—ideal for anyone handling complex lab data, with a modern Shiny interface for rapid exploration!*
+
+------------------------------------------------------------------------
+
+### **papeR: A Toolbox for Writing Pretty Papers and Reports**
+
+*tags*: #reporting #reproducibility #markdown  
+[cran package link](https://CRAN.R-project.org/package=papeR)
+
+*description from the author/vignette*  
+
+> A toolbox for writing 'knitr', 'Sweave' or other 'LaTeX'- or 'markdown'-based reports and to prettify the output of various estimated models.
+>
+> *Perfect for anyone who writes RMarkdown, Sweave, or LaTeX-based reports. It makes your statistical outputs look great and your papers more reproducible with much less effort!*
+
+------------------------------------------------------------------------
+
+
+### **pRecipe: Precipitation R Recipes**
+
+*tags*: #hydrology #precipitation #climate  
+[cran package link](https://CRAN.R-project.org/package=pRecipe)
+
+*description from the author/vignette*  
+
+> An open-access tool/framework to download, validate, visualize, and analyze multi-source precipitation data.  
+>
+> *Great for climate science and hydrology—lets you access, validate, and analyze precipitation data from different sources, all in one R workflow!*
+
+------------------------------------------------------------------------
+
+### **SillyPutty: Silly Putty Clustering**
+
+*tags*: #clustering #machinelearning  
+[cran package link](https://CRAN.R-project.org/package=SillyPutty)
+
+*description from the author/vignette*  
+
+> Implements a simple, novel clustering algorithm based on optimizing the silhouette width. See [doi:10.1101/2023.11.07.566055](https://doi.org/10.1101/2023.11.07.566055) for details.  
+>
+> *A clever approach to clustering that focuses on silhouette width—easy to test on your own data if you want something different from the classic clustering algorithms!*
+
+------------------------------------------------------------------------
+
+### **cg: Compare Groups, Analytically and Graphically**
+
+*tags*: #statistics #compare-groups #visualization  
+[cran package link](https://CRAN.R-project.org/package=cg)
+
+*description from the author/vignette*  
+
+> Comprehensive data analysis software focused on comparing groups—unpaired and paired samples, with modern statistical methods and graphical displays.  
+>
+> *Developed with a strong focus on medical research, this package is great for comparing groups both analytically and visually in a robust, publication-ready way.*
+
+------------------------------------------------------------------------
+
+### **tswge: Time Series for Data Science**
+
+*tags*: #timeseries #dataviz  
+[cran package link](https://CRAN.R-project.org/package=tswge)
+
+*description from the author/vignette*  
+
+> Accompanies the texts “Time Series for Data Science with R” and “Applied Time Series Analysis with R”, providing tools for analysis and instruction.  
+>
+> *A valuable companion for anyone studying or teaching time series analysis—well connected with major textbooks and packed with utilities!*
+
+------------------------------------------------------------------------
+
+### **ggdist: Visualizations of Distributions and Uncertainty**
+
+*tags*: #visualization #uncertainty #ggplot2  
+[cran package link](https://CRAN.R-project.org/package=ggdist)
+
+*description from the author/vignette*  
+
+> Provides primitives for visualizing distributions using 'ggplot2', especially tuned for uncertainty (frequentist and Bayesian).  
+>
+> *My go-to for advanced distribution and uncertainty plots—dot plots, eye plots, and interval stats make complex results easy to communicate!*
+
+------------------------------------------------------------------------
+
+### **bulkreadr: The Ultimate Tool for Reading Data in Bulk**
+
+*tags*: #data-import #excel #csv  
+[cran package link](https://CRAN.R-project.org/package=bulkreadr)
+
+*description from the author/vignette*  
+
+> Simplifies and streamlines reading and processing large volumes of data—Excel, Google Sheets, CSV, SPSS, Stata—returning organized data frames for analysis.  
+>
+> *Massively simplifies data import workflows, especially if you deal with lots of sheets, directories, or labelled data. Essential for batch processing!*
+
+------------------------------------------------------------------------
+
+### **PKNCA: Perform Pharmacokinetic Non-Compartmental Analysis**
+
+*tags*: #pharmacokinetics #NCA  
+[cran package link](https://CRAN.R-project.org/package=PKNCA)
+
+*description from the author/vignette*  
+
+> Computes standard Non-Compartmental Analysis (NCA) parameters for typical pharmacokinetic analyses and summarizes them.  
+>
+> *A specialized tool for pharmacokineticists: if you work in drug development or clinical research, this is a must for non-compartmental analysis.*
+
+---
+
+### **RRmorph: 3D Morphological Analyses with 'RRphylo'**
+
+*tags*: #morphology #3D #phylogenetics  
+[cran package link](https://CRAN.R-project.org/package=RRmorph)
+
+*description from the author/vignette*  
+
+> A powerful tool to analyze and visualize 3D models (surfaces and meshes) in a phylogenetically explicit context, in combination with 'RRphylo'.  
+>
+> *Cutting-edge for anyone working with evolutionary morphology or 3D mesh data—combines morphometrics and phylogenetics seamlessly!*
+
+------------------------------------------------------------------------
+
+
