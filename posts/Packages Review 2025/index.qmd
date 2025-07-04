@@ -17,7 +17,7 @@ Here are some of the most interesting R packages I’ve discovered among the 202
 
 > To create demographic tables with simple summary statistics, with optional comparison(s) over one or more groups.
 >
-> *I like this package because I’ve always been interested in demographic statistics and it offers a straightforward way to create descriptive tables, easily integrated with workflows using `flextable` and `officer`.*
+> *I like this package because I’ve always been interested in demographic statistics ad it offers a straightforward way to create descriptive tables, easily integrated with workflows using `flextable` and `officer`.*
 
 ------------------------------------------------------------------------
 
