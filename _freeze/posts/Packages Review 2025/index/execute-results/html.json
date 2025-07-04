@@ -1,0 +1,15 @@
+{
+  "hash": "95a7da44ed4cd5504f5505e110c398c2",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Interesting New R Packages (2025)\"\ndate:  \"2024-06-19\"\noutput: html_document\n---\n\nHere are some of the most interesting R packages I’ve discovered among the 2025 releases. These are especially useful for demographic statistics, teaching, and time series correlation analysis.\n\n---\n\n### **DemographicTable: Create Demographic Table**\n\n*tags*: #statistics #table  \n[cran package link](https://CRAN.R-project.org/package=DemographicTable)\n\n*description from the author/vignette*  \n\n> To create demographic tables with simple summary statistics, with optional comparison(s) over one or more groups.\n>\n> *I like this package because I’ve always been interested in demographic statistics and it offers a straightforward way to create descriptive tables, easily integrated with workflows using `flextable` and `officer`.*\n\n---\n\n### **testcorr: Testing Zero Correlation**\n\n*tags*: #statistics #correlation #timeseries  \n[cran package link](https://CRAN.R-project.org/package=testcorr)\n\n*description from the author/vignette*  \n\n> Computes the test statistics for examining the significance of autocorrelation in univariate time series, cross-correlation in bivariate time series, Pearson correlations in multivariate series, and test statistics for the i.i.d. property of univariate series.\n>\n> *I feature this one because students often ask me about correlation testing, and standard tests are not always well-known or directly available: this package covers autocorrelation, cross-correlation, and more for time series data, with robust methods.*\n\n---\n\n### **jmv: The 'jamovi' Analyses**\n\n*tags*: #statistics #suite #teaching  \n[cran package link](https://CRAN.R-project.org/package=jmv)\n\n*description from the author/vignette*  \n\n> A suite of common statistical methods such as descriptives, t-tests, ANOVAs, regression, correlation matrices, proportion tests, contingency tables, and factor analysis. This package is also useable from the 'jamovi' statistical spreadsheet (see [jamovi.org](https://www.jamovi.org) for more information).\n>\n> *Jamovi is a great all-in-one suite for statistical analysis, perfect even for beginners. My students find it intuitive and well documented. You can use it seamlessly from R or via its modern, open-source GUI. Super versatile!*\n\n---\n\n*Stay tuned for more package highlights soon!*\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

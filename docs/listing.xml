@@ -10,7 +10,265 @@
 <atom:link href="https://giorgioluciano.github.io/listing.xml" rel="self" type="application/rss+xml"/>
 <description>Provides tutorials  alongside practical examples in R. Topics include statistical simulations, data visualization, and common challenges in scientific analysis. The content is designed to offer useful insights for those working with data, without unnecessary complexity.</description>
 <generator>quarto-1.7.30</generator>
-<lastBuildDate>Thu, 10 Oct 2024 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 02 Jul 2025 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Interesting New R Packages (2025)</title>
+  <link>https://giorgioluciano.github.io/posts/Packages Review 2025/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Here are some of the most interesting R packages I’ve discovered among the 2025 releases. These are especially useful for demographic statistics, teaching, and time series correlation analysis.</p>
+<hr>
+<section id="demographictable-create-demographic-table" class="level3">
+<h3 class="anchored" data-anchor-id="demographictable-create-demographic-table"><strong>DemographicTable: Create Demographic Table</strong></h3>
+<p><em>tags</em>: #statistics #table<br>
+<a href="https://CRAN.R-project.org/package=DemographicTable">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>To create demographic tables with simple summary statistics, with optional comparison(s) over one or more groups.</p>
+<p><em>I like this package because I’ve always been interested in demographic statistics and it offers a straightforward way to create descriptive tables, easily integrated with workflows using <code>flextable</code> and <code>officer</code>.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="testcorr-testing-zero-correlation" class="level3">
+<h3 class="anchored" data-anchor-id="testcorr-testing-zero-correlation"><strong>testcorr: Testing Zero Correlation</strong></h3>
+<p><em>tags</em>: #statistics #correlation #timeseries<br>
+<a href="https://CRAN.R-project.org/package=testcorr">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Computes the test statistics for examining the significance of autocorrelation in univariate time series, cross-correlation in bivariate time series, Pearson correlations in multivariate series, and test statistics for the i.i.d. property of univariate series.</p>
+<p><em>I feature this one because students often ask me about correlation testing, and standard tests are not always well-known or directly available: this package covers autocorrelation, cross-correlation, and more for time series data, with robust methods.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="jmv-the-jamovi-analyses" class="level3">
+<h3 class="anchored" data-anchor-id="jmv-the-jamovi-analyses"><strong>jmv: The ‘jamovi’ Analyses</strong></h3>
+<p><em>tags</em>: #statistics #suite #teaching<br>
+<a href="https://CRAN.R-project.org/package=jmv">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A suite of common statistical methods such as descriptives, t-tests, ANOVAs, regression, correlation matrices, proportion tests, contingency tables, and factor analysis. This package is also useable from the ‘jamovi’ statistical spreadsheet (see <a href="https://www.jamovi.org">jamovi.org</a> for more information).</p>
+<p><em>Jamovi is a great all-in-one suite for statistical analysis, perfect even for beginners. My students find it intuitive and well documented. You can use it seamlessly from R or via its modern, open-source GUI. Super versatile!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="explore-simplifies-exploratory-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="explore-simplifies-exploratory-data-analysis"><strong>explore: Simplifies Exploratory Data Analysis</strong></h3>
+<p><em>tags</em>: #eda #exploratory #reporting<br>
+<a href="https://CRAN.R-project.org/package=explore">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Interactive data exploration with one line of code, automated reporting, or an easy set of tidy functions for low-code exploratory data analysis.</p>
+<p><em>Great for quickly getting an overview of any dataset, especially when you want interactive or automated EDA without coding everything by hand. Very handy for teaching, reporting, or the first step in any data project!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="groupcompare-comparing-two-groups-using-various-descriptive-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="groupcompare-comparing-two-groups-using-various-descriptive-statistics"><strong>groupcompare: Comparing Two Groups Using Various Descriptive Statistics</strong></h3>
+<p><em>tags</em>: #statistics #group-comparison<br>
+<a href="https://CRAN.R-project.org/package=groupcompare">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Compares two independent or paired groups across a range of descriptive statistics, including mean, median, variance, interquartile range, skewness, kurtosis, and more. Supports t-tests, Wilcoxon tests, permutation tests, and bootstrap techniques for significance.</p>
+<p><em>I find this very useful for classroom demonstrations, as it integrates a wide range of classic and robust group comparison methods in a unified and clear interface.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="wins-the-r-wins-package" class="level3">
+<h3 class="anchored" data-anchor-id="wins-the-r-wins-package"><strong>WINS: The R WINS Package</strong></h3>
+<p><em>tags</em>: #statistics #clinical-trials #survival<br>
+<a href="https://CRAN.R-project.org/package=WINS">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Calculates win statistics (win ratio, net benefit, and win odds) for prioritized multiple endpoints, and plots win statistics/proportions over time. Handles continuous, ordinal, binary, and time-to-event outcomes, supports stratified, IPCW, and IPTW analysis, and can simulate datasets with dependent endpoints.</p>
+<p><em>A comprehensive tool for modern clinical trial analysis, especially when working with complex endpoints and time-to-event data. The simulation features are a nice bonus!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="reproduciblerchunks-automated-reproducibility-checks-for-r-markdown-documents" class="level3">
+<h3 class="anchored" data-anchor-id="reproduciblerchunks-automated-reproducibility-checks-for-r-markdown-documents"><strong>reproducibleRchunks: Automated Reproducibility Checks for R Markdown Documents</strong></h3>
+<p><em>tags</em>: #reproducibility #rmarkdown #automation<br>
+<a href="https://CRAN.R-project.org/package=reproducibleRchunks">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides reproducible R chunks in R Markdown that automatically check computational results for reproducibility by creating JSON metadata. Includes a comprehensive tutorial as a preprint by Brandmaier &amp; Peikert (2024, <a href="https://doi.org/10.31234/osf.io/3zjvf">doi:10.31234/osf.io/3zjvf</a>).</p>
+<p><em>This is a must for anyone interested in reproducible research or preparing teaching material that students can actually verify. I love how it brings automated checking into daily workflows!</em></p>
+</blockquote>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">### <strong>automatedtests: Automating Choosing Statistical Tests</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">### <strong>loon: Interactive Statistical Data Visualization</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>tags</em>: #visualization #interactive <a href="https://CRAN.R-project.org/package=loon">cran package link</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>description from the author/vignette</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&gt; An extendable toolkit for interactive data visualization and exploration. &gt; &gt; <em>If you want to go beyond static ggplot2 plots and truly explore your data interactively (brushing, linking, tours), loon is a powerful and flexible choice. Excellent for teaching and exploring multivariate relationships!</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nullabor-tools-for-graphical-inference" class="level3">
+<h3 class="anchored" data-anchor-id="nullabor-tools-for-graphical-inference"><strong>nullabor: Tools for Graphical Inference</strong></h3>
+<p><em>tags</em>: #visualization #inference #simulation<br>
+<a href="https://CRAN.R-project.org/package=nullabor">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Tools for visual inference. Generate null data sets and null plots using permutation and simulation. Calculate distance metrics for a lineup, and examine the distributions of metrics.</p>
+<p><em>I love how this package makes graphical inference and the idea of “null plots” accessible. It’s a fantastic way to teach or perform visual statistical checks and compare your actual data to simulated randomness.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="dittoviz-user-friendly-data-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="dittoviz-user-friendly-data-visualization"><strong>dittoViz: User Friendly Data Visualization</strong></h3>
+<p><em>tags</em>: #visualization #dataviz #accessibility<br>
+<a href="https://CRAN.R-project.org/package=dittoViz">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A comprehensive visualization toolkit built with coders of all skill levels and color-vision impaired audiences in mind. It allows creation of finely-tuned, publication-quality figures from single function calls. Visualizations include scatter plots, compositional bar plots, violin, box, and ridge plots, and more. Customization ranges from size and title adjustments to discrete-group circling and labeling, hidden data overlay upon cursor hovering via ggplotly() conversion, and many more, all with simple, discrete inputs. Color blindness friendliness is powered by legend adjustments (enlarged keys), and by allowing the use of shapes or letter-overlay in addition to the carefully selected dittoColors().</p>
+<p><em>Great for high-quality plots quickly, with fantastic accessibility features—perfect for teaching, publications, and anyone needing colorblind-friendly visuals!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="sudokudesigns-sudoku-as-an-experimental-design" class="level3">
+<h3 class="anchored" data-anchor-id="sudokudesigns-sudoku-as-an-experimental-design"><strong>SudokuDesigns: Sudoku as an Experimental Design</strong></h3>
+<p><em>tags</em>: #design #experimentaldesign #sudoku<br>
+<a href="https://CRAN.R-project.org/package=SudokuDesigns">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Sudoku designs can be used as experimental designs which tackle one extra source of variation than conventional Latin square designs. Although Sudoku designs are similar to Latin square designs, only addition is the region concept. Some very important functions related to row-column designs as well as block designs along with basic functions are included in this package.</p>
+<p><em>For fans of both experimental design and puzzles! This package is a cool intersection of statistics and Sudoku, offering fresh inspiration for designing experiments or teaching design concepts in a fun way.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="elaborator-a-shiny-application-for-exploring-laboratory-data" class="level3">
+<h3 class="anchored" data-anchor-id="elaborator-a-shiny-application-for-exploring-laboratory-data"><strong>elaborator: A ‘shiny’ Application for Exploring Laboratory Data</strong></h3>
+<p><em>tags</em>: #shiny #labdata #exploration<br>
+<a href="https://CRAN.R-project.org/package=elaborator">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A novel concept for generating knowledge and gaining insights into laboratory data. You will be able to efficiently and easily explore your laboratory data from different perspectives.</p>
+<p><em>I appreciate any tool that makes laboratory data more accessible and interactive—ideal for anyone handling complex lab data, with a modern Shiny interface for rapid exploration!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="paper-a-toolbox-for-writing-pretty-papers-and-reports" class="level3">
+<h3 class="anchored" data-anchor-id="paper-a-toolbox-for-writing-pretty-papers-and-reports"><strong>papeR: A Toolbox for Writing Pretty Papers and Reports</strong></h3>
+<p><em>tags</em>: #reporting #reproducibility #markdown<br>
+<a href="https://CRAN.R-project.org/package=papeR">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A toolbox for writing ‘knitr’, ‘Sweave’ or other ‘LaTeX’- or ‘markdown’-based reports and to prettify the output of various estimated models.</p>
+<p><em>Perfect for anyone who writes RMarkdown, Sweave, or LaTeX-based reports. It makes your statistical outputs look great and your papers more reproducible with much less effort!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="precipe-precipitation-r-recipes" class="level3">
+<h3 class="anchored" data-anchor-id="precipe-precipitation-r-recipes"><strong>pRecipe: Precipitation R Recipes</strong></h3>
+<p><em>tags</em>: #hydrology #precipitation #climate<br>
+<a href="https://CRAN.R-project.org/package=pRecipe">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>An open-access tool/framework to download, validate, visualize, and analyze multi-source precipitation data.</p>
+<p><em>Great for climate science and hydrology—lets you access, validate, and analyze precipitation data from different sources, all in one R workflow!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="sillyputty-silly-putty-clustering" class="level3">
+<h3 class="anchored" data-anchor-id="sillyputty-silly-putty-clustering"><strong>SillyPutty: Silly Putty Clustering</strong></h3>
+<p><em>tags</em>: #clustering #machinelearning<br>
+<a href="https://CRAN.R-project.org/package=SillyPutty">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Implements a simple, novel clustering algorithm based on optimizing the silhouette width. See <a href="https://doi.org/10.1101/2023.11.07.566055">doi:10.1101/2023.11.07.566055</a> for details.</p>
+<p><em>A clever approach to clustering that focuses on silhouette width—easy to test on your own data if you want something different from the classic clustering algorithms!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="cg-compare-groups-analytically-and-graphically" class="level3">
+<h3 class="anchored" data-anchor-id="cg-compare-groups-analytically-and-graphically"><strong>cg: Compare Groups, Analytically and Graphically</strong></h3>
+<p><em>tags</em>: #statistics #compare-groups #visualization<br>
+<a href="https://CRAN.R-project.org/package=cg">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Comprehensive data analysis software focused on comparing groups—unpaired and paired samples, with modern statistical methods and graphical displays.</p>
+<p><em>Developed with a strong focus on medical research, this package is great for comparing groups both analytically and visually in a robust, publication-ready way.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="tswge-time-series-for-data-science" class="level3">
+<h3 class="anchored" data-anchor-id="tswge-time-series-for-data-science"><strong>tswge: Time Series for Data Science</strong></h3>
+<p><em>tags</em>: #timeseries #dataviz<br>
+<a href="https://CRAN.R-project.org/package=tswge">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Accompanies the texts “Time Series for Data Science with R” and “Applied Time Series Analysis with R”, providing tools for analysis and instruction.</p>
+<p><em>A valuable companion for anyone studying or teaching time series analysis—well connected with major textbooks and packed with utilities!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="ggdist-visualizations-of-distributions-and-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="ggdist-visualizations-of-distributions-and-uncertainty"><strong>ggdist: Visualizations of Distributions and Uncertainty</strong></h3>
+<p><em>tags</em>: #visualization #uncertainty #ggplot2<br>
+<a href="https://CRAN.R-project.org/package=ggdist">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides primitives for visualizing distributions using ‘ggplot2’, especially tuned for uncertainty (frequentist and Bayesian).</p>
+<p><em>My go-to for advanced distribution and uncertainty plots—dot plots, eye plots, and interval stats make complex results easy to communicate!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="bulkreadr-the-ultimate-tool-for-reading-data-in-bulk" class="level3">
+<h3 class="anchored" data-anchor-id="bulkreadr-the-ultimate-tool-for-reading-data-in-bulk"><strong>bulkreadr: The Ultimate Tool for Reading Data in Bulk</strong></h3>
+<p><em>tags</em>: #data-import #excel #csv<br>
+<a href="https://CRAN.R-project.org/package=bulkreadr">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Simplifies and streamlines reading and processing large volumes of data—Excel, Google Sheets, CSV, SPSS, Stata—returning organized data frames for analysis.</p>
+<p><em>Massively simplifies data import workflows, especially if you deal with lots of sheets, directories, or labelled data. Essential for batch processing!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="pknca-perform-pharmacokinetic-non-compartmental-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="pknca-perform-pharmacokinetic-non-compartmental-analysis"><strong>PKNCA: Perform Pharmacokinetic Non-Compartmental Analysis</strong></h3>
+<p><em>tags</em>: #pharmacokinetics #NCA<br>
+<a href="https://CRAN.R-project.org/package=PKNCA">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Computes standard Non-Compartmental Analysis (NCA) parameters for typical pharmacokinetic analyses and summarizes them.</p>
+<p><em>A specialized tool for pharmacokineticists: if you work in drug development or clinical research, this is a must for non-compartmental analysis.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="rrmorph-3d-morphological-analyses-with-rrphylo" class="level3">
+<h3 class="anchored" data-anchor-id="rrmorph-3d-morphological-analyses-with-rrphylo"><strong>RRmorph: 3D Morphological Analyses with ‘RRphylo’</strong></h3>
+<p><em>tags</em>: #morphology #3D #phylogenetics<br>
+<a href="https://CRAN.R-project.org/package=RRmorph">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A powerful tool to analyze and visualize 3D models (surfaces and meshes) in a phylogenetically explicit context, in combination with ‘RRphylo’.</p>
+<p><em>Cutting-edge for anyone working with evolutionary morphology or 3D mesh data—combines morphometrics and phylogenetics seamlessly!</em></p>
+</blockquote>
+<hr>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://giorgioluciano.github.io/posts/Packages Review 2025/</guid>
+  <pubDate>Wed, 02 Jul 2025 22:00:00 GMT</pubDate>
+</item>
 <item>
   <title>The Pitfall of Arbitrary Curve Deconvolution: A Cautionary Tale for Scientists and Students</title>
   <dc:creator>Giorgio Luciano</dc:creator>
@@ -1761,7 +2019,213 @@ font-style: inherit;">"cartella_clinica_pkey"</span></span></code></pre></div>
 <p><em>Jamovi is a great all-in-one suite for statistical analysis, perfect even for beginners. My students find it intuitive and well documented. You can use it seamlessly from R or via its modern, open-source GUI. Super versatile!</em></p>
 </blockquote>
 <hr>
-<p><em>Stay tuned for more package highlights soon!</em></p>
+</section>
+<section id="explore-simplifies-exploratory-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="explore-simplifies-exploratory-data-analysis"><strong>explore: Simplifies Exploratory Data Analysis</strong></h3>
+<p><em>tags</em>: #eda #exploratory #reporting<br>
+<a href="https://CRAN.R-project.org/package=explore">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Interactive data exploration with one line of code, automated reporting, or an easy set of tidy functions for low-code exploratory data analysis.</p>
+<p><em>Great for quickly getting an overview of any dataset, especially when you want interactive or automated EDA without coding everything by hand. Very handy for teaching, reporting, or the first step in any data project!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="groupcompare-comparing-two-groups-using-various-descriptive-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="groupcompare-comparing-two-groups-using-various-descriptive-statistics"><strong>groupcompare: Comparing Two Groups Using Various Descriptive Statistics</strong></h3>
+<p><em>tags</em>: #statistics #group-comparison<br>
+<a href="https://CRAN.R-project.org/package=groupcompare">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Compares two independent or paired groups across a range of descriptive statistics, including mean, median, variance, interquartile range, skewness, kurtosis, and more. Supports t-tests, Wilcoxon tests, permutation tests, and bootstrap techniques for significance.</p>
+<p><em>I find this very useful for classroom demonstrations, as it integrates a wide range of classic and robust group comparison methods in a unified and clear interface.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="wins-the-r-wins-package" class="level3">
+<h3 class="anchored" data-anchor-id="wins-the-r-wins-package"><strong>WINS: The R WINS Package</strong></h3>
+<p><em>tags</em>: #statistics #clinical-trials #survival<br>
+<a href="https://CRAN.R-project.org/package=WINS">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Calculates win statistics (win ratio, net benefit, and win odds) for prioritized multiple endpoints, and plots win statistics/proportions over time. Handles continuous, ordinal, binary, and time-to-event outcomes, supports stratified, IPCW, and IPTW analysis, and can simulate datasets with dependent endpoints.</p>
+<p><em>A comprehensive tool for modern clinical trial analysis, especially when working with complex endpoints and time-to-event data. The simulation features are a nice bonus!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="reproduciblerchunks-automated-reproducibility-checks-for-r-markdown-documents" class="level3">
+<h3 class="anchored" data-anchor-id="reproduciblerchunks-automated-reproducibility-checks-for-r-markdown-documents"><strong>reproducibleRchunks: Automated Reproducibility Checks for R Markdown Documents</strong></h3>
+<p><em>tags</em>: #reproducibility #rmarkdown #automation<br>
+<a href="https://CRAN.R-project.org/package=reproducibleRchunks">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides reproducible R chunks in R Markdown that automatically check computational results for reproducibility by creating JSON metadata. Includes a comprehensive tutorial as a preprint by Brandmaier &amp; Peikert (2024, <a href="https://doi.org/10.31234/osf.io/3zjvf">doi:10.31234/osf.io/3zjvf</a>).</p>
+<p><em>This is a must for anyone interested in reproducible research or preparing teaching material that students can actually verify. I love how it brings automated checking into daily workflows!</em></p>
+</blockquote>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">### <strong>automatedtests: Automating Choosing Statistical Tests</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">### <strong>loon: Interactive Statistical Data Visualization</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>tags</em>: #visualization #interactive <a href="https://CRAN.R-project.org/package=loon">cran package link</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><em>description from the author/vignette</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&gt; An extendable toolkit for interactive data visualization and exploration. &gt; &gt; <em>If you want to go beyond static ggplot2 plots and truly explore your data interactively (brushing, linking, tours), loon is a powerful and flexible choice. Excellent for teaching and exploring multivariate relationships!</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nullabor-tools-for-graphical-inference" class="level3">
+<h3 class="anchored" data-anchor-id="nullabor-tools-for-graphical-inference"><strong>nullabor: Tools for Graphical Inference</strong></h3>
+<p><em>tags</em>: #visualization #inference #simulation<br>
+<a href="https://CRAN.R-project.org/package=nullabor">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Tools for visual inference. Generate null data sets and null plots using permutation and simulation. Calculate distance metrics for a lineup, and examine the distributions of metrics.</p>
+<p><em>I love how this package makes graphical inference and the idea of “null plots” accessible. It’s a fantastic way to teach or perform visual statistical checks and compare your actual data to simulated randomness.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="dittoviz-user-friendly-data-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="dittoviz-user-friendly-data-visualization"><strong>dittoViz: User Friendly Data Visualization</strong></h3>
+<p><em>tags</em>: #visualization #dataviz #accessibility<br>
+<a href="https://CRAN.R-project.org/package=dittoViz">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A comprehensive visualization toolkit built with coders of all skill levels and color-vision impaired audiences in mind. It allows creation of finely-tuned, publication-quality figures from single function calls. Visualizations include scatter plots, compositional bar plots, violin, box, and ridge plots, and more. Customization ranges from size and title adjustments to discrete-group circling and labeling, hidden data overlay upon cursor hovering via ggplotly() conversion, and many more, all with simple, discrete inputs. Color blindness friendliness is powered by legend adjustments (enlarged keys), and by allowing the use of shapes or letter-overlay in addition to the carefully selected dittoColors().</p>
+<p><em>Great for high-quality plots quickly, with fantastic accessibility features—perfect for teaching, publications, and anyone needing colorblind-friendly visuals!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="sudokudesigns-sudoku-as-an-experimental-design" class="level3">
+<h3 class="anchored" data-anchor-id="sudokudesigns-sudoku-as-an-experimental-design"><strong>SudokuDesigns: Sudoku as an Experimental Design</strong></h3>
+<p><em>tags</em>: #design #experimentaldesign #sudoku<br>
+<a href="https://CRAN.R-project.org/package=SudokuDesigns">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Sudoku designs can be used as experimental designs which tackle one extra source of variation than conventional Latin square designs. Although Sudoku designs are similar to Latin square designs, only addition is the region concept. Some very important functions related to row-column designs as well as block designs along with basic functions are included in this package.</p>
+<p><em>For fans of both experimental design and puzzles! This package is a cool intersection of statistics and Sudoku, offering fresh inspiration for designing experiments or teaching design concepts in a fun way.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="elaborator-a-shiny-application-for-exploring-laboratory-data" class="level3">
+<h3 class="anchored" data-anchor-id="elaborator-a-shiny-application-for-exploring-laboratory-data"><strong>elaborator: A ‘shiny’ Application for Exploring Laboratory Data</strong></h3>
+<p><em>tags</em>: #shiny #labdata #exploration<br>
+<a href="https://CRAN.R-project.org/package=elaborator">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A novel concept for generating knowledge and gaining insights into laboratory data. You will be able to efficiently and easily explore your laboratory data from different perspectives.</p>
+<p><em>I appreciate any tool that makes laboratory data more accessible and interactive—ideal for anyone handling complex lab data, with a modern Shiny interface for rapid exploration!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="paper-a-toolbox-for-writing-pretty-papers-and-reports" class="level3">
+<h3 class="anchored" data-anchor-id="paper-a-toolbox-for-writing-pretty-papers-and-reports"><strong>papeR: A Toolbox for Writing Pretty Papers and Reports</strong></h3>
+<p><em>tags</em>: #reporting #reproducibility #markdown<br>
+<a href="https://CRAN.R-project.org/package=papeR">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A toolbox for writing ‘knitr’, ‘Sweave’ or other ‘LaTeX’- or ‘markdown’-based reports and to prettify the output of various estimated models.</p>
+<p><em>Perfect for anyone who writes RMarkdown, Sweave, or LaTeX-based reports. It makes your statistical outputs look great and your papers more reproducible with much less effort!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="precipe-precipitation-r-recipes" class="level3">
+<h3 class="anchored" data-anchor-id="precipe-precipitation-r-recipes"><strong>pRecipe: Precipitation R Recipes</strong></h3>
+<p><em>tags</em>: #hydrology #precipitation #climate<br>
+<a href="https://CRAN.R-project.org/package=pRecipe">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>An open-access tool/framework to download, validate, visualize, and analyze multi-source precipitation data.</p>
+<p><em>Great for climate science and hydrology—lets you access, validate, and analyze precipitation data from different sources, all in one R workflow!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="sillyputty-silly-putty-clustering" class="level3">
+<h3 class="anchored" data-anchor-id="sillyputty-silly-putty-clustering"><strong>SillyPutty: Silly Putty Clustering</strong></h3>
+<p><em>tags</em>: #clustering #machinelearning<br>
+<a href="https://CRAN.R-project.org/package=SillyPutty">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Implements a simple, novel clustering algorithm based on optimizing the silhouette width. See <a href="https://doi.org/10.1101/2023.11.07.566055">doi:10.1101/2023.11.07.566055</a> for details.</p>
+<p><em>A clever approach to clustering that focuses on silhouette width—easy to test on your own data if you want something different from the classic clustering algorithms!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="cg-compare-groups-analytically-and-graphically" class="level3">
+<h3 class="anchored" data-anchor-id="cg-compare-groups-analytically-and-graphically"><strong>cg: Compare Groups, Analytically and Graphically</strong></h3>
+<p><em>tags</em>: #statistics #compare-groups #visualization<br>
+<a href="https://CRAN.R-project.org/package=cg">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Comprehensive data analysis software focused on comparing groups—unpaired and paired samples, with modern statistical methods and graphical displays.</p>
+<p><em>Developed with a strong focus on medical research, this package is great for comparing groups both analytically and visually in a robust, publication-ready way.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="tswge-time-series-for-data-science" class="level3">
+<h3 class="anchored" data-anchor-id="tswge-time-series-for-data-science"><strong>tswge: Time Series for Data Science</strong></h3>
+<p><em>tags</em>: #timeseries #dataviz<br>
+<a href="https://CRAN.R-project.org/package=tswge">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Accompanies the texts “Time Series for Data Science with R” and “Applied Time Series Analysis with R”, providing tools for analysis and instruction.</p>
+<p><em>A valuable companion for anyone studying or teaching time series analysis—well connected with major textbooks and packed with utilities!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="ggdist-visualizations-of-distributions-and-uncertainty" class="level3">
+<h3 class="anchored" data-anchor-id="ggdist-visualizations-of-distributions-and-uncertainty"><strong>ggdist: Visualizations of Distributions and Uncertainty</strong></h3>
+<p><em>tags</em>: #visualization #uncertainty #ggplot2<br>
+<a href="https://CRAN.R-project.org/package=ggdist">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Provides primitives for visualizing distributions using ‘ggplot2’, especially tuned for uncertainty (frequentist and Bayesian).</p>
+<p><em>My go-to for advanced distribution and uncertainty plots—dot plots, eye plots, and interval stats make complex results easy to communicate!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="bulkreadr-the-ultimate-tool-for-reading-data-in-bulk" class="level3">
+<h3 class="anchored" data-anchor-id="bulkreadr-the-ultimate-tool-for-reading-data-in-bulk"><strong>bulkreadr: The Ultimate Tool for Reading Data in Bulk</strong></h3>
+<p><em>tags</em>: #data-import #excel #csv<br>
+<a href="https://CRAN.R-project.org/package=bulkreadr">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Simplifies and streamlines reading and processing large volumes of data—Excel, Google Sheets, CSV, SPSS, Stata—returning organized data frames for analysis.</p>
+<p><em>Massively simplifies data import workflows, especially if you deal with lots of sheets, directories, or labelled data. Essential for batch processing!</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="pknca-perform-pharmacokinetic-non-compartmental-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="pknca-perform-pharmacokinetic-non-compartmental-analysis"><strong>PKNCA: Perform Pharmacokinetic Non-Compartmental Analysis</strong></h3>
+<p><em>tags</em>: #pharmacokinetics #NCA<br>
+<a href="https://CRAN.R-project.org/package=PKNCA">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>Computes standard Non-Compartmental Analysis (NCA) parameters for typical pharmacokinetic analyses and summarizes them.</p>
+<p><em>A specialized tool for pharmacokineticists: if you work in drug development or clinical research, this is a must for non-compartmental analysis.</em></p>
+</blockquote>
+<hr>
+</section>
+<section id="rrmorph-3d-morphological-analyses-with-rrphylo" class="level3">
+<h3 class="anchored" data-anchor-id="rrmorph-3d-morphological-analyses-with-rrphylo"><strong>RRmorph: 3D Morphological Analyses with ‘RRphylo’</strong></h3>
+<p><em>tags</em>: #morphology #3D #phylogenetics<br>
+<a href="https://CRAN.R-project.org/package=RRmorph">cran package link</a></p>
+<p><em>description from the author/vignette</em></p>
+<blockquote class="blockquote">
+<p>A powerful tool to analyze and visualize 3D models (surfaces and meshes) in a phylogenetically explicit context, in combination with ‘RRphylo’.</p>
+<p><em>Cutting-edge for anyone working with evolutionary morphology or 3D mesh data—combines morphometrics and phylogenetics seamlessly!</em></p>
+</blockquote>
+<hr>
 
 
 </section>
@@ -7206,1401 +7670,6 @@ font-style: inherit;"># Add a line at 0.5 for reference</span></span></code></pr
   <category>R</category>
   <category>Fun</category>
   <guid>https://giorgioluciano.github.io/posts/015_Birthday_Paradox/</guid>
-  <pubDate>Fri, 15 Sep 2023 22:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Anscombe’s Quartet</title>
-  <dc:creator>Giorgio Luciano</dc:creator>
-  <link>https://giorgioluciano.github.io/posts/016_Anscombe/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Anscombe’s Quartet, known as the “Anscombe’s Test,” consists of four datasets with very similar descriptive statistics but visually distinct characteristics. These quartets serve as an enlightening example of the importance of visualizing data before drawing conclusions.</p>
-<p>In this post, we will delve into how to calculate and visualize Anscombe’s Quartet using R and the powerful ggplot2 library. We’ll also use custom functions to generate these quartets and analyze them.</p>
-<p>Anscombe’s Quartet was created by the statistician Francis Anscombe in 1973 to underscore the importance of data visualization before analysis. Despite having similar statistics, these datasets exhibit significantly different visual behaviors. Let’s see how R and ggplot2 help us explore them.</p>
-<p>To get started, we need to load some libraries:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(data.table)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(ggplot2)</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(patchwork)</span></code></pre></div>
-</div>
-<p>Anscombe’s Quartet comprises four datasets, each with 11 data points. Here’s a brief overview of the quartet:</p>
-<ul>
-<li><p><strong>Dataset 1:</strong> A straightforward linear relationship between X and Y.</p></li>
-<li><p><strong>Dataset 2:</strong> A linear relationship with an outlier.</p></li>
-<li><p><strong>Dataset 3:</strong> A linear relationship with one point substantially different from the others.</p></li>
-<li><p><strong>Dataset 4:</strong> A non-linear relationship.</p></li>
-</ul>
-<p>(see <a href="https://rpubs.com/dgrtwo/tidy-anscombe">Rpubs</a> page)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(datasets)</span>
-<span id="cb2-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(ggplot2)</span>
-<span id="cb2-3"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(dplyr)</span></code></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:data.table':
-
-    between, first, last</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(tidyr)</span>
-<span id="cb7-2">datasets<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span>anscombe</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   x1 x2 x3 x4    y1   y2    y3    y4
-1  10 10 10  8  8.04 9.14  7.46  6.58
-2   8  8  8  8  6.95 8.14  6.77  5.76
-3  13 13 13  8  7.58 8.74 12.74  7.71
-4   9  9  9  8  8.81 8.77  7.11  8.84
-5  11 11 11  8  8.33 9.26  7.81  8.47
-6  14 14 14  8  9.96 8.10  8.84  7.04
-7   6  6  6  8  7.24 6.13  6.08  5.25
-8   4  4  4 19  4.26 3.10  5.39 12.50
-9  12 12 12  8 10.84 9.13  8.15  5.56
-10  7  7  7  8  4.82 7.26  6.42  7.91
-11  5  5  5  8  5.68 4.74  5.73  6.89</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">summary</span>(anscombe)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       x1             x2             x3             x4           y1        
- Min.   : 4.0   Min.   : 4.0   Min.   : 4.0   Min.   : 8   Min.   : 4.260  
- 1st Qu.: 6.5   1st Qu.: 6.5   1st Qu.: 6.5   1st Qu.: 8   1st Qu.: 6.315  
- Median : 9.0   Median : 9.0   Median : 9.0   Median : 8   Median : 7.580  
- Mean   : 9.0   Mean   : 9.0   Mean   : 9.0   Mean   : 9   Mean   : 7.501  
- 3rd Qu.:11.5   3rd Qu.:11.5   3rd Qu.:11.5   3rd Qu.: 8   3rd Qu.: 8.570  
- Max.   :14.0   Max.   :14.0   Max.   :14.0   Max.   :19   Max.   :10.840  
-       y2              y3              y4        
- Min.   :3.100   Min.   : 5.39   Min.   : 5.250  
- 1st Qu.:6.695   1st Qu.: 6.25   1st Qu.: 6.170  
- Median :8.140   Median : 7.11   Median : 7.040  
- Mean   :7.501   Mean   : 7.50   Mean   : 7.501  
- 3rd Qu.:8.950   3rd Qu.: 7.98   3rd Qu.: 8.190  
- Max.   :9.260   Max.   :12.74   Max.   :12.500  </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">anscombe_tidy <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-2">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">observation =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq_len</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">n</span>())) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-3">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">gather</span>(key, value, <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>observation) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-4">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">separate</span>(key, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"variable"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"set"</span>), <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">convert =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-5">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">set =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"I"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"II"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"III"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"IV"</span>)[set]) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-6">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">spread</span>(variable, value)</span>
-<span id="cb11-7"></span>
-<span id="cb11-8"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">head</span>(anscombe_tidy)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  observation set  x    y
-1           1   I 10 8.04
-2           1  II 10 9.14
-3           1 III 10 7.46
-4           1  IV  8 6.58
-5           2   I  8 6.95
-6           2  II  8 8.14</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(anscombe_tidy, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(x, y)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb13-2">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb13-3">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">facet_wrap</span>(<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> set) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb13-4">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"lm"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">se =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">FALSE</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://giorgioluciano.github.io/posts/016_Anscombe/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Now, let’s integrate your custom R code and examples to generate and visualize Anscombe’s Quartet:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(vtable)</span></code></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: kableExtra</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'kableExtra'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:dplyr':
-
-    group_rows</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(kableExtra)</span>
-<span id="cb19-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(patchwork)</span>
-<span id="cb19-3"></span>
-<span id="cb19-4"></span>
-<span id="cb19-5"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Note: Function to generate Anscombe's Quartet datasets for x2 we need a trick that can be also improved but for now as a brutal approx works</span></span>
-<span id="cb19-6"></span>
-<span id="cb19-7"></span>
-<span id="cb19-8">plotreg <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">function</span>(df) {</span>
-<span id="cb19-9">  formula <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> y <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> x</span>
-<span id="cb19-10">  </span>
-<span id="cb19-11">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(df, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> x, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> y)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb19-12">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.3</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb19-13">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"lm"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">formula =</span> formula, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">se =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb19-14">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">coord_cartesian</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xlim =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">19</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">ylim =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">14</span>)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Imposta i limiti di x e y</span></span>
-<span id="cb19-15">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme_light</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">base_size =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb19-16">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">legend.position =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"none"</span>)</span>
-<span id="cb19-17">}</span>
-<span id="cb19-18"></span>
-<span id="cb19-19">generate_noisy_points <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">function</span>(x, y, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">noise_level =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.1</span>) {</span>
-<span id="cb19-20">  n <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">length</span>(x)</span>
-<span id="cb19-21">  </span>
-<span id="cb19-22">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Generate random noise for x and y separately</span></span>
-<span id="cb19-23">  noise_x <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rnorm</span>(n, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">sd =</span> noise_level)</span>
-<span id="cb19-24">  noise_y <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rnorm</span>(n, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">sd =</span> noise_level)</span>
-<span id="cb19-25">  </span>
-<span id="cb19-26">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Ensure that the sum of noise on x and y is approximately zero</span></span>
-<span id="cb19-27">  noise_x <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> noise_x <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mean</span>(noise_x)</span>
-<span id="cb19-28">  noise_y <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> noise_y <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mean</span>(noise_y)</span>
-<span id="cb19-29">  </span>
-<span id="cb19-30">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Add noise to the original data</span></span>
-<span id="cb19-31">  x_noisy <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> x <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> noise_x</span>
-<span id="cb19-32">  y_noisy <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> y <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> noise_y</span>
-<span id="cb19-33">  </span>
-<span id="cb19-34">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> x_noisy, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> y_noisy))</span>
-<span id="cb19-35">}</span>
-<span id="cb19-36"></span>
-<span id="cb19-37"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Function to generate approximated points with an option to add noise</span></span>
-<span id="cb19-38">generate_approximated_points <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">function</span>(n, x, y, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">noise_level =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>) {</span>
-<span id="cb19-39">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Create a new interpolation based on the original data</span></span>
-<span id="cb19-40">  interpolated_values <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">approx</span>(x, y, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xout =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(x), <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">max</span>(x), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">length.out =</span> n))</span>
-<span id="cb19-41">  </span>
-<span id="cb19-42">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Extract the interpolated points</span></span>
-<span id="cb19-43">  x_interp <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> interpolated_values<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x</span>
-<span id="cb19-44">  y_interp <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> interpolated_values<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y</span>
-<span id="cb19-45">  </span>
-<span id="cb19-46">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Add noise if needed</span></span>
-<span id="cb19-47">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">if</span> (noise_level <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>) {</span>
-<span id="cb19-48">    noise <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rnorm</span>(n, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">sd =</span> noise_level)</span>
-<span id="cb19-49">    x_interp <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> x_interp <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> noise</span>
-<span id="cb19-50">    y_interp <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> y_interp <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> noise</span>
-<span id="cb19-51">  }</span>
-<span id="cb19-52">  </span>
-<span id="cb19-53">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Return the approximated points</span></span>
-<span id="cb19-54">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> x_interp, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> y_interp))</span>
-<span id="cb19-55">}</span>
-<span id="cb19-56"></span>
-<span id="cb19-57"></span>
-<span id="cb19-58">multians <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">function</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">npoints =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">11</span>, anscombe) {</span>
-<span id="cb19-59">  x1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x1</span>
-<span id="cb19-60">  x2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x2</span>
-<span id="cb19-61">  x3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x3</span>
-<span id="cb19-62">  x4 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x4</span>
-<span id="cb19-63">  y1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y1</span>
-<span id="cb19-64">  y2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y2</span>
-<span id="cb19-65">  y3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y3</span>
-<span id="cb19-66">  y4 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y4</span>
-<span id="cb19-67"></span>
-<span id="cb19-68">  <span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Generate Quartet 1 ##</span></span>
-<span id="cb19-69">  x_selected <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(x1[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>], x1[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>], x1[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">11</span>])</span>
-<span id="cb19-70">  y_selected <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(y1[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>], y1[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>], y1[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">11</span>])</span>
-<span id="cb19-71"></span>
-<span id="cb19-72">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Calculate the linear regression</span></span>
-<span id="cb19-73">  linear_model <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">lm</span>(y_selected <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> x_selected)</span>
-<span id="cb19-74"></span>
-<span id="cb19-75">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Extract coefficients of the line</span></span>
-<span id="cb19-76">  intercept <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">coef</span>(linear_model)[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>]</span>
-<span id="cb19-77">  slope <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">coef</span>(linear_model)[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>]</span>
-<span id="cb19-78"></span>
-<span id="cb19-79">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Create a sinusoidal curve above or below the line</span></span>
-<span id="cb19-80">  x_sin <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(x1), <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">max</span>(x1), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">length.out =</span> npoints)  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># x range for the sinusoid</span></span>
-<span id="cb19-81">  amplitude <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Amplitude of the sinusoid</span></span>
-<span id="cb19-82">  frequency <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Frequency of the sinusoid</span></span>
-<span id="cb19-83">  phase <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> pi <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Phase of the sinusoid (for rotation)</span></span>
-<span id="cb19-84">  sinusoid <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> amplitude <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sin</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> pi <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> frequency <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> (x_sin <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(x1)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> (<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">max</span>(x1) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(x1)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> phase)</span>
-<span id="cb19-85"></span>
-<span id="cb19-86">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Generate points above or below the line</span></span>
-<span id="cb19-87">  y_sin <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> slope <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> x_sin <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> intercept <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> sinusoid</span>
-<span id="cb19-88">  df1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> x_sin, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> y_sin)</span>
-<span id="cb19-89"></span>
-<span id="cb19-90">  <span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Generate Quartet 2 ##</span></span>
-<span id="cb19-91">  n_points_approximated <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> npoints</span>
-<span id="cb19-92">  noise_level <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.1</span></span>
-<span id="cb19-93"></span>
-<span id="cb19-94">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Generate approximated points</span></span>
-<span id="cb19-95">  approximated_points <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">generate_approximated_points</span>(n_points_approximated, x2, y2, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">noise_level =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.1</span>)</span>
-<span id="cb19-96"></span>
-<span id="cb19-97">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Add noise to the approximated points</span></span>
-<span id="cb19-98">  noisy_approximated_points <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">generate_noisy_points</span>(approximated_points<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x, approximated_points<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y, noise_level)</span>
-<span id="cb19-99"></span>
-<span id="cb19-100">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Now, you have noisy approximated points in df2</span></span>
-<span id="cb19-101">  df2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> noisy_approximated_points<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> noisy_approximated_points<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y)</span>
-<span id="cb19-102"></span>
-<span id="cb19-103">  <span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Generate Quartet 3 ##</span></span>
-<span id="cb19-104">  lm_model <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">lm</span>(y3 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> x3, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">subset =</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>))</span>
-<span id="cb19-105">  x_generated <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(x3), <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">max</span>(x3), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">length.out =</span> npoints)</span>
-<span id="cb19-106">  y_generated <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">predict</span>(lm_model, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">newdata =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x3 =</span> x_generated))</span>
-<span id="cb19-107"></span>
-<span id="cb19-108">  x_outlier <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">13</span></span>
-<span id="cb19-109">  y_outlier <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">12.74</span></span>
-<span id="cb19-110">  x_generated <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(x_generated, x_outlier)</span>
-<span id="cb19-111">  y_generated <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(y_generated, y_outlier)</span>
-<span id="cb19-112"></span>
-<span id="cb19-113">  df3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> x_generated, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> y_generated)</span>
-<span id="cb19-114"></span>
-<span id="cb19-115">  <span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Generate Quartet 4 ##</span></span>
-<span id="cb19-116">  </span>
-<span id="cb19-117">  y4[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>]</span>
-<span id="cb19-118">  x <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(x4),npoints))</span>
-<span id="cb19-119">  y <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(y4[<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8</span>]), <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">max</span>(y4[<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8</span>]), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">length.out =</span> (npoints)))</span>
-<span id="cb19-120">  x_new <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(x,x4[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8</span>])</span>
-<span id="cb19-121">  y_new <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(y,y4[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8</span>])</span>
-<span id="cb19-122">  df4 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> x_new, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> y_new)</span>
-<span id="cb19-123"></span>
-<span id="cb19-124">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">list</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">df1 =</span> df1, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">df2 =</span> df2, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">df3 =</span> df3, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">df4 =</span> df4))</span>
-<span id="cb19-125">}</span>
-<span id="cb19-126"></span>
-<span id="cb19-127"></span>
-<span id="cb19-128"></span>
-<span id="cb19-129"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Generate and plot Quartet 1</span></span>
-<span id="cb19-130">t1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">multians</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">33</span>,anscombe)</span>
-<span id="cb19-131"></span>
-<span id="cb19-132">p1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plotreg</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df1)</span>
-<span id="cb19-133">p3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plotreg</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df3)</span>
-<span id="cb19-134">p4 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plotreg</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df4)</span>
-<span id="cb19-135">p2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plotreg</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df2)</span>
-<span id="cb19-136"></span>
-<span id="cb19-137">(p1 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> p2) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> (p3 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> p4)</span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://giorgioluciano.github.io/posts/016_Anscombe/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Example of eight summaries (replace them with your own)</span></span>
-<span id="cb20-2">summary1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df1)</span>
-<span id="cb20-3">summary5 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x1,anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y1))</span>
-<span id="cb20-4"></span>
-<span id="cb20-5">summary2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df2)</span>
-<span id="cb20-6">summary6 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x2,anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y2))</span>
-<span id="cb20-7"></span>
-<span id="cb20-8">summary3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df3)</span>
-<span id="cb20-9">summary7 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x3,anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y3))</span>
-<span id="cb20-10"></span>
-<span id="cb20-11">summary4 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df4)</span>
-<span id="cb20-12">summary8 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x4,anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y4))</span>
-<span id="cb20-13"></span>
-<span id="cb20-14"></span>
-<span id="cb20-15">summary1 </span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">x</td>
-<td style="text-align: left;">33</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">6.5</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: left;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">y</td>
-<td style="text-align: left;">33</td>
-<td style="text-align: left;">8.3</td>
-<td style="text-align: left;">2.2</td>
-<td style="text-align: left;">4.7</td>
-<td style="text-align: left;">6.5</td>
-<td style="text-align: left;">10</td>
-<td style="text-align: left;">13</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1">summary5 </span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">anscombe.x1</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: left;">3.3</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">6.5</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: left;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">anscombe.y1</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">7.5</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">4.3</td>
-<td style="text-align: left;">6.3</td>
-<td style="text-align: left;">8.6</td>
-<td style="text-align: left;">11</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">summary2 </span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">x</td>
-<td style="text-align: left;">33</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">6.5</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">y</td>
-<td style="text-align: left;">33</td>
-<td style="text-align: left;">7.6</td>
-<td style="text-align: left;">1.8</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">6.6</td>
-<td style="text-align: left;">8.9</td>
-<td style="text-align: left;">9.3</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1">summary6 </span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">anscombe.x2</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: left;">3.3</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">6.5</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: left;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">anscombe.y2</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">7.5</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">3.1</td>
-<td style="text-align: left;">6.7</td>
-<td style="text-align: left;">8.9</td>
-<td style="text-align: left;">9.3</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1">summary3</span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">x</td>
-<td style="text-align: left;">34</td>
-<td style="text-align: left;">9.1</td>
-<td style="text-align: left;">3.1</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">6.6</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: left;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">y</td>
-<td style="text-align: left;">34</td>
-<td style="text-align: left;">7.3</td>
-<td style="text-align: left;">1.4</td>
-<td style="text-align: left;">5.4</td>
-<td style="text-align: left;">6.3</td>
-<td style="text-align: left;">8.1</td>
-<td style="text-align: left;">13</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">summary7 </span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">anscombe.x3</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: left;">3.3</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">6.5</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: left;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">anscombe.y3</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">7.5</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">5.4</td>
-<td style="text-align: left;">6.2</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">13</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1">summary4 </span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">x</td>
-<td style="text-align: left;">34</td>
-<td style="text-align: left;">8.3</td>
-<td style="text-align: left;">1.9</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">19</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">y</td>
-<td style="text-align: left;">34</td>
-<td style="text-align: left;">7.2</td>
-<td style="text-align: left;">1.4</td>
-<td style="text-align: left;">5.2</td>
-<td style="text-align: left;">6.2</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">12</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1">summary8</span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">anscombe.x4</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: left;">3.3</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">19</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">anscombe.y4</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">7.5</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">5.2</td>
-<td style="text-align: left;">6.2</td>
-<td style="text-align: left;">8.2</td>
-<td style="text-align: left;">12</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>Anscombe’s Quartet is a powerful reminder that descriptive statistics alone may not reveal the complete story of your data. Visualization is a crucial tool in data analysis, helping you uncover patterns, outliers, and unexpected relationships that numbers alone might miss.</p>
-<p><span class="citation" data-cites="10.1145/3231772 a23325bf-6a64-3bba-a051-ebe1b2dce874">(Szafir 2018; Anscombe 1973)</span></p>
-
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-<div id="ref-a23325bf-6a64-3bba-a051-ebe1b2dce874" class="csl-entry">
-Anscombe, F. J. 1973. <span>“Graphs in Statistical Analysis.”</span> <em>The American Statistician</em> 27 (1): 17–21. <a href="http://www.jstor.org/stable/2682899">http://www.jstor.org/stable/2682899</a>.
-</div>
-<div id="ref-10.1145/3231772" class="csl-entry">
-Szafir, Danielle Albers. 2018. <span>“The Good, the Bad, and the Biased: Five Ways Visualizations Can Mislead (and How to Fix Them).”</span> <em>Interactions</em> 25 (4): 26–33. <a href="https://doi.org/10.1145/3231772">https://doi.org/10.1145/3231772</a>.
-</div>
-</div></section></div> ]]></description>
-  <category>R</category>
-  <category>Fun</category>
-  <guid>https://giorgioluciano.github.io/posts/016_Anscombe/</guid>
   <pubDate>Fri, 15 Sep 2023 22:00:00 GMT</pubDate>
 </item>
 </channel>

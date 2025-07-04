@@ -2,6 +2,7 @@
   {
     "listing": "/listing.html",
     "items": [
+      "/posts/Packages Review 2025/index.html",
       "/posts/022_pitfall_curves/index.html",
       "/posts/023_rss_quarto/index.html",
       "/posts/018_Excel_Ita/index.html",
@@ -27,8 +28,7 @@
       "/posts/003_Scatterplot/index.html",
       "/posts/011_Data_Simulation/index.html",
       "/posts/008_ggplot_loops/index.html",
-      "/posts/013_Clean_csv/index.html",
-      "/posts/Packages Review 2025/index.html"
+      "/posts/013_Clean_csv/index.html"
     ]
   }
 ]

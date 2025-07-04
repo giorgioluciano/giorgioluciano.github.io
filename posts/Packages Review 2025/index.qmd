@@ -1,6 +1,6 @@
 ---
 title: "Interesting New R Packages (2025)"
-date: "`r Sys.Date()`"
+date: "2025-07-03"
 format: html
 ---
 
@@ -46,8 +46,6 @@ Here are some of the most interesting R packages I’ve discovered among the 202
 > *Jamovi is a great all-in-one suite for statistical analysis, perfect even for beginners. My students find it intuitive and well documented. You can use it seamlessly from R or via its modern, open-source GUI. Super versatile!*
 
 ------------------------------------------------------------------------
-
----
 
 ### **explore: Simplifies Exploratory Data Analysis**
 
