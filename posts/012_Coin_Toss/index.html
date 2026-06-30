@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Giorgio Luciano">
-<meta name="dcterms.date" content="2024-06-12">
+<meta name="dcterms.date" content="2023-11-15">
 
-<title>A Mathematical Exploration of Pizza Sizes – Data &amp; Molecule Bits</title>
+<title>Exploring Coin Flip Sequences with Simulation in R – Data &amp; Molecule Bits</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -38,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-4e08a469d9e50708c93e2cbb69c6acf7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -70,35 +105,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -175,8 +181,12 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">A Mathematical Exploration of Pizza Sizes</h1>
-                      </div>
+      <h1 class="title">Exploring Coin Flip Sequences with Simulation in R</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">Simulation</div>
+              </div>
+                  </div>
   </div>
     
   
@@ -192,7 +202,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 12, 2024</p>
+        <p class="date">November 15, 2023</p>
       </div>
     </div>
     
@@ -213,54 +223,131 @@ window.Quarto = {
 
 
 
-<p>Pizza, a beloved culinary delight, comes in various sizes. To better understand the implications of pizza size on the amount of pizza consumed, we establish a new standard unit called the <em>standard pizza radius</em>, denoted by the letter <span class="math inline">\(a\)</span>, which measures 6 inches. This article examines how the area of a pizza changes with size and demonstrates that one extra-large pizza can provide more pizza than two standard-sized pizzas.</p>
-<p>The area of a pizza, approximated as a circle, with a radius of one standard pizza radius (<span class="math inline">\(a\)</span>) is given by the formula:</p>
-<p><span class="math display">\[
-\text{Area}_{\text{standard}} = \pi a^2
-\]</span></p>
-<p>For an extra-large pizza with a radius <span class="math inline">\(r = 1.5a\)</span>, the area can be calculated as follows:</p>
-<p><span class="math display">\[
-\text{Area}_{\text{extra-large}} = \pi (1.5a)^2 = \pi \cdot 1.5^2 \cdot a^2 = \pi \cdot 2.25 \cdot a^2
-\]</span></p>
-<p>The combined area of two standard pizzas with radius <span class="math inline">\(a\)</span> is:</p>
-<p><span class="math display">\[
-\text{Area}_{\text{two standard}} = 2 \cdot \pi a^2
-\]</span></p>
-<p>Comparing this to the area of one extra-large pizza:</p>
-<p><span class="math display">\[
-\pi \cdot 2.25 \cdot a^2 &gt; 2 \cdot \pi a^2
-\]</span></p>
-<p>Simplifying, we find:</p>
-<p><span class="math display">\[
-2.25 \pi a^2 &gt; 2 \pi a^2
-\]</span></p>
-<p>Thus, the area of one extra-large pizza is greater than the combined area of two standard pizzas.</p>
-<p>To determine the minimum radius <span class="math inline">\(r = n \cdot a\)</span> for the extra-large pizza to always have a greater area than two standard pizzas, we start with the inequality:</p>
-<p><span class="math display">\[
-\pi (n \cdot a)^2 &gt; 2 \cdot \pi a^2
-\]</span></p>
-<p>Simplifying, we get:</p>
-<p><span class="math display">\[
-n^2 \cdot \pi a^2 &gt; 2 \cdot \pi a^2
-\]</span></p>
-<p><span class="math display">\[
-n^2 &gt; 2
-\]</span></p>
-<p><span class="math display">\[
-n &gt; \sqrt{2}
-\]</span></p>
-<p><span class="math display">\[
-n &gt; 1.4142
-\]</span></p>
-<p>Therefore, the radius of the extra-large pizza must be at least <span class="math inline">\(\sqrt{2}\)</span> times the radius of a standard pizza to ensure its area is always greater than that of two standard pizzas.</p>
-<p>In Italy, according to the <em>Disciplinare verace pizza napoletana</em> (guidelines for authentic Neapolitan pizza), the radius of a pizza ranges from 22 to 35 cm. Let’s compare the area of two pizzas with a 22 cm radius to one pizza with a 33 cm radius.</p>
-<p><span class="math display">\[
-2 \cdot \pi \cdot 22^2 = 2 \cdot \pi \cdot 484 = 2 \cdot 1520.56 = 3039.52 \, \text{cm}^2
-\]</span></p>
-<p><span class="math display">\[
-\pi \cdot 33^2 = \pi \cdot 1089 = 3419.46 \, \text{cm}^2
-\]</span></p>
-<p>This calculation confirms that one pizza with a 33 cm radius has a greater area than two pizzas with a 22 cm radius. Therefore, it is mathematically established that consuming one extra-large pizza results in more pizza than consuming two smaller ones.</p>
+<p>In this blog post, we will dive into the fascinating world of coin flip sequences. Leveraging the capabilities of R, we will conduct simulations to gain insights into the probabilities of consecutive sequences of heads or tails.</p>
+<p>Let’s kick things off by simulating coin flips using R. We’ll conduct experiments with varying numbers of flips to observe how the results evolve.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to simulate coin tosses</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>simulate_tosses <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">42</span>)  <span class="co"># Set seed for reproducibility</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  flips <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Heads"</span>, <span class="st">"Tails"</span>), n, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(flips)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate coin flips for different scenarios</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>flips_100 <span class="ot">&lt;-</span> <span class="fu">simulate_tosses</span>(<span class="dv">100</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>flips_1000 <span class="ot">&lt;-</span> <span class="fu">simulate_tosses</span>(<span class="dv">1000</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>flips_10000 <span class="ot">&lt;-</span> <span class="fu">simulate_tosses</span>(<span class="dv">10000</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>flips_100000 <span class="ot">&lt;-</span> <span class="fu">simulate_tosses</span>(<span class="dv">100000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Moving on, we’ll analyze the consecutive sequences of heads or tails in each simulation. We’ll count the length of these sequences to gain insights into their distribution.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to count consecutive sequences</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>count_consecutive_sequences <span class="ot">&lt;-</span> <span class="cf">function</span>(flips) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  count <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">length</span>(flips))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  counter <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="fu">length</span>(flips)) {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (flips[i] <span class="sc">==</span> flips[i<span class="dv">-1</span>]) {</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      counter <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    count[i] <span class="ot">&lt;-</span> counter</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(count)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to create a plot for consecutive sequences</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>create_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(consecutive_counts, n) {</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Launch =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(consecutive_counts), <span class="at">Consecutive =</span> consecutive_counts)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Launch, <span class="at">y =</span> Consecutive)) <span class="sc">+</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Consecutive Sequences -"</span>, n, <span class="st">"Tosses"</span>),</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"Toss Number"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>         <span class="at">y =</span> <span class="st">"Consecutive Count"</span>) <span class="sc">+</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(plot)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyze consecutive sequences for different scenarios</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>consecutive_counts_100 <span class="ot">&lt;-</span> <span class="fu">count_consecutive_sequences</span>(flips_100)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>consecutive_counts_1000 <span class="ot">&lt;-</span> <span class="fu">count_consecutive_sequences</span>(flips_1000)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>consecutive_counts_10000 <span class="ot">&lt;-</span> <span class="fu">count_consecutive_sequences</span>(flips_10000)</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>consecutive_counts_100000 <span class="ot">&lt;-</span> <span class="fu">count_consecutive_sequences</span>(flips_100000)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, let’s create visualizations to better understand the distribution of consecutive sequences. We’ll use the ggplot2 library to craft insightful graphs and gridExtra to arrange them together.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create plots</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plot_100 <span class="ot">&lt;-</span> <span class="fu">create_plot</span>(consecutive_counts_100, <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: il pacchetto 'ggplot2' è stato creato con R versione 4.3.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plot_1000 <span class="ot">&lt;-</span> <span class="fu">create_plot</span>(consecutive_counts_1000, <span class="dv">1000</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plot_10000 <span class="ot">&lt;-</span> <span class="fu">create_plot</span>(consecutive_counts_10000, <span class="dv">10000</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plot_100000 <span class="ot">&lt;-</span> <span class="fu">create_plot</span>(consecutive_counts_100000, <span class="dv">100000</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Use gridExtra to arrange the plots</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(plot_100, plot_1000, plot_10000, plot_100000, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to simulate coin tosses and plot the maximum consecutive sequence</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>simulate_and_plot_max_sequence <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Simulate coin tosses</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  flips <span class="ot">&lt;-</span> <span class="fu">simulate_tosses</span>(n)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Analyze consecutive sequences</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  consecutive_counts <span class="ot">&lt;-</span> <span class="fu">count_consecutive_sequences</span>(flips)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return the maximum consecutive sequence</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">max</span>(consecutive_counts))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector to store results</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>max_sequences <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform simulations with increasing numbers of tosses</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n_tosses <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">2000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>)) {</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  max_sequence <span class="ot">&lt;-</span> <span class="fu">simulate_and_plot_max_sequence</span>(n_tosses)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  max_sequences <span class="ot">&lt;-</span> <span class="fu">c</span>(max_sequences, max_sequence)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the results</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Num_Tosses =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">2000</span>, <span class="dv">10000</span>, <span class="dv">100000</span>), <span class="at">Max_Sequence =</span> max_sequences)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> Num_Tosses, <span class="at">y =</span> Max_Sequence)) <span class="sc">+</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Maximum Consecutive Sequence vs. Number of Tosses"</span>,</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Number of Tosses"</span>,</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Max Consecutive Sequence"</span>) <span class="sc">+</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>After simulating coin flips and analyzing consecutive sequences, we’ve gained valuable insights into the probability of encountering various sequences. As expected, with a larger number of flips, the likelihood of encountering longer consecutive sequences increases.</p>
+<p>Conclusion Exploring probability through simulation is a powerful way to grasp the nuances of random processes. Whether you’re a statistician, data scientist, or simply curious, these simulations provide a fascinating glimpse into the world of chance.</p>
+<p>Feel free to experiment with different parameters, such as the number of flips or the probability of getting heads or tails, and observe how the results change. Happy exploring!</p>
 
 
 

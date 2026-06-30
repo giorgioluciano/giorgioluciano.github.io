@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Frequency Hearing Tester</title>
+<style>
+:root{
+--bg:#f7f7f8;--card:#ffffff;--muted:#6b6b6b;--accent:#046d76;--accent2:#0b5a60;--danger:#8b3b2b;--border:#dedcdc;--radius:14px;
+}
+body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);margin:0;color:#111;}
+.wrap{max-width:900px;margin:24px auto;padding:28px;}
+h1{margin:0 0 8px;font-size:28px;}
+p{margin:0 0 14px;color:var(--muted);}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+.card{background:var(--card);border:1px solid var(--border);padding:16px;border-radius:var(--radius);}
+label{display:block;margin:10px 0 6px;font-weight:700;}
+input[type=range]{width:100%;}
+.big{font-size:28px;font-weight:800;margin:8px 0;}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+button{background:var(--accent);color:#fff;border:0;padding:10px 14px;border-radius:999px;cursor:pointer;font-weight:700;}
+button.secondary{background:transparent;border:1px solid var(--border);color:#111;}
+.readout{background:#fafafa;padding:10px;border-radius:10px;border:1px solid var(--border);margin-top:10px;}
+.mini{color:var(--muted);font-size:14px;margin-top:8px;}
+.warn{color:var(--danger);font-weight:800;}
+table{width:100%;border-collapse:collapse;margin-top:10px;}
+td,th{padding:8px;border-bottom:1px solid var(--border);text-align:left;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Frequency Hearing Tester</h1>
+<p>Generate a pure tone, run an automatic sweep, or play a two-tone example (350 Hz + 440 Hz) to hear interaction and beats. For curiosity only—not a clinical test.</p>
+
+<div class="grid">
+<section class="card">
+<h2>Generator</h2>
+<label for="freq">Frequency (Hz)</label>
+<input id="freq" type="range" min="20" max="20000" step="1" value="440" />
+<div class="big"><span id="freqOut">440</span> Hz</div>
+
+<label for="vol">Volume (keep low)</label>
+<input id="vol" type="range" min="0" max="0.2" step="0.001" value="0.03" />
+<div class="mini">Use headphones and low level, especially above 4 kHz.</div>
+
+<div class="controls">
+<button id="startBtn">Start tone</button>
+<button id="stopBtn" class="secondary">Stop</button>
+<button id="twoToneBtn">Play 350 + 440 Hz</button>
+</div>
+
+<label for="sweepSeconds">Sweep duration (seconds)</label>
+<input id="sweepSeconds" type="range" min="2" max="30" step="1" value="10" />
+<div class="readout">Sweep: <span id="sweepOut">10</span> s</div>
+
+<div class="controls">
+<button id="upBtn">Sweep up</button>
+<button id="downBtn" class="secondary">Sweep down</button>
+</div>
+</section>
+
+<section class="card">
+<h2>Notes & mark</h2>
+<div class="readout">Last clearly heard frequency: <strong id="heardMark">—</strong></div>
+<div class="controls">
+<button id="markBtn">I hear it clearly</button>
+<button id="clearBtn" class="secondary">Clear</button>
+</div>
+<p class="mini">Good headphones and a quiet room improve reliability. Above ~10–15 kHz results vary with age and equipment.</p>
+
+<table>
+<thead>
+<tr><th>Band</th><th>Typical role</th></tr>
+</thead>
+<tbody>
+<tr><td>20–60 Hz</td><td>Sub-bass</td></tr>
+<tr><td>60–250 Hz</td><td>Bass fundamentals</td></tr>
+<tr><td>250–2 kHz</td><td>Body and presence</td></tr>
+<tr><td>2–5 kHz</td><td>Presence and intelligibility</td></tr>
+<tr><td>5–20 kHz</td><td>Brightness and air</td></tr>
+</tbody>
+</table>
+</section>
+</div>
+
+<section class="card" style="margin-top:18px;">
+<h2>Warnings</h2>
+<ul>
+<li><span class="warn">Do not use loud volumes.</span></li>
+<li>Cheap speakers/headphones may misrepresent high frequencies above 10 kHz.</li>
+<li>This is not a substitute for a professional audiology test.</li>
+</ul>
+</section>
+</div>
+
+<script>
+const freq = document.getElementById('freq');
+const vol = document.getElementById('vol');
+const freqOut = document.getElementById('freqOut');
+const sweepSeconds = document.getElementById('sweepSeconds');
+const sweepOut = document.getElementById('sweepOut');
+const heardMark = document.getElementById('heardMark');
+
+let ctx = null;
+let osc = null;
+let gain = null;
+let oscA = null;
+let oscB = null;
+let gainA = null;
+let gainB = null;
+let sweepTimer = null;
+
+function ensureAudio() {
+if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+if (ctx.state === 'suspended') ctx.resume();
+if (!osc) {
+osc = ctx.createOscillator();
+gain = ctx.createGain();
+osc.type = 'sine';
+osc.connect(gain);
+gain.connect(ctx.destination);
+gain.gain.value = parseFloat(vol.value);
+osc.frequency.value = parseFloat(freq.value);
+osc.start();
+}
+}
+
+function stopAudio() {
+if (sweepTimer) cancelAnimationFrame(sweepTimer);
+sweepTimer = null;
+if (osc) { try { osc.stop(); } catch(e){}; osc.disconnect(); gain.disconnect(); osc = null; gain = null; }
+if (oscA) { try { oscA.stop(); oscB.stop(); } catch(e){}; oscA.disconnect(); oscB.disconnect(); gainA.disconnect(); gainB.disconnect(); oscA = null; oscB = null; gainA = null; gainB = null; }
+}
+
+function setFreq(v) {
+const hz = Math.round(v);
+freq.value = hz;
+freqOut.textContent = hz.toLocaleString();
+if (osc) osc.frequency.setValueAtTime(hz, ctx.currentTime);
+}
+
+function logSweep(up=true) {
+if (!ctx) ensureAudio();
+if (sweepTimer) cancelAnimationFrame(sweepTimer);
+const start = performance.now();
+const dur = parseFloat(sweepSeconds.value) * 1000;
+const min = 20;
+const max = 20000;
+function step(now) {
+const t = Math.min((now - start) / dur, 1);
+const ratio = up ? t : (1 - t);
+const hz = Math.round(min * Math.pow(max / min, ratio));
+setFreq(hz);
+if (t < 1) sweepTimer = requestAnimationFrame(step);
+}
+sweepTimer = requestAnimationFrame(step);
+}
+
+freq.addEventListener('input', e => setFreq(e.target.value));
+vol.addEventListener('input', () => { if (gain) gain.gain.setValueAtTime(parseFloat(vol.value), ctx.currentTime); });
+
+sweepSeconds.addEventListener('input', () => sweepOut.textContent = sweepSeconds.value);
+
+document.getElementById('startBtn').addEventListener('click', () => ensureAudio());
+document.getElementById('stopBtn').addEventListener('click', stopAudio);
+document.getElementById('upBtn').addEventListener('click', () => logSweep(true));
+document.getElementById('downBtn').addEventListener('click', () => logSweep(false));
+
+document.getElementById('markBtn').addEventListener('click', () => {
+heardMark.textContent = ${Math.round(freq.value)} Hz;
+});
+document.getElementById('clearBtn').addEventListener('click', () => heardMark.textContent = '—');
+
+document.getElementById('twoToneBtn').addEventListener('click', () => {
+if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+stopAudio();
+oscA = ctx.createOscillator();
+oscB = ctx.createOscillator();
+gainA = ctx.createGain();
+gainB = ctx.createGain();
+oscA.type = 'sine';
+oscB.type = 'sine';
+oscA.frequency.value = 350;
+oscB.frequency.value = 440;
+gainA.gain.value = parseFloat(vol.value)/2;
+gainB.gain.value = parseFloat(vol.value)/2;
+oscA.connect(gainA); oscB.connect(gainB);
+gainA.connect(ctx.destination); gainB.connect(ctx.destination);
+oscA.start(); oscB.start();
+// stop after 6 seconds automatically
+setTimeout(() => { try { oscA.stop(); oscB.stop(); } catch(e){}; oscA.disconnect(); oscB.disconnect(); gainA.disconnect(); gainB.disconnect(); oscA=null;oscB=null;gainA=null;gainB=null; }, 6000);
+});
+
+// initialize display
+setFreq(freq.value);
+</script>
+</body>
+</html>

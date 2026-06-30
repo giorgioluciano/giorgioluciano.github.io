@@ -9,8 +9,157 @@
 <link>https://giorgioluciano.github.io/listing.html</link>
 <atom:link href="https://giorgioluciano.github.io/listing.xml" rel="self" type="application/rss+xml"/>
 <description>Provides tutorials  alongside practical examples in R. Topics include statistical simulations, data visualization, and common challenges in scientific analysis. The content is designed to offer useful insights for those working with data, without unnecessary complexity.</description>
-<generator>quarto-1.7.30</generator>
-<lastBuildDate>Wed, 02 Jul 2025 22:00:00 GMT</lastBuildDate>
+<generator>quarto-1.7.33</generator>
+<lastBuildDate>Mon, 29 Jun 2026 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>From T9 to LLMs</title>
+  <dc:creator>Giorgio Luciano</dc:creator>
+  <link>https://giorgioluciano.github.io/posts/024_lmm_vibe_coding/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="from-t9-to-llms" class="level2">
+<h2 class="anchored" data-anchor-id="from-t9-to-llms">From T9 to LLMs</h2>
+<p>If you remember the old T9 keyboards on mobile phones, you already know the basic idea behind a language model. T9 was a form of predictive text: instead of typing every letter in the usual way, you entered a sequence of keys and the phone tried to guess the word you meant. In a very simple sense, it was doing what autocomplete does today in email or messaging apps: looking at the beginning of a word or sentence and suggesting what is most likely to come next. [<span class="citation" data-cites="t9_wikipedia_2006">Wikipedia contributors (2006)</span>]<span class="citation" data-cites="t9_wired_2010">(Baker 2010)</span></p>
+<p>That same general idea sits at the heart of large language models, or LLMs. An LLM is trained on huge amounts of text and learns statistical patterns about which tokens tend to follow other tokens in similar contexts. So when you type a prompt like “Hello, how are”, the model does not magically “understand” the sentence in the human sense; instead, it estimates which continuation is most probable given the context it has seen during training. [<span class="citation" data-cites="raschka_next_token_2026">Raschka (2026)</span>]<span class="citation" data-cites="google_mechanics_next_token_2024">(Google DeepMind 2024)</span></p>
+<p>This is why people often describe LLMs as extremely advanced autocomplete systems. That description is not the whole story, of course, but it is a good starting point. The model is not simply copying fixed phrases: it uses a neural network with many internal parameters to learn patterns of grammar, style, and context from a large corpus of text. As a result, it can generate new sentences rather than only repeating what it has seen before. [<span class="citation" data-cites="raschka_next_token_2026">Raschka (2026)</span>]<span class="citation" data-cites="google_mechanics_next_token_2024">(Google DeepMind 2024)</span></p>
+</section>
+<section id="what-are-tokens" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-tokens">What are tokens?</h2>
+<p>Before we go any further, we need one important idea: language models do not read text the way humans do. They first break it into small pieces called <em>tokens</em>. A token can be a whole word, part of a word, punctuation, or sometimes even a short fragment of text, depending on the tokenizer used by the model. [<span class="citation" data-cites="microsoft_tokens_2026">Microsoft Learn (2026)</span>]<span class="citation" data-cites="trott_tokenization_2024">(Trott 2024)</span></p>
+<p>This matters because the model does not work directly with raw text. It works with tokens, which are the units it processes during training and when generating new text. So when we type a sentence into an LLM, that sentence is first converted into tokens, then into numbers, and only after that can the model use it. [<span class="citation" data-cites="microsoft_tokens_2026">Microsoft Learn (2026)</span>]<span class="citation" data-cites="nvidia_tokens_2025">(NVIDIA 2025)</span></p>
+<p>A simple example helps. Imagine the phrase below as a sequence of tokens:</p>
+<p><code> <span style="background-color:#e3f2fd; padding:2px 4px; margin-right:4px;">Hello</span> <span style="background-color:#ffebee; padding:2px 4px; margin-right:4px;">,</span> <span style="background-color:#e8f5e9; padding:2px 4px; margin-right:4px;">how</span> <span style="background-color:#fff3e0; padding:2px 4px; margin-right:4px;">are</span> <span style="background-color:#ede7f6; padding:2px 4px; margin-right:4px;">you</span> <span style="background-color:#f3e5f5; padding:2px 4px; margin-right:4px;">?</span> </code></p>
+<p>The exact split is only illustrative, because different tokenizers may divide the same sentence in slightly different ways. The important idea is that the model sees small pieces, not one uninterrupted sentence. That is why token counts do not always match word counts exactly. [<span class="citation" data-cites="trott_tokenization_2024">Trott (2024)</span>]<span class="citation" data-cites="datacamp_tokenization_2026">(DataCamp 2026)</span></p>
+<p>You can think of tokens as the working pieces of language for the model, a bit like LEGO bricks. Humans read complete words and sentences, while the model reads chunks of text that it has learned to handle efficiently. Once those pieces are in place, the model can predict what comes next. [<span class="citation" data-cites="microsoft_tokens_2026">Microsoft Learn (2026)</span>]<span class="citation" data-cites="nvidia_tokens_2025">(NVIDIA 2025)</span></p>
+<p>This is also why token limits matter. If a model can only process a certain number of tokens at once, that limit controls how much text it can keep in mind during a single interaction. It also helps explain why long prompts and long answers may cost more when using an API. [<span class="citation" data-cites="nvidia_tokens_2025">NVIDIA (2025)</span>]<span class="citation" data-cites="inventivehq_tokens_2026">(InventiveHQ 2026)</span></p>
+<p>A key point is that tokenization does not always follow the boundaries of written words. Depending on the tokenizer, a single word may remain intact or be split into several smaller pieces. This is why the same sentence can produce different token sequences in different language models. [<span class="citation" data-cites="huggingface_tokenizers_2024">Hugging Face (2024)</span>]<span class="citation" data-cites="arxiv_tokens_words_2024">(Anonymous 2024)</span></p>
+</section>
+<section id="two-ways-to-split-tokens" class="level2">
+<h2 class="anchored" data-anchor-id="two-ways-to-split-tokens">Two ways to split tokens</h2>
+<p>To really see what tokens are, it helps to look at the same text through two different “lenses”. Tokenization is the process of breaking a string of text into discrete units called tokens, which can be words, subwords, punctuation marks, or even single characters, depending on the tokenizer. [<span class="citation" data-cites="huggingface_tokenizers_2024">Hugging Face (2024)</span>]<span class="citation" data-cites="trott_tokenization_2024">(Trott 2024)</span></p>
+<p>In a simple, word-based view, the sentence:</p>
+<blockquote class="blockquote">
+<p>Hello, how are you?</p>
+</blockquote>
+<p>might be tokenized as four words, plus punctuation:</p>
+<p><code> <span style="background-color:#e3f2fd; padding:2px 4px; margin-right:4px;">Hello</span> <span style="background-color:#ffebee; padding:2px 4px; margin-right:4px;">,</span> <span style="background-color:#e8f5e9; padding:2px 4px; margin-right:4px;">how</span> <span style="background-color:#fff3e0; padding:2px 4px; margin-right:4px;">are</span> <span style="background-color:#ede7f6; padding:2px 4px; margin-right:4px;">you</span> <span style="background-color:#f3e5f5; padding:2px 4px; margin-right:4px;">?</span> </code></p>
+<p>This is close to how we intuitively think about words: each word is one token, and punctuation marks are separate tokens. It is a useful mental model for getting started, and matches traditional word-based tokenization in many NLP examples. [<span class="citation" data-cites="coursera_tokenization_2024">Coursera (2024)</span>]<span class="citation" data-cites="arize_tokenization_2025">(Arize AI 2025)</span></p>
+<p>Modern LLMs, however, often use <em>subword</em> tokenization. In this view, a single written word can be split into multiple tokens. For example:</p>
+<p><code> <span style="background-color:#e3f2fd; padding:2px 4px; margin-right:4px;">un</span> <span style="background-color:#e8f5e9; padding:2px 4px; margin-right:4px;">believ</span> <span style="background-color:#fff3e0; padding:2px 4px; margin-right:4px;">able</span> </code></p>
+<p>or:</p>
+<p><code> <span style="background-color:#e3f2fd; padding:2px 4px; margin-right:4px;">token</span> <span style="background-color:#e8f5e9; padding:2px 4px; margin-right:4px;">ization</span> </code></p>
+<p>These are illustrative, but they capture the key idea: frequent pieces like <code>token</code> or <code>ing</code> may become their own tokens, and rarer words are represented as combinations of such pieces. This approach, known as subword tokenization, balances vocabulary size with flexibility and is widely used in transformer-based LLMs. [<span class="citation" data-cites="huggingface_tokenizers_2024">Hugging Face (2024)</span>]<span class="citation" data-cites="fastai_karpathy_tokenizer_2025">(fast.ai 2025)</span><span class="citation" data-cites="arxiv_tokens_words_2024">(Anonymous 2024)</span></p>
+<p>The important takeaway for our purposes is simple: tokens are the units the model actually sees and manipulates. Sometimes they align neatly with words, and sometimes they do not. Understanding this makes it easier to see what “predicting the next token” really means. [<span class="citation" data-cites="trott_tokenization_2024">Trott (2024)</span>]<span class="citation" data-cites="traceloop_tokenization_2025">(Traceloop 2025)</span></p>
+</section>
+<section id="a-short-detour-neural-networks" class="level2">
+<h2 class="anchored" data-anchor-id="a-short-detour-neural-networks">A short detour: neural networks</h2>
+<p>Now that we have an idea of what tokens are, we can ask a natural question: how can a model use these tokens to predict the next word or token? This is where neural networks come into play.</p>
+<p>Neural networks are not a new concept. The first mathematical model of a neural network was introduced in the 1940s by Warren McCulloch and Walter Pitts, who proposed a simplified “neuron” that could perform logical computations. Their work laid the foundation for later developments, and the basic idea is still recognizable in modern models: a network of simple units that transform inputs into outputs. The analogy with the brain is intentionally loose but helpful. In a very simplified picture, you can think of a neuron as receiving signals from other neurons, combining them, and “firing” when the total input is strong enough. In artificial neural networks, each neuron receives numbers, multiplies them by weights, adds them up, passes the result through a non-linear function, and sends that output forward to the next layer.</p>
+<p>A visual example makes this clearer. Imagine you are looking at an image of a house. Your eyes capture the light and turn it into electrical signals that travel through many layers of neurons in the visual system. Each layer extracts different kinds of features: edges, shapes, and increasingly complex patterns, until eventually the activity pattern corresponds to the concept “house”. In an artificial network, we mimic this process: we feed the image in as numbers, pass them through several layers of weighted connections, and interpret the final output as a class label such as “house”. From a mathematical point of view, the key ingredients are:</p>
+<ul>
+<li><strong>Inputs</strong>: numbers that represent the data (for example, pixel values for an image or token embeddings for text).</li>
+<li><strong>Weights and biases</strong>: parameters attached to each connection and neuron that determine how strongly different inputs influence the outputs.</li>
+<li><strong>Outputs</strong>: numbers that represent predictions, such as “this image is a house” or “the next token should be <code>you</code>”.</li>
+</ul>
+<p>During training, the network sees many examples and gradually adjusts its weights so that the outputs become more accurate. If we show the network many images of houses and non-houses, it learns weight patterns that activate strongly for houses and weakly for other objects. Similarly, if we train a network on sequences of text, it learns weight patterns that produce high probability for plausible next tokens and low probability for unlikely ones. This is the bridge between tokens and next-token prediction.</p>
+</section>
+<section id="what-does-this-mean-for-llms" class="level2">
+<h2 class="anchored" data-anchor-id="what-does-this-mean-for-llms">What does this mean for LLMs?</h2>
+<p>So what does all of this have to do with our language models? The key point is that neural networks are very good at predicting things, as long as they have seen enough examples. Given enough data, they can learn to estimate what is likely to come next: the next class label in image recognition, or the next token in a sequence of text. <span class="citation" data-cites="raschka_next_token_2026">(Raschka 2026)</span></p>
+<p>However, they do not start out knowing anything. They have to be trained. In practice, this means giving the network large amounts of input–output pairs and adjusting its weights so that it produces better and better predictions. For image classification, this might involve millions of labeled pictures; for large language models, it involves terabytes of text drawn from books, articles, websites, and other sources. Only after this training phase can the model be used to answer questions the way systems like ChatGPT do.</p>
+<p>This is where a classic idea from computer science becomes important: <em>Garbage in, garbage out</em>. If we feed a model biased, noisy, or simply wrong data during training, it will learn those patterns and reproduce them. A neural network has no built-in way to “know” that a label is wrong; if we consistently call dogs “cats” in the training set, the model will learn to associate dog-like images with the word “cat”. It can be perfectly consistent and still wrong, because it only knows what it has seen.</p>
+<p>Large language models behave in the same way. They generalize from their training data and from the context in the prompt. When the data is sparse, ambiguous, or missing for a particular topic, the model will still try to produce a plausible answer, often by combining patterns it has seen elsewhere. This can lead to <em>hallucinations</em>: outputs that look fluent and confident but are factually incorrect or unsupported. The model is not “lying” in a human sense; it is extrapolating beyond the reliable information it has, because its objective is to predict plausible tokens rather than to guarantee truth.</p>
+<p>In practical terms, this means that training quality and data coverage are crucial. A model that has never seen a particular statistical test, a niche concept, or a rare factual detail cannot invent a correct explanation for it. At best, it can propose something similar to what it has learned before. If you ask an LLM to suggest a specialized method it has not encountered in its training set, it may instead offer a more familiar test that roughly fits the problem, even if that choice is not ideal. That is one way hallucinations arise in data analysis and other technical domains.</p>
+<p>The main theoretical limitation is therefore not that the model “refuses to think”, but that it only reasons within the patterns encoded in its parameters. It infers from what it has seen; it does not have direct access to external reality or to new concepts outside its training data unless we explicitly connect it to additional tools or sources. Understanding this helps explain why training and evaluation design matter so much—and why “Garbage in, garbage out” still applies in the age of LLMs.</p>
+</section>
+<section id="prediction-black-swans-and-data-quality" class="level2">
+<h2 class="anchored" data-anchor-id="prediction-black-swans-and-data-quality">Prediction, black swans, and data quality</h2>
+<p>So far, we have described large language models as machines that are very good at predicting what you are going to write or say next. In spirit, this is similar to what humans sometimes do. If you read a lot of stories by Edgar Allan Poe, you might start to assume that every cat in the story is black, simply because that pattern appears so often. Your expectations are shaped by what you have seen. <span class="citation" data-cites="raschka_next_token_2026">(Raschka 2026)</span></p>
+<p>The risk is that you lose sight of rare events—the “black swans” that do not fit the usual pattern. The world contains white cats, striped cats, and many other possibilities, but if all your examples are black cats, your mental model becomes narrow. Neural networks behave in a similar way: they learn patterns from the data they see, generalize those patterns, and then tend to favor the most familiar continuations. What they do not see, they cannot easily predict.</p>
+<p>This raises very practical questions about where training data comes from. For commercial LLMs, the training corpus is huge and often includes web data, books, articles, and other sources. This has led to ongoing debates about copyright, consent, and fair use: how much copyrighted material can be used for training, under what conditions, and with which safeguards? Recent legal and policy discussions show that this is not a minor technical detail but a major societal issue. [<span class="citation" data-cites="hinckleyallen_copyright_ai_2025">Hinckley Allen (2025)</span>]<span class="citation" data-cites="nature_ai_academic_data_2024">(Nature Editorial 2024)</span></p>
+<p>There is also the question of <em>behavior</em> during training and deployment. An early example is Microsoft’s Tay chatbot, which was released on Twitter in 2016 and quickly began producing racist and offensive content after interacting with malicious users. Tay simply learned from the data it received; when that data was toxic, its output became toxic too. This is a vivid illustration of why “Garbage in, garbage out” still applies to AI systems. [<span class="citation" data-cites="tay_wikipedia_2016">Wikipedia contributors (2016)</span>]<span class="citation" data-cites="microsoft_tay_blog_2016">(Microsoft 2016)</span></p>
+<p>Modern systems include many safeguards, but the underlying risk remains. If a model is trained or fine-tuned on biased, misleading, or adversarial data, its predictions can become skewed. This phenomenon is known as <strong>training data poisoning</strong>: manipulating the data used to build or refine a model so that its future behavior changes in harmful or undesired ways. Security and AI-safety work now devote substantial effort to detecting and mitigating such poisoning. [<span class="citation" data-cites="owasp_llm_training_poisoning_2025">OWASP GenAI Security Project (2025)</span>]<span class="citation" data-cites="anthropic_small_poison_2023">(Anthropic, UK AI Security Institute, Alan Turing Institute 2023)</span></p>
+<p>Another layer of complexity is that many LLM providers can, under certain terms of service, use user interactions for research or product improvement. This can help models become better over time, but it also means that user-generated content can influence future behavior, for good or ill.&nbsp;If large numbers of users repeat the same misconception, and that data is incorporated without careful filtering, the model may start to treat that misconception as plausible. <span class="citation" data-cites="owasp_llm_training_poisoning_2025">(OWASP GenAI Security Project 2025)</span></p>
+<p>For all these reasons, training and data curation are critical. Different kinds of neural networks and training setups exist because different tasks and data sources require different architectures, loss functions, and safeguards. In the</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-arxiv_tokens_words_2024" class="csl-entry">
+Anonymous. 2024. <span>“From Tokens to Words: On the Inner Lexicon of LLMs.”</span> <a href="https://arxiv.org/html/2410.05864v1">https://arxiv.org/html/2410.05864v1</a>.
+</div>
+<div id="ref-anthropic_small_poison_2023" class="csl-entry">
+Anthropic, UK AI Security Institute, Alan Turing Institute. 2023. <span>“A Small Number of Samples Can Poison LLMs of Any Size.”</span> <a href="https://www.anthropic.com/research/small-samples-poison">https://www.anthropic.com/research/small-samples-poison</a>.
+</div>
+<div id="ref-arize_tokenization_2025" class="csl-entry">
+Arize AI. 2025. <span>“Tokenization and Tokenizers for Machine Learning.”</span> <a href="https://arize.com/blog-course/tokenization/">https://arize.com/blog-course/tokenization/</a>.
+</div>
+<div id="ref-t9_wired_2010" class="csl-entry">
+Baker, Chris. 2010. <span>“How T9 Predictive Text Input Changed Mobile Phones.”</span> <a href="https://www.wired.com/2010/09/martin-king-t9-dies/">https://www.wired.com/2010/09/martin-king-t9-dies/</a>.
+</div>
+<div id="ref-coursera_tokenization_2024" class="csl-entry">
+Coursera. 2024. <span>“Tokenization in NLP: What Is It?”</span> <a href="https://www.coursera.org/articles/tokenization-nlp">https://www.coursera.org/articles/tokenization-nlp</a>.
+</div>
+<div id="ref-datacamp_tokenization_2026" class="csl-entry">
+DataCamp. 2026. <span>“Tokenization in NLP: How It Works, Challenges, and Use Cases.”</span> <a href="https://www.datacamp.com/blog/what-is-tokenization">https://www.datacamp.com/blog/what-is-tokenization</a>.
+</div>
+<div id="ref-fastai_karpathy_tokenizer_2025" class="csl-entry">
+fast.ai. 2025. <span>“Let’s Build the GPT Tokenizer: A Complete Guide.”</span> <a href="https://www.fast.ai/posts/2025-10-16-karpathy-tokenizers.html">https://www.fast.ai/posts/2025-10-16-karpathy-tokenizers.html</a>.
+</div>
+<div id="ref-google_mechanics_next_token_2024" class="csl-entry">
+Google DeepMind. 2024. <span>“Mechanics of Next Token Prediction with Self-Attention.”</span> <a href="https://arxiv.org/abs/2403.08081">https://arxiv.org/abs/2403.08081</a>.
+</div>
+<div id="ref-hinckleyallen_copyright_ai_2025" class="csl-entry">
+Hinckley Allen. 2025. <span>“Industry Today: AI Training Data — the Copyright Controversy.”</span> <a href="https://www.hinckleyallen.com/publications/industry-today-ai-training-data-the-copyright-controversy/">https://www.hinckleyallen.com/publications/industry-today-ai-training-data-the-copyright-controversy/</a>.
+</div>
+<div id="ref-huggingface_tokenizers_2024" class="csl-entry">
+Hugging Face. 2024. <span>“Tokenizers.”</span> <a href="https://huggingface.co/learn/llm-course/en/chapter2/4">https://huggingface.co/learn/llm-course/en/chapter2/4</a>.
+</div>
+<div id="ref-inventivehq_tokens_2026" class="csl-entry">
+InventiveHQ. 2026. <span>“Understanding LLM Tokens: How AI Models Count Words.”</span> <a href="https://inventivehq.com/blog/llm-tokens-explained">https://inventivehq.com/blog/llm-tokens-explained</a>.
+</div>
+<div id="ref-microsoft_tay_blog_2016" class="csl-entry">
+Microsoft. 2016. <span>“Learning from Tay’s Introduction.”</span> <a href="https://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/">https://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/</a>.
+</div>
+<div id="ref-microsoft_tokens_2026" class="csl-entry">
+Microsoft Learn. 2026. <span>“Understanding Tokens.”</span> <a href="https://learn.microsoft.com/en-us/dotnet/ai/conceptual/understanding-tokens">https://learn.microsoft.com/en-us/dotnet/ai/conceptual/understanding-tokens</a>.
+</div>
+<div id="ref-nature_ai_academic_data_2024" class="csl-entry">
+Nature Editorial. 2024. <span>“AI Firms Must Play Fair When They Use Academic Data in Training.”</span> <a href="https://www.nature.com/articles/d41586-024-02757-z">https://www.nature.com/articles/d41586-024-02757-z</a>.
+</div>
+<div id="ref-nvidia_tokens_2025" class="csl-entry">
+NVIDIA. 2025. <span>“What Are AI Tokens? The Language and Currency Powering AI.”</span> <a href="https://blogs.nvidia.com/blog/ai-tokens-explained/">https://blogs.nvidia.com/blog/ai-tokens-explained/</a>.
+</div>
+<div id="ref-owasp_llm_training_poisoning_2025" class="csl-entry">
+OWASP GenAI Security Project. 2025. <span>“LLM03: Training Data Poisoning.”</span> <a href="https://genai.owasp.org/llmrisk2023-24/llm03-training-data-poisoning/">https://genai.owasp.org/llmrisk2023-24/llm03-training-data-poisoning/</a>.
+</div>
+<div id="ref-raschka_next_token_2026" class="csl-entry">
+Raschka, Sebastian. 2026. <span>“How Does Next-Token Prediction Train a Large Language Model?”</span> <a href="https://sebastianraschka.com/faq/docs/next-token-prediction.html">https://sebastianraschka.com/faq/docs/next-token-prediction.html</a>.
+</div>
+<div id="ref-traceloop_tokenization_2025" class="csl-entry">
+Traceloop. 2025. <span>“A Comprehensive Guide to Tokenizing Text for LLMs.”</span> <a href="https://www.traceloop.com/blog/a-comprehensive-guide-to-tokenizing-text-for-llms">https://www.traceloop.com/blog/a-comprehensive-guide-to-tokenizing-text-for-llms</a>.
+</div>
+<div id="ref-trott_tokenization_2024" class="csl-entry">
+Trott, Sean. 2024. <span>“Tokenization in Large Language Models, Explained.”</span> <a href="https://seantrott.substack.com/p/tokenization-in-large-language-models">https://seantrott.substack.com/p/tokenization-in-large-language-models</a>.
+</div>
+<div id="ref-t9_wikipedia_2006" class="csl-entry">
+Wikipedia contributors. 2006. <span>“T9 (Predictive Text).”</span> <a href="https://en.wikipedia.org/wiki/T9_(predictive_text)">https://en.wikipedia.org/wiki/T9_(predictive_text)</a>.
+</div>
+<div id="ref-tay_wikipedia_2016" class="csl-entry">
+———. 2016. <span>“Tay (Chatbot).”</span> <a href="https://en.wikipedia.org/wiki/Tay_(chatbot)">https://en.wikipedia.org/wiki/Tay_(chatbot)</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>LLM</category>
+  <category>tutorials</category>
+  <guid>https://giorgioluciano.github.io/posts/024_lmm_vibe_coding/</guid>
+  <pubDate>Mon, 29 Jun 2026 22:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Interesting New R Packages (2025)</title>
   <link>https://giorgioluciano.github.io/posts/Packages Review 2025/</link>
@@ -7412,1401 +7561,6 @@ font-style: inherit;"># Add a line at 0.5 for reference</span></span></code></pr
   <category>R</category>
   <category>Fun</category>
   <guid>https://giorgioluciano.github.io/posts/015_Birthday_Paradox/</guid>
-  <pubDate>Fri, 15 Sep 2023 22:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Anscombe’s Quartet</title>
-  <dc:creator>Giorgio Luciano</dc:creator>
-  <link>https://giorgioluciano.github.io/posts/016_Anscombe/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>Anscombe’s Quartet, known as the “Anscombe’s Test,” consists of four datasets with very similar descriptive statistics but visually distinct characteristics. These quartets serve as an enlightening example of the importance of visualizing data before drawing conclusions.</p>
-<p>In this post, we will delve into how to calculate and visualize Anscombe’s Quartet using R and the powerful ggplot2 library. We’ll also use custom functions to generate these quartets and analyze them.</p>
-<p>Anscombe’s Quartet was created by the statistician Francis Anscombe in 1973 to underscore the importance of data visualization before analysis. Despite having similar statistics, these datasets exhibit significantly different visual behaviors. Let’s see how R and ggplot2 help us explore them.</p>
-<p>To get started, we need to load some libraries:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(data.table)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(ggplot2)</span>
-<span id="cb1-3"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(patchwork)</span></code></pre></div>
-</div>
-<p>Anscombe’s Quartet comprises four datasets, each with 11 data points. Here’s a brief overview of the quartet:</p>
-<ul>
-<li><p><strong>Dataset 1:</strong> A straightforward linear relationship between X and Y.</p></li>
-<li><p><strong>Dataset 2:</strong> A linear relationship with an outlier.</p></li>
-<li><p><strong>Dataset 3:</strong> A linear relationship with one point substantially different from the others.</p></li>
-<li><p><strong>Dataset 4:</strong> A non-linear relationship.</p></li>
-</ul>
-<p>(see <a href="https://rpubs.com/dgrtwo/tidy-anscombe">Rpubs</a> page)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(datasets)</span>
-<span id="cb2-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(ggplot2)</span>
-<span id="cb2-3"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(dplyr)</span></code></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:data.table':
-
-    between, first, last</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(tidyr)</span>
-<span id="cb7-2">datasets<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">::</span>anscombe</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   x1 x2 x3 x4    y1   y2    y3    y4
-1  10 10 10  8  8.04 9.14  7.46  6.58
-2   8  8  8  8  6.95 8.14  6.77  5.76
-3  13 13 13  8  7.58 8.74 12.74  7.71
-4   9  9  9  8  8.81 8.77  7.11  8.84
-5  11 11 11  8  8.33 9.26  7.81  8.47
-6  14 14 14  8  9.96 8.10  8.84  7.04
-7   6  6  6  8  7.24 6.13  6.08  5.25
-8   4  4  4 19  4.26 3.10  5.39 12.50
-9  12 12 12  8 10.84 9.13  8.15  5.56
-10  7  7  7  8  4.82 7.26  6.42  7.91
-11  5  5  5  8  5.68 4.74  5.73  6.89</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">summary</span>(anscombe)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       x1             x2             x3             x4           y1        
- Min.   : 4.0   Min.   : 4.0   Min.   : 4.0   Min.   : 8   Min.   : 4.260  
- 1st Qu.: 6.5   1st Qu.: 6.5   1st Qu.: 6.5   1st Qu.: 8   1st Qu.: 6.315  
- Median : 9.0   Median : 9.0   Median : 9.0   Median : 8   Median : 7.580  
- Mean   : 9.0   Mean   : 9.0   Mean   : 9.0   Mean   : 9   Mean   : 7.501  
- 3rd Qu.:11.5   3rd Qu.:11.5   3rd Qu.:11.5   3rd Qu.: 8   3rd Qu.: 8.570  
- Max.   :14.0   Max.   :14.0   Max.   :14.0   Max.   :19   Max.   :10.840  
-       y2              y3              y4        
- Min.   :3.100   Min.   : 5.39   Min.   : 5.250  
- 1st Qu.:6.695   1st Qu.: 6.25   1st Qu.: 6.170  
- Median :8.140   Median : 7.11   Median : 7.040  
- Mean   :7.501   Mean   : 7.50   Mean   : 7.501  
- 3rd Qu.:8.950   3rd Qu.: 7.98   3rd Qu.: 8.190  
- Max.   :9.260   Max.   :12.74   Max.   :12.500  </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1">anscombe_tidy <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-2">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">observation =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq_len</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">n</span>())) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-3">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">gather</span>(key, value, <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>observation) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-4">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">separate</span>(key, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"variable"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"set"</span>), <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">convert =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-5">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">set =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"I"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"II"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"III"</span>, <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"IV"</span>)[set]) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">%&gt;%</span></span>
-<span id="cb11-6">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">spread</span>(variable, value)</span>
-<span id="cb11-7"></span>
-<span id="cb11-8"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">head</span>(anscombe_tidy)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  observation set  x    y
-1           1   I 10 8.04
-2           1  II 10 9.14
-3           1 III 10 7.46
-4           1  IV  8 6.58
-5           2   I  8 6.95
-6           2  II  8 8.14</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(anscombe_tidy, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(x, y)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb13-2">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb13-3">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">facet_wrap</span>(<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> set) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb13-4">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"lm"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">se =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">FALSE</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://giorgioluciano.github.io/posts/016_Anscombe/index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Now, let’s integrate your custom R code and examples to generate and visualize Anscombe’s Quartet:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(vtable)</span></code></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: kableExtra</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'kableExtra'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:dplyr':
-
-    group_rows</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(kableExtra)</span>
-<span id="cb19-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">library</span>(patchwork)</span>
-<span id="cb19-3"></span>
-<span id="cb19-4"></span>
-<span id="cb19-5"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Note: Function to generate Anscombe's Quartet datasets for x2 we need a trick that can be also improved but for now as a brutal approx works</span></span>
-<span id="cb19-6"></span>
-<span id="cb19-7"></span>
-<span id="cb19-8">plotreg <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">function</span>(df) {</span>
-<span id="cb19-9">  formula <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> y <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> x</span>
-<span id="cb19-10">  </span>
-<span id="cb19-11">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(df, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> x, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> y)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb19-12">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.3</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb19-13">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"lm"</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">formula =</span> formula, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">se =</span> <span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">TRUE</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb19-14">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">coord_cartesian</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xlim =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">19</span>), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">ylim =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">14</span>)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Imposta i limiti di x e y</span></span>
-<span id="cb19-15">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme_light</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">base_size =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb19-16">    <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">legend.position =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"none"</span>)</span>
-<span id="cb19-17">}</span>
-<span id="cb19-18"></span>
-<span id="cb19-19">generate_noisy_points <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">function</span>(x, y, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">noise_level =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.1</span>) {</span>
-<span id="cb19-20">  n <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">length</span>(x)</span>
-<span id="cb19-21">  </span>
-<span id="cb19-22">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Generate random noise for x and y separately</span></span>
-<span id="cb19-23">  noise_x <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rnorm</span>(n, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">sd =</span> noise_level)</span>
-<span id="cb19-24">  noise_y <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rnorm</span>(n, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">sd =</span> noise_level)</span>
-<span id="cb19-25">  </span>
-<span id="cb19-26">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Ensure that the sum of noise on x and y is approximately zero</span></span>
-<span id="cb19-27">  noise_x <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> noise_x <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mean</span>(noise_x)</span>
-<span id="cb19-28">  noise_y <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> noise_y <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">mean</span>(noise_y)</span>
-<span id="cb19-29">  </span>
-<span id="cb19-30">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Add noise to the original data</span></span>
-<span id="cb19-31">  x_noisy <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> x <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> noise_x</span>
-<span id="cb19-32">  y_noisy <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> y <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> noise_y</span>
-<span id="cb19-33">  </span>
-<span id="cb19-34">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> x_noisy, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> y_noisy))</span>
-<span id="cb19-35">}</span>
-<span id="cb19-36"></span>
-<span id="cb19-37"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Function to generate approximated points with an option to add noise</span></span>
-<span id="cb19-38">generate_approximated_points <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">function</span>(n, x, y, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">noise_level =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>) {</span>
-<span id="cb19-39">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Create a new interpolation based on the original data</span></span>
-<span id="cb19-40">  interpolated_values <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">approx</span>(x, y, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xout =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(x), <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">max</span>(x), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">length.out =</span> n))</span>
-<span id="cb19-41">  </span>
-<span id="cb19-42">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Extract the interpolated points</span></span>
-<span id="cb19-43">  x_interp <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> interpolated_values<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x</span>
-<span id="cb19-44">  y_interp <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> interpolated_values<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y</span>
-<span id="cb19-45">  </span>
-<span id="cb19-46">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Add noise if needed</span></span>
-<span id="cb19-47">  <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">if</span> (noise_level <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>) {</span>
-<span id="cb19-48">    noise <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rnorm</span>(n, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">mean =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">sd =</span> noise_level)</span>
-<span id="cb19-49">    x_interp <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> x_interp <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> noise</span>
-<span id="cb19-50">    y_interp <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> y_interp <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> noise</span>
-<span id="cb19-51">  }</span>
-<span id="cb19-52">  </span>
-<span id="cb19-53">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Return the approximated points</span></span>
-<span id="cb19-54">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> x_interp, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> y_interp))</span>
-<span id="cb19-55">}</span>
-<span id="cb19-56"></span>
-<span id="cb19-57"></span>
-<span id="cb19-58">multians <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
-background-color: null;
-font-weight: bold;
-font-style: inherit;">function</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">npoints =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">11</span>, anscombe) {</span>
-<span id="cb19-59">  x1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x1</span>
-<span id="cb19-60">  x2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x2</span>
-<span id="cb19-61">  x3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x3</span>
-<span id="cb19-62">  x4 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x4</span>
-<span id="cb19-63">  y1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y1</span>
-<span id="cb19-64">  y2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y2</span>
-<span id="cb19-65">  y3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y3</span>
-<span id="cb19-66">  y4 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y4</span>
-<span id="cb19-67"></span>
-<span id="cb19-68">  <span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Generate Quartet 1 ##</span></span>
-<span id="cb19-69">  x_selected <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(x1[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>], x1[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>], x1[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">11</span>])</span>
-<span id="cb19-70">  y_selected <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(y1[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>], y1[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>], y1[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">11</span>])</span>
-<span id="cb19-71"></span>
-<span id="cb19-72">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Calculate the linear regression</span></span>
-<span id="cb19-73">  linear_model <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">lm</span>(y_selected <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> x_selected)</span>
-<span id="cb19-74"></span>
-<span id="cb19-75">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Extract coefficients of the line</span></span>
-<span id="cb19-76">  intercept <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">coef</span>(linear_model)[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>]</span>
-<span id="cb19-77">  slope <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">coef</span>(linear_model)[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>]</span>
-<span id="cb19-78"></span>
-<span id="cb19-79">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Create a sinusoidal curve above or below the line</span></span>
-<span id="cb19-80">  x_sin <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(x1), <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">max</span>(x1), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">length.out =</span> npoints)  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># x range for the sinusoid</span></span>
-<span id="cb19-81">  amplitude <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Amplitude of the sinusoid</span></span>
-<span id="cb19-82">  frequency <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Frequency of the sinusoid</span></span>
-<span id="cb19-83">  phase <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> pi <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span>  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Phase of the sinusoid (for rotation)</span></span>
-<span id="cb19-84">  sinusoid <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> amplitude <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">sin</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> pi <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> frequency <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> (x_sin <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(x1)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> (<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">max</span>(x1) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(x1)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> phase)</span>
-<span id="cb19-85"></span>
-<span id="cb19-86">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Generate points above or below the line</span></span>
-<span id="cb19-87">  y_sin <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> slope <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">*</span> x_sin <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> intercept <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span> sinusoid</span>
-<span id="cb19-88">  df1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> x_sin, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> y_sin)</span>
-<span id="cb19-89"></span>
-<span id="cb19-90">  <span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Generate Quartet 2 ##</span></span>
-<span id="cb19-91">  n_points_approximated <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> npoints</span>
-<span id="cb19-92">  noise_level <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.1</span></span>
-<span id="cb19-93"></span>
-<span id="cb19-94">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Generate approximated points</span></span>
-<span id="cb19-95">  approximated_points <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">generate_approximated_points</span>(n_points_approximated, x2, y2, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">noise_level =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.1</span>)</span>
-<span id="cb19-96"></span>
-<span id="cb19-97">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Add noise to the approximated points</span></span>
-<span id="cb19-98">  noisy_approximated_points <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">generate_noisy_points</span>(approximated_points<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x, approximated_points<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y, noise_level)</span>
-<span id="cb19-99"></span>
-<span id="cb19-100">  <span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Now, you have noisy approximated points in df2</span></span>
-<span id="cb19-101">  df2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> noisy_approximated_points<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> noisy_approximated_points<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y)</span>
-<span id="cb19-102"></span>
-<span id="cb19-103">  <span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Generate Quartet 3 ##</span></span>
-<span id="cb19-104">  lm_model <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">lm</span>(y3 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">~</span> x3, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">subset =</span> <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>))</span>
-<span id="cb19-105">  x_generated <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(x3), <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">max</span>(x3), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">length.out =</span> npoints)</span>
-<span id="cb19-106">  y_generated <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">predict</span>(lm_model, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">newdata =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x3 =</span> x_generated))</span>
-<span id="cb19-107"></span>
-<span id="cb19-108">  x_outlier <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">13</span></span>
-<span id="cb19-109">  y_outlier <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">12.74</span></span>
-<span id="cb19-110">  x_generated <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(x_generated, x_outlier)</span>
-<span id="cb19-111">  y_generated <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(y_generated, y_outlier)</span>
-<span id="cb19-112"></span>
-<span id="cb19-113">  df3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> x_generated, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> y_generated)</span>
-<span id="cb19-114"></span>
-<span id="cb19-115">  <span class="do" style="color: #5E5E5E;
-background-color: null;
-font-style: italic;">## Generate Quartet 4 ##</span></span>
-<span id="cb19-116">  </span>
-<span id="cb19-117">  y4[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">9</span>]</span>
-<span id="cb19-118">  x <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rep</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(x4),npoints))</span>
-<span id="cb19-119">  y <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">seq</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">min</span>(y4[<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8</span>]), <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">max</span>(y4[<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8</span>]), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">length.out =</span> (npoints)))</span>
-<span id="cb19-120">  x_new <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(x,x4[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8</span>])</span>
-<span id="cb19-121">  y_new <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">c</span>(y,y4[<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">8</span>])</span>
-<span id="cb19-122">  df4 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> x_new, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> y_new)</span>
-<span id="cb19-123"></span>
-<span id="cb19-124">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">list</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">df1 =</span> df1, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">df2 =</span> df2, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">df3 =</span> df3, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">df4 =</span> df4))</span>
-<span id="cb19-125">}</span>
-<span id="cb19-126"></span>
-<span id="cb19-127"></span>
-<span id="cb19-128"></span>
-<span id="cb19-129"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Generate and plot Quartet 1</span></span>
-<span id="cb19-130">t1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">multians</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">33</span>,anscombe)</span>
-<span id="cb19-131"></span>
-<span id="cb19-132">p1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plotreg</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df1)</span>
-<span id="cb19-133">p3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plotreg</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df3)</span>
-<span id="cb19-134">p4 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plotreg</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df4)</span>
-<span id="cb19-135">p2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">plotreg</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df2)</span>
-<span id="cb19-136"></span>
-<span id="cb19-137">(p1 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> p2) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">/</span> (p3 <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">|</span> p4)</span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://giorgioluciano.github.io/posts/016_Anscombe/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;"># Example of eight summaries (replace them with your own)</span></span>
-<span id="cb20-2">summary1 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df1)</span>
-<span id="cb20-3">summary5 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x1,anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y1))</span>
-<span id="cb20-4"></span>
-<span id="cb20-5">summary2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df2)</span>
-<span id="cb20-6">summary6 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x2,anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y2))</span>
-<span id="cb20-7"></span>
-<span id="cb20-8">summary3 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df3)</span>
-<span id="cb20-9">summary7 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x3,anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y3))</span>
-<span id="cb20-10"></span>
-<span id="cb20-11">summary4 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(t1<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>df4)</span>
-<span id="cb20-12">summary8 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">st</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>x4,anscombe<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>y4))</span>
-<span id="cb20-13"></span>
-<span id="cb20-14"></span>
-<span id="cb20-15">summary1 </span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">x</td>
-<td style="text-align: left;">33</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">6.5</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: left;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">y</td>
-<td style="text-align: left;">33</td>
-<td style="text-align: left;">8.3</td>
-<td style="text-align: left;">2.2</td>
-<td style="text-align: left;">4.7</td>
-<td style="text-align: left;">6.5</td>
-<td style="text-align: left;">10</td>
-<td style="text-align: left;">13</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1">summary5 </span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">anscombe.x1</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: left;">3.3</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">6.5</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: left;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">anscombe.y1</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">7.5</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">4.3</td>
-<td style="text-align: left;">6.3</td>
-<td style="text-align: left;">8.6</td>
-<td style="text-align: left;">11</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">summary2 </span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">x</td>
-<td style="text-align: left;">33</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">6.5</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">y</td>
-<td style="text-align: left;">33</td>
-<td style="text-align: left;">7.6</td>
-<td style="text-align: left;">1.8</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">6.6</td>
-<td style="text-align: left;">8.9</td>
-<td style="text-align: left;">9.3</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1">summary6 </span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">anscombe.x2</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: left;">3.3</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">6.5</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: left;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">anscombe.y2</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">7.5</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">3.1</td>
-<td style="text-align: left;">6.7</td>
-<td style="text-align: left;">8.9</td>
-<td style="text-align: left;">9.3</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1">summary3</span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">x</td>
-<td style="text-align: left;">34</td>
-<td style="text-align: left;">9.1</td>
-<td style="text-align: left;">3.1</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">6.6</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: left;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">y</td>
-<td style="text-align: left;">34</td>
-<td style="text-align: left;">7.3</td>
-<td style="text-align: left;">1.4</td>
-<td style="text-align: left;">5.4</td>
-<td style="text-align: left;">6.3</td>
-<td style="text-align: left;">8.1</td>
-<td style="text-align: left;">13</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1">summary7 </span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">anscombe.x3</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: left;">3.3</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">6.5</td>
-<td style="text-align: left;">12</td>
-<td style="text-align: left;">14</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">anscombe.y3</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">7.5</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">5.4</td>
-<td style="text-align: left;">6.2</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">13</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1">summary4 </span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">x</td>
-<td style="text-align: left;">34</td>
-<td style="text-align: left;">8.3</td>
-<td style="text-align: left;">1.9</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">19</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">y</td>
-<td style="text-align: left;">34</td>
-<td style="text-align: left;">7.2</td>
-<td style="text-align: left;">1.4</td>
-<td style="text-align: left;">5.2</td>
-<td style="text-align: left;">6.2</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">12</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1">summary8</span></code></pre></div>
-<div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Summary Statistics</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Std. Dev.</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 25</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Pctl. 75</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">anscombe.x4</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">9</td>
-<td style="text-align: left;">3.3</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">8</td>
-<td style="text-align: left;">19</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">anscombe.y4</td>
-<td style="text-align: left;">11</td>
-<td style="text-align: left;">7.5</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">5.2</td>
-<td style="text-align: left;">6.2</td>
-<td style="text-align: left;">8.2</td>
-<td style="text-align: left;">12</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>Anscombe’s Quartet is a powerful reminder that descriptive statistics alone may not reveal the complete story of your data. Visualization is a crucial tool in data analysis, helping you uncover patterns, outliers, and unexpected relationships that numbers alone might miss.</p>
-<p><span class="citation" data-cites="10.1145/3231772 a23325bf-6a64-3bba-a051-ebe1b2dce874">(Szafir 2018; Anscombe 1973)</span></p>
-
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-<div id="ref-a23325bf-6a64-3bba-a051-ebe1b2dce874" class="csl-entry">
-Anscombe, F. J. 1973. <span>“Graphs in Statistical Analysis.”</span> <em>The American Statistician</em> 27 (1): 17–21. <a href="http://www.jstor.org/stable/2682899">http://www.jstor.org/stable/2682899</a>.
-</div>
-<div id="ref-10.1145/3231772" class="csl-entry">
-Szafir, Danielle Albers. 2018. <span>“The Good, the Bad, and the Biased: Five Ways Visualizations Can Mislead (and How to Fix Them).”</span> <em>Interactions</em> 25 (4): 26–33. <a href="https://doi.org/10.1145/3231772">https://doi.org/10.1145/3231772</a>.
-</div>
-</div></section></div> ]]></description>
-  <category>R</category>
-  <category>Fun</category>
-  <guid>https://giorgioluciano.github.io/posts/016_Anscombe/</guid>
   <pubDate>Fri, 15 Sep 2023 22:00:00 GMT</pubDate>
 </item>
 </channel>

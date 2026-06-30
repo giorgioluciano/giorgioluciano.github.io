@@ -1,0 +1,131 @@
+---
+title: "From T9 to LLMs"
+author: "Giorgio Luciano"
+date: "2026-06-30"
+categories:
+  - LLM
+  - tutorials
+bibliography: references.bib
+---
+
+## From T9 to LLMs
+
+If you remember the old T9 keyboards on mobile phones, you already know the basic idea behind a language model. T9 was a form of predictive text: instead of typing every letter in the usual way, you entered a sequence of keys and the phone tried to guess the word you meant. In a very simple sense, it was doing what autocomplete does today in email or messaging apps: looking at the beginning of a word or sentence and suggesting what is most likely to come next. [@t9_wikipedia_2006][@t9_wired_2010]
+
+That same general idea sits at the heart of large language models, or LLMs. An LLM is trained on huge amounts of text and learns statistical patterns about which tokens tend to follow other tokens in similar contexts. So when you type a prompt like "Hello, how are", the model does not magically "understand" the sentence in the human sense; instead, it estimates which continuation is most probable given the context it has seen during training. [@raschka_next_token_2026][@google_mechanics_next_token_2024]
+
+This is why people often describe LLMs as extremely advanced autocomplete systems. That description is not the whole story, of course, but it is a good starting point. The model is not simply copying fixed phrases: it uses a neural network with many internal parameters to learn patterns of grammar, style, and context from a large corpus of text. As a result, it can generate new sentences rather than only repeating what it has seen before. [@raschka_next_token_2026][@google_mechanics_next_token_2024]
+
+## What are tokens?
+
+Before we go any further, we need one important idea: language models do not read text the way humans do. They first break it into small pieces called *tokens*. A token can be a whole word, part of a word, punctuation, or sometimes even a short fragment of text, depending on the tokenizer used by the model. [@microsoft_tokens_2026][@trott_tokenization_2024]
+
+This matters because the model does not work directly with raw text. It works with tokens, which are the units it processes during training and when generating new text. So when we type a sentence into an LLM, that sentence is first converted into tokens, then into numbers, and only after that can the model use it. [@microsoft_tokens_2026][@nvidia_tokens_2025]
+
+A simple example helps. Imagine the phrase below as a sequence of tokens:
+
+<code>
+<span style="background-color:#e3f2fd; padding:2px 4px; margin-right:4px;">Hello</span>
+<span style="background-color:#ffebee; padding:2px 4px; margin-right:4px;">,</span>
+<span style="background-color:#e8f5e9; padding:2px 4px; margin-right:4px;">how</span>
+<span style="background-color:#fff3e0; padding:2px 4px; margin-right:4px;">are</span>
+<span style="background-color:#ede7f6; padding:2px 4px; margin-right:4px;">you</span>
+<span style="background-color:#f3e5f5; padding:2px 4px; margin-right:4px;">?</span>
+</code>
+
+The exact split is only illustrative, because different tokenizers may divide the same sentence in slightly different ways. The important idea is that the model sees small pieces, not one uninterrupted sentence. That is why token counts do not always match word counts exactly. [@trott_tokenization_2024][@datacamp_tokenization_2026]
+
+You can think of tokens as the working pieces of language for the model, a bit like LEGO bricks. Humans read complete words and sentences, while the model reads chunks of text that it has learned to handle efficiently. Once those pieces are in place, the model can predict what comes next. [@microsoft_tokens_2026][@nvidia_tokens_2025]
+
+This is also why token limits matter. If a model can only process a certain number of tokens at once, that limit controls how much text it can keep in mind during a single interaction. It also helps explain why long prompts and long answers may cost more when using an API. [@nvidia_tokens_2025][@inventivehq_tokens_2026]
+
+A key point is that tokenization does not always follow the boundaries of written words. Depending on the tokenizer, a single word may remain intact or be split into several smaller pieces. This is why the same sentence can produce different token sequences in different language models. [@huggingface_tokenizers_2024][@arxiv_tokens_words_2024]
+
+## Two ways to split tokens
+
+To really see what tokens are, it helps to look at the same text through two different “lenses”. Tokenization is the process of breaking a string of text into discrete units called tokens, which can be words, subwords, punctuation marks, or even single characters, depending on the tokenizer. [@huggingface_tokenizers_2024][@trott_tokenization_2024]
+
+In a simple, word-based view, the sentence:
+
+> Hello, how are you?
+
+might be tokenized as four words, plus punctuation:
+
+<code>
+<span style="background-color:#e3f2fd; padding:2px 4px; margin-right:4px;">Hello</span>
+<span style="background-color:#ffebee; padding:2px 4px; margin-right:4px;">,</span>
+<span style="background-color:#e8f5e9; padding:2px 4px; margin-right:4px;">how</span>
+<span style="background-color:#fff3e0; padding:2px 4px; margin-right:4px;">are</span>
+<span style="background-color:#ede7f6; padding:2px 4px; margin-right:4px;">you</span>
+<span style="background-color:#f3e5f5; padding:2px 4px; margin-right:4px;">?</span>
+</code>
+
+This is close to how we intuitively think about words: each word is one token, and punctuation marks are separate tokens. It is a useful mental model for getting started, and matches traditional word-based tokenization in many NLP examples. [@coursera_tokenization_2024][@arize_tokenization_2025]
+
+Modern LLMs, however, often use *subword* tokenization. In this view, a single written word can be split into multiple tokens. For example:
+
+<code>
+<span style="background-color:#e3f2fd; padding:2px 4px; margin-right:4px;">un</span>
+<span style="background-color:#e8f5e9; padding:2px 4px; margin-right:4px;">believ</span>
+<span style="background-color:#fff3e0; padding:2px 4px; margin-right:4px;">able</span>
+</code>
+
+or:
+
+<code>
+<span style="background-color:#e3f2fd; padding:2px 4px; margin-right:4px;">token</span>
+<span style="background-color:#e8f5e9; padding:2px 4px; margin-right:4px;">ization</span>
+</code>
+
+These are illustrative, but they capture the key idea: frequent pieces like `token` or `ing` may become their own tokens, and rarer words are represented as combinations of such pieces. This approach, known as subword tokenization, balances vocabulary size with flexibility and is widely used in transformer-based LLMs. [@huggingface_tokenizers_2024][@fastai_karpathy_tokenizer_2025][@arxiv_tokens_words_2024]
+
+The important takeaway for our purposes is simple: tokens are the units the model actually sees and manipulates. Sometimes they align neatly with words, and sometimes they do not. Understanding this makes it easier to see what “predicting the next token” really means. [@trott_tokenization_2024][@traceloop_tokenization_2025]
+
+## A short detour: neural networks
+
+Now that we have an idea of what tokens are, we can ask a natural question: how can a model use these tokens to predict the next word or token? This is where neural networks come into play. 
+
+Neural networks are not a new concept. The first mathematical model of a neural network was introduced in the 1940s by Warren McCulloch and Walter Pitts, who proposed a simplified “neuron” that could perform logical computations. Their work laid the foundation for later developments, and the basic idea is still recognizable in modern models: a network of simple units that transform inputs into outputs. 
+The analogy with the brain is intentionally loose but helpful. In a very simplified picture, you can think of a neuron as receiving signals from other neurons, combining them, and “firing” when the total input is strong enough. In artificial neural networks, each neuron receives numbers, multiplies them by weights, adds them up, passes the result through a non-linear function, and sends that output forward to the next layer.
+
+A visual example makes this clearer. Imagine you are looking at an image of a house. Your eyes capture the light and turn it into electrical signals that travel through many layers of neurons in the visual system. Each layer extracts different kinds of features: edges, shapes, and increasingly complex patterns, until eventually the activity pattern corresponds to the concept “house”. In an artificial network, we mimic this process: we feed the image in as numbers, pass them through several layers of weighted connections, and interpret the final output as a class label such as “house”. 
+From a mathematical point of view, the key ingredients are:
+
+- **Inputs**: numbers that represent the data (for example, pixel values for an image or token embeddings for text).
+- **Weights and biases**: parameters attached to each connection and neuron that determine how strongly different inputs influence the outputs.
+- **Outputs**: numbers that represent predictions, such as “this image is a house” or “the next token should be `you`”. 
+
+During training, the network sees many examples and gradually adjusts its weights so that the outputs become more accurate. If we show the network many images of houses and non-houses, it learns weight patterns that activate strongly for houses and weakly for other objects. Similarly, if we train a network on sequences of text, it learns weight patterns that produce high probability for plausible next tokens and low probability for unlikely ones. This is the bridge between tokens and next-token prediction. 
+
+## What does this mean for LLMs?
+
+So what does all of this have to do with our language models? The key point is that neural networks are very good at predicting things, as long as they have seen enough examples. Given enough data, they can learn to estimate what is likely to come next: the next class label in image recognition, or the next token in a sequence of text. [@raschka_next_token_2026]
+
+However, they do not start out knowing anything. They have to be trained. In practice, this means giving the network large amounts of input–output pairs and adjusting its weights so that it produces better and better predictions. For image classification, this might involve millions of labeled pictures; for large language models, it involves terabytes of text drawn from books, articles, websites, and other sources. Only after this training phase can the model be used to answer questions the way systems like ChatGPT do. 
+
+This is where a classic idea from computer science becomes important: *Garbage in, garbage out*. If we feed a model biased, noisy, or simply wrong data during training, it will learn those patterns and reproduce them. A neural network has no built-in way to “know” that a label is wrong; if we consistently call dogs “cats” in the training set, the model will learn to associate dog-like images with the word “cat”. It can be perfectly consistent and still wrong, because it only knows what it has seen. 
+
+Large language models behave in the same way. They generalize from their training data and from the context in the prompt. When the data is sparse, ambiguous, or missing for a particular topic, the model will still try to produce a plausible answer, often by combining patterns it has seen elsewhere. This can lead to *hallucinations*: outputs that look fluent and confident but are factually incorrect or unsupported. The model is not “lying” in a human sense; it is extrapolating beyond the reliable information it has, because its objective is to predict plausible tokens rather than to guarantee truth. 
+
+In practical terms, this means that training quality and data coverage are crucial. A model that has never seen a particular statistical test, a niche concept, or a rare factual detail cannot invent a correct explanation for it. At best, it can propose something similar to what it has learned before. If you ask an LLM to suggest a specialized method it has not encountered in its training set, it may instead offer a more familiar test that roughly fits the problem, even if that choice is not ideal. That is one way hallucinations arise in data analysis and other technical domains. 
+
+The main theoretical limitation is therefore not that the model “refuses to think”, but that it only reasons within the patterns encoded in its parameters. It infers from what it has seen; it does not have direct access to external reality or to new concepts outside its training data unless we explicitly connect it to additional tools or sources. Understanding this helps explain why training and evaluation design matter so much—and why “Garbage in, garbage out” still applies in the age of LLMs. 
+
+## Prediction, black swans, and data quality
+
+So far, we have described large language models as machines that are very good at predicting what you are going to write or say next. In spirit, this is similar to what humans sometimes do. If you read a lot of stories by Edgar Allan Poe, you might start to assume that every cat in the story is black, simply because that pattern appears so often. Your expectations are shaped by what you have seen. [@raschka_next_token_2026]
+
+The risk is that you lose sight of rare events—the “black swans” that do not fit the usual pattern. The world contains white cats, striped cats, and many other possibilities, but if all your examples are black cats, your mental model becomes narrow. Neural networks behave in a similar way: they learn patterns from the data they see, generalize those patterns, and then tend to favor the most familiar continuations. What they do not see, they cannot easily predict. 
+
+This raises very practical questions about where training data comes from. For commercial LLMs, the training corpus is huge and often includes web data, books, articles, and other sources. This has led to ongoing debates about copyright, consent, and fair use: how much copyrighted material can be used for training, under what conditions, and with which safeguards? Recent legal and policy discussions show that this is not a minor technical detail but a major societal issue. [@hinckleyallen_copyright_ai_2025][@nature_ai_academic_data_2024]
+
+There is also the question of *behavior* during training and deployment. An early example is Microsoft’s Tay chatbot, which was released on Twitter in 2016 and quickly began producing racist and offensive content after interacting with malicious users. Tay simply learned from the data it received; when that data was toxic, its output became toxic too. This is a vivid illustration of why “Garbage in, garbage out” still applies to AI systems. [@tay_wikipedia_2016][@microsoft_tay_blog_2016]
+
+Modern systems include many safeguards, but the underlying risk remains. If a model is trained or fine-tuned on biased, misleading, or adversarial data, its predictions can become skewed. This phenomenon is known as **training data poisoning**: manipulating the data used to build or refine a model so that its future behavior changes in harmful or undesired ways. Security and AI-safety work now devote substantial effort to detecting and mitigating such poisoning. [@owasp_llm_training_poisoning_2025][@anthropic_small_poison_2023]
+
+Another layer of complexity is that many LLM providers can, under certain terms of service, use user interactions for research or product improvement. This can help models become better over time, but it also means that user-generated content can influence future behavior, for good or ill. If large numbers of users repeat the same misconception, and that data is incorporated without careful filtering, the model may start to treat that misconception as plausible. [@owasp_llm_training_poisoning_2025]
+
+For all these reasons, training and data curation are critical. Different kinds of neural networks and training setups exist because different tasks and data sources require different architectures, loss functions, and safeguards. In the 
+
+
+
