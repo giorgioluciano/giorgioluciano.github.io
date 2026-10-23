@@ -14,20 +14,17 @@ toc: false
 
 # Science, code & visual stories. {.hero-title}
 
-I'm Giorgio Luciano, a materials scientist working across research, scientific computing, and visualization.
+I'm Giorgio Luciano, a materials scientist working across research, scientific computing, and scientific illustration.
 
 [Practical tools, visual experiments, and reflections on how science works.]{.hero-description}
 
 
+```{=html}
 <div class="hero-actions">
-  <a class="btn btn-primary" href="#writing">
-    Explore my writing
-  </a>
-  <a class="btn btn-outline-primary"
-     href="https://www.behance.net/giorgioluciano">
-    View my Behance ↗
-  </a>
+  <a class="btn btn-primary" href="#writing">Explore my writing</a>
+  <a class="btn btn-outline-primary" href="[https://www.behance.net/giorgioluciano](https://www.behance.net/giorgioluciano)">View my Behance ↗</a>
 </div>
+```
 
 
 <!-- PORTRAIT: temporarily disabled.
@@ -45,9 +42,9 @@ Replace headshot.jpg with the new portrait filename if needed.
 ::: {.home-section #writing}
 [01 / WORDS & IDEAS]{.eyebrow}
 
-## Selected writing
+## Writing & ideas
 
-Tutorials, practical notes, and reflections on research. Articles may be in English or Italian; the labels below indicate the destination and language.
+Practical tutorials and reflections on science, data, and research — in English and Italian.
 
 ::: {.content-grid}
 ::: {.feature-card}
