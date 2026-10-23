@@ -1,41 +1,112 @@
 ---
-image: headshot.jpg
-about:
-  template: trestles
-  image-shape: round
-  image-width: 20em
-  links:
-    - text: Github
-      href: https://github.com/giorgioluciano
-    - text: Twitter
-      href: https://twitter.com/giorgioluciano
-    - text: LinkedIn
-      href: https://www.linkedin.com/in/giorgioluciano/
-    - text: Instagram
-      href: https://www.instagram.com/giorgioluciano5477/
-    - text: Behance
-      href: https://www.behance.net/giorgioluciano
-    
+title: "Giorgio Luciano"
+pagetitle: "Giorgio Luciano — Science, code & visual stories"
+description: "Materials science, scientific computing, and reflections on research."
 page-layout: full
-title-block-banner: true
+title-block-style: none
+toc: false
 ---
 
-### [Blog](https://giorgioluciano.github.io/listing.html)
+::: {.home-shell}
+::: {.hero}
+::: {.hero-copy}
+[RESEARCH / COMPUTING / VISUALIZATION]{.eyebrow}
 
-Provides tutorials alongside practical examples in R. Topics include statistical simulations, data visualization, and common challenges in scientific analysis. The content is designed to offer useful insights for those working with data, without unnecessary complexity.
+# Science, code & visual stories. {.hero-title}
 
-### [Code](https://github.com/giorgioluciano)
+I'm Giorgio Luciano, a materials scientist working across research, scientific computing, and visualization.
 
-Repository featuring a collection of tutorials and 3D Blender projects. It focuses on Python programming applied to statistics. Contributions and collaborations are welcome!
+[Practical tools, visual experiments, and reflections on how science works.]{.hero-description}
 
-### [CrystalNodes](https://giorgioluciano.github.io/CrystalNodes/)
 
-Crystal Nodes (CN) is an addon for the 3D modelling & animation program [Blender](https://blender.org/) that enables easy creation of crystals illustrations. CN is focused on providing tools for drawing Crystallography illustrations and it is not (for now) a computational tool for calculating inorganic structures
+<div class="hero-actions">
+  <a class="btn btn-primary" href="#writing">
+    Explore my writing
+  </a>
+  <a class="btn btn-outline-primary"
+     href="https://www.behance.net/giorgioluciano">
+    View my Behance ↗
+  </a>
+</div>
 
-### [Essential Computer Graphics Techniques book](https://github.com/giorgioluciano/ESGT/)
 
-All the images of my book in high resolution
+<!-- PORTRAIT: temporarily disabled.
+To restore: add hero-with-portrait to the .hero class above,
+then remove the HTML comment markers around this block.
+Replace headshot.jpg with the new portrait filename if needed.
 
-# About me
+::: {.hero-portrait}
+![Portrait of Giorgio Luciano](headshot.jpg){.portrait}
+:::
 
-I got a Ph.D in materials science and I'm a researcher with a variety of interests. I currently works as a researcher at the Italian National Council of Research (CNR) on topics related to the characterization and development of new materials. My interests are also in 3D CG (lighting and rendering), and creating scientific illustration. Here you will find my code tutorials, blend files and other doodles
+-->
+:::
+
+::: {.home-section #writing}
+[01 / WORDS & IDEAS]{.eyebrow}
+
+## Selected writing
+
+Tutorials, practical notes, and reflections on research. Articles may be in English or Italian; the labels below indicate the destination and language.
+
+::: {.content-grid}
+::: {.feature-card}
+[RESEARCH & PERSPECTIVES]{.card-kicker}
+
+### Reflections on science
+
+Essays and observations on research, its people, and the world around it.
+
+[EN / IT · SUBSTACK]{.card-meta}
+
+[Explore my Substack ↗](https://giorgioluciano.substack.com/){.card-link}
+:::
+
+::: {.feature-card}
+[FEATURED ESSAY]{.card-kicker}
+
+### Dadi e Ricerca
+
+A reflection on research that begins with a game of Monopoly.
+
+[ITALIAN · SUBSTACK]{.card-meta}
+
+[Read the essay ↗](https://giorgioluciano.substack.com/p/dadi-e-ricerca){.card-link}
+:::
+
+::: {.feature-card}
+[TUTORIALS & NOTES]{.card-kicker}
+
+### Working with data
+
+Practical examples in R, statistical simulations, and scientific data visualization.
+
+[ON THIS SITE]{.card-meta}
+
+[Browse the blog →](listing.qmd){.card-link}
+:::
+:::
+:::
+
+::: {.home-section #resources}
+[02 / TOOLS TO TAKE AWAY]{.eyebrow}
+
+## Tools & resources
+
+Explore my collection of downloadable tools and resources on Gumroad.
+
+[Explore resources on Gumroad ↗](https://giorgioluciano.gumroad.com/){.btn .btn-primary}
+:::
+
+::: {.home-section .about-section #about}
+[03 / A LITTLE BACKGROUND]{.eyebrow}
+
+## About me
+
+I hold a PhD in materials science and work as a researcher at the Italian National Research Council (CNR), focusing on the characterization and development of materials.
+
+My interests extend to scientific computing, data analysis, 3D graphics, lighting, rendering, and scientific illustration. This site brings those interests together: things I write, tools I build, and images I create.
+
+[Code on GitHub ↗](https://github.com/giorgioluciano) · [Connect on LinkedIn ↗](https://www.linkedin.com/in/giorgioluciano/)
+:::
+:::

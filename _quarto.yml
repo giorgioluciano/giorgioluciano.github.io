@@ -1,42 +1,46 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - index.qmd
+    - listing.qmd
+    - "posts/**/*.qmd"
 website:
-  title: "Data & Molecule Bits"
+  title: "Giorgio Luciano"
   site-url: https://giorgioluciano.github.io
-  description: "Provides tutorials  alongside practical examples in R. Topics include statistical simulations, data visualization, and common challenges in scientific analysis. The content is designed to offer useful insights for those working with data, without unnecessary complexity."
-  
+  description: "Science, code & visual stories."
   navbar:
-    left: 
-      - text: Code
-        file: https://github.com/giorgioluciano
-      - text: CrystalNodes  
-        href: https://github.com/giorgioluciano/CrystalNodes
-      - text: ESGT
-        href: https://github.com/giorgioluciano/ESGT/
+    left:
+      - text: Writing
+        href: index.qmd#writing
+      - text: Visual work
+        href: https://www.behance.net/giorgioluciano
+      - text: Resources
+        href: https://giorgioluciano.gumroad.com/
+      - text: About
+        href: index.qmd#about
     right:
       - icon: github
         href: https://github.com/giorgioluciano
-      - icon: twitter
-        href: https://twitter.com/giorgioluciano
+        aria-label: GitHub
       - icon: linkedin
         href: https://www.linkedin.com/in/giorgioluciano/
-      - icon: instagram
-        href: https://www.instagram.com/giorgioluciano5477/
-      - icon: behance
+        aria-label: LinkedIn
+  page-footer:
+    left: "Giorgio Luciano · Science, code & visual stories"
+    right:
+      - text: Substack
+        href: https://giorgioluciano.substack.com/
+      - text: Behance
         href: https://www.behance.net/giorgioluciano
-      - icon: rss
-        href: listing.xml
-
-cookie-consent: true        
+      - text: Gumroad
+        href: https://giorgioluciano.gumroad.com/
 format:
   html:
+    theme: cosmo
+    lang: en
     toc: true
-    theme:
-      light: [trestles, theme.scss]
     code-copy: true
     code-overflow: wrap
     css: styles.css
-  
 editor: visual
-

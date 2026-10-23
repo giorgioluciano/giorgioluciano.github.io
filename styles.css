@@ -1,1 +1,52 @@
-/* css styles */
+/* Warm orange identity. Homepage-specific styles are scoped. */
+:root{--paper:#fbf7f1;--ink:#29231f;--muted:#6c6057;--accent:#ad470c;--line:#e6d8ca;--bs-link-color:#ad470c;--bs-link-hover-color:#843309;}
+body{background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;}
+a{color:var(--accent);text-underline-offset:.2em;}a:hover{color:#843309;}
+a:focus-visible,button:focus-visible{outline:3px solid #ad470c;outline-offset:5px;}
+.navbar{background:var(--paper)!important;border-bottom:1px solid var(--line);padding-block:1rem;}
+.navbar-brand{font-weight:750;letter-spacing:-.035em;}.navbar .nav-link{font-size:.94rem;}
+.nav-footer{border-top:1px solid var(--line);color:var(--muted);}
+.home-shell{max-width:1120px;margin-inline:auto;padding:0 1.25rem 3rem;}
+.home-shell .hero{display:grid;grid-template-columns:minmax(0,1fr);align-items:center;gap:4rem;padding:6rem 0 5rem;}
+.home-shell .hero-copy{max-width:850px;}
+.home-shell .eyebrow{display:block;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.73rem;letter-spacing:.13em;color:var(--accent);margin-bottom:1.4rem;}
+.home-shell .hero-title{font-size:clamp(2.8rem,6vw,5rem);line-height:1.03;letter-spacing:-.06em;font-weight:750;margin:0 0 1.7rem;}
+.home-shell .hero-copy>p{font-size:1.16rem;line-height:1.75;max-width:39rem;}
+.home-shell .hero-description{color:var(--muted);}
+.home-shell .hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem;}
+.home-shell .hero-actions p{margin:0;display:contents;}
+.home-shell .btn{border-radius:.4rem;padding:.8rem 1.15rem;font-size:.95rem;font-weight:600;white-space:normal;}
+.home-shell .btn-primary{background:var(--accent);border-color:var(--accent);color:white;}
+.home-shell .btn-primary:hover{background:#843309;border-color:#843309;}
+.home-shell .btn-outline-primary{color:var(--accent);border-color:var(--accent);background:transparent;}
+.home-shell .btn-outline-primary:hover{background:var(--accent);color:white;}
+.home-shell .hero-portrait{padding:1rem;border:1px solid var(--line);border-radius:1rem;background:#f6e7d8;transform:rotate(2deg);}
+.home-shell .hero-portrait p{margin-bottom:0;}
+.home-shell .portrait{display:block;width:100%;height:auto;border-radius:.55rem;}
+.home-shell .home-section{padding:3.8rem 0;border-top:1px solid var(--line);scroll-margin-top:6rem;}
+.home-shell h2{border:0;padding:0;margin:0 0 1.2rem;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;letter-spacing:-.045em;}
+.home-shell .home-section>p{max-width:48rem;color:var(--muted);line-height:1.8;}
+.home-shell .content-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;margin-top:2rem;}
+.home-shell .feature-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:.8rem;padding:1.6rem;}
+.home-shell .feature-card h3{font-size:1.45rem;font-weight:650;letter-spacing:-.025em;margin-top:.8rem;}
+.home-shell .feature-card p{font-size:.95rem;line-height:1.7;}
+.home-shell .feature-card>p:last-child{margin-top:auto;padding-top:1rem;margin-bottom:0;}
+.home-shell .card-kicker,.home-shell .card-meta{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.68rem;letter-spacing:.07em;color:var(--muted);}
+.home-shell .card-kicker{color:var(--accent);}.home-shell .card-link{font-weight:650;}
+.home-shell .about-section>p{max-width:49rem;}
+@media(min-width:801px){.home-shell .hero.hero-with-portrait{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);}}
+@media(max-width:800px){.home-shell .hero{grid-template-columns:1fr;gap:2.4rem;padding:3rem 0;}.home-shell .hero-portrait{max-width:300px;transform:none;}.home-shell .content-grid{grid-template-columns:1fr;}.home-shell .home-section{padding-block:2.8rem;}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;}}
+/* Keep button labels in normal text flow */
+.home-shell .hero-actions > .btn,
+.home-shell .hero-actions .btn {
+  display: inline-block !important;
+  flex: none !important;
+  width: auto !important;
+  max-width: none;
+  white-space: nowrap !important;
+  line-height: 1.4;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-align: center;
+}
