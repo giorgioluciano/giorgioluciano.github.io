@@ -50,3 +50,16 @@ a:focus-visible,button:focus-visible{outline:3px solid #ad470c;outline-offset:5p
   word-spacing: normal;
   text-align: center;
 }
+
+/* Books: preserve the covers' original proportions. */
+.home-shell .books-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;margin-top:2rem;}
+.home-shell .book-card {min-width:0;padding:1.8rem;background:#fff;border:1px solid var(--line);border-radius:.8rem;}
+.home-shell .book-cover-wrap {height:340px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;}
+.home-shell .book-cover-wrap p,.home-shell .book-cover-wrap figure {margin:0;}
+.home-shell .book-cover {display:block;width:auto;height:auto;max-width:100%;max-height:320px;margin:0 auto;border-radius:.15rem;box-shadow:0 8px 22px rgba(41,35,31,.12);}
+.home-shell .book-cover-wrap figcaption {display:none;}
+.home-shell .book-card h3 {margin-top:.8rem;font-size:1.4rem;line-height:1.35;font-weight:650;letter-spacing:-.025em;}
+.home-shell .book-card p {font-size:.95rem;line-height:1.7;}
+.home-shell .book-credit {color:var(--muted);font-size:.9rem;}
+.home-shell .book-link {font-weight:650;}
+@media(max-width:800px){.home-shell .books-grid{grid-template-columns:1fr;}.home-shell .book-card{padding:1.4rem;}}

@@ -18,14 +18,12 @@ I'm Giorgio Luciano, a materials scientist working across research, scientific c
 
 [Practical tools, visual experiments, and reflections on how science works.]{.hero-description}
 
-
 ```{=html}
 <div class="hero-actions">
   <a class="btn btn-primary" href="#writing">Explore my writing</a>
-  <a class="btn btn-outline-primary" href="[https://www.behance.net/giorgioluciano](https://www.behance.net/giorgioluciano)">View my Behance ↗</a>
+  <a class="btn btn-outline-primary" href="https://www.behance.net/giorgioluciano">View my Behance ↗</a>
 </div>
 ```
-
 
 <!-- PORTRAIT: temporarily disabled.
 To restore: add hero-with-portrait to the .hero class above,
@@ -85,8 +83,56 @@ Practical examples in R, statistical simulations, and scientific data visualizat
 :::
 :::
 
+::: {.home-section #books}
+[02 / BOOKS & COMPANION MATERIALS]{.eyebrow}
+
+## Books
+
+Two complementary perspectives on scientific work: making sense of data and making scientific ideas visible. Explore the books and their companion materials.
+
+::: {.books-grid}
+::: {.book-card}
+::: {.book-cover-wrap}
+![Cover of Statistical and Multivariate Analysis in Material Science](images/books/statistics.jpg){.book-cover}
+:::
+
+[STATISTICS / MATERIALS SCIENCE]{.card-kicker}
+
+### Statistical and Multivariate Analysis in Material Science
+
+[Edited by Giorgio Luciano]{.book-credit}
+
+An introduction to statistical and multivariate methods for materials science, connecting data analysis with practical research questions.
+
+[View book ↗](https://www.routledge.com/Statistical-and-Multivariate-Analysis-in-Material-Science/Luciano/p/book/9780367775834){.book-link}
+
+[Companion materials on GitHub ↗](https://github.com/giorgioluciano/ESMAM){.book-link}
+:::
+
+::: {.book-card}
+::: {.book-cover-wrap}
+![Cover of Essential Computer Graphics Techniques for Modeling, Animating, and Rendering Biomolecules and Cells](images/books/computer-graphics.jpg){.book-cover}
+:::
+
+[COMPUTER GRAPHICS / SCIENTIFIC ILLUSTRATION]{.card-kicker}
+
+### Essential Computer Graphics Techniques for Modeling, Animating, and Rendering Biomolecules and Cells
+
+*A Guide for the Scientist and Artist*
+
+[By Giorgio Luciano]{.book-credit}
+
+A practical guide to creating scientific imagery, covering modeling, animation, lighting, and rendering for biomolecules and cells.
+
+[View book ↗](https://www.routledge.com/Essential-Computer-Graphics-Techniques-for-Modeling-Animating-and-Rendering-Biomolecules-and-Cells-A-Guide-for-the-Scientist-and-Artist/Luciano/p/book/9780367780319){.book-link}
+
+[High-resolution figures on GitHub ↗](https://github.com/giorgioluciano/ESGT){.book-link}
+:::
+:::
+:::
+
 ::: {.home-section #resources}
-[02 / TOOLS TO TAKE AWAY]{.eyebrow}
+[03 / TOOLS TO TAKE AWAY]{.eyebrow}
 
 ## Tools & resources
 
@@ -96,7 +142,7 @@ Explore my collection of downloadable tools and resources on Gumroad.
 :::
 
 ::: {.home-section .about-section #about}
-[03 / A LITTLE BACKGROUND]{.eyebrow}
+[04 / A LITTLE BACKGROUND]{.eyebrow}
 
 ## About me
 

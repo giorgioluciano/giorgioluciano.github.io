@@ -13,6 +13,8 @@ website:
     left:
       - text: Writing
         href: index.qmd#writing
+      - text: Books
+        href: index.qmd#books
       - text: Visual work
         href: https://www.behance.net/giorgioluciano
       - text: Resources
